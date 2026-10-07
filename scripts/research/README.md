@@ -12,4 +12,6 @@ The 100-step programme and completion ledger are in `docs/research/`. Results an
 
 These workflows require the exact admitted owner packages, running controllers, configured private authority files and the qualified engine interpreter. Run them with the canonical `.venv/bin/python`. Source research, local execution/readback and independent external assessment are distinct. Original raw owner inputs and private signing keys are never included in public research reports.
 
+`apply_domain_capacity.py --memory-mib 256` reports a dry run for existing domains whose owner-root labels match the nine admitted families. Add `--apply` to perform the bounded operational override; it preserves mounts and records actual before/after configuration. It does not change the new-domain factory default or establish sustained capacity qualification.
+
 **Next task: step 21 — trace bilateral intent persistence and actor acknowledgement crash boundaries.**

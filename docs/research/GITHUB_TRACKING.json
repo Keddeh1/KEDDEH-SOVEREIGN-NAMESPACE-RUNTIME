@@ -1,0 +1,79 @@
+{
+  "programme_issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/27",
+  "batches": [
+    {
+      "batch": 1,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/17",
+      "number": 17,
+      "status": "completed",
+      "milestone": 2
+    },
+    {
+      "batch": 2,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/18",
+      "number": 18,
+      "status": "completed",
+      "milestone": 2
+    },
+    {
+      "batch": 3,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/19",
+      "number": 19,
+      "status": "pending",
+      "milestone": 3
+    },
+    {
+      "batch": 4,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/20",
+      "number": 20,
+      "status": "pending",
+      "milestone": 3
+    },
+    {
+      "batch": 5,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/21",
+      "number": 21,
+      "status": "pending",
+      "milestone": 2
+    },
+    {
+      "batch": 6,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/22",
+      "number": 22,
+      "status": "pending",
+      "milestone": 1
+    },
+    {
+      "batch": 7,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/23",
+      "number": 23,
+      "status": "pending",
+      "milestone": 1
+    },
+    {
+      "batch": 8,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/24",
+      "number": 24,
+      "status": "pending",
+      "milestone": 1
+    },
+    {
+      "batch": 9,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/25",
+      "number": 25,
+      "status": "pending",
+      "milestone": 3
+    },
+    {
+      "batch": 10,
+      "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/26",
+      "number": 26,
+      "status": "pending",
+      "milestone": 4
+    }
+  ],
+  "completed_steps": 20,
+  "pending_steps": 80,
+  "next_step": 21,
+  "native_projects_status": "permission unavailable; no active views claimed"
+}

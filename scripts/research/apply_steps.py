@@ -26,7 +26,7 @@ for step in range(a.start,a.end+1):
  admitted=request(v['endpoint']+'/artifacts',{'path':logical,'content_b64':base64.b64encode(raw).decode(),'source':'Keddeh1/RND-PLAN-100','media_type':'application/json'},vtoken)
  readback=request(v['endpoint']+'/artifacts/'+digest,token=vtoken);assert base64.b64decode(readback['content_b64'])==raw
  observed=request(v['endpoint']+'/verify',{'digest':digest},vtoken);assert observed['verified']
- nonce=int.from_bytes(bytes.fromhex(digest)[:4],'little');node=(step-1)%10+1;tenant='WEB4_RND_PLAN_100'
+ nonce=int.from_bytes(bytes.fromhex(digest)[:4],'little');node=(step-1)%10+1;tenant=f'WEB4_RND_100_S{step:03d}_{digest}'
  returned=request('http://127.0.0.1:'+str(cfg['ports']['gateway'])+'/api/web4/control',{'action':'commit','node_id':node,'nonce':nonce,'tenant_id':tenant},token);actor=returned['actor'];assert actor['status']=='ACTOR_COMMITTED'
  requests.append({'producer':'WEB4_RND_PLAN_100','transaction_id':f'plan100.step{step:03d}','correlation_id':actor['correlation_id'],'tenant_id':tenant,'node_id':node,'execution_vector':nonce,'receipt_hash':actor['receipt_hash'],'actor_identity':'WEB4_HTTP_ACTOR'})
  proof.append({'step':step,'result_sha256':digest,'vfs_path':logical,'vfs_actor_receipt_digest':admitted['actor_receipt']['receipt_digest'],'vfs_observer_receipt_digest':observed['receipt']['receipt_digest'],'byte_readback_verified':True,'owner_runtime_actor_status':actor['status'],'node_id':node,'nonce':nonce,'receipt_hash':actor['receipt_hash'],'journal_observer_status':'pending'})

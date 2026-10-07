@@ -4,7 +4,7 @@ Date: 2026-10-07, Australia/Adelaide. **20 of 100 tasks completed; 80 remain. Ne
 
 ## Completion standard and bilateral application
 
-Every completed step has an immutable result artifact, a returned VFS actor receipt, separate exact byte/SHA-256 readback and VFS observer receipt. Each result digest was also mapped into a real owner R36 transaction through the authenticated owner gateway. The supplied detached journal verifier ran in a separate process; all twenty returned signatures, exact transaction identities and actor receipt hashes were verified. All nine family subscriptions then mirrored all twenty artifacts, yielding 180 independently hashed research-result copies.
+Every completed step has an immutable result artifact, a returned VFS actor receipt, separate exact byte/SHA-256 readback and VFS observer receipt. Each result digest was also mapped, through its first 32 bits as the bounded execution nonce, into a real owner R36 transaction through the authenticated owner gateway. The supplied detached journal verifier ran in a separate process; all twenty returned signatures, exact transaction identities and actor receipt hashes were verified. All nine family subscriptions then mirrored all twenty artifacts, yielding 180 independently hashed research-result copies.
 
 These are distinct producer/observer execution roles under the same owner on the current cloud host. They are not an external production assessment. Existing owner runtimes and retained state remain the actuation substrate. No simulation result is presented as physical energy production or multi-host availability.
 
@@ -78,7 +78,7 @@ During restoration, an eight-second launcher/client deadline expired on domain r
 
 Both private VFS repositories: vfs_server/store.py and vfs_server/tests/test_event_snapshot.py. The latter adds concurrent valid/invalid append, corrupted prefix and cursor-boundary coverage. Ten tests pass in each repository. The qualified engine source and wheel remain unchanged.
 
-Canonical engine repository: docs/research/PLAN_100.md and JSON ledger; immutable initial plan; per-step evidence and application receipts; scripts/research/baseline.py, vfs_experiments.py, qualify_vfs_deployment.py and apply_steps.py. The experiment runner obtains the exact historical pre-fix source from private Git rather than treating today's implementation as yesterday's baseline. The application runner accepts a step range and refuses duplicate execution of unchanged completed results.
+Canonical engine repository: docs/research/PLAN_100.md and JSON ledger; immutable initial plan; per-step evidence and application receipts; scripts/research/baseline.py, vfs_experiments.py, qualify_vfs_deployment.py and apply_steps.py. The experiment runner obtains the exact historical pre-fix source from private Git rather than treating today's implementation as yesterday's baseline. The application runner accepts a step range and refuses duplicate execution of unchanged completed results. Subsequent applications additionally retain the full artifact digest in the bounded tenant identity; historical transactions and receipts are preserved.
 
 ## Remaining dependencies and continuation
 
