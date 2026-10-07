@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import tarfile
 import io
+import tomllib
 from keddeh_namespace.web4_runtime import PINS
 ap=argparse.ArgumentParser();ap.add_argument('--output',required=True);ap.add_argument('--wheel',required=True);a=ap.parse_args()
 repo=Path(__file__).resolve().parents[1];destination=Path(a.output);destination.parent.mkdir(parents=True,exist_ok=True)
@@ -24,7 +25,7 @@ for row in json.loads((repo/'docs/OWNER_SOURCE_MANIFEST.json').read_text())['fil
  p=library/row['sha256']/row['name']
  if hashlib.sha256(p.read_bytes()).hexdigest()!=row['sha256']:raise ValueError('owner control source custody mismatch')
  members.append(('owner-sources/'+row['sha256']+'/'+row['name'],p))
-manifest={'schema':'keddeh.owner-family-bundle.v1','version':'0.3.0','engine_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip(),'classification':'private owner-source bundle; no runtime credentials or mutable state','members':[{'path':name,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for name,p in members]}
+manifest={'schema':'keddeh.owner-family-bundle.v1','version':tomllib.loads((repo/'pyproject.toml').read_text())['project']['version'],'engine_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip(),'classification':'private owner-source bundle; no runtime credentials or mutable state','members':[{'path':name,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for name,p in members]}
 with tarfile.open(destination,'w:gz') as archive:
  for name,p in members:
   item=tarfile.TarInfo(name);item.size=p.stat().st_size;item.mode=0o644;item.mtime=0

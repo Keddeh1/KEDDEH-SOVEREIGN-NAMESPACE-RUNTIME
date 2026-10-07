@@ -6,7 +6,7 @@ from pathlib import Path
 from keddeh_namespace.web4_runtime import http_json
 ap=argparse.ArgumentParser();ap.add_argument('--root',required=True);a=ap.parse_args()
 root=Path(a.root);cfg=json.loads((root/'launch.json').read_text());token=(root/'state/token').read_text()
-def control(body):return http_json(cfg['ports']['gateway'],'/api/web4/control',body,token)
+def control(body):return http_json(cfg['ports']['gateway'],'/api/web4/control',body,token,timeout=120)
 view=control({'action':'domains'})
 for i in range(len(view['domains']),3):
     request={'action':'domains','operation':'spawn'}

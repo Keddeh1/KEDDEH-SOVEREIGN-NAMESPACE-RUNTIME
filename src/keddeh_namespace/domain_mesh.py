@@ -79,15 +79,15 @@ class DomainMesh:
         self.run('create','--name',name,'--label',self.label,'--network',row['upstream'],
                  '--restart','unless-stopped','--user',f'{os.getuid()}:{os.getgid()}',
                  '--cap-drop','ALL','--security-opt','no-new-privileges','--read-only',
-                 '--memory','128m','--cpus','0.5','--pids-limit','64','--tmpfs','/tmp:rw,noexec,nosuid,size=16m',
+                 '--memory','256m','--cpus','0.5','--pids-limit','64','--tmpfs','/tmp:rw,noexec,nosuid,size=16m',
                  '--mount',f'type=bind,src={directory / "code"},dst=/code,readonly',
-                 '--mount',f'type=bind,src={directory / "state"},dst=/state',row['image'],'node','/code/bridge.mjs')
+                 '--mount',f'type=bind,src={directory / "state"},dst=/state',row['image'],'node','--max-old-space-size=32','/code/bridge.mjs')
         self.run('network','connect',row['downstream'],name)
         self.run('start',name)
     def read(self,ident):
         if ident not in {r['id'] for r in self.data['domains']}:raise ValueError('unknown domain')
         script="const fs=require('fs');fetch('http://127.0.0.1:19000/state',{headers:{Authorization:'Bearer '+fs.readFileSync('/state/token','utf8').trim()},signal:AbortSignal.timeout(2000)}).then(async r=>{if(!r.ok)process.exit(1);console.log(await r.text())}).catch(()=>process.exit(1))"
-        return json.loads(self.run('exec',self.container(ident),'node','-e',script))
+        return json.loads(self.run('exec',self.container(ident),'node','--max-old-space-size=16','-e',script))
     def resume(self):
         if not self.data['enabled']:return
         for row in self.data['domains']:
@@ -97,7 +97,12 @@ class DomainMesh:
                 self.create_domain(row)
             info=json.loads(self.run('inspect',name))[0]
             if info['Config']['Labels'].get('keddeh.owner-root')!=str(self.controller.root):raise ValueError('foreign container')
+            if info['HostConfig']['Memory']!=256*1024*1024:self.run('update','--memory','256m',name)
             if info['HostConfig']['PidsLimit']!=64:self.run('update','--pids-limit','64',name)
+            if '--max-old-space-size=32' not in info['Config'].get('Cmd',[]):
+                self.run('rm','-f',name)
+                self.create_domain(row)
+                info=json.loads(self.run('inspect',name))[0]
             code=self.root/row['id']/'code/bridge.mjs'
             desired=Path(__file__).with_name('web4_domain.mjs').read_bytes()
             changed=code.read_bytes()!=desired

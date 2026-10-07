@@ -8,7 +8,7 @@ const persist='/state/phase.json';
 let state=fs.existsSync(persist)?JSON.parse(fs.readFileSync(persist,'utf8')):{domain:config().domain,epoch:0,theta:[0,0,0],omega:[.297,.297,.297],elapsed:0,children:{},mode:'FLYWHEEL',anchor:null};
 function save(){const file=persist+'.new';const fd=fs.openSync(file,'w',0o600);fs.writeFileSync(fd,JSON.stringify(state));fs.fsyncSync(fd);fs.closeSync(fd);fs.renameSync(file,persist);const dir=fs.openSync('/state','r');fs.fsyncSync(dir);fs.closeSync(dir);}
 let stopping=false;
-const owners=[19100,19101,19102].map(port=>{const child=spawn(process.execPath,['/code/owner.mjs'],{env:{...process.env,PORT:String(port)},stdio:'ignore'});child.on('exit',()=>{if(!stopping)process.exit(1);});return child;});
+const owners=[19100,19101,19102].map(port=>{const child=spawn(process.execPath,['--max-old-space-size=32','/code/owner.mjs'],{env:{...process.env,PORT:String(port)},stdio:'ignore'});child.on('exit',()=>{if(!stopping)process.exit(1);});return child;});
 let parentPhase=null;let reanchor=state.elapsed;
 function step(){ // Deterministic deployment of the owner's wrapped Kuramoto equations.
  const dt=.01,old=state.theta.slice(),kv=parentPhase===null?0:.4*(1-Math.exp(-Math.max(0,state.elapsed-reanchor)/2));

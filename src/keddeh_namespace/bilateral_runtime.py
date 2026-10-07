@@ -75,12 +75,14 @@ class BilateralRuntime:
                 for cmd in pending['commands'][len(pending['actors']):]:
                     query = urlencode({'node_id': cmd['node_id'], 'nonce': cmd['nonce'],
                                        'tenant_id': 'WEB4_BILATERAL'})
-                    actor = http_json(self.controller.ports['http'], '/api/ingress?' + query, {})
+                    operation = lambda: http_json(self.controller.ports['http'], '/api/ingress?' + query, {})
+                    actor = self.controller.pipeline.dispatch(operation) if hasattr(self.controller,'pipeline') else operation()
                     if actor.get('status') != 'ACTOR_COMMITTED':
                         raise RuntimeError('bilateral actuator did not commit')
                     pending['actors'].append(actor)
                     self.save()  # Interrupted retries use the same durable nonce.
-                receipt = self.controller.receipt('bilateral.cycle', pending)
+                identity = 'bilateral-cycle:' + hashlib.sha256(json.dumps(pending,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+                receipt = self.controller.receipt('bilateral.cycle', pending, request_id=identity)
                 self.data.update(cycle=pending['cycle'], last={**pending, 'namespace_receipt': receipt},
                                  pending=None, status='operating', error=None)
                 self.save()

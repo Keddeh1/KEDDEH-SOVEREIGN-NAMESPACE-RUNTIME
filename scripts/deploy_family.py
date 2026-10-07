@@ -28,11 +28,11 @@ try:
 except OSError:
     subprocess.run([sys.executable,'-m','keddeh_namespace.web4_runtime','start','--root',str(root)],check=True)
 subprocess.run([sys.executable,str(Path(__file__).with_name('bootstrap_owner_environment.py')),'--root',str(root)],check=True)
-token=(root/'state/token').read_text();domains=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'domains'},token)
-end=__import__('time').monotonic()+25
+token=(root/'state/token').read_text();domains=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'domains'},token,timeout=120)
+end=__import__('time').monotonic()+120
 while __import__('time').monotonic()<end:
-    bilateral=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'bilateral'},token)
-    domains=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'domains'},token)
+    bilateral=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'bilateral'},token,timeout=60)
+    domains=http_json(cfg['ports']['gateway'],'/api/web4/control',{'action':'domains'},token,timeout=120)
     if bilateral['status']=='operating' and len(domains['domains'])==3 and all(d['live'].get('ownerAlive') and len(d['live'].get('ownerPids',[]))==3 for d in domains['domains']):break
     __import__('time').sleep(.5)
 else:raise RuntimeError('family did not reach live bilateral/domain readiness')

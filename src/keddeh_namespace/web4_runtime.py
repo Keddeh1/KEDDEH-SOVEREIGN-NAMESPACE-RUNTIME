@@ -189,11 +189,11 @@ def verify_launch(root):
     return config
 
 
-def http_json(port, path, body=None, token=None):
+def http_json(port, path, body=None, token=None, timeout=8):
     headers={'Content-Type':'application/json'}
     if token:headers['Authorization']='Bearer '+token
     req=urllib.request.Request(f'http://127.0.0.1:{port}{path}', data=None if body is None else json.dumps(body).encode(),headers=headers)
-    with urllib.request.urlopen(req,timeout=8) as response:
+    with urllib.request.urlopen(req,timeout=timeout) as response:
         raw=response.read(2*1024*1024+1)
         if len(raw)>2*1024*1024:raise ValueError('readback too large')
         return json.loads(raw)
@@ -232,6 +232,8 @@ class LaunchController:
         self.last_receipt=None;self.current_boot_id=None;self.retry_after={};self.recovery_errors={}
         from .bilateral_runtime import BilateralRuntime
         self.bilateral=BilateralRuntime(self)
+        from .pipeline_gate import PipelineGate
+        self.pipeline=PipelineGate(self.state)
         from .owner_kernel import KCloudNode
         self.owner_kernel=KCloudNode()
         self.owner_kernel.state='OPERATING'
@@ -337,8 +339,21 @@ class LaunchController:
         except (OSError,ValueError):boot_status='unavailable'
         return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
 
-    def receipt(self,event,readback):
+    def receipt(self,event,readback,request_id=None):
         with self.lock:
+            readback=encode_readback(readback)
+            phase={'event':event,'local_scope':True,'production_promoted':False}
+            if request_id is not None:
+                with self.registry.vfs.connect() as db:
+                    prior=db.execute('SELECT result FROM requests WHERE request_id=?',(request_id,)).fetchone()
+                if prior:
+                    result=json.loads(prior['result'])
+                    payload=json.loads(self.registry.vfs.read_object(result['digest']))
+                    if payload['desired_state']!=readback or payload['phase_state']!=phase:
+                        raise ValueError('receipt identity reused for different cycle')
+                    self.registry.replay()
+                    self.last_receipt=result
+                    return result
             previous=None;version=0
             try:
                 head,payload=self.registry.vfs.read('web4/runtime');version=head['version'];previous=envelope_digest(json.loads(payload)['signed']['envelope'])
@@ -348,7 +363,7 @@ class LaunchController:
             source=self.source_digest
             envelope=dict(schema=SCHEMA,runtime_id='web4-local',source_sha256=source,generator_id='web4-local-generator',observer_id='web4-controller',metric='registry-generation:web4/runtime',execution_plane='local-cloud-processes',observed_at=datetime.now(timezone.utc).isoformat(timespec='microseconds').replace('+00:00','Z'),transaction=event,readback='live HTTP/process observation',stateRoot=content_root('state',readback),phaseRoot=content_root('phase',phase),parent_envelope_sha256=previous)
             signed=sign_observation(envelope,self.key)
-            result=self.registry.commit({'request_id':secrets.token_hex(16),'path':'web4/runtime','expected_version':version,'signed':signed,'desired_state':readback,'phase_state':phase})
+            result=self.registry.commit({'request_id':request_id or secrets.token_hex(16),'path':'web4/runtime','expected_version':version,'signed':signed,'desired_state':readback,'phase_state':phase})
             self.last_receipt=result;return result
 
     def queue_boot(self):
@@ -392,12 +407,33 @@ class LaunchController:
 
     def control(self,body):
         action=body.get('action')
-        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3}.get(action)
+        mutates=(action in ('boot','restart','commit') or
+                 action=='propagate' and body.get('actuate',False) or
+                 action=='domains' and body.get('operation','status')!='status' or
+                 action=='bilateral' and body.get('enabled') is True)
+        if mutates:
+            def execute():
+                if 'projection_context' in body:self.pipeline.require_agreement(body['projection_context'])
+                return self._control(body)
+            return self.pipeline.dispatch(execute,body.get('pipeline_generation'))
+        return self._control(body)
+
+    def _control(self,body):
+        action=body.get('action')
+        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
         if owner_index is None:raise ValueError('unsupported owner-kernel action')
         payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
         if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
         self.owner_kernel.ledger=self.owner_kernel.ledger[-128:]
         write_json(self.state/'owner-kernel-routing.json',{'state':self.owner_kernel.state,'ledger':self.owner_kernel.ledger})
+        if action=='pipeline':
+            if 'connected' in body:
+                return self.pipeline.configure(body['connected'],body.get('reason','owner command'))
+            return self.pipeline.status()
+        if action=='agreement':
+            if 'accepted' in body:return self.pipeline.accept(body.get('version'),body['accepted'])
+            return self.pipeline.agreement_status()
+        if action=='projection':return self.pipeline.projection()
         if action=='domains':
             result=self.domains.control(body)
             if body.get('operation','status')!='status':return {'domain':result,'namespace_receipt':self.receipt('domains.'+body['operation'],result)}
@@ -533,7 +569,7 @@ def main():
     if args.command=='start':
         config=verify_launch(root);log=(root/'controller.log').open('ab',buffering=0)
         proc=subprocess.Popen([sys.executable,'-m','keddeh_namespace.web4_runtime','serve','--root',str(root)],stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-        end=time.monotonic()+20;token=(root/'state/token').read_text()
+        end=time.monotonic()+90;token=(root/'state/token').read_text()
         while time.monotonic()<end:
             if proc.poll() is not None:raise RuntimeError('controller exited; inspect '+str(root/'controller.log'))
             try:

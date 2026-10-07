@@ -8,6 +8,20 @@
   const output = document.createElement('pre');output.id='keddeh-web4-output';output.setAttribute('role','status');output.setAttribute('aria-live','polite');output.style.cssText='white-space:pre-wrap;overflow:auto;max-height:240px';output.textContent='Connect to read live cloud processes.';
   function button(label, task) {const element=document.createElement('button');element.textContent=label;element.style.cssText='padding:6px;color:#eef;background:#243b56;border:1px solid #658ca8;border-radius:4px';element.onclick=async()=>{element.disabled=true;try{const result=await task();if(result!==undefined)output.textContent=JSON.stringify(result,null,2);}catch(error){output.textContent=error.message;}finally{element.disabled=false;}};controls.append(element);}
   button('Connect',()=>({connected:window.KEDDEH_WEB4.authenticate(),scope:'local cloud workspace'}));
+  button('Service agreement',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'agreement'}));
+  button('Accept service agreement',async()=>{
+    const contract=await window.KEDDEH_WEB4.request('/api/web4/control',{action:'agreement'});
+    const terms=Object.entries(contract.terms).map(([name,value])=>name+': '+JSON.stringify(value)).join('\n\n');
+    if (!window.confirm(terms+'\n\nAccept these owner-local service permissions?'))return {accepted:false};
+    return window.KEDDEH_WEB4.request('/api/web4/control',{action:'agreement',version:contract.terms.version,accepted:true});
+  });
+  button('Revoke projection permission',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'agreement',version:'1.0',accepted:false}));
+  button('Projection services',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'projection'}));
+  button('Disconnect pipeline',async()=>{
+    const result=await window.KEDDEH_WEB4.request('/api/web4/control',{action:'pipeline',connected:false,reason:'HTML KEX owner disconnect'});
+    window.KEDDEH_WEB4.clearSession();return result;
+  });
+  button('Reconnect pipeline',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'pipeline',connected:true,reason:'explicit authenticated owner reconnect'}));
   button('Live status',()=>window.KEDDEH_WEB4.request('/api/web4/status'));
   button('Receipt',()=>window.KEDDEH_WEB4.request('/api/web4/generation'));
   button('Boot host',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot'}));
