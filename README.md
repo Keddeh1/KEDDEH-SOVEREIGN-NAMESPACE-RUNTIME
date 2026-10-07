@@ -33,3 +33,7 @@ python -m keddeh_namespace.source_custody source-manifest.json braink-2.1-full /
 ```
 
 A match proves the bytes read match the expected digest; it does not prove safe extraction, trusted authorship, running services, or deployment. Actual source archives remain unavailable. Use operator-controlled local files for this foundation checker; hardened staging and write-once extraction remain pending.
+
+## Related uploaded sources
+
+See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These are statically assessed references; no uploaded implementation has been integrated or executed.
