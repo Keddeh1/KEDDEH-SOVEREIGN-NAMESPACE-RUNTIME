@@ -89,14 +89,14 @@
     {
       "document_id": "GIT-001",
       "title": "Repository delivery and tracking",
-      "revision": "1.0",
+      "revision": "1.1",
       "status": "Issued",
       "classification": "Public",
       "accountable_owner": "Keddeh1",
       "issued_on": "2026-10-07",
       "review_due": "2027-10-07",
       "path": "governance/GITHUB_DELIVERY_CONTROL.md",
-      "sha256": "b959315275a03d00e9dc1bcbe1acdea42368311e2d3044502cbbc79b636e50ba",
+      "sha256": "0c8305e9b5921b122205e15121858823bae3b2154f19f8da7235ac7ead50e551",
       "approval_basis": "owner establishment instruction",
       "independent_review": "pending"
     }

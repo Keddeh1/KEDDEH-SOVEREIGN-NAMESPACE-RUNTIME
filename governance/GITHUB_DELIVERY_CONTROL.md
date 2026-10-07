@@ -1,7 +1,7 @@
 ---
 document_id: GIT-001
 title: Repository delivery and tracking
-revision: 1.0
+revision: 1.1
 status: Issued
 classification: Public
 accountable_owner: Keddeh1
@@ -30,3 +30,9 @@ Project creation is denied by integration scope. Six designed views remain docum
 | Revision | Date | Change | Basis |
 |---|---|---|---|
 | 1.0 | 2026-10-07 | Initial governance baseline | Owner establishment instruction; independent review pending |
+
+## First hosted execution evidence
+
+GitHub run 37570148724 completed with failure before any job steps executed. Check-run annotation: "The job was not started because your account is locked due to a billing issue." Hosted execution is blocked; the local integrity check passed and rejected a deliberately altered document. This is not a validator failure and does not restrict pushes/issues. Resume hosted validation after the billing lock is resolved; do not claim a passing or required check until observed.
+
+| 1.1 | 2026-10-07 | Record actual hosted-run billing denial and local verification scope | Owner-authorized governance implementation; independent review pending |
