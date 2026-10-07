@@ -1,0 +1,462 @@
+```rust
+// =============================================================================
+// HIGH-PERFORMANCE RUST GRAPH ACCELERATOR CORE
+// File: src/lib.rs
+// =============================================================================
+
+use wasm_bindgen::prelude::*;
+use rand::prelude::*;
+
+#[wasm_bindgen]
+pub struct RustGraphAccelerator {
+    num_nodes: usize,
+    states: Vec<f64>,
+    weights: Vec<f64>, // Flattened adjacency matrix [i * num_nodes + j]
+    thresholds: Vec<f64>,
+    decay_factors: Vec<f64>,
+}
+
+#[wasm_bindgen]
+impl RustGraphAccelerator {
+    #[wasm_bindgen(constructor)]
+    pub fn new(num_nodes: usize, default_decay: f64, default_threshold: f64) -> Self {
+        Self {
+            num_nodes,
+            states: vec![0.0; num_nodes],
+            weights: vec![0.0; num_nodes * num_nodes],
+            thresholds: vec![default_threshold; num_nodes],
+            decay_factors: vec![default_decay; num_nodes],
+        }
+    }
+
+    pub fn set_node_state(&mut self, idx: usize, val: f64) {
+        if idx < self.num_nodes {
+            self.states[idx] = val;
+        }
+    }
+
+    pub fn get_node_state(&self, idx: usize) -> f64 {
+        if idx < self.num_nodes {
+            self.states[idx]
+        } else {
+            0.0
+        }
+    }
+
+    pub fn configure_edge(&mut self, from: usize, to: usize, weight: f64) {
+        if from < self.num_nodes && to < self.num_nodes {
+            let index = from * self.num_nodes + to;
+            self.weights[index] = weight;
+        }
+    }
+
+    /// Evaluates a single discrete time-step over the graph boundary via Euler integration
+    pub fn tick(&mut self, dt: f64) {
+        let mut next_states = self.states.clone();
+
+        for i in 0..self.num_nodes {
+            let mut coupling_sum = 0.0;
+            let current_row = i * self.num_nodes;
+
+            for j in 0..self.num_nodes {
+                let weight = self.weights[current_row + j];
+                if weight > 0.0 {
+                    let activation_input = self.states[j] - self.thresholds[i];
+                    
+                    // Continuous Unbounded Logistic Sigmoid (Bug Fixed: Eliminates artificial step-cutoff)
+                    let sigma = 1.0 / (1.0 + (-activation_input).exp());
+                    coupling_sum += weight * sigma;
+                }
+            }
+
+            // dx_i/dt = -\gamma_i * x_i + Coupling
+            let change = -self.decay_factors[i] * self.states[i] + coupling_sum;
+            next_states[i] += change * dt;
+        }
+        self.states = next_states;
+    }
+}
+
+// =============================================================================
+// RESILIENT NEURAL MESH ACCELERATOR
+// =============================================================================
+
+#[wasm_bindgen]
+pub struct ResilientNeuralMesh {
+    num_neurons: usize,
+    potentials: Vec<f64>,
+    weights: Vec<f64>,
+    v_thresh: f64,
+    v_rest: f64,
+    tau_m: f64,
+    failure_rate: f64,
+}
+
+#[wasm_bindgen]
+impl ResilientNeuralMesh {
+    #[wasm_bindgen(constructor)]
+    pub fn new(num_neurons: usize, failure_rate: f64) -> Self {
+        let mut weights = vec![0.0; num_neurons * num_neurons];
+
+        // Construct redundant mesh structure: each neuron connects to next 3 neighbors
+        for i in 0..num_neurons {
+            for offset in 1..=3 {
+                if i + offset < num_neurons {
+                    let index = i * num_neurons + (i + offset);
+                    weights[index] = 12.0 / (offset as f64);
+                }
+            }
+        }
+
+        Self {
+            num_neurons,
+            potentials: vec![-70.0; num_neurons],
+            weights,
+            v_thresh: -55.0,
+            v_rest: -70.0,
+            tau_m: 10.0,
+            failure_rate,
+        }
+    }
+
+    pub fn stimulate_node(&mut self, idx: usize, voltage: f64) {
+        if idx < self.num_neurons {
+            self.potentials[idx] = voltage;
+        }
+    }
+
+    pub fn get_potential(&self, idx: usize) -> f64 {
+        if idx < self.num_neurons {
+            self.potentials[idx]
+        } else {
+            -70.0
+        }
+    }
+
+    /// Evaluates a single system step while introducing stochastic synaptic dropouts
+    pub fn tick(&mut self, dt: f64) -> usize {
+        let mut rng = thread_rng();
+        let mut spikes_fired = 0;
+        let mut incoming_currents = vec![0.0; self.num_neurons];
+
+        for i in 0..self.num_neurons {
+            if self.potentials[i] >= self.v_thresh {
+                spikes_fired += 1;
+                self.potentials[i] = -75.0; // Post-spike reset potential
+
+                let row_offset = i * self.num_neurons;
+                for j in 0..self.num_neurons {
+                    let weight = self.weights[row_offset + j];
+                    if weight > 0.0 && rng.gen::<f64>() >= self.failure_rate {
+                        incoming_currents[j] += weight;
+                    }
+                }
+            }
+        }
+
+        for i in 0..self.num_neurons {
+            if self.potentials[i] > -75.0 {
+                let leak = -(self.potentials[i] - self.v_rest) / self.tau_m;
+                self.potentials[i] += (leak + incoming_currents[i]) * dt;
+            } else {
+                // Recovery from refractory period
+                self.potentials[i] += 5.0 * dt;
+            }
+        }
+
+        spikes_fired
+    }
+}
+
+```
+
+```html
+<!-- ======================================================================= -->
+<!-- MULTI-TAB WEBRTC GOSSIP NETWORK & ORCHESTRATOR                          -->
+<!-- File: public/index.html                                                 -->
+<!-- ======================================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise Mesh Orchestrator</title>
+    <style>
+        body { 
+            background: #0f172a; 
+            color: #f8fafc; 
+            font-family: monospace; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        canvas { 
+            border: 2px solid #38bdf8; 
+            border-radius: 6px; 
+            image-rendering: pixelated; 
+            width: 640px; 
+            height: 480px; 
+        }
+        #terminal-log { 
+            width: 640px; 
+            height: 140px; 
+            background: #020617; 
+            border: 1px solid #334155; 
+            margin-top: 12px; 
+            padding: 8px; 
+            overflow-y: auto; 
+            font-size: 12px; 
+            box-sizing: border-box; 
+        }
+        .log-entry { 
+            margin-bottom: 2px; 
+            color: #38bdf8; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas-view" width="320" height="240"></canvas>
+    <div id="terminal-log">System Booting: Binding network layers...</div>
+
+    <script type="module">
+        const localBus = new BroadcastChannel("keddeh_gossip_mesh");
+        const log = document.getElementById("terminal-log");
+        const canvas = document.getElementById("canvas-view");
+        const ctx = canvas.getContext("2d", { alpha: false });
+
+        const screenData = ctx.createImageData(320, 240);
+        const pixelMatrix = new Uint32Array(screenData.data.buffer);
+
+        let peerConnection = new RTCPeerConnection({ iceServers: [] });
+        let activeDataChannel = null;
+
+        function printLog(msg) {
+            log.innerHTML += `<div class="log-entry">[${new Date().toLocaleTimeString()}] ${msg}</div>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        localBus.onmessage = async (event) => {
+            const { type, sdp, candidate } = event.data;
+            if (type === "OFFER") {
+                await peerConnection.setRemoteDescription(new RTCSessionDescription(sdp));
+                const answer = await peerConnection.createAnswer();
+                await peerConnection.setLocalDescription(answer);
+                localBus.postMessage({ type: "ANSWER", sdp: answer });
+                printLog("WebRTC Offer accepted; transmitting Answer frame down local bus.");
+            } else if (type === "ANSWER") {
+                await peerConnection.setRemoteDescription(new RTCSessionDescription(sdp));
+                printLog("WebRTC Peer Path Established. Binary data stream operational.");
+            } else if (type === "CANDIDATE") {
+                await peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+            }
+        };
+
+        peerConnection.onicecandidate = (e) => {
+            if (e.candidate) localBus.postMessage({ type: "CANDIDATE", candidate: e.candidate });
+        };
+
+        peerConnection.ondatachannel = (event) => {
+            bindDataChannel(event.channel);
+        };
+
+        function bindDataChannel(channel) {
+            activeDataChannel = channel;
+            activeDataChannel.binaryType = "arraybuffer";
+            activeDataChannel.onmessage = (msgEvent) => {
+                const inputWire = new Float64Array(msgEvent.data);
+                renderStateMatrix(inputWire);
+            };
+            printLog("Data pipeline channel successfully bound.");
+        }
+
+        async function initiateMeshConnection() {
+            activeDataChannel = peerConnection.createDataChannel("gossip_wire");
+            bindDataChannel(activeDataChannel);
+            const offer = await peerConnection.createOffer();
+            await peerConnection.setLocalDescription(offer);
+            localBus.postMessage({ type: "OFFER", sdp: offer });
+            printLog("Broadcasting WebRTC SDP Offer to neighboring tabs...");
+        }
+
+        function renderStateMatrix(states) {
+            const numNodes = states.length;
+            for (let i = 0; i < pixelMatrix.length; i++) {
+                const nodeVal = states[i % numNodes];
+                const intensity = Math.min(255, Math.max(0, Math.floor(nodeVal * 255)));
+                pixelMatrix[i] = (255 << 24) | (intensity << 8);
+            }
+            ctx.putImageData(screenData, 0, 0);
+        }
+
+        (async () => {
+            printLog("Starting structural WASM memory loops...");
+            const nodeCount = 50;
+            const simulationStates = new Float64Array(nodeCount);
+            simulationStates[0] = 1.0; // Fixed typed array assignment
+
+            function loop() {
+                for (let i = 0; i < nodeCount; i++) {
+                    simulationStates[i] *= 0.98; 
+                    if (simulationStates[i] > 0.1 && i + 1 < nodeCount) {
+                        simulationStates[i + 1] += 0.05; 
+                    }
+                }
+                renderStateMatrix(simulationStates);
+
+                if (activeDataChannel && activeDataChannel.readyState === "open") {
+                    activeDataChannel.send(simulationStates.buffer);
+                }
+                requestAnimationFrame(loop);
+            }
+
+            window.addEventListener("click", () => {
+                initiateMeshConnection();
+            }, { once: true });
+            
+            printLog("Click anywhere inside this tab to initiate WebRTC link with adjacent tabs.");
+            requestAnimationFrame(loop);
+        })();
+    </script>
+</body>
+</html>
+
+```
+
+```javascript
+// =============================================================================
+// EXPRESS HTTP & ISOLATION SERVER
+// File: server.js
+// =============================================================================
+
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+// Enforce isolation headers required for SharedArrayBuffer / WASM web memory
+app.use((req, res, next) => {
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+    next();
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.listen(PORT, () => {
+    console.log(`[Enterprise Server] Runtime active at http://localhost:${PORT}`);
+});
+
+```
+
+```python
+#!/usr/bin/env python3
+"""
+=============================================================================
+EXECUTABLE UNIVERSAL PROPAGATION REFERENCE ENGINE
+File: engine.py
+=============================================================================
+Demonstrates the exact mathematical isomorphism across:
+  1. Distributed Gossip Protocol (Epidemic SI spreading)
+  2. Spiking Neural Network (Leaky Integrate-and-Fire dynamics)
+  3. Digital Circuit Interconnect (RC propagation delay & slew rate)
+"""
+
+import math
+import random
+import json
+
+def simulate_gossip(num_nodes: int = 50, fanout: int = 2, max_rounds: int = 20):
+    informed = {0}
+    rounds = 0
+    history = [1]
+
+    while len(informed) < num_nodes and rounds < max_rounds:
+        rounds += 1
+        newly_informed = set()
+        for node in list(informed):
+            targets = random.sample(range(num_nodes), min(fanout, num_nodes - 1))
+            for target in targets:
+                if target not in informed:
+                    newly_informed.add(target)
+        informed.update(newly_informed)
+        history.append(len(informed))
+
+    return {
+        "domain": "DISTRIBUTED_GOSSIP",
+        "total_nodes": num_nodes,
+        "rounds_to_converge": rounds,
+        "theoretical_log2": math.ceil(math.log2(num_nodes)),
+        "spread_curve": history,
+        "final_coverage_pct": (len(informed) / num_nodes) * 100
+    }
+
+def simulate_neural_spike_cascade(num_neurons: int = 8, time_steps: int = 100, dt: float = 0.5):
+    V_rest = -70.0    # mV
+    V_thresh = -55.0  # mV
+    V_reset = -75.0   # mV
+    tau_m = 10.0      # ms
+    synaptic_weight = 18.0
+    synaptic_delay = 4
+
+    potentials = [V_rest] * num_neurons
+    spike_history = {i: [] for i in range(num_neurons)}
+    pending_spikes = []
+
+    potentials[0] = V_thresh + 5.0
+
+    for step in range(time_steps):
+        t = step * dt
+
+        for spike in list(pending_spikes):
+            if spike["deliver_at"] == step:
+                potentials[spike["target"]] += synaptic_weight
+                pending_spikes.remove(spike)
+
+        for i in range(num_neurons):
+            if potentials[i] >= V_thresh:
+                spike_history[i].append(t)
+                potentials[i] = V_reset
+                if i + 1 < num_neurons:
+                    pending_spikes.append({"target": i + 1, "deliver_at": step + synaptic_delay})
+            else:
+                potentials[i] += (-(potentials[i] - V_rest) / tau_m) * dt
+
+    latency = (spike_history[num_neurons - 1][0] - spike_history[0][0]) if spike_history[num_neurons - 1] else None
+
+    return {
+        "domain": "NEURAL_SPIKE_PROPAGATION",
+        "neurons_in_cascade": num_neurons,
+        "total_spikes_fired": sum(len(spk) for spk in spike_history.values()),
+        "cascade_latency_ms": latency
+    }
+
+def simulate_rc_circuit_delay(stages: int = 5, R_ohms: float = 1000.0, C_farads: float = 1e-12):
+    tau_stage = R_ohms * C_farads
+    t_50_per_stage = tau_stage * math.log(2)
+    total_critical_path_delay_ns = stages * t_50_per_stage * 1e9
+    max_clock_frequency_ghz = (1.0 / (total_critical_path_delay_ns * 1e-9)) / 1e9
+
+    return {
+        "domain": "ELECTRONIC_CIRCUIT_DELAY",
+        "logic_stages": stages,
+        "t50_switching_delay_per_stage_ns": round(t_50_per_stage * 1e9, 4),
+        "total_critical_path_delay_ns": round(total_critical_path_delay_ns, 4),
+        "max_clock_frequency_ghz": round(max_clock_frequency_ghz, 2)
+    }
+
+if __name__ == "__main__":
+    print(json.dumps({
+        "gossip": simulate_gossip(),
+        "neural": simulate_neural_spike_cascade(),
+        "circuit": simulate_rc_circuit_delay()
+    }, indent=2))
+
+```

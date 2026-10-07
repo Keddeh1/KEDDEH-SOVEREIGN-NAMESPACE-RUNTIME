@@ -1,0 +1,133 @@
+{
+  "model": "discrete SI with per-attempt dropout and retries",
+  "nodes": 20,
+  "rounds": 20,
+  "seed": 20260930,
+  "limitations": [
+    "mesh has more edges and transmission attempts",
+    "finite horizon; not eventual-convergence proof",
+    "not LIF, RC or physical hardware measurements"
+  ],
+  "results": [
+    {
+      "topology": "chain",
+      "dropout": 0.3,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.73725
+    },
+    {
+      "topology": "forward_mesh",
+      "dropout": 0.3,
+      "trials": 200,
+      "full_coverage_runs": 200,
+      "full_coverage_probability": 1.0,
+      "wilson_95_interval": [
+        0.9811539940816791,
+        1.0
+      ],
+      "mean_coverage": 1.0
+    },
+    {
+      "topology": "chain",
+      "dropout": 0.5,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.54375
+    },
+    {
+      "topology": "forward_mesh",
+      "dropout": 0.5,
+      "trials": 200,
+      "full_coverage_runs": 200,
+      "full_coverage_probability": 1.0,
+      "wilson_95_interval": [
+        0.9811539940816791,
+        1.0
+      ],
+      "mean_coverage": 1.0
+    },
+    {
+      "topology": "chain",
+      "dropout": 0.7,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.341
+    },
+    {
+      "topology": "forward_mesh",
+      "dropout": 0.7,
+      "trials": 200,
+      "full_coverage_runs": 199,
+      "full_coverage_probability": 0.995,
+      "wilson_95_interval": [
+        0.9722256001302286,
+        0.999116854010634
+      ],
+      "mean_coverage": 0.9997499999999999
+    },
+    {
+      "topology": "chain",
+      "dropout": 0.85,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.1975
+    },
+    {
+      "topology": "forward_mesh",
+      "dropout": 0.85,
+      "trials": 200,
+      "full_coverage_runs": 64,
+      "full_coverage_probability": 0.32,
+      "wilson_95_interval": [
+        0.2592642960770526,
+        0.38752026605354306
+      ],
+      "mean_coverage": 0.8785
+    },
+    {
+      "topology": "chain",
+      "dropout": 0.95,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.09625
+    },
+    {
+      "topology": "forward_mesh",
+      "dropout": 0.95,
+      "trials": 200,
+      "full_coverage_runs": 0,
+      "full_coverage_probability": 0.0,
+      "wilson_95_interval": [
+        0.0,
+        0.018846005918320894
+      ],
+      "mean_coverage": 0.311
+    }
+  ]
+}

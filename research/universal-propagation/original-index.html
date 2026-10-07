@@ -1,0 +1,152 @@
+<!-- ======================================================================= -->
+<!-- MULTI-TAB WEBRTC GOSSIP NETWORK & ORCHESTRATOR                          -->
+<!-- File: public/index.html                                                 -->
+<!-- ======================================================================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise Mesh Orchestrator</title>
+    <style>
+        body { 
+            background: #0f172a; 
+            color: #f8fafc; 
+            font-family: monospace; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        canvas { 
+            border: 2px solid #38bdf8; 
+            border-radius: 6px; 
+            image-rendering: pixelated; 
+            width: 640px; 
+            height: 480px; 
+        }
+        #terminal-log { 
+            width: 640px; 
+            height: 140px; 
+            background: #020617; 
+            border: 1px solid #334155; 
+            margin-top: 12px; 
+            padding: 8px; 
+            overflow-y: auto; 
+            font-size: 12px; 
+            box-sizing: border-box; 
+        }
+        .log-entry { 
+            margin-bottom: 2px; 
+            color: #38bdf8; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas-view" width="320" height="240"></canvas>
+    <div id="terminal-log">System Booting: Binding network layers...</div>
+
+    <script type="module">
+        const localBus = new BroadcastChannel("keddeh_gossip_mesh");
+        const log = document.getElementById("terminal-log");
+        const canvas = document.getElementById("canvas-view");
+        const ctx = canvas.getContext("2d", { alpha: false });
+
+        const screenData = ctx.createImageData(320, 240);
+        const pixelMatrix = new Uint32Array(screenData.data.buffer);
+
+        let peerConnection = new RTCPeerConnection({ iceServers: [] });
+        let activeDataChannel = null;
+
+        function printLog(msg) {
+            log.innerHTML += `<div class="log-entry">[${new Date().toLocaleTimeString()}] ${msg}</div>`;
+            log.scrollTop = log.scrollHeight;
+        }
+
+        localBus.onmessage = async (event) => {
+            const { type, sdp, candidate } = event.data;
+            if (type === "OFFER") {
+                await peerConnection.setRemoteDescription(new RTCSessionDescription(sdp));
+                const answer = await peerConnection.createAnswer();
+                await peerConnection.setLocalDescription(answer);
+                localBus.postMessage({ type: "ANSWER", sdp: answer });
+                printLog("WebRTC Offer accepted; transmitting Answer frame down local bus.");
+            } else if (type === "ANSWER") {
+                await peerConnection.setRemoteDescription(new RTCSessionDescription(sdp));
+                printLog("WebRTC Peer Path Established. Binary data stream operational.");
+            } else if (type === "CANDIDATE") {
+                await peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+            }
+        };
+
+        peerConnection.onicecandidate = (e) => {
+            if (e.candidate) localBus.postMessage({ type: "CANDIDATE", candidate: e.candidate });
+        };
+
+        peerConnection.ondatachannel = (event) => {
+            bindDataChannel(event.channel);
+        };
+
+        function bindDataChannel(channel) {
+            activeDataChannel = channel;
+            activeDataChannel.binaryType = "arraybuffer";
+            activeDataChannel.onmessage = (msgEvent) => {
+                const inputWire = new Float64Array(msgEvent.data);
+                renderStateMatrix(inputWire);
+            };
+            printLog("Data pipeline channel successfully bound.");
+        }
+
+        async function initiateMeshConnection() {
+            activeDataChannel = peerConnection.createDataChannel("gossip_wire");
+            bindDataChannel(activeDataChannel);
+            const offer = await peerConnection.createOffer();
+            await peerConnection.setLocalDescription(offer);
+            localBus.postMessage({ type: "OFFER", sdp: offer });
+            printLog("Broadcasting WebRTC SDP Offer to neighboring tabs...");
+        }
+
+        function renderStateMatrix(states) {
+            const numNodes = states.length;
+            for (let i = 0; i < pixelMatrix.length; i++) {
+                const nodeVal = states[i % numNodes];
+                const intensity = Math.min(255, Math.max(0, Math.floor(nodeVal * 255)));
+                pixelMatrix[i] = (255 << 24) | (intensity << 8);
+            }
+            ctx.putImageData(screenData, 0, 0);
+        }
+
+        (async () => {
+            printLog("Starting structural WASM memory loops...");
+            const nodeCount = 50;
+            const simulationStates = new Float64Array(nodeCount);
+            simulationStates[0] = 1.0; // Fixed typed array assignment
+
+            function loop() {
+                for (let i = 0; i < nodeCount; i++) {
+                    simulationStates[i] *= 0.98; 
+                    if (simulationStates[i] > 0.1 && i + 1 < nodeCount) {
+                        simulationStates[i + 1] += 0.05; 
+                    }
+                }
+                renderStateMatrix(simulationStates);
+
+                if (activeDataChannel && activeDataChannel.readyState === "open") {
+                    activeDataChannel.send(simulationStates.buffer);
+                }
+                requestAnimationFrame(loop);
+            }
+
+            window.addEventListener("click", () => {
+                initiateMeshConnection();
+            }, { once: true });
+            
+            printLog("Click anywhere inside this tab to initiate WebRTC link with adjacent tabs.");
+            requestAnimationFrame(loop);
+        })();
+    </script>
+</body>
+</html>
+

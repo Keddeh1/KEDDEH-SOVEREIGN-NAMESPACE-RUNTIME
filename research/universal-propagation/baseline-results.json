@@ -1,0 +1,33 @@
+{
+  "seed": 20260930,
+  "gossip": {
+    "domain": "DISTRIBUTED_GOSSIP",
+    "total_nodes": 50,
+    "rounds_to_converge": 6,
+    "theoretical_log2": 6,
+    "spread_curve": [
+      1,
+      3,
+      8,
+      19,
+      39,
+      49,
+      50
+    ],
+    "final_coverage_pct": 100.0
+  },
+  "neural": {
+    "domain": "NEURAL_SPIKE_PROPAGATION",
+    "neurons_in_cascade": 8,
+    "total_spikes_fired": 8,
+    "cascade_latency_ms": 14.0
+  },
+  "rc": {
+    "domain": "ELECTRONIC_CIRCUIT_DELAY",
+    "logic_stages": 5,
+    "t50_switching_delay_per_stage_ns": 0.6931,
+    "total_critical_path_delay_ns": 3.4657,
+    "max_clock_frequency_ghz": 0.29
+  },
+  "scope": "supplied Python baseline; software outputs not physical measurements"
+}
