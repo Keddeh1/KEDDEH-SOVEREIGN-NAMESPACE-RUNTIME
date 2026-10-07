@@ -59,6 +59,7 @@ try:
         command = ['node', str(repo / 'scripts/test_web4_browser.mjs'), '--root', a.runtime_root]
         if a.container_no_sandbox: command.append('--container-no-sandbox')
         run('browser-integration', command, cwd=out, env=env)
+        run('recursive-domain-integration', [installed, str(repo / 'scripts/verify_owner_domains.py'), '--root', a.runtime_root, '--output', str(out / 'domains.json')], cwd=out, env=env)
         report['runtime_qualification'] = 'passed'
     else:
         report['runtime_qualification'] = 'not_run_requires_owner_package_runtime'

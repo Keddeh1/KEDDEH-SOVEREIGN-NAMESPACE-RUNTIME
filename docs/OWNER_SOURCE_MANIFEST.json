@@ -1,0 +1,30 @@
+{
+  "schema": "keddeh.owner-control-custody.v1",
+  "private_repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+  "files": [
+    {
+      "name": "k_cloud_substrate_master_daemon.py",
+      "sha256": "17414b23a824cd73452ab4118de70157f0e4837c287044f9b18655df03488b25",
+      "bytes": 690652,
+      "repository_path": "library/2026-10-07/17414b23a824cd73452ab4118de70157f0e4837c287044f9b18655df03488b25/k_cloud_substrate_master_daemon.py"
+    },
+    {
+      "name": "bilateral_discrepancy_solver.py",
+      "sha256": "d096d679ecbf4bc358a34b721a236a813d66318e86e8cf5ea16fdb0eaabb87e2",
+      "bytes": 1301600,
+      "repository_path": "library/2026-10-07/d096d679ecbf4bc358a34b721a236a813d66318e86e8cf5ea16fdb0eaabb87e2/bilateral_discrepancy_solver.py"
+    },
+    {
+      "name": "sovereign-triad-owner-notes.txt",
+      "sha256": "93904ea11317c3e4cef24fa5ab797e0688972abe78ff084992a573cb8b51c00b",
+      "bytes": 87681,
+      "repository_path": "library/2026-10-07/93904ea11317c3e4cef24fa5ab797e0688972abe78ff084992a573cb8b51c00b/sovereign-triad-owner-notes.txt"
+    },
+    {
+      "name": "shared-keddeh-hci-owner-source.txt",
+      "sha256": "e699ff4f64baace2c2dd01375f204c6c047d32108a81bbbca33b80898445e2c8",
+      "bytes": 21438,
+      "repository_path": "library/2026-10-07/e699ff4f64baace2c2dd01375f204c6c047d32108a81bbbca33b80898445e2c8/shared-keddeh-hci-owner-source.txt"
+    }
+  ]
+}

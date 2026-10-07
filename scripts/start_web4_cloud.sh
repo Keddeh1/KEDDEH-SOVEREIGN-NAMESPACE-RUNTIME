@@ -11,3 +11,4 @@ if .venv/bin/python -m keddeh_namespace.web4_runtime status --root "$runtime_roo
 else
   .venv/bin/python -m keddeh_namespace.web4_runtime start --root "$runtime_root"
 fi
+.venv/bin/python scripts/bootstrap_owner_environment.py --root "$runtime_root"
