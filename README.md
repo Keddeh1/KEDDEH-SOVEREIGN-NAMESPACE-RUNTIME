@@ -37,3 +37,9 @@ A match proves the bytes read match the expected digest; it does not prove safe 
 ## Related uploaded sources
 
 See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These are statically assessed references; no uploaded implementation has been integrated or executed.
+
+## Observation envelope and native labels
+
+`keddeh_namespace.envelope` provides strict v1 observations, deterministic project JSON encoding, domain-separated state/phase roots, and complete-chain verification against an externally retained head digest. It rejects unknown fields, ambiguous floating-point payloads, missing identities and noncanonical timestamps. It is not a signature verifier or an immutable storage engine.
+
+`keddeh_namespace.native_labels` implements the PDF's occupied labels (...,-3,-2,1,2,3,...) through an explicit displacement adapter; native 0/-1 are invalid while measurement displacement 0 maps to native origin 1. DNS/storage protocol integers retain their ordinary meanings. See [the envelope contract](docs/ENVELOPE_CONTRACT.md).
