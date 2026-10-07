@@ -76,7 +76,7 @@ During restoration, an eight-second launcher/client deadline expired on domain r
 
 ## Changed files and execution tools
 
-Both private VFS repositories: vfs_server/store.py and vfs_server/tests/test_event_snapshot.py. The latter adds concurrent valid/invalid append, corrupted prefix and cursor-boundary coverage. Ten tests pass in each repository. The qualified engine source and wheel remain unchanged.
+Both private VFS repositories: vfs_server/store.py and vfs_server/tests/test_event_snapshot.py. The latter adds concurrent valid/invalid append, corrupted prefix and cursor-boundary coverage. Ten tests pass in each repository. Their native qualification workflows now pin checkout/setup actions to full revisions, declare read-only permissions, Ubuntu 24.04, bounded job duration and concurrency. Hosted execution remains separately evidenced. The qualified engine source and wheel remain unchanged.
 
 Canonical engine repository: docs/research/PLAN_100.md and JSON ledger; immutable initial plan; per-step evidence and application receipts; scripts/research/baseline.py, vfs_experiments.py, qualify_vfs_deployment.py and apply_steps.py. The experiment runner obtains the exact historical pre-fix source from private Git rather than treating today's implementation as yesterday's baseline. The application runner accepts a step range and refuses duplicate execution of unchanged completed results. Subsequent applications additionally retain the full artifact digest in the bounded tenant identity; historical transactions and receipts are preserved.
 
