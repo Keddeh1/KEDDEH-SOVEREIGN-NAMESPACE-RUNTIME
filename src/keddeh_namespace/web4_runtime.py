@@ -281,6 +281,10 @@ class LaunchController:
             with socket.socket() as sock:
                 sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1);sock.bind(('127.0.0.1',port))
         p=self.config['packages']
+        hub=self.config.get('vfs_hub')
+        if hub:
+            self.spawn('vfs-server',[sys.executable,'-m','vfs_server.server','--root',hub['state_root'],'--host','127.0.0.1','--port',str(hub['port']),'--token-file',hub['token_file']],hub['code_root'])
+            self.wait_health('vfs-server',hub['port'],'/ready')
         self.spawn('broker',[sys.executable,str(self.estate/'broker/owner_broker.py'),'--port',str(self.ports['broker'])],self.estate)
         self.wait_health('broker',self.ports['broker'],'/health')
         self.pair_agent()
@@ -322,7 +326,7 @@ class LaunchController:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
 
     def receipt(self,event,readback):
         with self.lock:
