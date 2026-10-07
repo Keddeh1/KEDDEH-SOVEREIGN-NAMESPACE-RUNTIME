@@ -4,10 +4,11 @@ from pathlib import Path
 import argparse,base64,hashlib,json,subprocess,sys,time,urllib.request
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 from keddeh_namespace.web4_runtime import write_json
-ap=argparse.ArgumentParser();ap.add_argument('--start',type=int,default=1);ap.add_argument('--end',type=int,default=20);a=ap.parse_args()
+ap=argparse.ArgumentParser();ap.add_argument('--start',type=int,default=1);ap.add_argument('--end',type=int,default=20);ap.add_argument('--evidence-root',default='/workspace/braink-setup/research-100');ap.add_argument('--iteration',type=int,default=1);a=ap.parse_args()
+if a.iteration<1:ap.error('iteration must be positive')
 if not 1<=a.start<=a.end<=100:ap.error('require 1 <= start <= end <= 100')
 count=a.end-a.start+1
-base=Path('/workspace');engine=Path(__file__).resolve().parents[2];out=base/'braink-setup/research-100';root=base/'braink-setup/web4-runtime';cfg=json.loads((root/'launch.json').read_text());token=(root/'state/token').read_text();v=cfg['vfs'];vtoken=Path(v['token_file']).read_text().strip();proof=[];requests=[]
+base=Path('/workspace');engine=Path(__file__).resolve().parents[2];out=Path(a.evidence_root).resolve();root=base/'braink-setup/web4-runtime';cfg=json.loads((root/'launch.json').read_text());token=(root/'state/token').read_text();v=cfg['vfs'];vtoken=Path(v['token_file']).read_text().strip();proof=[];requests=[]
 progress=out/f'application-{a.start:03d}-{a.end:03d}.json'
 if progress.exists():
     prior=json.loads(progress.read_text())
@@ -22,13 +23,13 @@ def request(url,body=None,token=None):
  req=urllib.request.Request(url,data=None if body is None else json.dumps(body).encode(),headers=headers)
  with urllib.request.urlopen(req,timeout=60) as response:return json.load(response)
 for step in range(a.start,a.end+1):
- p=out/f'step-{step:03d}.json';result=json.loads(p.read_text());assert result['step']==step and result['status']=='passed';raw=p.read_bytes();digest=hashlib.sha256(raw).hexdigest();logical=f'/packages/web4/research/PLAN-100/step-{step:03d}.json'
+ p=out/f'step-{step:03d}.json';result=json.loads(p.read_text());assert result['step']==step and result['status']=='passed';raw=p.read_bytes();digest=hashlib.sha256(raw).hexdigest();logical=(f'/packages/web4/research/PLAN-100/step-{step:03d}.json' if a.iteration==1 else f'/packages/web4/research/PLAN-100/iteration-{a.iteration:03d}/step-{step:03d}.json')
  admitted=request(v['endpoint']+'/artifacts',{'path':logical,'content_b64':base64.b64encode(raw).decode(),'source':'Keddeh1/RND-PLAN-100','media_type':'application/json'},vtoken)
  readback=request(v['endpoint']+'/artifacts/'+digest,token=vtoken);assert base64.b64decode(readback['content_b64'])==raw
  observed=request(v['endpoint']+'/verify',{'digest':digest},vtoken);assert observed['verified']
- nonce=int.from_bytes(bytes.fromhex(digest)[:4],'little');node=(step-1)%10+1;tenant=f'WEB4_RND_100_S{step:03d}_{digest}'
+ nonce=int.from_bytes(bytes.fromhex(digest)[:4],'little');node=(step-1)%10+1;tenant=f'WEB4_RND_I{a.iteration:03d}_S{step:03d}_{digest}'
  returned=request('http://127.0.0.1:'+str(cfg['ports']['gateway'])+'/api/web4/control',{'action':'commit','node_id':node,'nonce':nonce,'tenant_id':tenant},token);actor=returned['actor'];assert actor['status']=='ACTOR_COMMITTED'
- requests.append({'producer':'WEB4_RND_PLAN_100','transaction_id':f'plan100.step{step:03d}','correlation_id':actor['correlation_id'],'tenant_id':tenant,'node_id':node,'execution_vector':nonce,'receipt_hash':actor['receipt_hash'],'actor_identity':'WEB4_HTTP_ACTOR'})
+ requests.append({'producer':'WEB4_RND_PLAN_100','transaction_id':f'plan100.step{step:03d}' if a.iteration==1 else f'plan100.iteration{a.iteration:03d}.step{step:03d}','correlation_id':actor['correlation_id'],'tenant_id':tenant,'node_id':node,'execution_vector':nonce,'receipt_hash':actor['receipt_hash'],'actor_identity':'WEB4_HTTP_ACTOR'})
  proof.append({'step':step,'result_sha256':digest,'vfs_path':logical,'vfs_actor_receipt_digest':admitted['actor_receipt']['receipt_digest'],'vfs_observer_receipt_digest':observed['receipt']['receipt_digest'],'byte_readback_verified':True,'owner_runtime_actor_status':actor['status'],'node_id':node,'nonce':nonce,'receipt_hash':actor['receipt_hash'],'journal_observer_status':'pending'})
  write_json(progress,{'scope':'distinct local actor/readback roles under owner authority; independent assessment unset','steps':proof});print('Step',step,'VFS and owner actuator returned',flush=True)
 requests_path=out/f'plan-transaction-requests-{a.start:03d}-{a.end:03d}.jsonl';requests_path.write_text(''.join(json.dumps(r)+'\n' for r in requests));ledger=out/f'plan-transaction-observer-{a.start:03d}-{a.end:03d}.jsonl';verifier=Path(cfg['packages']['network'])/'braink-chatgpt-plugin/server/detached_journal_verifier.py'
