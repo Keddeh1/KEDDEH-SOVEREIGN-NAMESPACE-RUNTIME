@@ -1,0 +1,9 @@
+{
+  "step": 17,
+  "status": "passed",
+  "result": {
+    "old_implementation_delivered_unverified_concurrent_row": true,
+    "delivered_events": 2,
+    "scope": "isolated deterministic concurrent-connection reproduction; no live receipt or artifact changed"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "repository": "python/cpython",
+  "ref": "v3.12.12",
+  "path": "Doc/library/sqlite3.rst",
+  "git_blob": "259a35c1c258757049c8f5001eaeb4151bb8b14d",
+  "sha256": "ae534aa61fb6ab8d7bff2e7d33ac3f79e3b06e18acf4ec8081250ef7ff542d76",
+  "url": "https://github.com/python/cpython/blob/v3.12.12/Doc/library/sqlite3.rst",
+  "bytes": 92590
+}

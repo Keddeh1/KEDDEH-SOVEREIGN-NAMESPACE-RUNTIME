@@ -1,0 +1,1573 @@
+{
+  "schema": "keddeh.research-development-plan.v1",
+  "revision": 1,
+  "date": "2026-10-07",
+  "timezone": "Australia/Adelaide",
+  "scope": "owner-runtime-led research, implementation and evidence-based promotion",
+  "batch_size": 10,
+  "status": "in_progress",
+  "next_step": 1,
+  "independent_assessment": null,
+  "groups": [
+    {
+      "id": 1,
+      "title": "Baseline and owner-runtime authority",
+      "steps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": 2,
+      "title": "VFS integrity and measured scaling",
+      "steps": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Bilateral intent and crash recovery",
+      "steps": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Recursive domain continuity and capacity",
+      "steps": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Packaging, reproducibility and release evidence",
+      "steps": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Customer journeys and professional HCI",
+      "steps": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Customer capture and private data handling",
+      "steps": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Cloud environment and estate integration",
+      "steps": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Propagation research and substrate application",
+      "steps": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Governance, independent review and promotion",
+      "steps": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "batch": 1,
+      "title": "Establish the versioned 100-step plan and completion contract",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [],
+      "evidence": []
+    },
+    {
+      "id": 2,
+      "batch": 1,
+      "title": "Verify all nine repository identities, local revisions and remote tips",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        1
+      ],
+      "evidence": []
+    },
+    {
+      "id": 3,
+      "batch": 1,
+      "title": "Verify qualified executable and wheel digests in all nine launchers",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        2
+      ],
+      "evidence": []
+    },
+    {
+      "id": 4,
+      "batch": 1,
+      "title": "Verify fourteen owner-source custody identities and private distribution",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        3
+      ],
+      "evidence": []
+    },
+    {
+      "id": 5,
+      "batch": 1,
+      "title": "Read current health and topology from all nine running families",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        4
+      ],
+      "evidence": []
+    },
+    {
+      "id": 6,
+      "batch": 1,
+      "title": "Measure bilateral cycle progression and retained pending intent",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        5
+      ],
+      "evidence": []
+    },
+    {
+      "id": 7,
+      "batch": 1,
+      "title": "Verify owner gateway and VFS unauthenticated request rejection",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        6
+      ],
+      "evidence": []
+    },
+    {
+      "id": 8,
+      "batch": 1,
+      "title": "Independently hash every family cached VFS package",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        7
+      ],
+      "evidence": []
+    },
+    {
+      "id": 9,
+      "batch": 1,
+      "title": "Validate controlled-document hashes and release evidence bindings",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        8
+      ],
+      "evidence": []
+    },
+    {
+      "id": 10,
+      "batch": 1,
+      "title": "Capture actual dependency, SQLite, Docker and Node versions",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        9
+      ],
+      "evidence": []
+    },
+    {
+      "id": 11,
+      "batch": 2,
+      "title": "Retrieve and fingerprint primary CPython SQLite transaction documentation",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        10
+      ],
+      "evidence": []
+    },
+    {
+      "id": 12,
+      "batch": 2,
+      "title": "Retrieve and fingerprint upstream SQLite WAL snapshot implementation",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        11
+      ],
+      "evidence": []
+    },
+    {
+      "id": 13,
+      "batch": 2,
+      "title": "Map current receipt verification and event-delivery transaction boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        12
+      ],
+      "evidence": []
+    },
+    {
+      "id": 14,
+      "batch": 2,
+      "title": "Benchmark event polling against controlled receipt-history sizes",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        13
+      ],
+      "evidence": []
+    },
+    {
+      "id": 15,
+      "batch": 2,
+      "title": "Exercise historical receipt corruption rejection in an isolated store",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        14
+      ],
+      "evidence": []
+    },
+    {
+      "id": 16,
+      "batch": 2,
+      "title": "Exercise cursor type, range and subscription monotonicity boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        15
+      ],
+      "evidence": []
+    },
+    {
+      "id": 17,
+      "batch": 2,
+      "title": "Reproduce verification-to-delivery race with an isolated concurrent writer",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        16
+      ],
+      "evidence": []
+    },
+    {
+      "id": 18,
+      "batch": 2,
+      "title": "Implement one-snapshot verified event delivery in both VFS repositories",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        17
+      ],
+      "evidence": []
+    },
+    {
+      "id": 19,
+      "batch": 2,
+      "title": "Run native VFS regressions for tamper, bounds and concurrent append",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        18
+      ],
+      "evidence": []
+    },
+    {
+      "id": 20,
+      "batch": 2,
+      "title": "Deploy the VFS snapshot fix and observe all family subscriptions recover",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        19
+      ],
+      "evidence": []
+    },
+    {
+      "id": 21,
+      "batch": 3,
+      "title": "Trace bilateral intent persistence and actor acknowledgement crash boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        20
+      ],
+      "evidence": []
+    },
+    {
+      "id": 22,
+      "batch": 3,
+      "title": "Specify idempotent cycle finalization and receipt recovery contract",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        21
+      ],
+      "evidence": []
+    },
+    {
+      "id": 23,
+      "batch": 3,
+      "title": "Build isolated crash injection at pre-intent and post-intent boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        22
+      ],
+      "evidence": []
+    },
+    {
+      "id": 24,
+      "batch": 3,
+      "title": "Inject failure after a register commit before acknowledgement persistence",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        23
+      ],
+      "evidence": []
+    },
+    {
+      "id": 25,
+      "batch": 3,
+      "title": "Verify replay uses the retained nonce without duplicate register effects",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        24
+      ],
+      "evidence": []
+    },
+    {
+      "id": 26,
+      "batch": 3,
+      "title": "Inject failure after final actor return before namespace receipt save",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        25
+      ],
+      "evidence": []
+    },
+    {
+      "id": 27,
+      "batch": 3,
+      "title": "Implement durable cycle finalization identity and receipt reconciliation",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        26
+      ],
+      "evidence": []
+    },
+    {
+      "id": 28,
+      "batch": 3,
+      "title": "Verify explicit pause survives restart and prevents new cycles",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        27
+      ],
+      "evidence": []
+    },
+    {
+      "id": 29,
+      "batch": 3,
+      "title": "Qualify owner-feedback outage and retry recovery without fabricated samples",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        28
+      ],
+      "evidence": []
+    },
+    {
+      "id": 30,
+      "batch": 3,
+      "title": "Promote the bilateral recovery change through wheel and VFS qualification",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        29
+      ],
+      "evidence": []
+    },
+    {
+      "id": 31,
+      "batch": 4,
+      "title": "Research Linux namespaces, Docker bridge boundaries and resource constraints",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        30
+      ],
+      "evidence": []
+    },
+    {
+      "id": 32,
+      "batch": 4,
+      "title": "Inventory actual upstream and downstream membership for each domain",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        31
+      ],
+      "evidence": []
+    },
+    {
+      "id": 33,
+      "batch": 4,
+      "title": "Test root-anchor loss while preserving child-local execution",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        32
+      ],
+      "evidence": []
+    },
+    {
+      "id": 34,
+      "batch": 4,
+      "title": "Test intermediate-anchor loss and retained child epoch progression",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        33
+      ],
+      "evidence": []
+    },
+    {
+      "id": 35,
+      "batch": 4,
+      "title": "Test acyclic reanchor validation and reject invalid lineage",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        34
+      ],
+      "evidence": []
+    },
+    {
+      "id": 36,
+      "batch": 4,
+      "title": "Test Docker daemon restart against retained family intent",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        35
+      ],
+      "evidence": []
+    },
+    {
+      "id": 37,
+      "batch": 4,
+      "title": "Test missing downstream network reconstruction without foreign adoption",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        36
+      ],
+      "evidence": []
+    },
+    {
+      "id": 38,
+      "batch": 4,
+      "title": "Measure family CPU, memory, PID and journal growth under sustained load",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        37
+      ],
+      "evidence": []
+    },
+    {
+      "id": 39,
+      "batch": 4,
+      "title": "Implement evidence-led capacity thresholds and graceful admission failure",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        38
+      ],
+      "evidence": []
+    },
+    {
+      "id": 40,
+      "batch": 4,
+      "title": "Qualify domain capacity and recovery contracts across all nine families",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        39
+      ],
+      "evidence": []
+    },
+    {
+      "id": 41,
+      "batch": 5,
+      "title": "Audit owner bundle membership against source custody and classification",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        40
+      ],
+      "evidence": []
+    },
+    {
+      "id": 42,
+      "batch": 5,
+      "title": "Reconcile process documentation with every managed service entry",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        41
+      ],
+      "evidence": []
+    },
+    {
+      "id": 43,
+      "batch": 5,
+      "title": "Reconcile action and configuration guides with actual user interfaces",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        42
+      ],
+      "evidence": []
+    },
+    {
+      "id": 44,
+      "batch": 5,
+      "title": "Expand API inventory to nested handlers and callable source functions",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        43
+      ],
+      "evidence": []
+    },
+    {
+      "id": 45,
+      "batch": 5,
+      "title": "Build reproducible archive metadata and deterministic compression",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        44
+      ],
+      "evidence": []
+    },
+    {
+      "id": 46,
+      "batch": 5,
+      "title": "Verify two independent package builds have identical qualified inputs",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        45
+      ],
+      "evidence": []
+    },
+    {
+      "id": 47,
+      "batch": 5,
+      "title": "Create machine-readable dependency and licence inventory provenance",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        46
+      ],
+      "evidence": []
+    },
+    {
+      "id": 48,
+      "batch": 5,
+      "title": "Implement package admission rejection for unknown or altered members",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        47
+      ],
+      "evidence": []
+    },
+    {
+      "id": 49,
+      "batch": 5,
+      "title": "Verify clean-room installed-wheel startup with retained source manifests",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        48
+      ],
+      "evidence": []
+    },
+    {
+      "id": 50,
+      "batch": 5,
+      "title": "Publish the newly qualified package to private VFS and all repository families",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        49
+      ],
+      "evidence": []
+    },
+    {
+      "id": 51,
+      "batch": 6,
+      "title": "Map every customer route to its audience, primary task and evidence source",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        50
+      ],
+      "evidence": []
+    },
+    {
+      "id": 52,
+      "batch": 6,
+      "title": "Research applicable primary accessibility and interaction standards",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        51
+      ],
+      "evidence": []
+    },
+    {
+      "id": 53,
+      "batch": 6,
+      "title": "Audit navigation information hierarchy and product responsibility boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        52
+      ],
+      "evidence": []
+    },
+    {
+      "id": 54,
+      "batch": 6,
+      "title": "Audit heading order, accessible names and browser accessibility trees",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        53
+      ],
+      "evidence": []
+    },
+    {
+      "id": 55,
+      "batch": 6,
+      "title": "Exercise keyboard-only traversal of every customer control",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        54
+      ],
+      "evidence": []
+    },
+    {
+      "id": 56,
+      "batch": 6,
+      "title": "Measure focus visibility, contrast, zoom and reduced-motion behaviour",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        55
+      ],
+      "evidence": []
+    },
+    {
+      "id": 57,
+      "batch": 6,
+      "title": "Test all routes across declared mobile and desktop viewport ranges",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        56
+      ],
+      "evidence": []
+    },
+    {
+      "id": 58,
+      "batch": 6,
+      "title": "Refine research and product copy against attributable current evidence",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        57
+      ],
+      "evidence": []
+    },
+    {
+      "id": 59,
+      "batch": 6,
+      "title": "Implement consistent form feedback, error recovery and registration states",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        58
+      ],
+      "evidence": []
+    },
+    {
+      "id": 60,
+      "batch": 6,
+      "title": "Run complete DOM and journey regressions against final customer assets",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        59
+      ],
+      "evidence": []
+    },
+    {
+      "id": 61,
+      "batch": 7,
+      "title": "Trace consented registration inputs, storage and operator handling",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        60
+      ],
+      "evidence": []
+    },
+    {
+      "id": 62,
+      "batch": 7,
+      "title": "Research retention, data minimisation and applicable disclosure requirements",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        61
+      ],
+      "evidence": []
+    },
+    {
+      "id": 63,
+      "batch": 7,
+      "title": "Test duplicate, conflicting and interrupted registration requests",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        62
+      ],
+      "evidence": []
+    },
+    {
+      "id": 64,
+      "batch": 7,
+      "title": "Test field size limits, invalid content and cross-origin request rejection",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        63
+      ],
+      "evidence": []
+    },
+    {
+      "id": 65,
+      "batch": 7,
+      "title": "Test rate limit behaviour and recovery without losing valid enquiries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        64
+      ],
+      "evidence": []
+    },
+    {
+      "id": 66,
+      "batch": 7,
+      "title": "Implement explicit authorised operator retrieval and audit boundaries",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        65
+      ],
+      "evidence": []
+    },
+    {
+      "id": 67,
+      "batch": 7,
+      "title": "Test 90-day retention deletion and durable receipt treatment",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        66
+      ],
+      "evidence": []
+    },
+    {
+      "id": 68,
+      "batch": 7,
+      "title": "Implement private backup and restore for registration state",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        67
+      ],
+      "evidence": []
+    },
+    {
+      "id": 69,
+      "batch": 7,
+      "title": "Verify customer status responses omit owner keys, identities and private workbook data",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        68
+      ],
+      "evidence": []
+    },
+    {
+      "id": 70,
+      "batch": 7,
+      "title": "Qualify the customer-data lifecycle and publish accurate handling guidance",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        69
+      ],
+      "evidence": []
+    },
+    {
+      "id": 71,
+      "batch": 8,
+      "title": "Validate saved repository membership and frozen installation instructions",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        70
+      ],
+      "evidence": []
+    },
+    {
+      "id": 72,
+      "batch": 8,
+      "title": "Qualify startup ordering with VFS first and preserved family intent",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        71
+      ],
+      "evidence": []
+    },
+    {
+      "id": 73,
+      "batch": 8,
+      "title": "Run independently provisioned fresh-task restoration when available",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        72
+      ],
+      "evidence": []
+    },
+    {
+      "id": 74,
+      "batch": 8,
+      "title": "Recover the exact existing KEDDEH.COM native source when Sites access returns",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        73
+      ],
+      "evidence": []
+    },
+    {
+      "id": 75,
+      "batch": 8,
+      "title": "Resolve recorded source-quarantine findings without publishing credential values",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        74
+      ],
+      "evidence": []
+    },
+    {
+      "id": 76,
+      "batch": 8,
+      "title": "Integrate the qualified customer candidate into the existing Site identity",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        75
+      ],
+      "evidence": []
+    },
+    {
+      "id": 77,
+      "batch": 8,
+      "title": "Run native serving-router, build and audience-boundary checks",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        76
+      ],
+      "evidence": []
+    },
+    {
+      "id": 78,
+      "batch": 8,
+      "title": "Publish through native Sites and record returned deployment evidence",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        77
+      ],
+      "evidence": []
+    },
+    {
+      "id": 79,
+      "batch": 8,
+      "title": "Transfer digest-pinned owner originals to Google Drive when its capability returns",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        78
+      ],
+      "evidence": []
+    },
+    {
+      "id": 80,
+      "batch": 8,
+      "title": "Verify public TLS and deployment readback from an external permitted observer",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        79
+      ],
+      "evidence": []
+    },
+    {
+      "id": 81,
+      "batch": 9,
+      "title": "Review the supplied universal propagation equations and claimed substrate mappings",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        80
+      ],
+      "evidence": []
+    },
+    {
+      "id": 82,
+      "batch": 9,
+      "title": "Implement overflow-safe continuous sigmoid with explicit parameter units",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        81
+      ],
+      "evidence": []
+    },
+    {
+      "id": 83,
+      "batch": 9,
+      "title": "Qualify seeded gossip sampling and convergence measurement definitions",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        82
+      ],
+      "evidence": []
+    },
+    {
+      "id": 84,
+      "batch": 9,
+      "title": "Qualify LIF spike, delay, reset and integration-step semantics",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        83
+      ],
+      "evidence": []
+    },
+    {
+      "id": 85,
+      "batch": 9,
+      "title": "Qualify RC delay model assumptions against stated physical approximation",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        84
+      ],
+      "evidence": []
+    },
+    {
+      "id": 86,
+      "batch": 9,
+      "title": "Load directed adjacency and GraphML through a bounded validated parser",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        85
+      ],
+      "evidence": []
+    },
+    {
+      "id": 87,
+      "batch": 9,
+      "title": "Run seeded topology-noise sweeps with confidence intervals and raw data custody",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        86
+      ],
+      "evidence": []
+    },
+    {
+      "id": 88,
+      "batch": 9,
+      "title": "Map qualified software propagation outputs into explicit owner register actuation",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        87
+      ],
+      "evidence": []
+    },
+    {
+      "id": 89,
+      "batch": 9,
+      "title": "Implement optional accessible visual and Web Audio propagation feedback",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        88
+      ],
+      "evidence": []
+    },
+    {
+      "id": 90,
+      "batch": 9,
+      "title": "Publish reproducible research results with domain-specific limitations and attribution",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        89
+      ],
+      "evidence": []
+    },
+    {
+      "id": 91,
+      "batch": 10,
+      "title": "Reconcile cross-repository milestones, labels, issues and release dependencies",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        90
+      ],
+      "evidence": []
+    },
+    {
+      "id": 92,
+      "batch": 10,
+      "title": "Provision native Projects views when integration Projects permission returns",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        91
+      ],
+      "evidence": []
+    },
+    {
+      "id": 93,
+      "batch": 10,
+      "title": "Run hosted Actions when billing allows execution and retain job readbacks",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        92
+      ],
+      "evidence": []
+    },
+    {
+      "id": 94,
+      "batch": 10,
+      "title": "Verify branch protection and review enforcement through supported access",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        93
+      ],
+      "evidence": []
+    },
+    {
+      "id": 95,
+      "batch": 10,
+      "title": "Qualify owner-state and VFS backup restoration on a separate host",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        94
+      ],
+      "evidence": []
+    },
+    {
+      "id": 96,
+      "batch": 10,
+      "title": "Exercise multi-host family failover without shared-host availability assumptions",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        95
+      ],
+      "evidence": []
+    },
+    {
+      "id": 97,
+      "batch": 10,
+      "title": "Obtain independent assessment report identity and resolve its findings",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        96
+      ],
+      "evidence": []
+    },
+    {
+      "id": 98,
+      "batch": 10,
+      "title": "Reconcile every customer assertion with final deployment and research evidence",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        97
+      ],
+      "evidence": []
+    },
+    {
+      "id": 99,
+      "batch": 10,
+      "title": "Promote approved repository and Site releases with tested rollback contracts",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        98
+      ],
+      "evidence": []
+    },
+    {
+      "id": 100,
+      "batch": 10,
+      "title": "Issue final delivery, residual-risk and continuing operations record",
+      "status": "pending",
+      "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
+      "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
+      "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
+      "completion_gate": "The named result exists, its functional acceptance is evidenced, actor/readback agree, and limitations are recorded. Unavailable capabilities remain blocked rather than completed.",
+      "depends_on": [
+        99
+      ],
+      "evidence": []
+    }
+  ]
+}
