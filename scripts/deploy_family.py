@@ -13,6 +13,7 @@ cfg=json.loads((root/'launch.json').read_text())
 if cfg.get('repository') not in (None,manifest['repository']):raise ValueError('runtime root is already bound to another repository')
 cfg['vfs']=manifest['vfs'];
 if 'vfs_hub' in manifest:cfg['vfs_hub']=manifest['vfs_hub']
+if 'frontage' in manifest:cfg['frontage']=manifest['frontage']
 cfg['repository']=manifest['repository'];cfg['family_id']=manifest['family_id'];cfg['engine_ref']=manifest['engine_ref'];write_json(root/'launch.json',cfg)
 try:
     token=(root/'state/token').read_text()

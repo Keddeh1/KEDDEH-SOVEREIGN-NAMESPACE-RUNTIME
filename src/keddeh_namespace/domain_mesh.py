@@ -63,17 +63,8 @@ class DomainMesh:
         row={'id':ident,'parent':parent,'upstream':upstream,'downstream':downstream,'image':IMAGE,
              'owner_source_sha256':hashlib.sha256(owner.read_bytes()).hexdigest(),'bridge_sha256':hashlib.sha256((code/'bridge.mjs').read_bytes()).hexdigest()}
         write_json(state/'config.json',{'domain':ident,'upstream':('http://'+self.container(parent)+':19000') if parent else None})
-        name=self.container(ident)
-        # Docker create is exclusive: foreign resources are never adopted.
-        self.run('create','--name',name,'--label',self.label,'--network',upstream,
-                 '--restart','unless-stopped','--user',f'{os.getuid()}:{os.getgid()}',
-                 '--cap-drop','ALL','--security-opt','no-new-privileges','--read-only',
-                 '--memory','128m','--cpus','0.5','--pids-limit','64','--tmpfs','/tmp:rw,noexec,nosuid,size=16m',
-                 '--mount',f'type=bind,src={code},dst=/code,readonly',
-                 '--mount',f'type=bind,src={state},dst=/state',IMAGE,'node','/code/bridge.mjs')
-        self.run('network','connect',downstream,name)
         self.data['domains'].append(row);self.data['enabled']=True;self.save()
-        self.run('start',name)
+        self.create_domain(row)
         end=time.monotonic()+15
         while time.monotonic()<end:
             try:
@@ -82,6 +73,17 @@ class DomainMesh:
             except RuntimeError:pass
             time.sleep(.2)
         raise RuntimeError('new domain failed owner-workstation readback')
+    def create_domain(self,row):
+        ident=row['id'];name=self.container(ident);directory=self.root/ident
+        self.network(row['upstream']);self.network(row['downstream'])
+        self.run('create','--name',name,'--label',self.label,'--network',row['upstream'],
+                 '--restart','unless-stopped','--user',f'{os.getuid()}:{os.getgid()}',
+                 '--cap-drop','ALL','--security-opt','no-new-privileges','--read-only',
+                 '--memory','128m','--cpus','0.5','--pids-limit','64','--tmpfs','/tmp:rw,noexec,nosuid,size=16m',
+                 '--mount',f'type=bind,src={directory / "code"},dst=/code,readonly',
+                 '--mount',f'type=bind,src={directory / "state"},dst=/state',row['image'],'node','/code/bridge.mjs')
+        self.run('network','connect',row['downstream'],name)
+        self.run('start',name)
     def read(self,ident):
         if ident not in {r['id'] for r in self.data['domains']}:raise ValueError('unknown domain')
         script="const fs=require('fs');fetch('http://127.0.0.1:19000/state',{headers:{Authorization:'Bearer '+fs.readFileSync('/state/token','utf8').trim()},signal:AbortSignal.timeout(2000)}).then(async r=>{if(!r.ok)process.exit(1);console.log(await r.text())}).catch(()=>process.exit(1))"
@@ -89,7 +91,11 @@ class DomainMesh:
     def resume(self):
         if not self.data['enabled']:return
         for row in self.data['domains']:
-            name=self.container(row['id']);info=json.loads(self.run('inspect',name))[0]
+            name=self.container(row['id'])
+            existing=self.run('ps','-a','--filter','name=^'+name+'$','-q')
+            if not existing:
+                self.create_domain(row)
+            info=json.loads(self.run('inspect',name))[0]
             if info['Config']['Labels'].get('keddeh.owner-root')!=str(self.controller.root):raise ValueError('foreign container')
             if info['HostConfig']['PidsLimit']!=64:self.run('update','--pids-limit','64',name)
             code=self.root/row['id']/'code/bridge.mjs'

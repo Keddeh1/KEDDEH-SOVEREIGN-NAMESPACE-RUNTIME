@@ -222,6 +222,11 @@ class LaunchController:
         from importlib.metadata import version
         code=Path(__file__).parent
         self.source_manifest={'owner_sources':self.config['sources'],'derived_files':self.config['files'],'runtime_version':version('keddeh-sovereign-namespace-runtime'),'owner_control_sources':['17414b23a824cd73452ab4118de70157f0e4837c287044f9b18655df03488b25','d096d679ecbf4bc358a34b721a236a813d66318e86e8cf5ea16fdb0eaabb87e2','93904ea11317c3e4cef24fa5ab797e0688972abe78ff084992a573cb8b51c00b','e699ff4f64baace2c2dd01375f204c6c047d32108a81bbbca33b80898445e2c8'],'runtime_files':{p.name:digest(p) for p in sorted(code.iterdir()) if p.is_file() and p.suffix in ('.py','.js','.mjs')}}
+        self.source_manifest['external_bindings']={}
+        for binding,field in [('vfs_hub','code_root'),('frontage','source_root')]:
+            options=self.config.get(binding)
+            if options:
+                base=Path(options[field]);self.source_manifest['external_bindings'][binding]={str(p.relative_to(base)):digest(p) for p in base.rglob('*') if p.is_file() and '.git' not in p.parts and p.suffix in ('.py','.mjs','.js','.css','.html','.json','.whl') and '__pycache__' not in p.parts and 'packages' not in p.parts}
         self.source_digest=hashlib.sha256(canonical_bytes(self.source_manifest)).hexdigest()
         write_json(self.state/'runtime-source-manifest.json',self.source_manifest)
         self.last_receipt=None;self.current_boot_id=None;self.retry_after={};self.recovery_errors={}
@@ -281,6 +286,10 @@ class LaunchController:
             with socket.socket() as sock:
                 sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1);sock.bind(('127.0.0.1',port))
         p=self.config['packages']
+        frontage=self.config.get('frontage')
+        if frontage:
+            self.spawn('frontage-server',[sys.executable,'-m','keddeh_namespace.frontage_service','--source',frontage['source_root'],'--root',str(self.root),'--port',str(frontage['port'])],self.root)
+            self.wait_health('frontage-server',frontage['port'],'/api/health')
         hub=self.config.get('vfs_hub')
         if hub:
             self.spawn('vfs-server',[sys.executable,'-m','vfs_server.server','--root',hub['state_root'],'--host','127.0.0.1','--port',str(hub['port']),'--token-file',hub['token_file']],hub['code_root'])
