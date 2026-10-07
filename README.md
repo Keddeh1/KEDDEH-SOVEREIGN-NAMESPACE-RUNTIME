@@ -55,3 +55,9 @@ See [runtime operations](docs/RUNTIME_OPERATIONS.md) and [validation summary](do
 ## Enterprise governance
 
 [Controlled governance baseline](governance/README.md): document lifecycle, accountability, change/release gates, assurance, access/source custody and incident/recovery standards. Validate with `python scripts/check_governance.py`. GitHub review routing and automated integrity checks are defined; independent review and platform branch-rule enforcement remain separately tracked.
+
+## WEB4 architecture and cloud launch — 0.2.0
+
+The uploaded launch packages now run as actual cloud-workspace processes: ten KEX workstation nodes, estate/network MCP, R36 HTTP/Python workers, owner broker and outbound host agent. Original terminal, HTML carrier and resident research UI connect through an authenticated cloud panel. Propagation can explicitly actuate R36 registers and retain signed namespace readbacks.
+
+Start with `bash scripts/start_web4_cloud.sh`; inspect with `.venv/bin/python -m keddeh_namespace.web4_runtime status`. See [the controlled launch runbook](governance/WEB4_CLOUD_RUNTIME_RUNBOOK.md) and [live integration evidence](docs/evidence/web4-integration.json). Owner originals stay in the private library; the launcher pins their identities and records its derivations.

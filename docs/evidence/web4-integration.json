@@ -1,0 +1,97 @@
+{
+  "schema": "keddeh.web4.integration-evidence.v1",
+  "status": "passed",
+  "checks": [
+    "ten real workstation health/telemetry readbacks and service processes",
+    "gateway rejects unauthenticated status",
+    "R36 HTTP commit durable bytes and idempotent retry",
+    "HTTP process/worker restart preserves durable receipt without duplicate append",
+    "network MCP initialization and actual transaction commit",
+    "separate verifier process reads actual journal and signed result verifies; same-owner local scope",
+    "broker pairing, poll, lease, six boot phases, fsync/readback, result and ledger",
+    "broker stale-sequence replay rejected",
+    "preserved estate MCP reaches actual ten-node mesh via stdio RPC",
+    "owner observer compiler and fresh workbook diagnostics execute",
+    "propagation results persist through signed namespace generation bridge",
+    "propagation explicitly actuates two real R36 registers and seals the actor readbacks",
+    "real failed workstation is automatically restarted and health read back",
+    "signed namespace journal replays all committed runtime observations",
+    "all three owner UI carriers served; terminal bridge injected",
+    "actual Linux process descriptor limit observed"
+  ],
+  "healthy_nodes": 10,
+  "namespace_events_verified": 35,
+  "workbook_findings": 134,
+  "source_packages": [
+    {
+      "role": "estate",
+      "source_name": "BRAINK_MCP_PLUGIN_V5_7_BILATERAL_CLOSURE.zip",
+      "source_sha256": "c48596dbcb4d826a1172308ab33baf6b52ff76795fce3c62262d4a20b07e5c9e",
+      "source_bytes": 21952837
+    },
+    {
+      "role": "actuators",
+      "source_name": "BRAINK_V6_1_MESH_ACTUATION_OVERLAY.zip",
+      "source_sha256": "430db9147e822c68abf06635be1ca99131d6d10a151e536f87a82e00cf87c192",
+      "source_bytes": 141453
+    },
+    {
+      "role": "http",
+      "source_name": "BRAINK_POSIX_HTTP4055_MULTIPLEXED_R36_20260930.zip",
+      "source_sha256": "8718fc7486d73559a3562482245b0fe00acc322b165980c14f1fd03ff3164552",
+      "source_bytes": 16589
+    },
+    {
+      "role": "network",
+      "source_name": "BRAINK_NETWORK_EXECUTABLE_V4_20260930 (1).tar.gz",
+      "source_sha256": "5d73d8591b4414c7a531d7ddc1d4b8573ef63d688071caf53cbc4dc2e9362153",
+      "source_bytes": 35610
+    },
+    {
+      "role": "observer",
+      "source_name": "BRAINK_V7_1_PERIODIC_BIO_OBSERVER_PATCH.zip",
+      "source_sha256": "45a023ab82d314068a8b195e093ab05635a45018c5441e191d5449496bd29fa0",
+      "source_bytes": 36595
+    },
+    {
+      "role": "workbook",
+      "source_name": "BRAINK_V7_3_BILATERAL_DIAGNOSTIC_WORKBOOK_PATCH.zip",
+      "source_sha256": "4a47d15059006771a292327c5fc107b06fa9d04041f990e49185b43ca8d7cc9a",
+      "source_bytes": 1368193
+    },
+    {
+      "role": "carrier",
+      "source_name": "kex_html_linux_carrier.zip",
+      "source_sha256": "2f45e96c5bb5bb20726d03138b2ecb8d14109eff449120b459ca6c68f3c64e31",
+      "source_bytes": 8592
+    },
+    {
+      "role": "terminal",
+      "source_name": "kex_linux_terminal_mesh_patched.html",
+      "source_sha256": "ced343b1c54d81b38c74f07d08a7dbc853a56e467dcbb83138a512c97b9cb2c7",
+      "source_bytes": 28766
+    },
+    {
+      "role": "agent",
+      "source_name": "kex-host-agent.py",
+      "source_sha256": "0094c4960a208734dc6d783dc5812899928dba9f6d9664ead7c979be046733d5",
+      "source_bytes": 17940
+    },
+    {
+      "role": "research_ui",
+      "source_name": "KEDDEH_BRAINK_V76_RESIDENT_ENGINEERING_RESEARCH_VM(1).html",
+      "source_sha256": "7f6e4ce0a41d3ba8823984533f41479be77efa7656f3e016f591af6e49c13fec",
+      "source_bytes": 5122943
+    }
+  ],
+  "scope": "actual local owner-package processes and HTTP/stdio readbacks",
+  "limitations": [
+    "same cloud host; not independent production failure domains",
+    "original browser rendering and multi-tab mesh not automated in this HTTP test",
+    "local detached verifier is not an independent production assessor",
+    "no public HTTPS or registrar deployment",
+    "workbook diagnostics may report missing files from broader source estate",
+    "FD/core/file-output bounds observed; no production memory/quota/CPU reservations claimed"
+  ],
+  "recorded_at": "2026-10-07T05:03:03.801904+00:00"
+}

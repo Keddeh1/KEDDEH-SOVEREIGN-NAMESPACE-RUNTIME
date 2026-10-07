@@ -13,3 +13,5 @@ Issued version 1.0 under the owner’s establishment instruction. Independent re
 Registers: document-register.json, control-register.json, risk-register.json and exception-register.json. Templates support changes, approvals, evidence, risks/exceptions and incidents. Run `python scripts/check_governance.py` before committing controlled document changes.
 
 Framework references guide the design; this baseline makes no certification claim. Private operational records belong in the deployment queue.
+
+- [RUN-001: WEB4 cloud runtime launch and recovery](WEB4_CLOUD_RUNTIME_RUNBOOK.md)

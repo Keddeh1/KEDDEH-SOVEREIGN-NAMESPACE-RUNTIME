@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keddeh-sovereign-namespace-runtime"
-version = "0.1.0"
+version = "0.2.0"
 description = "Evidence-gated KEDDEH namespace runtime foundation"
 requires-python = ">=3.12"
 dependencies = ["cryptography>=46,<47", "dnspython>=2.8,<3"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+keddeh_namespace = ["web4_*.js"]

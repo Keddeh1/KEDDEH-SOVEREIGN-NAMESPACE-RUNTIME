@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "preserved terminal boots in Chromium",
+    "authenticated cloud status reads ten actual nodes",
+    "browser command commits an actual R36 register",
+    "browser propagation command actuates actual R36 registers",
+    "two real tabs discover peers and deliver owner terminal mesh message",
+    "HTML carrier and resident research UI each read actual cloud state through shared panel"
+  ],
+  "scope": "headless browser and same-origin local cloud runtime",
+  "chromiumSandbox": "disabled for container test only; no browser isolation claim",
+  "recorded_at": "2026-10-07T05:03:03.802214+00:00"
+}

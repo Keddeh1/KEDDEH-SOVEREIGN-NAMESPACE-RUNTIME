@@ -58,3 +58,7 @@ Local library storage is not evidence of an account-level Library upload: no suc
 8. Execute production deployment and any DNS/registrar transaction only with actual matching sources, provisioned infrastructure, trust and a reviewable concrete transaction. Do not convert missing observations into asserted success.
 
 Cloud install/start instructions and exact repository refs were saved in the configuration draft. Draft persistence is confirmed; publication and restoration into a new task are not. Configuration publication is a separate product operation and does not block work in the current environment.
+
+## Subsequent implemented WEB4 cloud integration
+
+Release 0.2.0 now launches the actual ten workstation actuators, estate/network MCP, R36 HTTP and Python commit workers, broker and outbound agent. The three preserved browser carriers share authenticated backend controls, and the terminal's cloud commands execute actual software-register actuation. Observer/workbook modules and propagation are connected to signed namespace generation readbacks. See governance/WEB4_CLOUD_RUNTIME_RUNBOOK.md and docs/evidence/web4-*.json for current evidence and exact limitations. This advances local runtime/operator work without substituting these sources for the original four REV-002 production archives.

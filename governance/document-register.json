@@ -99,6 +99,20 @@
       "sha256": "0c8305e9b5921b122205e15121858823bae3b2154f19f8da7235ac7ead50e551",
       "approval_basis": "owner establishment instruction",
       "independent_review": "pending"
+    },
+    {
+      "document_id": "RUN-001",
+      "title": "WEB4 cloud runtime launch and recovery",
+      "revision": "1.0",
+      "status": "Issued",
+      "classification": "Public",
+      "accountable_owner": "Keddeh1",
+      "issued_on": "2026-10-07",
+      "review_due": "2027-10-07",
+      "path": "governance/WEB4_CLOUD_RUNTIME_RUNBOOK.md",
+      "sha256": "024289ae1abcb13713ce1d642349a3f4282c6f658b3bf6291305ae60a808c815",
+      "approval_basis": "owner WEB4 integration instruction",
+      "independent_review": "pending"
     }
   ]
 }

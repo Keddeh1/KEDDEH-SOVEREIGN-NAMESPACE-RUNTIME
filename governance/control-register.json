@@ -100,6 +100,16 @@
       "scope": "KEDDEH namespace delivery",
       "review_frequency": "quarterly and after material change",
       "last_test_result": "see evidence; not a blanket assurance"
+    },
+    {
+      "control_id": "C-11",
+      "objective": "Owned WEB4 process launch, authenticated control and observed restart/readback",
+      "owner_role": "Engineering implementer",
+      "status": "verified operating",
+      "evidence": "docs/evidence/web4-integration.json; docs/evidence/web4-browser.json; RUN-001",
+      "scope": "local cloud workspace, actual owner package processes; no public production promotion",
+      "review_frequency": "each runtime release and after material change",
+      "last_test_result": "local live process and real Chromium checks passed; source and packaged suites passed"
     }
   ]
 }

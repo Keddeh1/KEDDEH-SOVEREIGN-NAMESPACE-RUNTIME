@@ -1,0 +1,29 @@
+{
+  "release": "0.2.0",
+  "unit_and_functional_suite": {
+    "tests": 69,
+    "passed": 69,
+    "failed": 0,
+    "skipped": 0
+  },
+  "separately_installed_wheel_suite": {
+    "tests": 69,
+    "passed": 69,
+    "failed": 0,
+    "skipped": 0
+  },
+  "live_runtime_checks": 16,
+  "actual_chromium_checks": 6,
+  "wheel": {
+    "name": "keddeh_sovereign_namespace_runtime-0.2.0-py3-none-any.whl",
+    "bytes": 50383,
+    "sha256": "be695f8dbddbb31575c726dc4eed1b386fef7415e1d9ea0d774ce10973349303"
+  },
+  "exact_original_repository_restore": {
+    "files": 10,
+    "bytes": 28729518,
+    "result": "verified"
+  },
+  "fresh_atomic_preparation": "passed",
+  "scope": "local cloud processes and preserved browser architecture; not public or independently assessed production"
+}
