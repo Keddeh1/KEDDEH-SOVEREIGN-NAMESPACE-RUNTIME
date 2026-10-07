@@ -1,0 +1,11 @@
+{
+  "runtime_id": null,
+  "generator_id": null,
+  "verifier_id": null,
+  "transaction": null,
+  "source_sha256": null,
+  "stateRoot": null,
+  "phaseRoot": null,
+  "parent_stateRoot": null,
+  "receipts": {}
+}

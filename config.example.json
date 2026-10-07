@@ -1,0 +1,26 @@
+{
+  "revision": "REV-002",
+  "production": false,
+  "zone": "keddeh.com",
+  "preservation_sha256": null,
+  "nodes": [
+    {
+      "name": "ns1.keddeh.com",
+      "role": "primary",
+      "public_ip": null,
+      "vfs_required_bytes": 10000000000000
+    },
+    {
+      "name": "ns2.keddeh.com",
+      "role": "secondary",
+      "public_ip": null,
+      "vfs_required_bytes": 10000000000000
+    }
+  ],
+  "archive_required_bytes": 100000000000000,
+  "genesis": {
+    "children_per_participant": 3,
+    "independent_returns_per_child": 2
+  },
+  "credentials": "Provision DNSSEC/TSIG/signing keys securely outside Git; no sample secrets."
+}

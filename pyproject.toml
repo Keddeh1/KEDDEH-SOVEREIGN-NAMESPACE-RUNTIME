@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keddeh-sovereign-namespace-runtime"
+version = "0.1.0"
+description = "Evidence-gated KEDDEH namespace runtime foundation"
+requires-python = ">=3.12"
+
+[tool.setuptools.packages.find]
+where = ["src"]

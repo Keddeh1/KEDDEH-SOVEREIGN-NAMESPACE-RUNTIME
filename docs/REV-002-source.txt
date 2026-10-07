@@ -1,0 +1,311 @@
+KEDDEH Sovereign Namespace Runtime
+REV-002 — Execution Graph + File Manifest
+Parent: REV-001 — A1 SQUARESPACE + FULL RUNTIME
+Change class: A1 web cutover + sovereign authority implementation
+Boundary: additive, lineage-preserving, evidence-gated
+1. Engineering decision
+The work contains two linked but non-interchangeable transactions. Track A is the immediate Squarespace-hosted DNS change that connects keddeh.com to the KEDDEH Sites surface. Track B is deployment of KEDDEH’s own authoritative namespace runtime and the later registrar delegation to it. Track A must not wait for Track B. Track B must not be simulated by adding nameserver labels to Squarespace.
+Track
+Purpose
+Current authority
+Promotion evidence
+A — A1
+Route apex and www web traffic
+Squarespace DNS
+Authoritative DNS readback + TLS response + unchanged mail
+B — sovereign authority
+Operate ns1/ns2, registry, DNSSEC, VFS and services
+KEDDEH runtime servers after delegation
+Two-node predelegation tests + DNSSEC/TSIG + lineage receipts
+
+2. Dependency graph
+Preserve the full current zone before mutation.
+Execute Track A using only the four requested apex records and the already verified www records.
+Independently verify A, CNAME, TXT, MX, SPF, DKIM, DMARC and TLS.
+Populate ns1 and ns2 as complete runtime servers; each receives its own 10 TB VFS.
+Replicate immutable generations to the 100 TB archive/rehydration plane.
+Import the preserved zone, sign it, transfer it under TSIG, and validate both nodes directly.
+Register in-bailiwick glue only when stable public addresses exist.
+Coordinate DNSSEC DS state, then change Domain Nameservers in a separate change window.
+3. A1 Squarespace transaction — keddeh.com
+Open: Squarespace Account Dashboard → Domains → keddeh.com → DNS → DNS Settings.
+Owner-supplied path: https://account.squarespace.com/domains/managed/keddeh.com/dns/dns-settings
+3.1 Pre-cutover custody
+Capture every Type, Host, Priority, TTL and Value.
+Record a UTC timestamp and hash for the complete inventory.
+Preserve every MX, SPF, DKIM, DMARC, Google-verification, CAA and unrelated service record.
+Multiple TXT records may coexist at one host. Never replace SPF to add verification.
+3.2 Mail records that must remain
+Type
+Host
+Priority
+Value
+MX
+@
+1
+smtp.google.com
+TXT
+@
+—
+v=spf1 include:_spf.google.com ~all
+TXT
+google._domainkey
+—
+Preserve the complete current DKIM value exactly
+
+3.3 Keep the existing www mapping
+Type
+Host
+Value
+TTL
+CNAME
+www
+custom-domains.chatgpt.site
+30 min
+TXT
+_cf-custom-hostname.www
+54251cf2-25f1-446c-aa5b-4a866ba5cc20
+30 min
+TXT
+_openai-site-verification.www
+openai-site-verification=YsG8QdITvo_l73_mbqBZ3k-lJXe6GXmNatuK-Bvk2B4
+30 min
+
+3.4 Add the apex mapping
+Type
+Host
+Value
+TTL
+A
+@
+162.159.143.30
+30 min
+A
+@
+172.66.3.26
+30 min
+TXT
+_openai-site-verification
+openai-site-verification=_05XXcvcl1VNOosTelVQvd8md3Epu8kP0447U4aWMG0
+30 min
+TXT
+_cf-custom-hostname
+54daa8b7-aa4c-4a20-b7e8-391d21e4157d
+30 min
+
+Squarespace appends the domain suffix. Enter the Host exactly as shown. Do not create a CNAME at @.
+3.5 Resolve the actual conflict
+198.185.159.144 is a Squarespace web-routing address. Remove it from the active set only when its Host is @. Preserve it in the pre-cutover inventory. Do not remove it if it belongs to another hostname. Remove no MX, TXT or CAA record merely because it is unfamiliar.
+3.6 Save order
+Add both apex A records.
+Add both apex verification TXT records.
+Confirm the three www records.
+Reconfirm mail and unrelated records.
+Remove only confirmed conflicting apex A/AAAA web records.
+Save.
+3.7 Independent readback
+dig +short A keddeh.com
+dig +short CNAME www.keddeh.com
+dig +short TXT _openai-site-verification.keddeh.com
+dig +short TXT _cf-custom-hostname.keddeh.com
+dig +short MX keddeh.com
+dig +short TXT keddeh.com
+dig +short TXT google._domainkey.keddeh.com
+curl -fsSIL https://keddeh.com/
+curl -fsSIL https://www.keddeh.com/
+Expected apex A set: 162.159.143.30 and 172.66.3.26. Expected www CNAME: custom-domains.chatgpt.site. The certificate SAN must cover the requested hostname. If the web cutover causes apex HTTP/TLS failure, restore only the preserved pre-cutover apex web records.
+4. Registered domain manifest
+Domain
+OpenAI verification
+CF custom-hostname
+Registration ID
+braink.com
+vnFj5QZduq4JIgFflIDm-2ItXFshR2J9TnQ-lilCH2g
+df9e769e-53ee-4a44-9359-4ec93854e3ed
+appgdom_6ac581fda75c8191b75e61f8a4dd36c0
+path.com
+VOHP7idOEKRiZchr2_wpAtF2AsPNNlwbUCtTTqHO3fs
+4eea04ed-363d-4a3c-8a77-9d63c8d1b8ad
+appgdom_6ac582023ce88191b9a1c07907de6395
+serverspace.com.au
+SBGVGRbSeeg8uHC-nKf76xWKbdzWfPlSSVruweJBkcI
+30af5c5d-2173-4607-a424-0e8695db89c4
+appgdom_6ac583230c048191b7c9fb3921b28f40
+serverspace.com
+OO-sXtRkB1_8hCK_W9NsbrmcNn9LT02gf2frQeqHDX8
+125bd4b8-d0c1-4910-8e87-dfa669db907c
+appgdom_6ac5832739308191aeb685603cfd0417
+
+Every domain uses apex A values 162.159.143.30 and 172.66.3.26, preserves mail/unrelated records, removes only conflicting apex web A/AAAA records, and never uses an apex CNAME.
+5. Runtime topology and ownership
+Component
+Responsibility
+Failure boundary
+Evidence
+ns1.keddeh.com
+Primary authoritative DNS, DNSSEC signing, registry projection
+Failure domain A
+UDP/TCP authority, DNSKEY/RRSIG, VFS receipt
+ns2.keddeh.com
+Independent secondary authority, TSIG transfer, failover
+Failure domain B
+UDP/TCP authority, SOA serial convergence, VFS receipt
+ns1 VFS
+Zones, keys, registry, journals, services, receipts
+Independent 10 TB logical namespace
+capacity + fsync + readback
+ns2 VFS
+Independent zones, transfer state, services, receipts
+Independent 10 TB logical namespace
+capacity + fsync + readback
+Archive plane
+Immutable generations, retention, rehydration
+100 TB logical plane
+generation replay and restore receipt
+
+6. Executable file manifest
+File
+Function
+Acceptance condition
+config.example.json
+Zone, node, VFS and registration desired state
+No placeholder node IP; preservation hash present
+compile_zones.py
+Deterministic canonical zone generation
+Stable SHA receipt; production preservation gate passes
+render_knot_config.py
+Role-bound ns1/ns2 Knot configuration
+Authoritative-only, DNSSEC/TSIG policy correct
+verify_vfs.py
+Per-node mount, capacity, fsync and readback
+10 TB node plane and 100 TB archive observed
+logical_vfs.py
+Content-addressed objects and versioned logical paths
+Atomic write, optimistic concurrency, hash-chain receipt
+registry_service.py
+Namespace/routing desired-state registry
+Loopback-bound, WAL/FULL sync, replayable events
+hydrate_service_volumes.py
+Exact-source app admission
+Hash/size match; traversal and symlink rejection
+propagation_runtime.py
+Forward/backward lineage and archive rehydration
+Distinct stateRoot/phaseRoot; full parent/descendant replay
+healthcheck.py
+Direct DNS and registry readback
+AA response over UDP and TCP plus registry health
+bootstrap_runtime_server.sh
+Fail-closed server population
+All prerequisites and gates complete before readiness
+service-stack.compose.yml
+Four isolated application volumes
+Non-root, no capabilities, read-only roots, bounded state
+reverse-proxy.nginx.conf
+Path-to-service routing
+Explicit routes; no accidental host exposure
+A1_SQUARESPACE_CUTOVER.md
+Immediate operator cutover and later delegation handoff
+Exact records and direct validation preserved
+
+7. Exact-source service custody
+Volume
+Bytes
+SHA-256
+StoreSpace
+3,387,164
+0ddfdc2c270a77ff563f3a09cb06ef58c8b129243adad89d4ade93d642586764
+ServerSpace + Mine
+3,428,223
+7fac1aef65d30f6d5c7fcfba0bf900a8ea210cc2c74df02b2e8a9f696a57ba79
+BRAINK 2.1 full
+49,523,705
+ede3a31aa99bfb6bb4d170d21ed9728c6b7f67e7a3f7e81f513686fed8067a0e
+BRAINK 2.1 light
+462,874
+bfb67e98dc4bd0ba7a773b40e859d086f0fc00696fc63b998057233ded94c322
+
+Archives are admitted by exact hash and byte length, extracted into write-once hash-addressed paths, and mounted additively. No source assertion is promoted as a runtime fact without execution evidence.
+8. Genesis IL-LLM execution model
+Every root service is a genesis participant; no service is reduced to a disposable child.
+Genesis participants converge into Genesis IL-LLM 1.
+Each genesis participant launches exactly three child domains.
+Each child returns exactly two independent front connections into the Genesis-1 backplane.
+Genesis-1 is fed by the operator surface, layer 3, layer 2, genesis siblings and verified child returns.
+Every participant subscribes to IL-LLM.
+Production controls add explicit identities, signed immutable envelopes, bounded leases, replay protection, resource ceilings, spawn cooldowns, flywheel continuity, and wrapped-phase/ramped soft re-anchor. These controls implement the architecture without converting the 0.297 reference or health thresholds into unsupported claims.
+9. Propagation logic
+Forward: exact source → content hash → staged desired state → signed generation → ns1/ns2 replica → launched service → direct health/readback → archive generation → independent receipt.
+Backward: live answer/service → runtime identity → generation receipt → parent stateRoot → exact source hash → source volume/configuration → author/verifier ledger.
+stateRoot proves data state. phaseRoot proves synchronization state. They remain separate. Missing, divergent or unverifiable links keep the generation unpromoted.
+10. Nameserver delegation decision boundary
+DNS Settings edits the current hosted zone.
+Nameserver Registration creates glue for in-bailiwick hosts.
+Domain Nameservers changes delegation.
+DNSSEC controls the registrar DS chain.
+Do not change Domain Nameservers until ns1 and ns2 have stable public IPs, complete preserved zones, authoritative UDP/TCP answers, matching SOA serials, DNSSEC proofs, recursion refusal, and TSIG-protected transfers. If a DS already exists, coordinate removal/rollover so no stale DS makes the domain bogus.
+dig @NS1_PUBLIC_IP keddeh.com SOA +norecurse
+dig @NS2_PUBLIC_IP keddeh.com SOA +norecurse
+dig +tcp @NS1_PUBLIC_IP keddeh.com DNSKEY +dnssec +norecurse
+dig +tcp @NS2_PUBLIC_IP keddeh.com AXFR
+The unauthenticated AXFR request must be refused.
+11. Failure analysis and rollback
+Failure
+Detection
+Containment
+Recovery
+Web apex split
+Unexpected A/AAAA set
+Stop promotion
+Remove only conflicting apex web records
+Mail regression
+MX/SPF/DKIM/DMARC mismatch
+Do not delegate
+Restore preserved record exactly
+Stale DNSSEC DS
+SERVFAIL / validation bogus
+Hold delegation
+Coordinate DS removal/rollover
+ns1 loss
+Direct health/readback failure
+ns2 remains authoritative
+Rehydrate immutable generation
+archive loss
+generation readback fails
+Keep node-local generations
+Repair archive before pruning anything
+spawn instability
+health oscillation / retry budget exhausted
+freeze new children
+flywheel, diagnose, soft re-anchor
+lineage divergence
+stateRoot or parent mismatch
+reject promotion
+replay from last common immutable generation
+
+12. Acceptance ledger
+Exact source hashes match.
+ns1 10 TB VFS capacity/fsync/readback passes.
+ns2 10 TB VFS capacity/fsync/readback passes.
+100 TB archive generation and rehydration passes.
+UDP/TCP 53 authoritative answers pass on both nodes.
+External recursion is refused.
+DNSSEC chain and rollover controls pass.
+TSIG transfer and SOA serial convergence pass.
+Registry hash chain and optimistic concurrency pass.
+Forward and backward lineage replay pass.
+Three-child/two-return Genesis topology passes.
+Application volumes launch additively without host privilege leakage.
+Generator_ID differs from Verifier_ID.
+DNS publication and TLS activation are confirmed externally.
+Every promoted claim has an atomic receipt.
+13. Current evidence and honest status
+Web/runtime suite: 33/33 tests passed.
+MCP surface: 16 tools registered and tested.
+Host-aware routes implemented for braink.com, path.com, serverspace.com and serverspace.com.au.
+Deterministic zone compiler, role-bound authority renderer, logical VFS, registry, source hydrator, health checks, propagation runtime, systemd units, container stack and reverse proxy are present.
+Four apex hostnames are registered to the KEDDEH Sites runtime.
+External domain/TLS promotion remains pending until the current DNS authorities publish the requested records and direct readbacks pass.
+14. Promotion rule
+No state is called deployed, integrated, live, verified or complete until runtime identity, exact source hash, executed command or transaction, direct health readback, DNS/TLS result where applicable, full lineage replay, and an independent-assessor receipt are present and mutually consistent.
+
+
