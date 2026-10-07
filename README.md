@@ -43,3 +43,7 @@ See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLO
 `keddeh_namespace.envelope` provides strict v1 observations, deterministic project JSON encoding, domain-separated state/phase roots, and complete-chain verification against an externally retained head digest. It rejects unknown fields, ambiguous floating-point payloads, missing identities and noncanonical timestamps. It is not a signature verifier or an immutable storage engine.
 
 `keddeh_namespace.native_labels` implements the PDF's occupied labels (...,-3,-2,1,2,3,...) through an explicit displacement adapter; native 0/-1 are invalid while measurement displacement 0 maps to native origin 1. DNS/storage protocol integers retain their ordinary meanings. See [the envelope contract](docs/ENVELOPE_CONTRACT.md).
+
+## Delivery tracking
+
+Use the [GitHub workflow](docs/GITHUB_WORKFLOW.md) for milestones, issue dependencies, labels and active filtered issue lists. Project creation is currently denied by the integration; its field/view configuration is recorded separately as pending.

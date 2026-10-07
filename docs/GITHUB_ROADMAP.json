@@ -1,0 +1,228 @@
+{
+  "milestones": [
+    {
+      "number": 1,
+      "title": "M1 \u2014 Track A: preserved web cutover"
+    },
+    {
+      "number": 2,
+      "title": "M2 \u2014 Track B: trusted state foundation"
+    },
+    {
+      "number": 3,
+      "title": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 4,
+      "title": "M4 \u2014 Independent assessment and delegation"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "title": "Capture complete current-zone custody inventory",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/1",
+      "milestone": "M1 \u2014 Track A: preserved web cutover"
+    },
+    {
+      "number": 2,
+      "title": "Execute Track A apex/www cutover and independently verify mail and TLS",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/2",
+      "milestone": "M1 \u2014 Track A: preserved web cutover"
+    },
+    {
+      "number": 3,
+      "title": "Implement signed immutable receipts and trusted chain assessment",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/3",
+      "milestone": "M2 \u2014 Track B: trusted state foundation"
+    },
+    {
+      "number": 4,
+      "title": "Implement logical VFS atomic writes and observed capacity gates",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/4",
+      "milestone": "M2 \u2014 Track B: trusted state foundation"
+    },
+    {
+      "number": 5,
+      "title": "Implement loopback-bound durable desired-state registry",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/5",
+      "milestone": "M2 \u2014 Track B: trusted state foundation"
+    },
+    {
+      "number": 6,
+      "title": "Admit exact service archives with safe write-once extraction",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/6",
+      "milestone": "M2 \u2014 Track B: trusted state foundation"
+    },
+    {
+      "number": 7,
+      "title": "Compile preserved zones and render role-bound Knot authority",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/7",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 8,
+      "title": "Implement forward/backward generation replay and archive rehydration",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/8",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 9,
+      "title": "Launch isolated verified services and explicit reverse-proxy routes",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/9",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 10,
+      "title": "Implement bounded Genesis participants and independent child returns",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/10",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 11,
+      "title": "Run fail-closed bootstrap and two-node predelegation acceptance",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/11",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    },
+    {
+      "number": 12,
+      "title": "Complete independent promotion assessment and registrar delegation",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/12",
+      "milestone": "M4 \u2014 Independent assessment and delegation"
+    },
+    {
+      "number": 13,
+      "title": "Adapt uploaded workstation as the operator surface",
+      "url": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/13",
+      "milestone": "M3 \u2014 Track B: two-node runtime validation"
+    }
+  ],
+  "labels": [
+    {
+      "description": "Current-authority apex/www cutover; independent of runtime delegation",
+      "name": "track:a-web"
+    },
+    {
+      "description": "Zones, Knot authority, DNSSEC, TSIG and registrar delegation",
+      "name": "area:dns"
+    },
+    {
+      "description": "Sovereign authority, storage, registry and service runtime",
+      "name": "track:b-runtime"
+    },
+    {
+      "description": "Canonical generations, signatures, receipts and replay",
+      "name": "area:lineage"
+    },
+    {
+      "description": "Logical VFS, capacity, durability and archive restore",
+      "name": "area:storage"
+    },
+    {
+      "description": "Durable desired-state registry and optimistic concurrency",
+      "name": "area:registry"
+    },
+    {
+      "description": "Participant identity, child/return topology, leases and continuity",
+      "name": "area:genesis"
+    },
+    {
+      "description": "Exact-source application admission, isolation and routing",
+      "name": "area:services"
+    },
+    {
+      "description": "Operator surface and workflow documentation",
+      "name": "area:operator"
+    },
+    {
+      "description": "Implementation with explicit acceptance checks",
+      "name": "type:feature"
+    },
+    {
+      "description": "Operator transaction with custody and rollback evidence",
+      "name": "type:operations"
+    },
+    {
+      "description": "Executed readback, negative tests and independent assessment",
+      "name": "type:validation"
+    },
+    {
+      "description": "Required custody or trust prerequisite; work first",
+      "name": "priority:p0"
+    },
+    {
+      "description": "Required runtime acceptance capability",
+      "name": "priority:p1"
+    },
+    {
+      "description": "Requires source archives, infrastructure or owner-controlled access",
+      "name": "blocked:external"
+    },
+    {
+      "description": "Follow-on operator integration",
+      "name": "priority:p2"
+    },
+    {
+      "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+      "name": "evidence:required"
+    }
+  ],
+  "project": {
+    "title": "KEDDEH Namespace Runtime \u2014 REV-002",
+    "owner": "Keddeh1",
+    "status": "not_created_permission_denied",
+    "fields": {
+      "Status": [
+        "Backlog",
+        "Ready",
+        "In progress",
+        "In review",
+        "Blocked",
+        "Done"
+      ],
+      "Evidence": [
+        "Pending",
+        "Executed",
+        "Independently verified"
+      ]
+    },
+    "views": [
+      {
+        "name": "Delivery board",
+        "layout": "board",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME is:open",
+        "group_by": "Status"
+      },
+      {
+        "name": "Track A \u2014 Web cutover",
+        "layout": "table",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME label:track:a-web",
+        "group_by": "Milestone"
+      },
+      {
+        "name": "Track B \u2014 Runtime",
+        "layout": "board",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME label:track:b-runtime is:open",
+        "group_by": "Status"
+      },
+      {
+        "name": "External blockers",
+        "layout": "table",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME label:blocked:external is:open",
+        "group_by": "Milestone"
+      },
+      {
+        "name": "Acceptance evidence",
+        "layout": "table",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME label:evidence:required",
+        "group_by": "Evidence"
+      },
+      {
+        "name": "Milestone roadmap",
+        "layout": "table",
+        "filter": "repo:Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+        "group_by": "Milestone"
+      }
+    ]
+  }
+}
