@@ -1,4 +1,5 @@
 """Owned recursive dual-network domains carrying owner workstation execution."""
+import fcntl
 import ipaddress
 import hashlib
 import json
@@ -26,6 +27,10 @@ class DomainMesh:
         from .web4_runtime import write_json
         write_json(self.path,self.data)
     def network(self,name):
+        with open("/tmp/keddeh-domain-network-allocator.lock","a+b") as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            return self._network_locked(name)
+    def _network_locked(self,name):
         existing=self.run('network','ls','--filter','name=^'+name+'$','-q')
         if existing:
             obj=json.loads(self.run('network','inspect',name))[0]

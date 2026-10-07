@@ -11,6 +11,7 @@
   button('Live status',()=>window.KEDDEH_WEB4.request('/api/web4/status'));
   button('Receipt',()=>window.KEDDEH_WEB4.request('/api/web4/generation'));
   button('Boot host',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot'}));
+  button('VFS subscription',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'vfs'}));
   button('Domain mesh',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'domains'}));
   button('KEDDEH console',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'hci'}));
   button('Bilateral status',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'bilateral'}));
