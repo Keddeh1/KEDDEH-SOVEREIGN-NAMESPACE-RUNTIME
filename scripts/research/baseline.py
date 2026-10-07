@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Capture current baseline evidence without exporting private keys or tokens."""
 from pathlib import Path
-import hashlib,json,platform,sqlite3,subprocess,sys,time,urllib.request,urllib.error
+import argparse,hashlib,json,platform,sqlite3,subprocess,sys,time,urllib.request,urllib.error
 from keddeh_namespace.web4_runtime import PINS
 def http_json(port,path,body=None,token=None):
     raw=None if body is None else json.dumps(body).encode()
@@ -9,7 +9,9 @@ def http_json(port,path,body=None,token=None):
     if token:headers["Authorization"]="Bearer "+token
     req=urllib.request.Request(f"http://127.0.0.1:{port}"+path,data=raw,headers=headers)
     with urllib.request.urlopen(req,timeout=60) as response:return json.load(response)
-base=Path('/workspace');engine=Path(__file__).resolve().parents[2];out=base/'braink-setup/research-100';out.mkdir(exist_ok=True)
+ap=argparse.ArgumentParser();ap.add_argument('--output',default='/workspace/braink-setup/research-100');a=ap.parse_args()
+base=Path('/workspace');engine=Path(__file__).resolve().parents[2];out=Path(a.output).resolve();out.mkdir(parents=True,exist_ok=True)
+if any((out/f'step-{n:03d}.json').exists() for n in range(1,11)):ap.error('Existing baseline evidence is immutable; select a new --output directory for the next iteration')
 def save(step,result):
  (out/f'step-{step:03d}.json').write_text(json.dumps({'step':step,'status':'passed','result':result},indent=2)+'\n');print('Step',step,'passed',flush=True)
 def shell(args,cwd=None):return subprocess.check_output(args,cwd=cwd,text=True).strip()

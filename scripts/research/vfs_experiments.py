@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Isolated VFS capacity and integrity experiments; never mutate the live store."""
 from pathlib import Path
-import json,statistics,sys,tempfile,time,tracemalloc,hashlib,subprocess,types
+import argparse,json,statistics,sys,tempfile,time,tracemalloc,hashlib,subprocess,types
 sys.path.insert(0,'/workspace/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE')
 baseline_ref='63489b3eee86ae2f19e9b8ba191147a5c77879f1'
 baseline_source=subprocess.check_output(['git','show',baseline_ref+':vfs_server/store.py'],cwd='/workspace/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE')
@@ -9,11 +9,13 @@ baseline=types.ModuleType('vfs_server.research_baseline');baseline.__package__='
 exec(compile(baseline_source,'qualified-pre-snapshot/vfs_server/store.py','exec'),baseline.__dict__)
 VFSStore=baseline.VFSStore
 from vfs_server.model import ArtifactWrite
-out=Path('/workspace/braink-setup/research-100');out.mkdir(exist_ok=True)
+ap=argparse.ArgumentParser();ap.add_argument('--output',default='/workspace/braink-setup/research-100');ap.add_argument('--sources',default='/workspace/braink-setup/research-100');a=ap.parse_args()
+out=Path(a.output).resolve();sources=Path(a.sources).resolve();out.mkdir(parents=True,exist_ok=True)
+if any((out/f'step-{n:03d}.json').exists() for n in range(11,18)):ap.error('Existing experiment evidence is immutable; select a new --output directory for the next iteration')
 def save(n,result):
  (out/f'step-{n:03d}.json').write_text(json.dumps({'step':n,'status':'passed','result':result},indent=2)+'\n');print('Step',n,'passed',flush=True)
 for n,p in [(11,'cpython'),(12,'sqlite')]:
- metadata=json.loads((out/(p+'-source.json')).read_text());source=out/('cpython-sqlite3.rst' if p=='cpython' else 'sqlite-wal.c');assert hashlib.sha256(source.read_bytes()).hexdigest()==metadata['sha256'];save(n,metadata)
+ metadata=json.loads((sources/(p+'-source.json')).read_text());source=sources/('cpython-sqlite3.rst' if p=='cpython' else 'sqlite-wal.c');assert hashlib.sha256(source.read_bytes()).hexdigest()==metadata['sha256'];save(n,metadata)
 save(13,{'finding':'events() fully verifies receipts on one connection, then queries delivery rows on another connection; concurrent writes can enter delivery after the verified snapshot','primary_source_lines':{'sqlite_wal_reader_snapshot':[110,116],'cpython_explicit_transactions':[2686,2693]},'hypothesis':'a single explicit read transaction binds integrity verification and returned events to one WAL snapshot','scale_constraint':'full historical verification remains O(history); this fix does not claim bounded history cost'})
 measurements=[]
 for count in (100,1000,10000):
