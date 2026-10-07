@@ -11,7 +11,7 @@ manifest=json.loads(Path(a.manifest).read_text());root=Path(manifest['runtime_ro
 if not (root/'launch.json').exists():prepare(root,manifest['library_manifest'],manifest['port_offset'])
 cfg=json.loads((root/'launch.json').read_text())
 if cfg.get('repository') not in (None,manifest['repository']):raise ValueError('runtime root is already bound to another repository')
-cfg['repository']=manifest['repository'];cfg['family_id']=manifest['family_id'];cfg['engine_ref']=manifest['engine_ref'];write_json(root/'launch.json',cfg)
+cfg['vfs']=manifest['vfs'];cfg['repository']=manifest['repository'];cfg['family_id']=manifest['family_id'];cfg['engine_ref']=manifest['engine_ref'];write_json(root/'launch.json',cfg)
 try:
     token=(root/'state/token').read_text()
     live=http_json(cfg['ports']['gateway'],'/api/web4/status',token=token)

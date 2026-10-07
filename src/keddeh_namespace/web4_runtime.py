@@ -232,6 +232,8 @@ class LaunchController:
         self.owner_kernel.state='OPERATING'
         from .domain_mesh import DomainMesh
         self.domains=DomainMesh(self)
+        from .vfs_subscription import VFSSubscription
+        self.vfs=VFSSubscription(self)
 
     def env(self):
         values={k:v for k,v in os.environ.items() if k in ('PATH','LANG','LC_ALL','TMPDIR','PYTHONPATH')}
@@ -377,7 +379,7 @@ class LaunchController:
 
     def control(self,body):
         action=body.get('action')
-        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'hci':3,'workbook':3,'observer':3,'estate':3}.get(action)
+        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3}.get(action)
         if owner_index is None:raise ValueError('unsupported owner-kernel action')
         payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
         if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
@@ -387,6 +389,7 @@ class LaunchController:
             result=self.domains.control(body)
             if body.get('operation','status')!='status':return {'domain':result,'namespace_receipt':self.receipt('domains.'+body['operation'],result)}
             return result
+        if action=='vfs':return dict(self.vfs.state)
         if action=='hci':
             from .hci_contract import KEDDEHHCIContract
             readback={'runtime':self.status(),'bilateral':dict(self.bilateral.data),'domains':self.domains.control({'operation':'status'})}
@@ -497,6 +500,7 @@ def serve(root):
         controller.domains.resume()
         while not controller.stop_event.wait(.5):
             controller.bilateral.tick()
+            controller.vfs.tick()
             # One owned process per role; bounded restart rate for all owner services.
             for name,proc in list(controller.processes.items()):
                 if proc.poll() is not None and time.monotonic()>=controller.retry_after.get(name,0):

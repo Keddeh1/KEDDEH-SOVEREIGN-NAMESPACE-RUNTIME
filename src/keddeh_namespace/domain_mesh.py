@@ -1,4 +1,5 @@
 """Owned recursive dual-network domains carrying owner workstation execution."""
+import ipaddress
 import hashlib
 import json
 import os
@@ -29,7 +30,13 @@ class DomainMesh:
         if existing:
             obj=json.loads(self.run('network','inspect',name))[0]
             if obj.get('Labels',{}).get('keddeh.owner-root')!=str(self.controller.root):raise ValueError('foreign network name collision')
-        else:self.run('network','create','--internal','--label',self.label,name)
+        else:
+            ids=self.run('network','ls','-q').split()
+            existing=json.loads(self.run('network','inspect',*ids)) if ids else []
+            occupied=[ipaddress.ip_network(c['Subnet']) for n in existing for c in (n.get('IPAM',{}).get('Config') or []) if c.get('Subnet')]
+            subnet=next((ipaddress.ip_network(f'10.240.{i}.0/24') for i in range(256) if not any(ipaddress.ip_network(f'10.240.{i}.0/24').overlaps(s) for s in occupied if s.version==4)),None)
+            if subnet is None:raise RuntimeError('declared domain subnet pool exhausted')
+            self.run('network','create','--internal','--subnet',str(subnet),'--label',self.label,name)
     def container(self,domain):return self.prefix+'-'+domain
     def spawn(self,parent=None):
         from .web4_runtime import write_json
