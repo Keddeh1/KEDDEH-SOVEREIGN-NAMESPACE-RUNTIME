@@ -20,6 +20,16 @@ The example ledger deliberately fails promotion. The validator checks the struct
 
 ## Status
 
-Only repository scaffolding and the ledger validator are implemented. No DNS records, delegation, servers, storage allocations, or application deployments have been changed. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
+Repository scaffolding, the ledger validator, and exact archive byte verification are implemented. No DNS records, delegation, servers, storage allocations, or application deployments have been changed. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
 
 See [the preserved source](docs/REV-002-source.txt), [architecture](docs/ARCHITECTURE.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md), and [cutover runbook](docs/A1_SQUARESPACE_CUTOVER.md). Example configuration contains unset public IPs and preservation hash intentionally; production must reject it until measured inputs are available.
+
+## Exact-source custody
+
+`source-manifest.json` preserves all four owner-supplied archive sizes and hashes. Verify a locally supplied archive without extraction or execution:
+
+```sh
+python -m keddeh_namespace.source_custody source-manifest.json braink-2.1-full /path/to/archive
+```
+
+A match proves the bytes read match the expected digest; it does not prove safe extraction, trusted authorship, running services, or deployment. Actual source archives remain unavailable. Use operator-controlled local files for this foundation checker; hardened staging and write-once extraction remain pending.

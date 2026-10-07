@@ -1,0 +1,22 @@
+{
+  "revision": "REV-002",
+  "status": "owner-supplied expectations; archives not yet verified",
+  "archives": {
+    "storespace": {
+      "bytes": 3387164,
+      "sha256": "0ddfdc2c270a77ff563f3a09cb06ef58c8b129243adad89d4ade93d642586764"
+    },
+    "serverspace-mine": {
+      "bytes": 3428223,
+      "sha256": "7fac1aef65d30f6d5c7fcfba0bf900a8ea210cc2c74df02b2e8a9f696a57ba79"
+    },
+    "braink-2.1-full": {
+      "bytes": 49523705,
+      "sha256": "ede3a31aa99bfb6bb4d170d21ed9728c6b7f67e7a3f7e81f513686fed8067a0e"
+    },
+    "braink-2.1-light": {
+      "bytes": 462874,
+      "sha256": "bfb67e98dc4bd0ba7a773b40e859d086f0fc00696fc63b998057233ded94c322"
+    }
+  }
+}

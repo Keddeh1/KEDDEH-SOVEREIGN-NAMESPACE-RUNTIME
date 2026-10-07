@@ -1,0 +1,6 @@
+{
+  "source": "REV-002-source.txt",
+  "bytes": 12457,
+  "sha256": "4dd99589c491998c0c10a5dfda6961f999889b0edc308856925fcb9d90f38142",
+  "receipt_scope": "local preservation of uploaded concept only; no deployment attestation"
+}
