@@ -1,0 +1,13 @@
+name: Governance document integrity
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  document-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Validate controlled standards and registers
+        run: python3 scripts/check_governance.py

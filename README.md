@@ -51,3 +51,7 @@ Use the [GitHub workflow](docs/GITHUB_WORKFLOW.md) for milestones, issue depende
 ## Runtime implementation and evidence
 
 See [runtime operations](docs/RUNTIME_OPERATIONS.md) and [validation summary](docs/evidence/validation-summary.json). Run the optional Docker authority test with `.venv/bin/python scripts/test_knot_integration.py`. Local passing tests do not establish production DNS delegation or storage capacity.
+
+## Enterprise governance
+
+[Controlled governance baseline](governance/README.md): document lifecycle, accountability, change/release gates, assurance, access/source custody and incident/recovery standards. Validate with `python scripts/check_governance.py`. GitHub review routing and automated integrity checks are defined; independent review and platform branch-rule enforcement remain separately tracked.

@@ -1,0 +1,4 @@
+# Review routing; enforcement requires separately verified branch rules.
+/governance/ @Keddeh1
+/.github/ @Keddeh1
+/scripts/check_governance.py @Keddeh1
