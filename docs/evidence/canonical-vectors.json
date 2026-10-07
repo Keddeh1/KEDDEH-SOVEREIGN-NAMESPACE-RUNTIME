@@ -1,0 +1,24 @@
+[
+  {
+    "value": {
+      "b": 2,
+      "a": 1
+    },
+    "canonical_utf8": "{\"a\":1,\"b\":2}",
+    "sha256": "43258cff783fe7036d8a43033f830adfc60ec037382473548ac742b888292777"
+  },
+  {
+    "value": {
+      "values": [
+        null,
+        true,
+        -2,
+        1,
+        2
+      ],
+      "message": "café"
+    },
+    "canonical_utf8": "{\"message\":\"café\",\"values\":[null,true,-2,1,2]}",
+    "sha256": "3e1cc988f3a155dd91c196dc453db5f889531c1177b1f70a3756a888cbace35b"
+  }
+]

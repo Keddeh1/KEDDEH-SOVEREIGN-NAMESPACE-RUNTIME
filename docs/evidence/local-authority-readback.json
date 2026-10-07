@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "address": "127.0.0.1",
+      "port": 15353,
+      "soa_serial": 2,
+      "authoritative_udp_tcp": "passed",
+      "recursion_refused": "passed",
+      "unauthenticated_axfr": "denied",
+      "dnssec_soa_signature": "validated_against_test_primary_dnskey",
+      "dnskey_sha256": "2d363554cc8e17558e59835df937d5329389e5bd5c1a200e0d76b192b5391e1f"
+    },
+    {
+      "address": "127.0.0.1",
+      "port": 15354,
+      "soa_serial": 2,
+      "authoritative_udp_tcp": "passed",
+      "recursion_refused": "passed",
+      "unauthenticated_axfr": "denied",
+      "dnssec_soa_signature": "validated_against_test_primary_dnskey",
+      "dnskey_sha256": "2d363554cc8e17558e59835df937d5329389e5bd5c1a200e0d76b192b5391e1f"
+    }
+  ],
+  "tsig_transfer": "observed_authenticated_secondary_IXFR",
+  "scope": "two local containers, same failure domain, fixture zone, no registrar DS chain"
+}

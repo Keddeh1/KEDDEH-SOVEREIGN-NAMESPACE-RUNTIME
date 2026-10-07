@@ -1,0 +1,36 @@
+{
+  "unit_and_functional_suite": {
+    "tests": 54,
+    "passed": 54,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "local unit and functional checks, including actual authenticated HTTP generation commit/readback and six TCP return connections"
+  },
+  "local_knot_integration": "passed",
+  "local_knot_restart": "passed",
+  "local_knot_scope": "two local fixture nodes; authoritative UDP/TCP, DNSSEC signature against fixture DNSKEY, authenticated TSIG IXFR, serial convergence, recursion refusal and unauthenticated AXFR denial",
+  "compose_schema": "docker compose config passed for generated fixture; actual four-service launch unrun",
+  "workstation": {
+    "source_bytes": 3312374,
+    "source_sha256": "7d39b6f1941bc447f4afd498243c6171cd6231b8d117b1e228c5550b214de002",
+    "admission": "exact archive verified and extracted separately",
+    "original_npm_ci": "failed: incomplete Rollup optional-platform lock entries",
+    "scratch_lock_repair_install": "passed",
+    "scratch_typecheck": "passed",
+    "production_build": "failed: corrupted index.tsx bytes near line 8294",
+    "runtime_integration": "unrun"
+  },
+  "external_dns": "sampled recursive queries timed out; public cutover not verified",
+  "production_blockers": [
+    "complete current hosted-zone inventory and operator access",
+    "four exact REV-002 service archives",
+    "clean workstation frontend source",
+    "two independently provisioned runtime servers and stable public IPs",
+    "observed 10 TB node mounts and 100 TB archive",
+    "secure production key/token provisioning and external trust distribution",
+    "independent production assessor receipts",
+    "registrar DS/glue/delegation authorisation and change window",
+    "GitHub Project creation permission"
+  ],
+  "packaged_wheel_suite": "54 tests passed in separate environment from installed wheel"
+}

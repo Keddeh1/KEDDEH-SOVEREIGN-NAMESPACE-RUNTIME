@@ -6,12 +6,12 @@ Track A routes apex/www traffic through the existing Squarespace authority. Trac
 
 ## Development
 
-Python 3.12+, no external dependencies or live credentials required for the current foundation.
+Python 3.12+ with checksum-pinned cryptography/dnspython dependencies. No live credentials are required for the local tests.
 
 ```sh
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -e .
+UV_CACHE_DIR=/workspace/.cache/uv uv sync --frozen --python python
 python -m unittest discover -s tests -v
 python -m keddeh_namespace.evidence evidence.example.json
 ```
@@ -20,7 +20,7 @@ The example ledger deliberately fails promotion. The validator checks the struct
 
 ## Status
 
-Repository scaffolding, the ledger validator, and exact archive byte verification are implemented. No DNS records, delegation, servers, storage allocations, or application deployments have been changed. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
+The local runtime now implements signed observations/assessments, durable generation registry, content-addressed VFS, safe archive admission/replay, bounded topology policy, deterministic zone/config staging and fail-closed preflight. Production gates remain incomplete. No DNS records, delegation, servers, storage allocations, or application deployments have been changed. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
 
 See [the preserved source](docs/REV-002-source.txt), [architecture](docs/ARCHITECTURE.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md), and [cutover runbook](docs/A1_SQUARESPACE_CUTOVER.md). Example configuration contains unset public IPs and preservation hash intentionally; production must reject it until measured inputs are available.
 
@@ -36,7 +36,7 @@ A match proves the bytes read match the expected digest; it does not prove safe 
 
 ## Related uploaded sources
 
-See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These are statically assessed references; no uploaded implementation has been integrated or executed.
+See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These sources were mapped statically; the workstation archive was also separately admitted and build-tested. Its frontend build is blocked by corrupted source. No uploaded application runtime was integrated.
 
 ## Observation envelope and native labels
 
@@ -47,3 +47,7 @@ See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLO
 ## Delivery tracking
 
 Use the [GitHub workflow](docs/GITHUB_WORKFLOW.md) for milestones, issue dependencies, labels and active filtered issue lists. Project creation is currently denied by the integration; its field/view configuration is recorded separately as pending.
+
+## Runtime implementation and evidence
+
+See [runtime operations](docs/RUNTIME_OPERATIONS.md) and [validation summary](docs/evidence/validation-summary.json). Run the optional Docker authority test with `.venv/bin/python scripts/test_knot_integration.py`. Local passing tests do not establish production DNS delegation or storage capacity.

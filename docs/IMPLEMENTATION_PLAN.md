@@ -1,6 +1,6 @@
 # Implementation plan and acceptance gates
 
-All items below are pending except the local ledger schema validator, exact archive byte verifier, and their tests.
+Local implementations and validations are recorded in docs/RUNTIME_OPERATIONS.md and docs/evidence/validation-summary.json. The numbered items retain their production acceptance requirements; implementation alone does not close infrastructure/independent-assessment gates.
 
 1. Preserve current authoritative zones with full records, UTC capture, deterministic bytes and SHA-256; establish separate Track A and Track B receipts.
 2. Implement compile_zones.py with canonical output and a production preservation gate. Add render_knot_config.py with explicit node roles, authoritative-only configuration, DNSSEC signing and TSIG transfer policy. Never place TSIG or signing keys in Git.
