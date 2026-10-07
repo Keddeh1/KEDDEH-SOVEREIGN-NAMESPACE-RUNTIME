@@ -1,7 +1,7 @@
 ---
 document_id: RUN-001
 title: WEB4 cloud runtime launch and recovery
-revision: 1.0
+revision: 1.1
 status: Issued
 classification: Public
 accountable_owner: Keddeh1
@@ -15,7 +15,7 @@ approval_basis: Owner instruction to integrate WEB4 architecture and launch pack
 
 ## Purpose and implemented scope
 
-Launch the actual owner-supplied KEX/BRAINK processes in the existing cloud workspace and connect the preserved browser carriers to them. Release 0.2.0 uses ten separately identified uploaded sources. Exact originals remain in the private deployment-queue repository and local Library; source custody and launch derivations are verified before starting. This local runtime is a delivered implementation, independent of the separate REV-002 four-archive production authority gates.
+Launch the actual owner-supplied KEX/BRAINK processes in the existing cloud workspace and connect the preserved browser carriers to them. Release 0.3.0 uses ten separately identified uploaded runtime sources and four custody-pinned owner control/HCI sources. Exact originals remain in the private deployment-queue repository and local Library; source custody and launch derivations are verified before starting. This local runtime is a delivered implementation, independent of the separate REV-002 four-archive production authority gates.
 
 The prepared environment requires Python 3.12+, uv and Node (Node 24.19.0 was exercised). Chromium and Node's WebSocket API are needed only for browser verification. Reuse existing checkouts; do not create worktrees. No npm dependencies are needed to launch the supplied compiled Node entrypoints.
 
@@ -98,3 +98,13 @@ For a failure, preserve private logs, journals, trust, credentials, source manif
 | Revision | Date | Change | Basis |
 |---|---|---|---|
 | 1.0 | 2026-10-07 | Implemented WEB4 cloud launch, actuation, browser bridges and functional recovery | Owner integration instruction; independent review pending |
+
+## Repository families, VFS and frontage
+
+Each repository carries `.keddeh/family.json`, its launcher and the qualified public wheel with process/action/configuration documentation. Nine families have isolated state and ports on one physical cloud host. Each family operates ten host workstations and three distinct recursive network domains with three owner workers per domain. These are software actuators and owner-governed bilateral execution, not physical energy generation.
+
+Start the primary VFS repository family first, then the remaining repository launchers. The owner VFS_SERVER provides authenticated artifact admission, independent byte readback, observer receipts, durable event cursors and subscriptions. Each family caches package updates only after digest verification; promotion is explicit. Both private VFS repositories carry the complete private owner-source bundle. Public repositories carry the wheel rather than private raw uploads.
+
+Recovery preserves root state, token files, domain mount state and signed history. Missing owned Docker containers are re-created from admitted configuration; existing foreign containers are rejected. Docker namespace isolation does not establish multi-host disaster recovery. Backoff limits repeated service restart attempts. Resource limits and one-host capacity require separate production sizing.
+
+The keddeh.com family additionally serves 13 customer routes and stores consented registrations privately with durable idempotency and 90-day retention. Customer HTTP requests cannot invoke owner control actions. The integration candidate records the existing Site identity; native public publication is pending unavailable Sites source/publishing access. Git push is not a Site deployment receipt. Local DOM evidence and package qualification remain distinct from independent production assessment.

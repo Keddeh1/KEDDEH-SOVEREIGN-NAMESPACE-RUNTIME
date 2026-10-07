@@ -6,7 +6,7 @@ Track A routes apex/www traffic through the existing Squarespace authority. Trac
 
 ## Development
 
-Python 3.12+ with checksum-pinned cryptography/dnspython dependencies. No live credentials are required for the local tests.
+Python 3.12+ with checksum-pinned cryptography/dnspython/NumPy dependencies. No live credentials are required for the local tests.
 
 ```sh
 python -m venv .venv
@@ -20,7 +20,7 @@ The example ledger deliberately fails promotion. The validator checks the struct
 
 ## Status
 
-The local runtime now implements signed observations/assessments, durable generation registry, content-addressed VFS, safe archive admission/replay, bounded topology policy, deterministic zone/config staging and fail-closed preflight. Production gates remain incomplete. No DNS records, delegation, servers, storage allocations, or application deployments have been changed. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
+The local runtime now implements signed observations/assessments, durable generation registry, content-addressed VFS, safe archive admission/replay, bounded topology policy, deterministic zone/config staging and fail-closed preflight. Production gates remain incomplete. Nine owner-runtime families are deployed on the current cloud host. Public DNS and registrar authority remain outside this local qualification. The original document's 33/33 tests, 16 MCP tools, registrations, and existing implementation claims are supplied assertions, not independently verified facts.
 
 See [the preserved source](docs/REV-002-source.txt), [architecture](docs/ARCHITECTURE.md), [implementation plan](docs/IMPLEMENTATION_PLAN.md), and [cutover runbook](docs/A1_SQUARESPACE_CUTOVER.md). Example configuration contains unset public IPs and preservation hash intentionally; production must reject it until measured inputs are available.
 
@@ -36,7 +36,7 @@ A match proves the bytes read match the expected digest; it does not prove safe 
 
 ## Related uploaded sources
 
-See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These sources were mapped statically; the workstation archive was also separately admitted and build-tested. Its frontend build is blocked by corrupted source. No uploaded application runtime was integrated.
+See [component mapping](docs/COMPONENT_MAP.md) and [custody inventory](docs/UPLOAD_INVENTORY.json) for the eight additional uploads. These sources were mapped statically; the workstation archive was also separately admitted and build-tested. Its frontend build is blocked by corrupted source. The subsequent WEB4 integration admits the supplied runtime packages and operates their workstations, actuators and recursive domains; see docs/OWNER_ENVIRONMENT.md.
 
 ## Observation envelope and native labels
 
