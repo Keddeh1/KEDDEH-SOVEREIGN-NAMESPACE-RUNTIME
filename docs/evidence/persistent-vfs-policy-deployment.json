@@ -1,0 +1,21 @@
+{
+  "schema": "braink.native-vfs-policy-deployment.v1",
+  "state": "READBACK",
+  "started": 1791410650.7641156,
+  "finished": 1791410662.9349573,
+  "container": "keddeh-aff83d1ff9-controller",
+  "old_image": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+  "new_image": "sha256:6d185f58d32249d2889e03321cd38e1bfda2324de0f18aff4a15263c807f3730",
+  "downtime_seconds": 12.170842409133911,
+  "healthy_nodes": 10,
+  "boot_status": "COMPLETED",
+  "source_digest": "74992d2436aa429dc1d66f2ae47b3efa120619b918360dfb3719596384cec778",
+  "state_reset": false,
+  "identity_bytes_retained": true,
+  "mounts_retained": true,
+  "service_count": 16,
+  "unaffected_other_containers": 35,
+  "unaffected_other_container_pids_retained": true,
+  "qualified_wheel_sha256": "d4d6fcb9f175eff77d4287cf26db9e36a5eadf53fc3c147ee6e4eda2a26f5224",
+  "wrapper_sha256": "654eff2ab4bfede912c41cc8eccca314bfbc3c09bb302facbcd85bb9a4c6cf05"
+}
