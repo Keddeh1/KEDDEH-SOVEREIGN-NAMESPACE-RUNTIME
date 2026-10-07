@@ -6,7 +6,7 @@
   "scope": "owner-runtime-led research, implementation and evidence-based promotion",
   "batch_size": 10,
   "status": "in_progress",
-  "next_step": 21,
+  "next_step": 31,
   "independent_assessment": null,
   "groups": [
     {
@@ -573,7 +573,7 @@
       "id": 21,
       "batch": 3,
       "title": "Trace bilateral intent persistence and actor acknowledgement crash boundaries",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -581,13 +581,19 @@
       "depends_on": [
         20
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-021.json",
+          "sha256": "c64984b7c1bbbb521a0e19560a113cea1457ff5a18cdfc0c42ef13d65e61af95",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 22,
       "batch": 3,
       "title": "Specify idempotent cycle finalization and receipt recovery contract",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -595,13 +601,19 @@
       "depends_on": [
         21
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-022.json",
+          "sha256": "bfc167b3e9e239fc1a9bc56239b55fce1637d37dd03a95488af36a674d50385b",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 23,
       "batch": 3,
       "title": "Build isolated crash injection at pre-intent and post-intent boundaries",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -609,13 +621,19 @@
       "depends_on": [
         22
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-023.json",
+          "sha256": "17161311ec59ddd9515a687b7ca0152536779a6fc8f26e6c3d65f4341fbcd634",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 24,
       "batch": 3,
       "title": "Inject failure after a register commit before acknowledgement persistence",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -623,13 +641,19 @@
       "depends_on": [
         23
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-024.json",
+          "sha256": "09fc75282e7472bb6a52dec0a8ad6afe48e93d1e8735f454b8741e10a2f49c23",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 25,
       "batch": 3,
       "title": "Verify replay uses the retained nonce without duplicate register effects",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -637,13 +661,19 @@
       "depends_on": [
         24
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-025.json",
+          "sha256": "e1da7170290904aa307d1c40cf65b1af066f2d5c38e21ac14a452b3d600d93d1",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 26,
       "batch": 3,
       "title": "Inject failure after final actor return before namespace receipt save",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -651,13 +681,19 @@
       "depends_on": [
         25
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-026.json",
+          "sha256": "8e9de99f8e65228685d2800dcf618282d3f0d314e2c5195047581647e184831d",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 27,
       "batch": 3,
       "title": "Implement durable cycle finalization identity and receipt reconciliation",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -665,13 +701,19 @@
       "depends_on": [
         26
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-027.json",
+          "sha256": "858feaf417c189a942e9f1272e0a90adbaaa65440debe3534d9dee605e9aaf9f",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 28,
       "batch": 3,
       "title": "Verify explicit pause survives restart and prevents new cycles",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -679,13 +721,19 @@
       "depends_on": [
         27
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-028.json",
+          "sha256": "b854ac94bc21f0178394f9d7ea711ab7255d076122208905c0e852b5564a121c",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 29,
       "batch": 3,
       "title": "Qualify owner-feedback outage and retry recovery without fabricated samples",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -693,13 +741,19 @@
       "depends_on": [
         28
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-029.json",
+          "sha256": "3070639ae2e1c7d58718ab49d35157ddf671a47c3fca3da9d8625ecdb4ea3d68",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 30,
       "batch": 3,
       "title": "Promote the bilateral recovery change through wheel and VFS qualification",
-      "status": "pending",
+      "status": "completed",
       "research": "Inspect the relevant supplied implementation and primary-source evidence; retain source revisions and unresolved assumptions.",
       "engineering": "Produce the concrete change, experiment or access-checked deployment named in this step.",
       "bilateral_application": "Publish the result through owner VFS actor admission, separately read and hash its bytes, obtain the observer receipt, and bind its digest to an owner-runtime transaction with journal readback. These are distinct local execution/readback roles, not independent external assessment.",
@@ -707,7 +761,13 @@
       "depends_on": [
         29
       ],
-      "evidence": []
+      "evidence": [
+        {
+          "result": "evidence/step-030.json",
+          "sha256": "fc526b8079c04e0dfd5ba455e7c0f9ddb927a62f7ee69e954cfbb21f885c6cd6",
+          "application": "evidence/APPLICATION.json"
+        }
+      ]
     },
     {
       "id": 31,

@@ -65,3 +65,10 @@ Start with `bash scripts/start_web4_cloud.sh`; inspect with `.venv/bin/python -m
 ## Persistent owner-runtime deployment
 
 This repository now carries a pinned, running owner-runtime family. See [.keddeh/README.md](.keddeh/README.md) for launch, state retention, VFS subscription and operating scope; [deployment readbacks](.keddeh/deployment-evidence.json) identify the actual engine and cached package digest. The [distributed package](packages/owner-family/README.md) includes its wheel, qualification result and per-process/action/configuration guides. Customer-frontage publication and independent production assessment remain separate from this cloud-host deployment.
+
+
+## Current architecture and resident release
+
+Release 0.3.2 runs nine owner-runtime families on the current Docker host, with persistent controllers, 27 recursive domains, 171 workstations, preserved HTML KEX engines and R36/network multiplexers. Crash recovery, service-agreement revocation and family-scoped disconnect are qualified locally. See [architecture](docs/ARCHITECTURE.md), [technology assessment](docs/architecture/TECHNOLOGY_ASSESSMENT.md), [standardization audit](docs/architecture/STANDARDIZATION_AUDIT.md), [batch 03 evidence](docs/research/BATCH_REPORT_03.md) and [ARC-001](governance/ARCHITECTURE_AND_ATTRIBUTION_STANDARD.md).
+
+Nine controlled standards and fourteen controls distinguish technical implementation from independent approval. Off-site infrastructure, worldwide novelty, physical power generation and independent production certification remain unverified. Thirty of the hundred programme steps are complete; the next task is step 31, recursive-domain capacity and continuity.

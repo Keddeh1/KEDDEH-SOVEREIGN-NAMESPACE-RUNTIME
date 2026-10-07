@@ -1,8 +1,8 @@
 {
   "schema": "keddeh.qualified-executable-manifest.v1",
-  "qualified_commit": "cb37d317c1907cf0639629096157555a4ab047ad",
+  "qualified_commit": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
   "files": {
-    "pyproject.toml": "f9d76225dbb2a9043a17e539968b6ab93e969da06cbb9dab91da6a580c5c381b",
+    "pyproject.toml": "1ffec84dce66fd8f86e52b9817d8d9a20e1d712a9364e9dffcdfc91f6c44f8ed",
     "scripts/bootstrap_owner_environment.py": "349065ad157e2fc1fd0043b42b6d1db73a9d219e9332cb378bd1f8f6c2db32d1",
     "scripts/deploy_family.py": "3e1d0102a90698955a77fffa709dd0f123a9ec0b1962bd7adac11a1cdfae4cb9",
     "src/keddeh_namespace/__init__.py": "397d9d15f7a8d8a9a108f50ab9b58632a6873e9b246f14e1a599857ef65df3a4",
@@ -35,12 +35,14 @@
     "src/keddeh_namespace/web4_client.js": "637ac44529afbaf43ad68bce5404644e9f54572c39ceaeed2915f76f301f1b72",
     "src/keddeh_namespace/web4_domain.mjs": "e8274c90c1f5d7a9cfafa1746e7a53a4c337d5c999ffb9a54be0055ac58e8103",
     "src/keddeh_namespace/web4_panel.js": "3d0371bf28ddcf9bc60d76c553abbb35085e7aaa4cb3a29529688fe07d73cc34",
-    "src/keddeh_namespace/web4_runtime.py": "93e61a3a21f1c7d4374e3d7bd2290602492e74cde013f0857f3fba0e964f20a0",
-    "uv.lock": "2120bbc4982971cd798f4382029af7a94230b9e76f5c3980fcd666bcabc94f6b"
+    "src/keddeh_namespace/web4_runtime.py": "f02532fd29aceeb232b3c0db0dc93e4277cd8ed9bf8dad92dd838ec668c4aaba",
+    "uv.lock": "6c3c032ff8b76b4f79bbc35f2b1d235bcb7c2b1fe65ddb469068dda1579d7d35",
+    "scripts/launch_resident_controller.py": "f9c867691cf98479b61565c4f7f15ca3f2279ce3256e9891b562f498fd939980",
+    "scripts/build_resident_image.py": "04d67ab49bbf08e99f699e3e920afac17edf24c45f6fa4902dbf4ac0ae8d6080"
   },
   "wheel": {
-    "name": "keddeh_sovereign_namespace_runtime-0.3.1-py3-none-any.whl",
-    "sha256": "febda9a891a2e6220d34ee783f20cd954aadb49442c7cb1332f3a6278a3c4ded",
-    "bytes": 71502
+    "name": "keddeh_sovereign_namespace_runtime-0.3.2-py3-none-any.whl",
+    "sha256": "5bbaad7c3d4c2dee231255eb183343674e48a6411f7ee007118c78b3dfffe71d",
+    "bytes": 71542
   }
 }

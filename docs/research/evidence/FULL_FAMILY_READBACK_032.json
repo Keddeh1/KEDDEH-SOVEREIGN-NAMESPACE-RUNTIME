@@ -1,0 +1,263 @@
+{
+  "schema": "keddeh.full-family-readback.v1",
+  "families": [
+    {
+      "repository": "Keddeh1/BRAINK-BETA-TEST",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-8879799e51-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "a88f744d0e4d5099533a5d5625440a88206d649848914407fb04131ad886c8c8",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026532883]",
+        "net:[4026532828]",
+        "net:[4026533315]"
+      ],
+      "bilateral_cycle": 1526,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14177,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-250c6d8c76-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "07673fd18b13782ac1932158892db4f972f014ed0360050220eee956bc0a6e33",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026534046]",
+        "net:[4026532321]",
+        "net:[4026533681]"
+      ],
+      "bilateral_cycle": 1785,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14175,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 2,
+        "reason": "restore pre-qualification owner pipeline policy"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-aff83d1ff9-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "5ad2a6b0a8182074c1577a652dce5e9102327170e6acb25edca83ad18a6ce434",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026533173]",
+        "net:[4026532668]",
+        "net:[4026532610]"
+      ],
+      "bilateral_cycle": 1585,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14181,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-6bb5772b80-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "139712aa8f83681eb65e774e096b66962df4fce670b8371d40b06260eb6b6bda",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026532530]",
+        "net:[4026533637]",
+        "net:[4026533545]"
+      ],
+      "bilateral_cycle": 1497,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14169,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-513b3ce2ba-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "e300d01aa270dc8ff6e28160d7d2898148132c4edfc672ea3da0badeb7a16fa4",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026533156]",
+        "net:[4026533326]",
+        "net:[4026532453]"
+      ],
+      "bilateral_cycle": 1484,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14183,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-51583f4f28-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "29a06fd79b16f167c4ed7d1d171d4fcbbf0841d3a98feb087b888b87ece65db7",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026532899]",
+        "net:[4026533468]",
+        "net:[4026533162]"
+      ],
+      "bilateral_cycle": 1528,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14191,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-84c55a2991-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "a7dc87abed4229db7a3baceafeb4316d290723010d72e8f90187cf3e2cc47632",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026533754]",
+        "net:[4026532397]",
+        "net:[4026532982]"
+      ],
+      "bilateral_cycle": 1499,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14187,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/braink-foundary-schema",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-6024cc365f-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "2cdf4e262b034cb7d15b09391a67850d0462ef2d36eb4a9c513d2930969c4a05",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026532459]",
+        "net:[4026533035]",
+        "net:[4026533131]"
+      ],
+      "bilateral_cycle": 1475,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14185,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    },
+    {
+      "repository": "Keddeh1/keddeh.com",
+      "qualified_executable": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+      "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+      "resident_container": "keddeh-fc1e43e314-controller",
+      "restart_policy": "unless-stopped",
+      "source_digest": "26c2a1c765565785de858842520c6365b58f091534ddbb0f881614766c485cb8",
+      "healthy_host_workstations": 10,
+      "domains": 3,
+      "domain_workstations": 9,
+      "network_namespaces": [
+        "net:[4026532743]",
+        "net:[4026533971]",
+        "net:[4026532247]"
+      ],
+      "bilateral_cycle": 1463,
+      "vfs_bundle_sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "vfs_cursor": 14197,
+      "three_html_surfaces": true,
+      "agreement_and_projection_controls": "keddeh.kex-projection-plan.v1",
+      "gate": {
+        "schema": "keddeh.pipeline-gate.v1",
+        "connected": true,
+        "generation": 0,
+        "reason": "existing owner-local pipeline"
+      },
+      "scope": "same cloud Docker host; owner-only authority"
+    }
+  ],
+  "resident_controllers": 9,
+  "recursive_domains": 27,
+  "owner_workstations": 171,
+  "distinct_domain_network_namespaces": 27,
+  "qualified_wheel_sha256": "5bbaad7c3d4c2dee231255eb183343674e48a6411f7ee007118c78b3dfffe71d",
+  "scope": "actual same-host deployment; off-site and independent public promotion not performed"
+}

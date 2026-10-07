@@ -6,7 +6,7 @@
 
 ## Function and architectural application
 
-Host children disable core dumps and bound descriptors/output. Domain containers additionally use 128MiB memory,0.5 CPU,64 processes,read-only code,no added Linux capabilities and explicit state mounts.
+Host children disable core dumps and bound descriptors/output. Domain containers additionally use 256MiB memory,0.5 CPU,64 processes,32MiB Node heaps,16MiB probe heap,read-only code,no added Linux capabilities and explicit state mounts.
 
 ## Guidelines, fit and field use
 

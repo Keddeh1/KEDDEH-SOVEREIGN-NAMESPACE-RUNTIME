@@ -280,6 +280,146 @@
       "receipt_hash": "73c537fa55a0fc28d38284fc0d6b4dfd81d8bfcfde8a1fa7c2a487f7f33bcb42",
       "journal_observer_status": "VERIFIED",
       "journal_observer_signature_verified": true
+    },
+    {
+      "step": 21,
+      "result_sha256": "c64984b7c1bbbb521a0e19560a113cea1457ff5a18cdfc0c42ef13d65e61af95",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-021.json",
+      "vfs_actor_receipt_digest": "60d6f7de4fc4f876ca1e37c00249efc3e15e2d2646d29b16f08373c5b585bc7b",
+      "vfs_observer_receipt_digest": "cb75300429a2f6f0801ee10238f5076160217819a152e43d8c4dbcb3c211a602",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 1,
+      "nonce": 3078900166,
+      "receipt_hash": "35a4f400287e35243b178061e8547142e12dd32b4a18f7b7fc46356644120db4",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 22,
+      "result_sha256": "bfc167b3e9e239fc1a9bc56239b55fce1637d37dd03a95488af36a674d50385b",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-022.json",
+      "vfs_actor_receipt_digest": "5ee0cd1896b311a3333f534f9dfdc240a590bade955789c68da53bc01c0adb0b",
+      "vfs_observer_receipt_digest": "5806f7653c91f46a308848e34723176aaad3fd9470bc903697fafefb2cbb4325",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 2,
+      "nonce": 3009921471,
+      "receipt_hash": "faa4c3c6435d093c45a53ec42fd6ab544d1ca98a3b2281943b7007712814b4c5",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 23,
+      "result_sha256": "17161311ec59ddd9515a687b7ca0152536779a6fc8f26e6c3d65f4341fbcd634",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-023.json",
+      "vfs_actor_receipt_digest": "1765b244a7f18a00db3b073accedbc1d601acd2c8682cdde702675d69fd3128e",
+      "vfs_observer_receipt_digest": "1d931f44aeb8ffcdd0af0aaa07741260b0b2532246fa92237b8d1493ed1457ca",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 3,
+      "nonce": 286463511,
+      "receipt_hash": "054b463a1850d93c12e2d9316eb3102023fe4ab3b4271dbc0cc2b357351c3bac",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 24,
+      "result_sha256": "09fc75282e7472bb6a52dec0a8ad6afe48e93d1e8735f454b8741e10a2f49c23",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-024.json",
+      "vfs_actor_receipt_digest": "b46c4741c968076977d9e6b80e9eef409798ac51566884e6b4b79e7ae17e2811",
+      "vfs_observer_receipt_digest": "10188fe64c24bbb09f1a2d7fc33804df1fd99cd6eeebca71fcdbe738b3e575a8",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 4,
+      "nonce": 678820873,
+      "receipt_hash": "a62011eea99bcca9a2c76348085a5c45c0ae4e333592964f98eee42b8b1b4745",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 25,
+      "result_sha256": "e1da7170290904aa307d1c40cf65b1af066f2d5c38e21ac14a452b3d600d93d1",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-025.json",
+      "vfs_actor_receipt_digest": "8f91cecb43004e0e26a597b7c3fa87eb336902335df2fef80f7333c6fef43068",
+      "vfs_observer_receipt_digest": "a2522628c4ff46d5432ec0cb11f948d1a0ec5ff8a816f6a9f2b06a6aec917255",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 5,
+      "nonce": 1886509793,
+      "receipt_hash": "548db285e9cf0afeff640c63fcfc2b91fb1fee388b1d36c7655a22a39d725476",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 26,
+      "result_sha256": "8e9de99f8e65228685d2800dcf618282d3f0d314e2c5195047581647e184831d",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-026.json",
+      "vfs_actor_receipt_digest": "fd84e606174e2cbe0a9c39428fbe5c5d5bbf287df740ea790994aa319912d4bb",
+      "vfs_observer_receipt_digest": "8e7fa5ae17653f363af5396a4c427a95213357e6dc2945d8cca5b009cc689e07",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 6,
+      "nonce": 2682887566,
+      "receipt_hash": "1ec39b7d0f5e112e40c34cd48c8c2e1d3e54525d9ec609dbb1584b9316a131c2",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 27,
+      "result_sha256": "858feaf417c189a942e9f1272e0a90adbaaa65440debe3534d9dee605e9aaf9f",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-027.json",
+      "vfs_actor_receipt_digest": "3ce1defc87ce4ea77746496ecf1c49530d26c6e2489213fb9ec711419363605f",
+      "vfs_observer_receipt_digest": "3596a93bc6a067f16d7753459f44082df57e0cc9cd24e393b5795623d620cf8b",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 7,
+      "nonce": 4109012869,
+      "receipt_hash": "e77cc328a6f5d6a9efc3dbcd0c24d6c6a34aa97b7bee600630156bb87c137dd3",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 28,
+      "result_sha256": "b854ac94bc21f0178394f9d7ea711ab7255d076122208905c0e852b5564a121c",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-028.json",
+      "vfs_actor_receipt_digest": "ab9493e756a44eadb07036c2a281db6faf8fb47c9bad90690afe41dca16f9bc9",
+      "vfs_observer_receipt_digest": "3411fe8b465986c639bd1294abe68f4a0f2f75430dfb189fba830d7a228f83df",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 8,
+      "nonce": 2494321848,
+      "receipt_hash": "6469f1ba503e83bd5af44ade5c1734f3cbf53449dd88207049eee8eceb803f03",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 29,
+      "result_sha256": "3070639ae2e1c7d58718ab49d35157ddf671a47c3fca3da9d8625ecdb4ea3d68",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-029.json",
+      "vfs_actor_receipt_digest": "73726182e91fcb3c3a0485a0d415dc24851dddcb7326a7b4ecbf7ca0ecf3a148",
+      "vfs_observer_receipt_digest": "29b58fe3819e93cf046a6661caf682e10652f91daa135b87ebf78af36aca3443",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 9,
+      "nonce": 2590208048,
+      "receipt_hash": "54cbcbcd30427cb563727b09c561b00f84a72aa4c8ad7880825580195a931203",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
+    },
+    {
+      "step": 30,
+      "result_sha256": "fc526b8079c04e0dfd5ba455e7c0f9ddb927a62f7ee69e954cfbb21f885c6cd6",
+      "vfs_path": "/packages/web4/research/PLAN-100/step-030.json",
+      "vfs_actor_receipt_digest": "e4db18e389afb8e995c0b67b6bea6516a09bb7c2f5ee34740e6b6471768a9abf",
+      "vfs_observer_receipt_digest": "686ecb1973ca22573d8eae6e6ab56631be415b27464e522cd161529fe1468e9b",
+      "byte_readback_verified": true,
+      "owner_runtime_actor_status": "ACTOR_COMMITTED",
+      "node_id": 10,
+      "nonce": 2154517244,
+      "receipt_hash": "0c2af6fa706299f40b215f94b1cd770dc58fd8b39c19724d3b52649b4cd16d3f",
+      "journal_observer_status": "VERIFIED",
+      "journal_observer_signature_verified": true
     }
   ],
   "family_mirrors": [
@@ -327,6 +467,53 @@
       "repository": "Keddeh1/keddeh.com",
       "mirrored_step_results": 20,
       "cursor": 5825
+    }
+  ],
+  "batch_mirrors_021_030": [
+    {
+      "repository": "Keddeh1/BRAINK-BETA-TEST",
+      "mirrored_step_results": 10,
+      "cursor": 13097
+    },
+    {
+      "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+      "mirrored_step_results": 10,
+      "cursor": 13093
+    },
+    {
+      "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "mirrored_step_results": 10,
+      "cursor": 13083
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE",
+      "mirrored_step_results": 10,
+      "cursor": 13089
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+      "mirrored_step_results": 10,
+      "cursor": 13085
+    },
+    {
+      "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "mirrored_step_results": 10,
+      "cursor": 13093
+    },
+    {
+      "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "mirrored_step_results": 10,
+      "cursor": 13089
+    },
+    {
+      "repository": "Keddeh1/braink-foundary-schema",
+      "mirrored_step_results": 10,
+      "cursor": 13085
+    },
+    {
+      "repository": "Keddeh1/keddeh.com",
+      "mirrored_step_results": 10,
+      "cursor": 13099
     }
   ]
 }

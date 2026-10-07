@@ -1,0 +1,49 @@
+{
+  "schema": "keddeh.crash-package-vfs-proof.v1",
+  "sha256": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+  "bytes": 26140514,
+  "predecessor": "31bc1e1e98fefc505aa8ad5878978d1a4c1c887a1a64f72de387eeae7fc70639",
+  "actor_receipt": {
+    "artifact_digest": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+    "at": 1791363158.3879418,
+    "detail": {
+      "predecessor": "31bc1e1e98fefc505aa8ad5878978d1a4c1c887a1a64f72de387eeae7fc70639",
+      "size": 26140514,
+      "source": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME@9ab5fd83c4e3e87e592885f00e912f2d8fe19233"
+    },
+    "kind": "VFS_ARTIFACT_WRITE",
+    "path": "/packages/web4/OWNER_FAMILY_BUNDLE.tar.gz",
+    "previous_receipt_digest": "4a55d20b1a472c908293c873a514c81b80868c147435726c7686ccc4bcdc158f",
+    "receipt_digest": "67dab492b404861467bc10c20ce6b3ae4cddf656aaaecbfdb0bbb9ba05537124",
+    "receipt_id": "VFS_ARTIFACT_WRITE:67dab492b404861467bc10c2",
+    "status": "COMMITTED"
+  },
+  "observer_receipt": {
+    "artifact_digest": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+    "at": 1791363159.015484,
+    "detail": {
+      "expected_digest": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "observed_digest": "5857359830b8c24e9028c3dda7287d62ca0c7ad0803c32e0b6fc0adfe6577dc6",
+      "size": 26140514
+    },
+    "kind": "OBSERVER_VFS_READBACK",
+    "path": "/packages/web4/OWNER_FAMILY_BUNDLE.tar.gz",
+    "previous_receipt_digest": "67dab492b404861467bc10c20ce6b3ae4cddf656aaaecbfdb0bbb9ba05537124",
+    "receipt_digest": "b5d9a8ea3e89949e113b5b4755df4dc1c643351994923fb730bb90632fd5fe8e",
+    "receipt_id": "OBSERVER_VFS_READBACK:b5d9a8ea3e89949e113b5b47",
+    "status": "VISIBLE"
+  },
+  "exact_byte_readback": true,
+  "mirrors": [
+    "Keddeh1/BRAINK-BETA-TEST",
+    "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+    "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+    "Keddeh1/SERVERSPACE",
+    "Keddeh1/SERVERSPACE-EXTERNAL",
+    "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+    "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+    "Keddeh1/braink-foundary-schema",
+    "Keddeh1/keddeh.com"
+  ],
+  "mirrored_families": 9
+}

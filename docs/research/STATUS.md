@@ -1,7 +1,5 @@
-# Programme status
+# Research and development programme
 
-Completed: steps 1–20. Pending: steps 21–100.
+30 of 100 steps completed with admitted VFS bytes, real R36 actor returns, signed detached readbacks and nine mirrored feeds. Complete release 0.3.2 family deployment includes resident controllers, supplied HTML KEX surfaces, multiplexers, recursive domains, agreement controls and durable disconnect. Off-site and public Site promotion remain distinct external gates.
 
-See PLAN_100.json for machine-readable status and BATCH_REPORT_01_02.md for research findings, implementation, bilateral receipts and limitations.
-
-**Next task: step 21 — trace bilateral intent persistence and actor acknowledgement crash boundaries.**
+**Next task: step 31 — evaluate recursive-domain capacity and continuity limits.**
