@@ -366,11 +366,15 @@ class LaunchController:
             result=self.registry.commit({'request_id':request_id or secrets.token_hex(16),'path':'web4/runtime','expected_version':version,'signed':signed,'desired_state':readback,'phase_state':phase})
             self.last_receipt=result;return result
 
-    def queue_boot(self):
+    def queue_boot(self,resume=False):
         # Use the supplied broker command format and actual outbound agent loop.
         broker=load_module(self.estate/'broker/owner_broker.py','web4_local_broker')
         existing=http_json(self.ports['broker'],'/api/self-host/status').get('command') or {}
-        if existing.get('status') in ('QUEUED','LEASED'):raise ValueError('boot command already pending; preserve its lease')
+        if existing.get('status') in ('QUEUED','LEASED'):
+            if resume:
+                self.current_boot_id=existing['requestId']
+                return existing
+            raise ValueError('boot command already pending; preserve its lease')
         broker.STATE_DIR=self.state/'broker';broker.EVIDENCE=broker.STATE_DIR/'ledger.jsonl';broker.NODE_FILE=broker.STATE_DIR/'node.json';broker.COMMAND_FILE=broker.STATE_DIR/'pending_command.json'
         request='web4.boot.'+secrets.token_hex(8)
         self.current_boot_id=request
@@ -543,7 +547,7 @@ def serve(root):
         server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),Handler);server.daemon_threads=True
         threading.Thread(target=server.serve_forever,daemon=True).start()
         write_json(root/'controller.json',{'pid':os.getpid(),'ports':controller.ports,'scope':'local process controller'})
-        controller.receipt('runtime.launch',controller.status());controller.queue_boot()
+        controller.receipt('runtime.launch',controller.status());controller.queue_boot(resume=True)
         print('WEB4_RUNTIME_READY: authenticated gateway and real package processes',flush=True)
         signal.signal(signal.SIGTERM,lambda *_:controller.stop_event.set());signal.signal(signal.SIGINT,lambda *_:controller.stop_event.set())
         controller.domains.resume()

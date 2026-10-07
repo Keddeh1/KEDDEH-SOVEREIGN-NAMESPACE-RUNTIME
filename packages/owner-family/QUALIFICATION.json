@@ -65,28 +65,28 @@
   ],
   "scope": "local candidate qualification",
   "production_approval": false,
-  "commit": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+  "commit": "cb37d317c1907cf0639629096157555a4ab047ad",
   "artifact": {
-    "name": "keddeh_sovereign_namespace_runtime-0.3.0-py3-none-any.whl",
-    "sha256": "2b69697ba06fde8502a545eefed4764e6f5ba55f7ffb3953c3cd907937ebd9ea",
-    "bytes": 68248
+    "name": "keddeh_sovereign_namespace_runtime-0.3.1-py3-none-any.whl",
+    "sha256": "febda9a891a2e6220d34ee783f20cd954aadb49442c7cb1332f3a6278a3c4ded",
+    "bytes": 71502
   },
   "runtime_qualification": "passed",
   "evidence_hashes": {
+    "dependency-check.log": "b50a4578eb6075547159ff10364453dd29296d93e286195c61bba5604c67c5d3",
+    "live-integration.log": "edd8d51047c17818894e759d892069c346add981d74e56571eb99fd6a5bab2c8",
+    "installed-tests.log": "e2729ad6baef8675588656aec7556eb20bbb596611033a60c9356fd16ae2dbbf",
+    "recursive-domain-integration.log": "e2bd4c6963c787ca9706de7e6d233b6b7030febaf26889f38509ba7cb06d9b57",
+    "source-tests.log": "0f51668757be5d28964d8c2fa637ed39e9d00227fe2229359d6e3bde4eeb9b74",
+    "artifact-install.log": "c76f6ee9375d6666ce5644ebe92669a9348570d4bcc703012e3bdb0ef108eb24",
+    "integration.json": "edd8d51047c17818894e759d892069c346add981d74e56571eb99fd6a5bab2c8",
+    "isolated-venv.log": "80d121a91fd7af796de88b986e96c90ea7194220d109aa028990ec2ce1f0cbc2",
+    "domains.json": "e2bd4c6963c787ca9706de7e6d233b6b7030febaf26889f38509ba7cb06d9b57",
+    "wheel-build.log": "dcc1ac38c9d609a4a5b60348a7fd6294ccc4bf05d7aecee3dff89f79c3617323",
+    "dependency-inventory.json": "ecf845f5a9ea0a0c9bb7cfd73e613a30b30bc044c6e55be4f72eea50cc03c7df",
     "browser-integration.log": "6f43c60cb9cb958c39432e42d912434551a3280b9c3bbe84fbc3b14ed83ac007",
-    "dependency-check.log": "8c0b9412cdcb7b5cd8360b649b4b7db6a94e881d707db0f9ec77188a615292c2",
-    "frozen-install.log": "b5faf9db547c91f1f484558c7761b1cff63dbebb682bf478069f5fbda3d54422",
-    "isolated-venv.log": "47a59cae6d1dea0696fd70a7590fdff52e3c88c04cbea07af5afcdc65160bc8b",
-    "source-tests.log": "9a557951e9d6861d0ba555bcda9d45503ec1dc592bdf1a44c9a30cbe14487684",
-    "governance.log": "4ad9360a85dbe0591b4bd992032297447de6ef82238b94ff37dc1e464b78d95e",
-    "dependency-inventory.json": "9d478cfc265adfb9fb492d06c677bd8bcfcd1cfa6ca936cf8ba42048798e6855",
-    "installed-dependencies.log": "1f1035edb192bd40307745c2b40e361cc88b11ec71f9870241bbe5836a11fdb7",
-    "artifact-install.log": "fb70123625ceb341a46f5a6260549d97ef52f312c5c2fac0477e727a1d96f4c7",
-    "recursive-domain-integration.log": "4483b320b67b720bfb7b8e398f5826bf11146a3e62e54c52a2a3aeac31396e0f",
-    "domains.json": "4483b320b67b720bfb7b8e398f5826bf11146a3e62e54c52a2a3aeac31396e0f",
-    "wheel-build.log": "790cfc2f796d2ea56a9c9b04863a3ec245ee14b663c3446d84b15599512c8107",
-    "installed-tests.log": "df7089eaf17f6de5458ada66c4422dfe1000e05819b234722353076518a1aca6",
-    "live-integration.log": "615fb613fb2c9469ba47dbd0cf2a5f9507ef67cf10d56489ff3a64983b10b05c",
-    "integration.json": "615fb613fb2c9469ba47dbd0cf2a5f9507ef67cf10d56489ff3a64983b10b05c"
+    "frozen-install.log": "31ea5ae87bbeb061183e040b29b978ce0fc6568aa86b8b9a5d133af02831baba",
+    "installed-dependencies.log": "9d8a020efe9edd84f4974fd5ccdedddd09a09e2828882d6b3007b662bb815f7e",
+    "governance.log": "4ad9360a85dbe0591b4bd992032297447de6ef82238b94ff37dc1e464b78d95e"
   }
 }

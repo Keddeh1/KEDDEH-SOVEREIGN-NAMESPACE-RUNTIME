@@ -3,7 +3,7 @@
   "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
   "family_id": "keddeh-sovereign-namespace-runtime",
   "engine_repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
-  "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+  "engine_ref": "cb37d317c1907cf0639629096157555a4ab047ad",
   "runtime_root": "/workspace/braink-setup/web4-runtime",
   "port_offset": 0,
   "library_manifest": "/workspace/library-files/KEDDEH/2026-10-07/manifest.json",

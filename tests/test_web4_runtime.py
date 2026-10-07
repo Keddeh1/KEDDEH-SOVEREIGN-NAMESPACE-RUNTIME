@@ -102,3 +102,12 @@ class Web4RuntimeTests(unittest.TestCase):
             restored.tick();actuator.assert_not_called()
         self.assertEqual(restored.data['cycle'],1)
         self.assertEqual(len(c.registry.replay()),2)
+
+    def test_controller_restart_adopts_existing_boot_lease(self):
+        from unittest.mock import patch
+        c=self.fixture_controller();c.ports['broker']=18777
+        command={'status':'LEASED','requestId':'owner-retained-boot','leaseId':'retained'}
+        with patch('keddeh_namespace.web4_runtime.load_module'),patch('keddeh_namespace.web4_runtime.http_json',return_value={'command':command}):
+            self.assertEqual(c.queue_boot(resume=True),command)
+            self.assertEqual(c.current_boot_id,'owner-retained-boot')
+            with self.assertRaises(ValueError):c.queue_boot()

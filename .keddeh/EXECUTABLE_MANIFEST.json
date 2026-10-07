@@ -1,16 +1,16 @@
 {
   "schema": "keddeh.qualified-executable-manifest.v1",
-  "qualified_commit": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+  "qualified_commit": "cb37d317c1907cf0639629096157555a4ab047ad",
   "files": {
-    "pyproject.toml": "a236e034ff3bdc49bd65f431aec0cfdbfa553927bd45a14470f69516c09baa2e",
-    "scripts/bootstrap_owner_environment.py": "2a4f8f50020d4b98f4f37c9dfc13dd590f4e2533dccbe1bf93e5857593dd6221",
-    "scripts/deploy_family.py": "da3226ef343dd35edafbada3cb70858528f17e592921f0e44264e98aec988ca0",
+    "pyproject.toml": "f9d76225dbb2a9043a17e539968b6ab93e969da06cbb9dab91da6a580c5c381b",
+    "scripts/bootstrap_owner_environment.py": "349065ad157e2fc1fd0043b42b6d1db73a9d219e9332cb378bd1f8f6c2db32d1",
+    "scripts/deploy_family.py": "3e1d0102a90698955a77fffa709dd0f123a9ec0b1962bd7adac11a1cdfae4cb9",
     "src/keddeh_namespace/__init__.py": "397d9d15f7a8d8a9a108f50ab9b58632a6873e9b246f14e1a599857ef65df3a4",
     "src/keddeh_namespace/_web4_exec.py": "8b54a2dd906935fdae12001ca64558fe9299e9708b5bd54d32dc32fb23ef2357",
-    "src/keddeh_namespace/bilateral_runtime.py": "44ba3da384dc7fa11cf21855d464e1f4fe556c9acbee38ddcab1aef5f3bade3b",
+    "src/keddeh_namespace/bilateral_runtime.py": "410b9b82d35c599bdc52e3734466bf6bf9c6b73e3814027085330113b27d1237",
     "src/keddeh_namespace/bootstrap.py": "cea19ea53e2d43e1bbf14b7ff43be96a05aed03cd685192b73080d4d559e7058",
     "src/keddeh_namespace/compile_zones.py": "fe7fd660bc6215397e9683d60340cc232d3189062b0cc2186e649b2e10d6abd0",
-    "src/keddeh_namespace/domain_mesh.py": "9d14ed913ac30d0964c28412b80009a2145bca2c8705c038e0ea7b6df7887c2c",
+    "src/keddeh_namespace/domain_mesh.py": "5b406c4988b267909d1e4147a8172285754c0ee319aad88f1738ba000c98d5b4",
     "src/keddeh_namespace/envelope.py": "1c46df03889bcf22a01f50e548d22db154db97d93b2ec119cf80b671b9408023",
     "src/keddeh_namespace/evidence.py": "90ed15408eb65257e49d394b2d6fd308269b4f3f600a54e210261c1eea04cc3d",
     "src/keddeh_namespace/frontage_service.py": "5902483d825082526ade957a681ad167e84e6a6ff524491a6d5a15da93795526",
@@ -21,6 +21,7 @@
     "src/keddeh_namespace/logical_vfs.py": "e066f81ec906ee8c2aa2bbbadba564fe9ddf2b0150bcce825e19c0bc05dd2db1",
     "src/keddeh_namespace/native_labels.py": "b02a8b807214cb7fa338b6b141f12ff22358ce7cbc160c6390a02d28b9025526",
     "src/keddeh_namespace/owner_kernel.py": "35babcf22be5895045294ff33f79eb05f1f1a56d8e444ae1436189c88a238b66",
+    "src/keddeh_namespace/pipeline_gate.py": "8145a5a9250cf1bd473f45108f2aaf036794f5bf9e752a4b0cf051087df7cf3b",
     "src/keddeh_namespace/propagation_runtime.py": "a2b0514a48240853a3262a46610eca93a72532f69710ee0600899d811be743c8",
     "src/keddeh_namespace/registry_service.py": "d37279238d92f3f01ada736c13105dc7782600294401ae209cc490271694b21f",
     "src/keddeh_namespace/render_knot_config.py": "b0427ff2cbf2fea7ea621274d34e9798d46776bc20fbb4ab12c3644698086cdb",
@@ -31,14 +32,15 @@
     "src/keddeh_namespace/verify_vfs.py": "9771029a65c47dc421516f337a0420cfa89905ca1fde7fba3ba03b9b41680bdd",
     "src/keddeh_namespace/vfs_subscription.py": "8efb2f703ccf040a2da46f2a4b81ba08d6257f9a39236dbadab591b457008973",
     "src/keddeh_namespace/web4_bridge.js": "7469d3e5e9fe29d4765176f00ff6f65f48490ad3f28ac1abdb9cac49ac7cb4c8",
-    "src/keddeh_namespace/web4_client.js": "9b286fdc743cdfbe8128e483e52529f8bdef584d81a4a62ba1a8bdf3e6a9dfd5",
-    "src/keddeh_namespace/web4_domain.mjs": "0f5a4d75470e4a3a27e81eaa553dbaecf2384f77ffec29dc20679c847858591b",
-    "src/keddeh_namespace/web4_panel.js": "7f80e7ecd82cb4f62dede92c9ebb109940eec8773ad05a81ac27930e6605f4e4",
-    "src/keddeh_namespace/web4_runtime.py": "a4bf3a6ccb9ccfa7bd20f21b57e532af56a5d17cd858a539bc851e77d1d8e245",
-    "uv.lock": "71db560fa3805b2286ff5be6b096409681dd7ec3f4dd9defe5537426d1410bb8"
+    "src/keddeh_namespace/web4_client.js": "637ac44529afbaf43ad68bce5404644e9f54572c39ceaeed2915f76f301f1b72",
+    "src/keddeh_namespace/web4_domain.mjs": "e8274c90c1f5d7a9cfafa1746e7a53a4c337d5c999ffb9a54be0055ac58e8103",
+    "src/keddeh_namespace/web4_panel.js": "3d0371bf28ddcf9bc60d76c553abbb35085e7aaa4cb3a29529688fe07d73cc34",
+    "src/keddeh_namespace/web4_runtime.py": "93e61a3a21f1c7d4374e3d7bd2290602492e74cde013f0857f3fba0e964f20a0",
+    "uv.lock": "2120bbc4982971cd798f4382029af7a94230b9e76f5c3980fcd666bcabc94f6b"
   },
   "wheel": {
-    "name": "keddeh_sovereign_namespace_runtime-0.3.0-py3-none-any.whl",
-    "sha256": "2b69697ba06fde8502a545eefed4764e6f5ba55f7ffb3953c3cd907937ebd9ea"
+    "name": "keddeh_sovereign_namespace_runtime-0.3.1-py3-none-any.whl",
+    "sha256": "febda9a891a2e6220d34ee783f20cd954aadb49442c7cb1332f3a6278a3c4ded",
+    "bytes": 71502
   }
 }

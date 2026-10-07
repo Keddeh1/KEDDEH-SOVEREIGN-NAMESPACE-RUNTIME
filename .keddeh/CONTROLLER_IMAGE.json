@@ -1,0 +1,7 @@
+{
+  "schema": "keddeh.resident-controller-image.v1",
+  "image_id": "sha256:99a4ea2154120598114866b1c1e49b75cf2b0836fc8e40d99810a1f6a0c8ffbd",
+  "qualified_wheel_sha256": "febda9a891a2e6220d34ee783f20cd954aadb49442c7cb1332f3a6278a3c4ded",
+  "python_base": "python@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258",
+  "node_base": "node@sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20"
+}
