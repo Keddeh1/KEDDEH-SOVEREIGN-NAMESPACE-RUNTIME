@@ -19,6 +19,7 @@ out = Path(a.output).resolve()
 if out == repo or repo in out.parents:
     ap.error('Evidence output must be outside the source checkout')
 out.mkdir(parents=True, exist_ok=False)
+os.environ.setdefault('UV_CACHE_DIR', str(out / 'uv-cache'))
 report = {'schema': 'keddeh.release-qualification.v1', 'status': 'running', 'gates': [],
           'scope': 'local candidate qualification', 'production_approval': False}
 def run(name, command, cwd=repo, env=None):
