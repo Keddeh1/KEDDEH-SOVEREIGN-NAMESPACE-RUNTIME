@@ -1,0 +1,79 @@
+{
+  "step": 4,
+  "status": "passed",
+  "result": {
+    "sources": [
+      {
+        "name": "BRAINK_MCP_PLUGIN_V5_7_BILATERAL_CLOSURE.zip",
+        "sha256": "c48596dbcb4d826a1172308ab33baf6b52ff76795fce3c62262d4a20b07e5c9e",
+        "bytes": 21952837
+      },
+      {
+        "name": "BRAINK_V6_1_MESH_ACTUATION_OVERLAY.zip",
+        "sha256": "430db9147e822c68abf06635be1ca99131d6d10a151e536f87a82e00cf87c192",
+        "bytes": 141453
+      },
+      {
+        "name": "BRAINK_POSIX_HTTP4055_MULTIPLEXED_R36_20260930.zip",
+        "sha256": "8718fc7486d73559a3562482245b0fe00acc322b165980c14f1fd03ff3164552",
+        "bytes": 16589
+      },
+      {
+        "name": "BRAINK_NETWORK_EXECUTABLE_V4_20260930 (1).tar.gz",
+        "sha256": "5d73d8591b4414c7a531d7ddc1d4b8573ef63d688071caf53cbc4dc2e9362153",
+        "bytes": 35610
+      },
+      {
+        "name": "BRAINK_V7_1_PERIODIC_BIO_OBSERVER_PATCH.zip",
+        "sha256": "45a023ab82d314068a8b195e093ab05635a45018c5441e191d5449496bd29fa0",
+        "bytes": 36595
+      },
+      {
+        "name": "BRAINK_V7_3_BILATERAL_DIAGNOSTIC_WORKBOOK_PATCH.zip",
+        "sha256": "4a47d15059006771a292327c5fc107b06fa9d04041f990e49185b43ca8d7cc9a",
+        "bytes": 1368193
+      },
+      {
+        "name": "kex_html_linux_carrier.zip",
+        "sha256": "2f45e96c5bb5bb20726d03138b2ecb8d14109eff449120b459ca6c68f3c64e31",
+        "bytes": 8592
+      },
+      {
+        "name": "kex_linux_terminal_mesh_patched.html",
+        "sha256": "ced343b1c54d81b38c74f07d08a7dbc853a56e467dcbb83138a512c97b9cb2c7",
+        "bytes": 28766
+      },
+      {
+        "name": "kex-host-agent.py",
+        "sha256": "0094c4960a208734dc6d783dc5812899928dba9f6d9664ead7c979be046733d5",
+        "bytes": 17940
+      },
+      {
+        "name": "KEDDEH_BRAINK_V76_RESIDENT_ENGINEERING_RESEARCH_VM(1).html",
+        "sha256": "7f6e4ce0a41d3ba8823984533f41479be77efa7656f3e016f591af6e49c13fec",
+        "bytes": 5122943
+      },
+      {
+        "name": "k_cloud_substrate_master_daemon.py",
+        "sha256": "17414b23a824cd73452ab4118de70157f0e4837c287044f9b18655df03488b25",
+        "bytes": 690652
+      },
+      {
+        "name": "bilateral_discrepancy_solver.py",
+        "sha256": "d096d679ecbf4bc358a34b721a236a813d66318e86e8cf5ea16fdb0eaabb87e2",
+        "bytes": 1301600
+      },
+      {
+        "name": "sovereign-triad-owner-notes.txt",
+        "sha256": "93904ea11317c3e4cef24fa5ab797e0688972abe78ff084992a573cb8b51c00b",
+        "bytes": 87681
+      },
+      {
+        "name": "shared-keddeh-hci-owner-source.txt",
+        "sha256": "e699ff4f64baace2c2dd01375f204c6c047d32108a81bbbca33b80898445e2c8",
+        "bytes": 21438
+      }
+    ],
+    "local_and_private_queue_verified": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "keddeh.frontage-delivery.v1",
+  "client_date": "2026-10-08",
+  "timezone": "Australia/Adelaide",
+  "site_project_id": "appgprj_6aa52748b7788191afe0f7f86fc78833",
+  "base_native_source": "6569868cd12122a7ffd5a736fcd266dafc6e9fb1",
+  "source_capture": "Git committed tree recorded in PR #1 and VFS candidate receipt",
+  "audience": "existing public frontage; owner administration credentials excluded",
+  "deployment_scope": "owner-supervised current cloud-host candidate",
+  "native_publication": "unavailable capability; not performed",
+  "independent_assessment_report": null,
+  "engine_release": "0.3.2",
+  "controller_image": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+  "rendered_items": 1080,
+  "issue": "https://github.com/Keddeh1/keddeh.com/issues/2"
+}

@@ -1,0 +1,9 @@
+{
+  "raw_sha256": "e607ae50cb2372c2ec163e6bfc911229d8defe1acafae90be7ee251984243465",
+  "raw_bytes": 8024848,
+  "gzip_sha256": "6b3bae5b7993c51a8affba4f63f94eb9e62145f70285cec04091e63553fa6bcb",
+  "gzip_bytes": 115635,
+  "trials": 16000,
+  "seeds_per_case": 1000,
+  "experiment_source": "scripts/research/structural_dropout_study.py"
+}

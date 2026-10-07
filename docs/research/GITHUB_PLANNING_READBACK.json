@@ -1,0 +1,493 @@
+{
+  "date": "2026-10-07",
+  "issues": [
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwESw",
+          "name": "status:in-progress",
+          "description": "Engineering or qualification actively underway",
+          "color": "1D76DB"
+        }
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M2 \u2014 Track B: trusted state foundation",
+        "description": "Canonical signed receipts, durable registry/VFS and exact-source admission tested. Existing structural checks are foundation only; no production promotion.",
+        "dueOn": null
+      },
+      "number": 27,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 4,
+        "title": "M4 \u2014 Independent assessment and delegation",
+        "description": "Complete independent receipts and coordinated glue/DS/delegation window; verify external DNS/TLS and rollback readiness. Requires M3 evidence.",
+        "dueOn": null
+      },
+      "number": 26,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M3 \u2014 Track B: two-node runtime validation",
+        "description": "Observe independent node capacity, authority, transfer, archive replay, isolated services and bounded Genesis topology before registrar changes.",
+        "dueOn": null
+      },
+      "number": 25,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M1 \u2014 Track A: preserved web cutover",
+        "description": "Complete current-zone custody and apex/www web readbacks while preserving mail and unrelated services. Independent of Track B. No due date until an operator change window is agreed.",
+        "dueOn": null
+      },
+      "number": 24,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M1 \u2014 Track A: preserved web cutover",
+        "description": "Complete current-zone custody and apex/www web readbacks while preserving mail and unrelated services. Independent of Track B. No due date until an operator change window is agreed.",
+        "dueOn": null
+      },
+      "number": 23,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 1,
+        "title": "M1 \u2014 Track A: preserved web cutover",
+        "description": "Complete current-zone custody and apex/www web readbacks while preserving mail and unrelated services. Independent of Track B. No due date until an operator change window is agreed.",
+        "dueOn": null
+      },
+      "number": 22,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M2 \u2014 Track B: trusted state foundation",
+        "description": "Canonical signed receipts, durable registry/VFS and exact-source admission tested. Existing structural checks are foundation only; no production promotion.",
+        "dueOn": null
+      },
+      "number": 21,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwFrw",
+          "name": "priority:critical",
+          "description": "Runtime continuity or integrity failure",
+          "color": "B60205"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwS8w",
+          "name": "status:queued",
+          "description": "Planned work awaiting dependency and acceptance gates",
+          "color": "C5DEF5"
+        }
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M3 \u2014 Track B: two-node runtime validation",
+        "description": "Observe independent node capacity, authority, transfer, archive replay, isolated services and bounded Genesis topology before registrar changes.",
+        "dueOn": null
+      },
+      "number": 20,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwESw",
+          "name": "status:in-progress",
+          "description": "Engineering or qualification actively underway",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwFrw",
+          "name": "priority:critical",
+          "description": "Runtime continuity or integrity failure",
+          "color": "B60205"
+        }
+      ],
+      "milestone": {
+        "number": 3,
+        "title": "M3 \u2014 Track B: two-node runtime validation",
+        "description": "Observe independent node capacity, authority, transfer, archive replay, isolated services and bounded Genesis topology before registrar changes.",
+        "dueOn": null
+      },
+      "number": 19,
+      "state": "OPEN"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwFUg",
+          "name": "status:verified",
+          "description": "Executed acceptance evidence recorded",
+          "color": "006B75"
+        }
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M2 \u2014 Track B: trusted state foundation",
+        "description": "Canonical signed receipts, durable registry/VFS and exact-source admission tested. Existing structural checks are foundation only; no production promotion.",
+        "dueOn": null
+      },
+      "number": 18,
+      "state": "CLOSED"
+    },
+    {
+      "assignees": [
+        {
+          "id": "U_kgDOE009Kw",
+          "login": "Keddeh1",
+          "name": ""
+        }
+      ],
+      "labels": [
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7ZDlRA",
+          "name": "evidence:required",
+          "description": "Completion requires executed acceptance evidence; claims alone insufficient",
+          "color": "F9D0C4"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMDg",
+          "name": "type:research",
+          "description": "Reproducible research and engineering qualification",
+          "color": "5319E7"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bfMxA",
+          "name": "programme:rnd-100",
+          "description": "Owner-runtime-led 100-step delivery programme",
+          "color": "1D76DB"
+        },
+        {
+          "id": "LA_kwDOU-7G3M8AAAAC7bwFUg",
+          "name": "status:verified",
+          "description": "Executed acceptance evidence recorded",
+          "color": "006B75"
+        }
+      ],
+      "milestone": {
+        "number": 2,
+        "title": "M2 \u2014 Track B: trusted state foundation",
+        "description": "Canonical signed receipts, durable registry/VFS and exact-source admission tested. Existing structural checks are foundation only; no production promotion.",
+        "dueOn": null
+      },
+      "number": 17,
+      "state": "CLOSED"
+    }
+  ],
+  "verified_issue_count": 11,
+  "native_project_created": false,
+  "project_creation_error": "Resource not accessible by integration (createProjectV2)"
+}

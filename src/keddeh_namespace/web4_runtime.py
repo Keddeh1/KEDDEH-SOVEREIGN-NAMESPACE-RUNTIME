@@ -55,6 +55,9 @@ def write_json(path, value, private=True):
         os.chmod(temp, 0o600 if private else 0o644)
         json.dump(value, stream, indent=2); stream.write('\n'); stream.flush(); os.fsync(stream.fileno())
     os.replace(temp, path)
+    directory=os.open(path.parent,os.O_RDONLY | os.O_DIRECTORY)
+    try:os.fsync(directory)
+    finally:os.close(directory)
 
 
 def copy_files(source, target):
@@ -186,11 +189,11 @@ def verify_launch(root):
     return config
 
 
-def http_json(port, path, body=None, token=None):
+def http_json(port, path, body=None, token=None, timeout=8):
     headers={'Content-Type':'application/json'}
     if token:headers['Authorization']='Bearer '+token
     req=urllib.request.Request(f'http://127.0.0.1:{port}{path}', data=None if body is None else json.dumps(body).encode(),headers=headers)
-    with urllib.request.urlopen(req,timeout=8) as response:
+    with urllib.request.urlopen(req,timeout=timeout) as response:
         raw=response.read(2*1024*1024+1)
         if len(raw)>2*1024*1024:raise ValueError('readback too large')
         return json.loads(raw)
@@ -218,10 +221,26 @@ class LaunchController:
         self.key=Ed25519PrivateKey.from_private_bytes((self.state/'generator.key').read_bytes())
         from importlib.metadata import version
         code=Path(__file__).parent
-        self.source_manifest={'owner_sources':self.config['sources'],'derived_files':self.config['files'],'runtime_version':version('keddeh-sovereign-namespace-runtime'),'runtime_files':{p.name:digest(p) for p in sorted(code.iterdir()) if p.is_file() and p.suffix in ('.py','.js')}}
+        self.source_manifest={'owner_sources':self.config['sources'],'derived_files':self.config['files'],'runtime_version':version('keddeh-sovereign-namespace-runtime'),'owner_control_sources':['17414b23a824cd73452ab4118de70157f0e4837c287044f9b18655df03488b25','d096d679ecbf4bc358a34b721a236a813d66318e86e8cf5ea16fdb0eaabb87e2','93904ea11317c3e4cef24fa5ab797e0688972abe78ff084992a573cb8b51c00b','e699ff4f64baace2c2dd01375f204c6c047d32108a81bbbca33b80898445e2c8'],'runtime_files':{p.name:digest(p) for p in sorted(code.iterdir()) if p.is_file() and p.suffix in ('.py','.js','.mjs')}}
+        self.source_manifest['external_bindings']={}
+        for binding,field in [('vfs_hub','code_root'),('frontage','source_root')]:
+            options=self.config.get(binding)
+            if options:
+                base=Path(options[field]);self.source_manifest['external_bindings'][binding]={str(p.relative_to(base)):digest(p) for p in base.rglob('*') if p.is_file() and '.git' not in p.parts and p.suffix in ('.py','.mjs','.js','.css','.html','.json','.whl') and '__pycache__' not in p.parts and 'packages' not in p.parts}
         self.source_digest=hashlib.sha256(canonical_bytes(self.source_manifest)).hexdigest()
         write_json(self.state/'runtime-source-manifest.json',self.source_manifest)
-        self.last_receipt=None;self.current_boot_id=None
+        self.last_receipt=None;self.current_boot_id=None;self.retry_after={};self.recovery_errors={}
+        from .bilateral_runtime import BilateralRuntime
+        self.bilateral=BilateralRuntime(self)
+        from .pipeline_gate import PipelineGate
+        self.pipeline=PipelineGate(self.state)
+        from .owner_kernel import KCloudNode
+        self.owner_kernel=KCloudNode()
+        self.owner_kernel.state='OPERATING'
+        from .domain_mesh import DomainMesh
+        self.domains=DomainMesh(self)
+        from .vfs_subscription import VFSSubscription
+        self.vfs=VFSSubscription(self)
 
     def env(self):
         values={k:v for k,v in os.environ.items() if k in ('PATH','LANG','LC_ALL','TMPDIR','PYTHONPATH')}
@@ -269,6 +288,14 @@ class LaunchController:
             with socket.socket() as sock:
                 sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1);sock.bind(('127.0.0.1',port))
         p=self.config['packages']
+        frontage=self.config.get('frontage')
+        if frontage:
+            self.spawn('frontage-server',[sys.executable,'-m','keddeh_namespace.frontage_service','--source',frontage['source_root'],'--root',str(self.root),'--port',str(frontage['port'])],self.root)
+            self.wait_health('frontage-server',frontage['port'],'/api/health')
+        hub=self.config.get('vfs_hub')
+        if hub:
+            self.spawn('vfs-server',[sys.executable,'-m','vfs_server.server','--root',hub['state_root'],'--host','127.0.0.1','--port',str(hub['port']),'--token-file',hub['token_file']],hub['code_root'])
+            self.wait_health('vfs-server',hub['port'],'/ready')
         self.spawn('broker',[sys.executable,str(self.estate/'broker/owner_broker.py'),'--port',str(self.ports['broker'])],self.estate)
         self.wait_health('broker',self.ports['broker'],'/health')
         self.pair_agent()
@@ -310,10 +337,23 @@ class LaunchController:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
 
-    def receipt(self,event,readback):
+    def receipt(self,event,readback,request_id=None):
         with self.lock:
+            readback=encode_readback(readback)
+            phase={'event':event,'local_scope':True,'production_promoted':False}
+            if request_id is not None:
+                with self.registry.vfs.connect() as db:
+                    prior=db.execute('SELECT result FROM requests WHERE request_id=?',(request_id,)).fetchone()
+                if prior:
+                    result=json.loads(prior['result'])
+                    payload=json.loads(self.registry.vfs.read_object(result['digest']))
+                    if payload['desired_state']!=readback or payload['phase_state']!=phase:
+                        raise ValueError('receipt identity reused for different cycle')
+                    self.registry.replay()
+                    self.last_receipt=result
+                    return result
             previous=None;version=0
             try:
                 head,payload=self.registry.vfs.read('web4/runtime');version=head['version'];previous=envelope_digest(json.loads(payload)['signed']['envelope'])
@@ -323,14 +363,18 @@ class LaunchController:
             source=self.source_digest
             envelope=dict(schema=SCHEMA,runtime_id='web4-local',source_sha256=source,generator_id='web4-local-generator',observer_id='web4-controller',metric='registry-generation:web4/runtime',execution_plane='local-cloud-processes',observed_at=datetime.now(timezone.utc).isoformat(timespec='microseconds').replace('+00:00','Z'),transaction=event,readback='live HTTP/process observation',stateRoot=content_root('state',readback),phaseRoot=content_root('phase',phase),parent_envelope_sha256=previous)
             signed=sign_observation(envelope,self.key)
-            result=self.registry.commit({'request_id':secrets.token_hex(16),'path':'web4/runtime','expected_version':version,'signed':signed,'desired_state':readback,'phase_state':phase})
+            result=self.registry.commit({'request_id':request_id or secrets.token_hex(16),'path':'web4/runtime','expected_version':version,'signed':signed,'desired_state':readback,'phase_state':phase})
             self.last_receipt=result;return result
 
-    def queue_boot(self):
+    def queue_boot(self,resume=False):
         # Use the supplied broker command format and actual outbound agent loop.
         broker=load_module(self.estate/'broker/owner_broker.py','web4_local_broker')
         existing=http_json(self.ports['broker'],'/api/self-host/status').get('command') or {}
-        if existing.get('status') in ('QUEUED','LEASED'):raise ValueError('boot command already pending; preserve its lease')
+        if existing.get('status') in ('QUEUED','LEASED'):
+            if resume:
+                self.current_boot_id=existing['requestId']
+                return existing
+            raise ValueError('boot command already pending; preserve its lease')
         broker.STATE_DIR=self.state/'broker';broker.EVIDENCE=broker.STATE_DIR/'ledger.jsonl';broker.NODE_FILE=broker.STATE_DIR/'node.json';broker.COMMAND_FILE=broker.STATE_DIR/'pending_command.json'
         request='web4.boot.'+secrets.token_hex(8)
         self.current_boot_id=request
@@ -338,9 +382,13 @@ class LaunchController:
 
     def restart(self,name):
         with self.lock:
-            if name not in self.specs or name in ('estate','agent','broker'):raise ValueError('only workstation/http/network controlled restart supported')
+            if name not in self.specs:raise ValueError('unknown owned runtime service')
             proc=self.processes[name];self.terminate(proc)
-            argv,cwd,extra,stdio=self.specs[name];self.spawn(name,argv,cwd,extra,stdio);self.restarts[name]=self.restarts.get(name,0)+1
+            argv,cwd,extra,stdio=self.specs[name]
+            if stdio:
+                while not self.rpc_responses.empty():self.rpc_responses.get_nowait()
+            self.spawn(name,argv,cwd,extra,stdio);self.restarts[name]=self.restarts.get(name,0)+1
+            if stdio:self.estate_rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'KEDDEH-WEB4','version':'1.0'}})
             return {'name':name,'old_pid':proc.pid,'new_pid':self.processes[name].pid,'status':'restarted; readiness must be read back'}
 
     @staticmethod
@@ -363,6 +411,45 @@ class LaunchController:
 
     def control(self,body):
         action=body.get('action')
+        mutates=(action in ('boot','restart','commit') or
+                 action=='propagate' and body.get('actuate',False) or
+                 action=='domains' and body.get('operation','status')!='status' or
+                 action=='bilateral' and body.get('enabled') is True)
+        if mutates:
+            def execute():
+                if 'projection_context' in body:self.pipeline.require_agreement(body['projection_context'])
+                return self._control(body)
+            return self.pipeline.dispatch(execute,body.get('pipeline_generation'))
+        return self._control(body)
+
+    def _control(self,body):
+        action=body.get('action')
+        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
+        if owner_index is None:raise ValueError('unsupported owner-kernel action')
+        payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
+        if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
+        self.owner_kernel.ledger=self.owner_kernel.ledger[-128:]
+        write_json(self.state/'owner-kernel-routing.json',{'state':self.owner_kernel.state,'ledger':self.owner_kernel.ledger})
+        if action=='pipeline':
+            if 'connected' in body:
+                return self.pipeline.configure(body['connected'],body.get('reason','owner command'))
+            return self.pipeline.status()
+        if action=='agreement':
+            if 'accepted' in body:return self.pipeline.accept(body.get('version'),body['accepted'])
+            return self.pipeline.agreement_status()
+        if action=='projection':return self.pipeline.projection()
+        if action=='domains':
+            result=self.domains.control(body)
+            if body.get('operation','status')!='status':return {'domain':result,'namespace_receipt':self.receipt('domains.'+body['operation'],result)}
+            return result
+        if action=='vfs':return dict(self.vfs.state)
+        if action=='hci':
+            from .hci_contract import KEDDEHHCIContract
+            readback={'runtime':self.status(),'bilateral':dict(self.bilateral.data),'domains':self.domains.control({'operation':'status'})}
+            return {'console':KEDDEHHCIContract('KEDDEH').render(readback),'readback':readback,'standards_assessment':'not independently certified'}
+        if action=='bilateral':
+            if 'enabled' in body:return self.bilateral.configure(body['enabled'])
+            with self.bilateral.lock:return dict(self.bilateral.data)
         if action=='boot':return self.queue_boot()
         if action=='restart':return self.restart(body['name'])
         if action=='commit':
@@ -460,13 +547,20 @@ def serve(root):
         server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),Handler);server.daemon_threads=True
         threading.Thread(target=server.serve_forever,daemon=True).start()
         write_json(root/'controller.json',{'pid':os.getpid(),'ports':controller.ports,'scope':'local process controller'})
-        controller.receipt('runtime.launch',controller.status());controller.queue_boot()
+        controller.receipt('runtime.launch',controller.status());controller.queue_boot(resume=True)
         print('WEB4_RUNTIME_READY: authenticated gateway and real package processes',flush=True)
         signal.signal(signal.SIGTERM,lambda *_:controller.stop_event.set());signal.signal(signal.SIGINT,lambda *_:controller.stop_event.set())
+        controller.domains.resume()
         while not controller.stop_event.wait(.5):
-            # Restart failed owned workstation processes; bounded automatic attempts.
+            controller.bilateral.tick()
+            controller.vfs.tick()
+            # One owned process per role; bounded restart rate for all owner services.
             for name,proc in list(controller.processes.items()):
-                if name.startswith('node-') and proc.poll() is not None and controller.restarts.get(name,0)<3:controller.restart(name)
+                if proc.poll() is not None and time.monotonic()>=controller.retry_after.get(name,0):
+                    controller.retry_after[name]=time.monotonic()+min(60,2**min(controller.restarts.get(name,0),6))
+                    try:controller.restart(name);controller.recovery_errors.pop(name,None)
+                    except Exception as exc:controller.recovery_errors[name]=type(exc).__name__
+            write_json(controller.state/'service-recovery.json',{'restarts':controller.restarts,'errors':controller.recovery_errors})
     finally:
         if server:server.shutdown();server.server_close()
         controller.close();(root/'controller.json').unlink(missing_ok=True);lock.close()
@@ -479,7 +573,7 @@ def main():
     if args.command=='start':
         config=verify_launch(root);log=(root/'controller.log').open('ab',buffering=0)
         proc=subprocess.Popen([sys.executable,'-m','keddeh_namespace.web4_runtime','serve','--root',str(root)],stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-        end=time.monotonic()+20;token=(root/'state/token').read_text()
+        end=time.monotonic()+90;token=(root/'state/token').read_text()
         while time.monotonic()<end:
             if proc.poll() is not None:raise RuntimeError('controller exited; inspect '+str(root/'controller.log'))
             try:

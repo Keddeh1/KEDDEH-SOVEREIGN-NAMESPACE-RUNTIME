@@ -1,0 +1,9 @@
+{
+  "step": 15,
+  "status": "passed",
+  "result": {
+    "old_receipt_mutation_rejected": true,
+    "delivery_after_corrupted_prefix_rejected": true,
+    "live_store_modified": false
+  }
+}

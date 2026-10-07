@@ -1,0 +1,9 @@
+{
+  "step": 1,
+  "status": "passed",
+  "result": {
+    "tasks": 100,
+    "groups": 10,
+    "plan_sha256": "89cc72b5ae640f7f654fc2557206c6f1c2fc6d6cba4b71d933cd2baced18c755"
+  }
+}

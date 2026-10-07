@@ -1,0 +1,9 @@
+{
+  "step": 7,
+  "status": "passed",
+  "result": {
+    "owner_gateways_rejected": 9,
+    "vfs_read_and_mutation_rejected": true,
+    "http_status": 401
+  }
+}

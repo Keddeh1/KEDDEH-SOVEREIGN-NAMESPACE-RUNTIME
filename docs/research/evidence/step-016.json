@@ -1,0 +1,8 @@
+{
+  "step": 16,
+  "status": "passed",
+  "result": {
+    "invalid_boundaries_rejected": 10,
+    "durable_cursor_after_restart": 1
+  }
+}

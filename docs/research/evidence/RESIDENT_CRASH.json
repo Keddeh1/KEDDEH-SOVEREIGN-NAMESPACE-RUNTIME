@@ -1,0 +1,17 @@
+{
+  "schema": "keddeh.resident-controller-crash.v1",
+  "status": "passed",
+  "container": "keddeh-250c6d8c76-controller",
+  "host_pid_before": 132391,
+  "host_pid_after": 173652,
+  "restart_count_before": 0,
+  "restart_count_after": 1,
+  "healthy_nodes": 10,
+  "boot_status": "COMPLETED",
+  "disconnect_retained": true,
+  "agreement_bytes_retained": true,
+  "generator_key_retained": true,
+  "no_new_actor_journal_bytes_while_disconnected": true,
+  "recursive_domain_owner_alive": true,
+  "scope": "same Docker host; unexpected PID 1 exit and durable software admission fence"
+}

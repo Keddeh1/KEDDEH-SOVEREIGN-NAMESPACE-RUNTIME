@@ -1,0 +1,16 @@
+{
+  "schema": "keddeh.research-step.v1",
+  "step": 22,
+  "status": "passed",
+  "finding": "Digest-bound cycle finalization and request reconciliation specified",
+  "implementation_or_experiment": "src/keddeh_namespace/web4_runtime.py",
+  "qualified_commit": "9ab5fd83c4e3e87e592885f00e912f2d8fe19233",
+  "qualified_wheel": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.2-py3-none-any.whl",
+    "sha256": "5bbaad7c3d4c2dee231255eb183343674e48a6411f7ee007118c78b3dfffe71d",
+    "bytes": 71542
+  },
+  "source_and_installed_tests": 90,
+  "qualification_gates_passed": 12,
+  "scope": "actual local experiments and deployment; mocked actor in isolated unit crash tests; R36 real journal separately qualified; no independent production assessment"
+}

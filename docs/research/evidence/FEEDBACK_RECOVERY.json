@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "initial_feedback_unavailable": true,
+  "initial_actor_calls": 0,
+  "feedback_restored": true,
+  "recovered_actor_calls": 10,
+  "completed_cycle": 1,
+  "scope": "isolated controller telemetry fixture; no fabricated production observations"
+}
