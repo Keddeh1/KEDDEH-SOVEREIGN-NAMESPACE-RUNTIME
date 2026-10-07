@@ -19,7 +19,7 @@
       "batch": 3,
       "issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/19",
       "number": 19,
-      "status": "pending",
+      "status": "in_progress",
       "milestone": 3
     },
     {
@@ -75,5 +75,14 @@
   "completed_steps": 20,
   "pending_steps": 80,
   "next_step": 21,
-  "native_projects_status": "permission unavailable; no active views claimed"
+  "native_projects_status": "2026-10-07: createProjectV2 denied: Resource not accessible by integration; no native views created",
+  "project_view_specification": "docs/research/GITHUB_PROJECT_VIEWS.md",
+  "issue_planning": {
+    "owner": "Keddeh1",
+    "status_labels": true,
+    "priority_labels": true,
+    "master_issue": 27,
+    "active_batch": 3
+  },
+  "projects_access_issue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/28"
 }
