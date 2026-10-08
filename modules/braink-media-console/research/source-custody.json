@@ -1,0 +1,15 @@
+{
+  "owningRepository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+  "branch": "feature/braink-media-console",
+  "canonicalRepositoryBase": "3300e02e4c025a167fde414263f5344c5eecd70d",
+  "frontage": {
+    "siteId": "appgprj_6aa52748b7788191afe0f7f86fc78833",
+    "base": "0ff87b9516def91e3d1f375a0f18036b22710049"
+  },
+  "runtime": {
+    "siteId": "appgprj_6aa503aa595481919d947eef56f2556f",
+    "base": "df8a9745005bcb7f19c144f5cf9caae62289b3b8"
+  },
+  "independentAssessment": null,
+  "credentials": "Excluded; runtime secrets remain private"
+}

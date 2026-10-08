@@ -1,0 +1,82 @@
+{
+  "fixture": "Generated six-second colour test pattern and sine tone; no customer/media performance claims",
+  "observations": [
+    {
+      "profiles": [
+        "short-01.mp4",
+        "long-form.mp4",
+        "podcast.mp3"
+      ],
+      "outputs": [
+        {
+          "name": "short-01.mp4",
+          "duration": 5.0,
+          "bytes": 597928,
+          "kind": "video"
+        },
+        {
+          "name": "long-form.mp4",
+          "duration": 6.0,
+          "bytes": 2684582,
+          "kind": "video"
+        },
+        {
+          "name": "podcast.mp3",
+          "duration": 5.952,
+          "bytes": 143571,
+          "kind": "audio"
+        }
+      ],
+      "transcription": {
+        "state": "not-requested"
+      },
+      "sourceObservation": {
+        "duration": 6.0,
+        "video": true,
+        "audio": true
+      }
+    },
+    {
+      "profiles": [
+        "voiceover.wav"
+      ],
+      "outputs": [
+        {
+          "name": "voiceover.wav",
+          "duration": 3.88,
+          "bytes": 124238,
+          "kind": "audio"
+        }
+      ],
+      "transcription": {
+        "state": "not-requested"
+      },
+      "sourceObservation": {
+        "kind": "script",
+        "duration": null,
+        "note": "Text input has no measured source media duration"
+      }
+    },
+    {
+      "profiles": [
+        "frame-animation.mp4"
+      ],
+      "outputs": [
+        {
+          "name": "frame-animation.mp4",
+          "duration": 2.0,
+          "bytes": 30099,
+          "kind": "video"
+        }
+      ],
+      "transcription": {
+        "state": "not-requested"
+      },
+      "sourceObservation": {
+        "kind": "image",
+        "duration": null,
+        "requestedAnimationSeconds": 2
+      }
+    }
+  ]
+}

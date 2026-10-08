@@ -1,0 +1,29 @@
+{
+  "schema": "braink.media.upstream.v1",
+  "projects": [
+    {
+      "name": "FFmpeg",
+      "tag": "n7.1.5",
+      "commit": "3a0867c2bfda4a4d4309ca1a8cbdc6175e67f587",
+      "remote": "https://github.com/FFmpeg/FFmpeg.git",
+      "sourcePulled": true,
+      "binaryNotes": "Installed FFmpeg is distro-patched 7.1.5; upstream tag is reference custody, not exact distro binary source"
+    },
+    {
+      "name": "PySceneDetect",
+      "tag": "v0.6.7.1-release",
+      "commit": "f8e1914f9057a2d9692738ca0fece14fc4b2ecad",
+      "remote": "https://github.com/Breakthrough/PySceneDetect.git",
+      "sourcePulled": true,
+      "binaryNotes": "Installed pinned Python package, with installed dependency lock retained"
+    },
+    {
+      "name": "faster-whisper",
+      "tag": "v1.2.1",
+      "commit": "65882eee9f5cdbeeb2d877f1131d48cf241b327d",
+      "remote": "https://github.com/SYSTRAN/faster-whisper.git",
+      "sourcePulled": true,
+      "binaryNotes": "Installed pinned Python package, with installed dependency lock retained"
+    }
+  ]
+}

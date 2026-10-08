@@ -1,0 +1,23 @@
+name: BRAINK media module checks
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ["modules/braink-media-console/**", ".github/workflows/braink-media-console.yml"]
+permissions:
+  contents: read
+jobs:
+  sdk-mcp:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modules/braink-media-console
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: modules/braink-media-console/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: python3 -m py_compile linux/media-processing.py

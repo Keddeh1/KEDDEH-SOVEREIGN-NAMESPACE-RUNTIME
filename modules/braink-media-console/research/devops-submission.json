@@ -1,0 +1,12 @@
+{
+  "branch": "feature/braink-media-console",
+  "pullRequest": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/pull/33",
+  "owningIssue": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/issues/34",
+  "queueIssue": "https://github.com/Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE/issues/11",
+  "queueLabels": [
+    "queue:intake",
+    "queue:blocked"
+  ],
+  "productionDeployed": false,
+  "independentAssessment": null
+}
