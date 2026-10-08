@@ -52,9 +52,9 @@
         "state": "not-requested"
       },
       "sourceObservation": {
-        "duration": 10,
-        "video": false,
-        "audio": false
+        "kind": "script",
+        "duration": null,
+        "note": "Text input has no measured source media duration"
       }
     },
     {
@@ -73,9 +73,9 @@
         "state": "not-requested"
       },
       "sourceObservation": {
-        "duration": 2.0,
-        "video": true,
-        "audio": false
+        "kind": "image",
+        "duration": null,
+        "requestedAnimationSeconds": 2
       }
     }
   ]

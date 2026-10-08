@@ -327,7 +327,48 @@
       "decision": "Source available licence restrictions; not unrestricted OSS",
       "retrievedAt": "2026-10-08T02:47:29.247473+00:00",
       "state": "unretrieved",
-      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "primary GitHub licence",
+        "url": "https://github.com/n8n-io/n8n/blob/master/LICENSE.md",
+        "reference": "turn230451view0",
+        "state": "retrieved"
+      }
+    }
+  ],
+  "pricingObservations": [
+    {
+      "provider": "OpusClip",
+      "primaryURL": "https://www.opus.pro/pricing",
+      "reference": "turn587863search0",
+      "displayedMonthly": {
+        "Starter": "$15/mo",
+        "Pro": "$29/mo",
+        "Business": "Custom"
+      },
+      "boundary": "Primary-domain search extraction, not a purchase quote; currency, tax, region, credits and billing terms require checkout verification"
+    },
+    {
+      "provider": "Descript",
+      "primaryURL": "https://www.descript.com/pricing",
+      "reference": "turn226486view4",
+      "price": "not reliably extracted; no amount asserted"
+    },
+    {
+      "provider": "Riverside",
+      "primaryURL": "https://riverside.com/pricing",
+      "reference": "turn587863search14",
+      "displayedMonthly": {
+        "Pro": "$29/mo",
+        "Grow": "$39/mo",
+        "Webinar": "$99/mo"
+      },
+      "displayedAnnualEquivalent": {
+        "Pro": "$24/mo",
+        "Grow": "$34/mo",
+        "Webinar": "$79/mo"
+      },
+      "boundary": "Primary-domain search extraction; verify currency, tax, region, credits and annual commitment at checkout"
     }
   ]
 }

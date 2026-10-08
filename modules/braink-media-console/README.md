@@ -14,7 +14,7 @@ For native processing use Linux, FFmpeg with libx264, AAC, MP3 and Flite support
 
 Apply the append-only D1 migrations through the existing runtime deployment pipeline, export `media-schema.ts` from the database schema and mount the route adapters under `app/api/media`. Copy `runtime/media-service.mjs` into the existing runtime's `lib/`. Route governance calls to the existing `cloudAgentDispatch`, capability `skill://engineering/translation-ledger`. Preserve owner authentication, D1 and R2 bindings. Route files retain existing runtime imports and require that runtime rather than operating independently.
 
-The existing cinematic frontage mounts `console/media-sector.mjs` at `/sector` and the script and stylesheet at `/media/studio.js` and `/media/studio.css`. The owner-only website proxy retains the existing website bridge credential. Full source changes are in `integrations/frontage.patch` and `integrations/runtime.patch`; base commit identities are recorded in research/source-custody.json. Do not apply a patch blindly to a different base.
+The existing cinematic frontage mounts `console/media-sector.mjs` at `/sector` and the script and stylesheet at `/media/studio.js` and `/media/studio.css`. The owner-only website proxy retains the existing website bridge credential. The downloadable delivery archive also includes full source changes in `integrations/frontage.patch` and `integrations/runtime.patch`; those archive-only patches are not stored in this module branch. base commit identities are recorded in research/source-custody.json. Do not apply a patch blindly to a different base.
 
 ## Owner workflow
 
