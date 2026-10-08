@@ -1,0 +1,22 @@
+[Unit]
+Description=BRAINK media and YouTube account worker
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=braink
+Group=braink
+WorkingDirectory=/opt/braink-runtime
+ExecStart=/usr/bin/node /opt/braink-runtime/linux/media-host-worker.mjs
+Environment=BRAINK_MEDIA_WORKER_CONFIG=/etc/braink/media-agent.json
+Environment=BRAINK_MEDIA_WORKER_STATE=/var/lib/braink-media
+Restart=on-failure
+RestartSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+StateDirectory=braink-media
+ReadOnlyPaths=/etc/braink/media-agent.json
+[Install]
+WantedBy=multi-user.target

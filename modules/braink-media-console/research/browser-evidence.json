@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-08T02:49:28.989Z",
+  "browser": "Chromium",
+  "storage": "Controlled real SQLite/filesystem fixture, not production cloud",
+  "upload": true,
+  "editPersistence": true,
+  "freezeFrameSave": true,
+  "scriptSave": true,
+  "actualBrowserRender": true,
+  "reloadReadback": true,
+  "mobileNoOverflow": true,
+  "reducedMotion": true,
+  "pageErrors": [],
+  "notVerified": [
+    "real screen-selection consent/capture",
+    "production BRAINK dispatcher",
+    "Google OAuth",
+    "live YouTube upload"
+  ]
+}

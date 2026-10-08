@@ -1,0 +1,1 @@
+{"name":"@keddeh/braink-media-console","version":"0.1.0","private":true,"type":"module","description":"Reusable BRAINK-governed media console, Node SDK and MCP server","exports":{".":"./sdk/index.mjs"},"scripts":{"test":"node --test tests/*.test.mjs","mcp":"node mcp/server.mjs"},"dependencies":{"@modelcontextprotocol/sdk":"1.26.0","zod":"3.25.76"},"engines":{"node":">=22"}}

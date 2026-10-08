@@ -1,0 +1,333 @@
+{
+  "schema": "braink.media.market.v1",
+  "status": "research evidence; not an approved formal publication",
+  "coverage": [
+    "native processing",
+    "editing",
+    "capture",
+    "transcription",
+    "speech synthesis",
+    "automation",
+    "agent protocols",
+    "YouTube provider integration",
+    "commercial competitors"
+  ],
+  "method": "Primary project/provider sources. Retrieval success does not validate claims or certify licensing. No price or engagement performance invented.",
+  "sources": [
+    {
+      "name": "FFmpeg",
+      "url": "https://ffmpeg.org/legal.html",
+      "capability": "Native encoding, filtering and freeze-frame extraction",
+      "decision": "Selected; exact built binary licence configuration must accompany redistribution",
+      "retrievedAt": "2026-10-08T02:47:27.230768+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view0",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "PySceneDetect",
+      "url": "https://github.com/Breakthrough/PySceneDetect",
+      "capability": "Scene-boundary detection",
+      "decision": "Selected; scene cuts are not semantic editorial judgement",
+      "retrievedAt": "2026-10-08T02:47:27.231344+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/Breakthrough/PySceneDetect",
+      "sha256": "e5255c213451a5c1f0bdffbc94c7fc5b0758560d87e501551ccbca46bffcc917",
+      "bytes": 338567,
+      "snapshot": "sources/pyscenedetect.html"
+    },
+    {
+      "name": "faster-whisper",
+      "url": "https://github.com/SYSTRAN/faster-whisper",
+      "capability": "Local speech transcription",
+      "decision": "Selected engine; local model unavailable in current environment",
+      "retrievedAt": "2026-10-08T02:47:27.231746+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/SYSTRAN/faster-whisper",
+      "sha256": "4f87b34032d40f5a1ee9bbc7f3d5441b5747eda16e8328a3012437034f678334",
+      "bytes": 400576,
+      "snapshot": "sources/faster-whisper.html"
+    },
+    {
+      "name": "auto-editor",
+      "url": "https://github.com/WyattBlue/auto-editor",
+      "capability": "Silence/motion automatic timeline editing",
+      "decision": "Candidate; requires editorial review and separate adapter",
+      "retrievedAt": "2026-10-08T02:47:27.232107+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/WyattBlue/auto-editor",
+      "sha256": "d1677e77bc10dac073d8c33c368fb89f092f72f4c25834bb757b709ffd220d68",
+      "bytes": 319681,
+      "snapshot": "sources/auto-editor.html"
+    },
+    {
+      "name": "MoviePy",
+      "url": "https://github.com/Zulko/moviepy",
+      "capability": "Python composition and overlays",
+      "decision": "Candidate; FFmpeg direct execution currently preferred",
+      "retrievedAt": "2026-10-08T02:47:27.232715+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/Zulko/moviepy",
+      "sha256": "1e14406f668db2ce40f5cb9ba09104e314429fd6ba711389f27db5a0d9f13f6a",
+      "bytes": 322538,
+      "snapshot": "sources/moviepy.html"
+    },
+    {
+      "name": "Shotcut",
+      "url": "https://www.shotcut.org/",
+      "capability": "Human review and conventional NLE",
+      "decision": "Companion desktop tool; not a headless autonomous service",
+      "retrievedAt": "2026-10-08T02:47:27.233546+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view0",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "Kdenlive",
+      "url": "https://kdenlive.org/",
+      "capability": "Professional timeline editor",
+      "decision": "Companion desktop tool; project export integration pending",
+      "retrievedAt": "2026-10-08T02:47:27.234116+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view1",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "OpenShot",
+      "url": "https://www.openshot.org/",
+      "capability": "Accessible open-source timeline editor",
+      "decision": "Alternative desktop editor",
+      "retrievedAt": "2026-10-08T02:47:27.239122+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view2",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "OBS Studio",
+      "url": "https://obsproject.com/",
+      "capability": "Desktop capture and streaming",
+      "decision": "Capture companion; permissions and actual source selection required",
+      "retrievedAt": "2026-10-08T02:47:27.246108+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view3",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "OBS WebSocket",
+      "url": "https://github.com/obsproject/obs-websocket",
+      "capability": "Programmatic desktop capture control",
+      "decision": "Candidate native capture protocol; not integrated yet",
+      "retrievedAt": "2026-10-08T02:47:27.247703+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/obsproject/obs-websocket",
+      "sha256": "4ca769f980e6dd4acd7d19dfe1b85ca2a2c2b53e6213a79c36cf86f9251b1ce2",
+      "bytes": 326444,
+      "snapshot": "sources/obs-websocket.html"
+    },
+    {
+      "name": "Whisper",
+      "url": "https://github.com/openai/whisper",
+      "capability": "Speech model reference implementation",
+      "decision": "Alternative transcription backend; model licence/custody required",
+      "retrievedAt": "2026-10-08T02:47:27.249055+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/openai/whisper",
+      "sha256": "5e94811a3f46727fc85d7bcb988281e22264b2f9404fb5b6ec487aa77da5109a",
+      "bytes": 330430,
+      "snapshot": "sources/whisper.html"
+    },
+    {
+      "name": "Piper",
+      "url": "https://github.com/OHF-Voice/piper1-gpl",
+      "capability": "Local neural voice synthesis",
+      "decision": "Candidate; individual voice/model rights require review",
+      "retrievedAt": "2026-10-08T02:47:27.251359+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/OHF-Voice/piper1-gpl",
+      "sha256": "f787489566985784eda5834133894463e6ad81bb8dcec9c52adc0a3287806cdd",
+      "bytes": 307435,
+      "snapshot": "sources/piper.html"
+    },
+    {
+      "name": "Flite",
+      "url": "https://github.com/festvox/flite",
+      "capability": "Lightweight local text-to-speech",
+      "decision": "Implemented via installed FFmpeg Flite filter; synthetic English voice",
+      "retrievedAt": "2026-10-08T02:47:27.256626+00:00",
+      "httpStatus": 200,
+      "resolvedURL": "https://github.com/festvox/flite",
+      "sha256": "9ed02b43bf6936b741ff9eb2b8f89097954004331038793590d3f84b1fa29428",
+      "bytes": 376831,
+      "snapshot": "sources/flite.html"
+    },
+    {
+      "name": "Remotion",
+      "url": "https://www.remotion.dev/docs/license",
+      "capability": "React video generation",
+      "decision": "Licence restricted commercial use; do not classify as unrestricted open source",
+      "retrievedAt": "2026-10-08T02:47:29.228155+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view1",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "YouTube API",
+      "url": "https://developers.google.com/youtube/v3/guides/uploading_a_video",
+      "capability": "Official OAuth account management and uploads",
+      "decision": "Selected official provider API; account consent not configured",
+      "retrievedAt": "2026-10-08T02:47:29.231233+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view2",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "YouTube quota",
+      "url": "https://developers.google.com/youtube/v3/determine_quota_cost",
+      "capability": "Provider quotas and method costs",
+      "decision": "Must verify current project quota; no invented capacity",
+      "retrievedAt": "2026-10-08T02:47:29.233362+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view4",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "YouTube policy",
+      "url": "https://developers.google.com/youtube/v3/guides/quota_and_compliance_audits",
+      "capability": "Compliance and API audit requirements",
+      "decision": "Production release gate",
+      "retrievedAt": "2026-10-08T02:47:29.235352+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view5",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "Screen Capture API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia",
+      "capability": "User-consented browser display capture",
+      "decision": "Must be invoked through user gesture in secure context; no covert capture",
+      "retrievedAt": "2026-10-08T02:47:29.237321+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view6",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "MCP",
+      "url": "https://modelcontextprotocol.io/docs/develop/build-server",
+      "capability": "Reusable agent tool protocol",
+      "decision": "Implemented official Node stdio SDK",
+      "retrievedAt": "2026-10-08T02:47:29.239371+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn370024view7",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "OpusClip",
+      "url": "https://www.opus.pro/pricing",
+      "capability": "Commercial automatic shorts competitor",
+      "decision": "Market comparator; current pricing should be read directly, no unverified price asserted",
+      "retrievedAt": "2026-10-08T02:47:29.241367+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view3",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "Descript",
+      "url": "https://www.descript.com/pricing",
+      "capability": "Transcript-oriented editor and voices",
+      "decision": "Commercial comparator; not a replicable open-source backend",
+      "retrievedAt": "2026-10-08T02:47:29.243458+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view4",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "Riverside",
+      "url": "https://riverside.fm/pricing",
+      "capability": "Recording and repurposing workflow",
+      "decision": "Commercial comparator; customer account dependency",
+      "retrievedAt": "2026-10-08T02:47:29.245430+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+      "alternateRetrieval": {
+        "method": "connected web tool, primary URL",
+        "reference": "turn226486view5",
+        "state": "retrieved"
+      },
+      "assessment": "Use own concise analysis; upstream marketing claims are not measured engineering results"
+    },
+    {
+      "name": "n8n",
+      "url": "https://docs.n8n.io/sustainable-use-license/",
+      "capability": "Workflow automation",
+      "decision": "Source available licence restrictions; not unrestricted OSS",
+      "retrievedAt": "2026-10-08T02:47:29.247473+00:00",
+      "state": "unretrieved",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

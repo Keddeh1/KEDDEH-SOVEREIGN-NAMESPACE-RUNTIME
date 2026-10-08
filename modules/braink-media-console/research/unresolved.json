@@ -1,0 +1,53 @@
+{
+  "status": "intake; blocked for production readiness",
+  "unresolved": [
+    {
+      "id": "deployment",
+      "detail": "Native Sites builds passed; media changes have not been deployed to production."
+    },
+    {
+      "id": "oauth",
+      "detail": "YOUTUBE_CLIENT_ID and YOUTUBE_CLIENT_SECRET are absent; user Google consent and verified channel are required."
+    },
+    {
+      "id": "speech-model",
+      "detail": "faster-whisper is installed; model download returned HTTP 403. No transcript was fabricated."
+    },
+    {
+      "id": "capture",
+      "detail": "Actual interactive browser screen selection and recording still need desktop qualification; headless tests did not simulate consent."
+    },
+    {
+      "id": "resumable-recovery",
+      "detail": "Ambiguous YouTube uploads stop at needs-reconciliation; an owner reconciliation/resume tool is still required."
+    },
+    {
+      "id": "processing-recovery",
+      "detail": "Expired processing leases are surfaced after 24 hours; output adoption/retry tooling and worker heartbeat need hardening."
+    },
+    {
+      "id": "captions",
+      "detail": "Caption files are preserved locally and in edit documents; automatic YouTube caption upload is not implemented."
+    },
+    {
+      "id": "editing",
+      "detail": "Complex multi-track composition, semantic clip ranking, automatic script generation and native script-to-video overlays are not implemented."
+    },
+    {
+      "id": "rapport",
+      "detail": "Comment review and labelled generic reply drafts exist; tailored reply generation and posting are not implemented."
+    },
+    {
+      "id": "deployment-service",
+      "detail": "Container/systemd definitions exist; container build and permanent service installation are not qualified."
+    },
+    {
+      "id": "governance",
+      "detail": "Independent assessment, direct production readback and rollback execution are pending."
+    },
+    {
+      "id": "publication",
+      "detail": "Mandatory formal publishing template and standard could not be read from the skill resource; no publication approval is claimed."
+    }
+  ]
+}
