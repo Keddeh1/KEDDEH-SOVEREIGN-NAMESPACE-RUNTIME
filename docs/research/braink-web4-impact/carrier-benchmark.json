@@ -1,0 +1,39 @@
+{
+  "schema": "braink.carrier.benchmark.v1",
+  "observedAt": "2026-10-08T03:26:17.243Z",
+  "runtime": "151.0.7922.173",
+  "node": "v24.19.0",
+  "sourceBytes": 6017,
+  "loadToAddressReadbackMs": [
+    119.87679500000002,
+    44.81902000000002,
+    44.26732000000004,
+    55.54890499999999,
+    42.42145599999992,
+    36.96190100000001,
+    39.48404100000005
+  ],
+  "addressResolver": {
+    "batches": [
+      4.2999999998137355,
+      2.900000000372529,
+      2.099999999627471,
+      1.900000000372529,
+      1.5
+    ],
+    "requestsPerBatch": 200,
+    "repeatedAddressDeterministic": true,
+    "boundsRejected": [
+      true,
+      true
+    ],
+    "backingStoreWriteFunctionPresent": false,
+    "bootDisplay": "KERA_STATUS: ADDRESS_DESCRIPTOR_LOADED\nKERA_ORCHESTRATION: INSTRUCTION_MAP_LOADED_NOT_SIGNATURE_AUTHENTICATED\nKERA_THROUGHPUT: ADDRESS_RESOLVER_AVAILABLE\nGATE: BOTH=INLINE_CORRECTION+FORWARD_REHYDRATION\nPREFIX CHECK: PASS\nPAYLOAD RULE: address descriptors are generated deterministically; arbitrary data persistence and physical capacity are not established by this resolver."
+  },
+  "pageErrors": [],
+  "boundary": "Real Chromium execution of corrected copy of supplied forward-rehydration carrier on this shared host. Repeated page loads are not isolated cold-machine boot measurements; timings are environment-specific. No comparative compiler, physical storage, power, carbon or enterprise capacity result inferred.",
+  "summary": {
+    "medianPageLoadToReadbackMs": 44.26732000000004,
+    "medianMsPer200AddressResolutions": 2.099999999627471
+  }
+}

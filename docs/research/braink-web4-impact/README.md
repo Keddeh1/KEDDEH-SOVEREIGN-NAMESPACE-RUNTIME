@@ -1,11 +1,17 @@
-# BRAINK/KEX Web4 impact assessment candidate
+# BRAINK/KEX verified engineering assessment 1.0
 
-Research branch; no production deployment, security certification, energy measurement or independent approval is claimed.
+Completed source assessment, corrective implementation and local verification. No production deployment, physical energy measurement, firmware secure boot or independent certification is claimed.
 
-Read BRAINK-Web4-assessment.html, claim-register.json, sources.json and runtime-custody.json. The report evaluates technical architecture, market comparators, professional use cases, economic costs, environmental boundaries and a qualification protocol. The optional rendered PDF is supplied in the downloadable delivery archive.
+Open BRAINK-impact-lab.html for the accessible interactive economics/energy calculator; BRAINK-Web4-assessment.html and PDF contain the complete assessment and boundaries. DOCX is an editable companion; canonical PDF pages are browser-rendered and inspected, not a claim of native Word pagination or unavailable official-template conformance.
 
-Run `python3 -m unittest test_energy_model.py` and `python3 energy_model.py scenario-input.json`. All scenario inputs are assumptions; change them to measured and sourced values before making a customer savings claim. The model retains negative outcomes, separates net energy and operational carbon, and does not invent embodied-carbon credits.
+KEX_FORWARD_REHYDRATION_RUNTIME_FIXED.html repairs two original JavaScript syntax failures and replaces unsupported authenticated-boot labels with observed descriptor-loading states. This runtime generates address descriptors; it does not implement arbitrary backing storage.
 
-The supplied illustrative boot-code audit can be reproduced with `python3 reproduce_boot_audit.py '/path/to/Pasted text.txt'`. It extracts only hash/verifier functions, redirects their paths to temporary directories, and excludes runtime UI startup and destructive disk provisioning. Python executes only that narrowly selected supplied code; review the source input before using another document. The original pasted text is not redistributed. Its SHA-256 and specific findings are in boot-audit.json. The findings do not establish defects in unrelated original BRAINK compilers or code.
+Run `python -m unittest test_energy_model.py` for the four model tests. All sample inputs are scenarios, not power readings. Negative outcomes are preserved.
 
-The original v74 benchmark and complete compiler proof/corpus were not available for verification. Existing original runtime source custody and prior session evidence remain separate from this new research. The mandatory Keddeh publishing template was unavailable; layout compliance is pending. Rights remain reserved pending owner designation, with upstream sources retaining their own attribution and terms.
+Install `pip install -r implementation/requirements.txt`, then run `python -m unittest discover -s implementation -v` for ten signed-manifest tests. signed_boot.py provides owner-pinned Ed25519 full-file verification, rejection of altered/extra/missing files, anti-rollback version checks, atomic software activation records and append-only chained observation records. It is a reusable Python module, not a hardware trust root, FROST implementation or autonomous OS executor. Protect keys and state and reverify immutable slot content immediately before execution. An attacker able to rewrite the entire ledger can rebuild its chain unless an external trusted anchor exists.
+
+The existing namespace runtime passed 90 tests in an isolated environment with declared dependencies. See verification-summary.json and existing-runtime-tests.log. Browser verification evidence covers the corrected carrier and desktop/mobile/reduced-motion impact lab. No power meter was available.
+
+The original pasted verifier audit is reproducible using `python reproduce_boot_audit.py /path/to/Pasted\ text.txt`; it excludes disk-formatting and UI startup. Original private transcript and giant embedded runtime are not redistributed. Custody hashes identify inspected originals. Component benchmarks in the supplied original paper remain source-reported because their harness was unavailable.
+
+Rights reserved pending owner designation. Upstream sources retain their own licences. Publishing-template conformance, independent assessment, actual rack/client energy qualification and authenticated production deployment remain explicitly unresolved.

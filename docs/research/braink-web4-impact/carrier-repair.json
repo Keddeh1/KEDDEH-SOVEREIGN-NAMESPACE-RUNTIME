@@ -1,0 +1,10 @@
+{
+  "originalSha256": "36588a8b4c6f202ba8eea6df9e7544360125b0e976ea9756618b7f41e6c89dc8",
+  "fixedSha256": "106cda275576ede64908fb3f670fadc03f1781ad8e4d48bd4f864a664832d1ce",
+  "defect": "Literal newlines inside two quoted JS join arguments cause parse failure",
+  "correctedCount": 2,
+  "originalBrowserError": "Invalid or unexpected token",
+  "change": "Escape newline separators; preserve address algorithm and all original data",
+  "scope": "Copied corrected artifact; uploaded source remains unchanged",
+  "statusCorrection": "Removed unobserved authenticated hardware/storage/queue claims; descriptor and resolver status remain distinct from external effects"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "foundational_paper_coordinate_systems_and_measurement_theory.md",
+    "sha256": "2fdec598a1ccd7cdab72cfb9cabcf632f1055e495cca7be5a8786726ab6dd72a",
+    "bytes": 20941,
+    "classification": "Supplied source; reported results and authored conclusions, not independently reproduced measurements"
+  },
+  {
+    "name": "case_study_empirical_systems_benchmark_and_component_registry.md",
+    "sha256": "6eb6ff4cc471b8fc9ea00969166ddbe764134b691eb92a6e8c159b291239dac0",
+    "bytes": 7115,
+    "classification": "Supplied source; reported results and authored conclusions, not independently reproduced measurements"
+  },
+  {
+    "name": "BRAINK_Architectural_Review.md",
+    "sha256": "44d79777686bb9c33a4ebb3b477e176ec5bd226943a04efb093ff6f204376505",
+    "bytes": 9205,
+    "classification": "Supplied source; reported results and authored conclusions, not independently reproduced measurements"
+  }
+]
