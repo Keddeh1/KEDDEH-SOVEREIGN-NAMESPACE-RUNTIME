@@ -1,0 +1,13 @@
+{
+  "schema": "kex.supplied.boot.audit.v1",
+  "sourceSha256": "0db6c6f157b406656579101623ee4193678e00bb0dc82a9207b5ff7db55f60c9",
+  "executionBoundary": "Only extracted hash/verifier functions; paths redirected to temporary fixture; no physical disks, no runtime launch, no provisioning script executed",
+  "baselineReturnedSlot": "a",
+  "modifiedPythonReturnedSlot": "a",
+  "nonPythonFileReturnedSlot": "a",
+  "emptyPythonDirectoryReturnedSlot": "a",
+  "rejectedTampering": false,
+  "signatureVerificationPresent": false,
+  "expectedHashComparisonPresent": false,
+  "finding": "Supplied illustrative verifier accepts changed Python, additional binary and empty code directory. It computes a digest without authenticating an expected manifest. This does not establish that the original BRAINK compiler/runtime shares these defects."
+}
