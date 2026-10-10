@@ -1,0 +1,11 @@
+{
+  "actualVFSReadback": true,
+  "zeroCoordinateActive": true,
+  "carrierRemovalObserved": true,
+  "restoredSourceByteEqual": true,
+  "receiptRetained": true,
+  "missingTokenRejected": 403,
+  "mobileNoOverflow": true,
+  "reducedMotionExercised": true,
+  "pageErrors": []
+}
