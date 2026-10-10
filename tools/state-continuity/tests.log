@@ -1,0 +1,17 @@
+test_absent_is_distinct (test_continuity.ContinuityTests.test_absent_is_distinct) ... ok
+test_carrier_loss_restart_and_verified_recovery (test_continuity.ContinuityTests.test_carrier_loss_restart_and_verified_recovery) ... ok
+test_concurrent_mutation_one_commit (test_continuity.ContinuityTests.test_concurrent_mutation_one_commit) ... ok
+test_corrupt_object_is_not_accepted_or_overwritten (test_continuity.ContinuityTests.test_corrupt_object_is_not_accepted_or_overwritten) ... ok
+test_empty_bytes_are_available (test_continuity.ContinuityTests.test_empty_bytes_are_available) ... ok
+test_event_tamper_rejected (test_continuity.ContinuityTests.test_event_tamper_rejected) ... ok
+test_head_tamper_rejected (test_continuity.ContinuityTests.test_head_tamper_rejected) ... ok
+test_invalid_identity (test_continuity.ContinuityTests.test_invalid_identity) ... ok
+test_metadata_database_failure_propagates (test_continuity.ContinuityTests.test_metadata_database_failure_propagates) ... ok
+test_version_conflict (test_continuity.ContinuityTests.test_version_conflict) ... ok
+test_wrong_recovery_never_succeeds (test_continuity.ContinuityTests.test_wrong_recovery_never_succeeds) ... ok
+test_zero_record_retained (test_continuity.ContinuityTests.test_zero_record_retained) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.023s
+
+OK

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "KEDDEH_ENGINEERED_COMPUTER_RUNTIME_v1.html",
+    "bytes": 22165036,
+    "sha256": "f149d880d8730744b53f3cf8e44378f9eea748226b56a8fd6a563afd99663640",
+    "title": "KEX Linux Computer v70",
+    "markers": {
+      "crypto.subtle.digest": true,
+      "WebAssembly": true,
+      "v86": true,
+      "VFS": true,
+      "FNV": true
+    },
+    "boundary": "Marker inspection and source custody; no fresh execution or energy measurement asserted"
+  },
+  {
+    "name": "KEX_FORWARD_REHYDRATION_RUNTIME.html",
+    "bytes": 5933,
+    "sha256": "36588a8b4c6f202ba8eea6df9e7544360125b0e976ea9756618b7f41e6c89dc8",
+    "title": "KEX Forward Rehydration Runtime",
+    "markers": {
+      "crypto.subtle.digest": true,
+      "WebAssembly": false,
+      "v86": false,
+      "VFS": false,
+      "FNV": false
+    },
+    "boundary": "Marker inspection and source custody; no fresh execution or energy measurement asserted"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "schema": "keddeh.matched-payload-read.v1",
+  "python": "3.12.14",
+  "payloadBytes": 37286,
+  "iterationsPerBatch": 1000,
+  "batches": 5,
+  "microsecondsPerRead": {
+    "posix": [
+      40.406481,
+      28.79639,
+      27.517199,
+      27.611117999999998,
+      32.509474
+    ],
+    "vfs": [
+      216.555656,
+      240.999241,
+      219.093703,
+      211.036913,
+      202.316362
+    ]
+  },
+  "medianMicroseconds": {
+    "posix": 28.79639,
+    "vfs": 216.555656
+  },
+  "boundary": "Warm local full-payload read and SHA256 verification for both paths. VFS additionally validates retained journal metadata. Not equivalent feature costs, cold boot, power, physical unmount, kernel dentry memory or remote recovery. No universal O(1) or zero-overhead inference."
+}

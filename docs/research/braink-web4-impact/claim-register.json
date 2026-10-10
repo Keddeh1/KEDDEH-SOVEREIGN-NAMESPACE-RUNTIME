@@ -1,0 +1,90 @@
+{
+  "schema": "braink.web4.claim-register.v1",
+  "scope": "Pasted discussion and illustrative code; prior runtime evidence is labelled separately",
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "Portable HTML runtimes can shorten delivery and support local execution",
+      "assessment": "credible design proposition",
+      "evidence": "Existing HTML artifacts and prior browser/VFS checks support executable packaging; comparative deployment time is unmeasured",
+      "qualification": "Cold/warm boot, programming loop and deployment lead time under equal functionality"
+    },
+    {
+      "id": "C02",
+      "claim": "0.676% file extension proves compute and energy overhead",
+      "assessment": "not established",
+      "evidence": "Pasted text associates percentage with added bytes, then reuses it for CPU, latency and energy. Original v74 stress report and measured denominator are absent",
+      "qualification": "Separate artifact size, CPU time, peak resident memory, energy per completed task and facility consumption"
+    },
+    {
+      "id": "C03",
+      "claim": "Browser/DOM is bare-metal and host-independent",
+      "assessment": "incorrect technical description",
+      "evidence": "Browser execution uses the engine and host OS; supplied engineered computer contains v86/WebAssembly markers",
+      "qualification": "Enumerate host kernel, engine version, emulation/native bridges and device APIs"
+    },
+    {
+      "id": "C04",
+      "claim": "Zero-cost spawn and zero serialization",
+      "assessment": "not established",
+      "evidence": "Thread/context creation, compilation, memory and messages have costs. Shared memory reduces some copying but adds synchronization duties",
+      "qualification": "Compare Web Workers, Wasm, native processes, containers and microVMs on the same hardware"
+    },
+    {
+      "id": "C05",
+      "claim": "Geometric hashes provide unspoofable cryptographic identity",
+      "assessment": "not established",
+      "evidence": "Hash reproducibility is not possession of a secret key, non-replayability, authorization or independent authenticity",
+      "qualification": "Keyed authentication/signatures, nonce/replay policy, key custody, verifier and revocation tests"
+    },
+    {
+      "id": "C06",
+      "claim": "Physical secure boot and FROST signatures are complete",
+      "assessment": "contradicted by supplied example",
+      "evidence": "Controlled extracted-verifier tests accept changed code, added binary and empty directory; provisioning writes MOCK_FROST_SIG",
+      "qualification": "Pinned trust root, signed canonical manifest, all-file coverage, anti-rollback and fault-injection tests"
+    },
+    {
+      "id": "C07",
+      "claim": "UI hash labels establish append-only evidence and ISO compliance",
+      "assessment": "contradicted/incomplete in supplied example",
+      "evidence": "Dictionary overwrites traces by action and truncated digest is labelled EVIDENCE_OK; surface values and witness counts do not verify execution or signatures",
+      "qualification": "Durable append log, unambiguous encoding, actual I/O observations, full digests/signatures, accessibility/ISO assessment"
+    },
+    {
+      "id": "C08",
+      "claim": "1000 TB address lattice constitutes arbitrary physical data storage",
+      "assessment": "not established",
+      "evidence": "Forward rehydration computes digest/address metadata; it contains no demonstrated arbitrary write/read persistence",
+      "qualification": "Separate address capacity, procedural generation, backing bytes, arbitrary input preservation, deletion and quota"
+    },
+    {
+      "id": "C09",
+      "claim": "Half a rack can be shut down and savings begin within a week",
+      "assessment": "testable conditional hypothesis",
+      "evidence": "Requires identified dispensable servers, safe migration, equivalent SLA, actual shutdown and lower total-system energy",
+      "qualification": "Meter rack and endpoints before/after; separate energy onset from financial/carbon payback"
+    },
+    {
+      "id": "C10",
+      "claim": "Local-first is zero OpEx and requires zero migration",
+      "assessment": "unsupported universal claim",
+      "evidence": "Endpoint lifecycle, backup, consistency, operations, security, compilation and API dependencies remain",
+      "qualification": "Costed per-workload migration and total cost of ownership; no general zero-cost promise"
+    },
+    {
+      "id": "C11",
+      "claim": "Web4 seven layers are a universal IEEE/W3C standard",
+      "assessment": "not established",
+      "evidence": "Research search locates Marc Herdina SSRN architecture; DID is an independent W3C standard. No IEEE adoption evidence supplied",
+      "qualification": "Cite specific paper/version and standards conformance separately"
+    },
+    {
+      "id": "C12",
+      "claim": "Keddeh Koin receipts automatically establish currency settlement",
+      "assessment": "not established",
+      "evidence": "Work receipts alone do not implement supply rules, independent consensus, double-spend prevention or financial settlement",
+      "qualification": "Define ledger/reward policy, adversarial consensus, reconciliation and economics independent of mining UI"
+    }
+  ]
+}

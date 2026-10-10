@@ -1,0 +1,76 @@
+{
+  "reviewDate": "2026-10-08 Australia/Adelaide",
+  "method": "Connected web retrieval of primary sources; source status and blocked full text are explicit",
+  "sources": [
+    {
+      "title": "SSRN Web4 architecture",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7138740",
+      "qualification": "Primary-domain search identifies Marc Herdina\u2019s seven-layer architecture and Ownership Thesis; full paper retrieval blocked by 403. No IEEE adoption established."
+    },
+    {
+      "title": "W3C DID Core",
+      "url": "https://www.w3.org/TR/did-core/",
+      "qualification": "Decentralized identifier data model; not proof of implementation in BRAINK."
+    },
+    {
+      "title": "W3C BBS cryptosuites",
+      "url": "https://www.w3.org/TR/2026/CRD-vc-di-bbs-20260910/",
+      "qualification": "Candidate Recommendation Draft; standards status and implementation must remain distinct."
+    },
+    {
+      "title": "A2A specification",
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "qualification": "Agent interoperability specification; pin the chosen version and verify conformance."
+    },
+    {
+      "title": "Local-first research",
+      "url": "https://www.inkandswitch.com/essay/local-first/",
+      "qualification": "Existing research context for ownership, offline collaboration and local processing."
+    },
+    {
+      "title": "Pyodide",
+      "url": "https://pyodide.org/en/stable/",
+      "qualification": "Existing Python browser/Node WebAssembly runtime comparator."
+    },
+    {
+      "title": "Emscripten",
+      "url": "https://emscripten.org/",
+      "qualification": "Existing LLVM/WebAssembly toolchain comparator."
+    },
+    {
+      "title": "Automerge",
+      "url": "https://automerge.org/",
+      "qualification": "Existing local-first synchronization and versioned-state comparator."
+    },
+    {
+      "title": "Yjs",
+      "url": "https://docs.yjs.dev/",
+      "qualification": "Existing collaborative-state comparator."
+    },
+    {
+      "title": "Wasmtime",
+      "url": "https://wasmtime.dev/",
+      "qualification": "Existing non-browser WebAssembly runtime comparator."
+    },
+    {
+      "title": "Firecracker primary benchmark",
+      "url": "https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/",
+      "qualification": "Published platform-specific microVM startup under 125 ms and memory overhead under 5 MiB; not a benchmark against Keddeh."
+    },
+    {
+      "title": "IEA Energy and AI",
+      "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+      "qualification": "Global energy context; not a measured BRAINK saving."
+    },
+    {
+      "title": "Software Carbon Intensity",
+      "url": "https://sci.greensoftware.foundation/",
+      "qualification": "Energy, electricity carbon intensity, embodied allocation and functional-unit methodology."
+    },
+    {
+      "title": "Web Workers",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers",
+      "qualification": "Browser background execution, messages and host boundaries."
+    }
+  ]
+}

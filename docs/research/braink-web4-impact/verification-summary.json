@@ -1,0 +1,34 @@
+{
+  "existingRuntime": {
+    "gitCommit": "9bd3152e57d2612e40e700bc1d8e5b8a932fba45",
+    "tests": 90,
+    "passed": true,
+    "environment": "Isolated venv with installed package and declared dependencies"
+  },
+  "signedBoot": {
+    "tests": 10,
+    "passed": true,
+    "cryptographicPrimitive": "Ed25519; not FROST or firmware attestation"
+  },
+  "energyModel": {
+    "tests": 4,
+    "passed": true
+  },
+  "carrier": {
+    "syntaxRepaired": true,
+    "browserErrors": [],
+    "boundsRejected": [
+      true,
+      true
+    ],
+    "summary": {
+      "medianPageLoadToReadbackMs": 44.26732000000004,
+      "medianMsPer200AddressResolutions": 2.099999999627471
+    }
+  },
+  "powerMeasurement": {
+    "available": false,
+    "observedMissingInterface": "/sys/class/powercap",
+    "boundary": "No rack, endpoint wattmeter or calibrated energy interface available; no energy measurements invented"
+  }
+}

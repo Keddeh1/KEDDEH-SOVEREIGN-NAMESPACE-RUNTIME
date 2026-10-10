@@ -1,0 +1,9 @@
+{
+  "browser": "Chromium",
+  "pythonScenarioAgreement": true,
+  "negativeOutcomePreserved": true,
+  "invalidInputBlocksExport": true,
+  "mobileNoHorizontalOverflow": true,
+  "reducedMotion": true,
+  "pageErrors": []
+}

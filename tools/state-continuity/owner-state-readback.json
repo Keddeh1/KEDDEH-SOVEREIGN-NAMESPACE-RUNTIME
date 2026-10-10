@@ -1,0 +1,62 @@
+[
+  {
+    "identity": "kex/owner/observer-origin",
+    "source": {
+      "sequence": 1,
+      "path": "kex/owner/observer-origin",
+      "version": 1,
+      "digest": "02018a3ad7b7edfd06198a92c132c8c046e3dce21872058eaabb306aeb1a33fe",
+      "parent": null,
+      "receipt": "53a12c8557b24828707bad8e1f53531b30306620bdae981f0965a721f8fe68e4"
+    },
+    "projection": {
+      "sequence": 2,
+      "path": "kex/owner/observer-origin/projection",
+      "version": 1,
+      "digest": "4335c98fb2e55da88389891b213a379cbbddc82d4b51c8aa5dc25366c74c62c6",
+      "parent": "53a12c8557b24828707bad8e1f53531b30306620bdae981f0965a721f8fe68e4",
+      "receipt": "d130d2290b895dee3c0645e885d9cb4f4b0f39c5a7907fb263ed00149327d5e4"
+    },
+    "readback": "byte-exact",
+    "state": "AVAILABLE",
+    "coordinateZeroDoesNotDeactivate": true,
+    "linkCount": 86,
+    "observations": {
+      "relocation": "same identity and digest",
+      "carrierRemoval": "REHYDRATABLE",
+      "verifiedRestoration": "AVAILABLE",
+      "historyRecords": 2,
+      "boundary": "Local directory relocation and actual backing-file removal/restoration; not remote replication or process continuation."
+    }
+  },
+  {
+    "identity": "kex/owner/relational-continuity",
+    "source": {
+      "sequence": 3,
+      "path": "kex/owner/relational-continuity",
+      "version": 1,
+      "digest": "14e927d9074537ca1b92f7f292e319625976d74e436005269d1f655f12feaa88",
+      "parent": "d130d2290b895dee3c0645e885d9cb4f4b0f39c5a7907fb263ed00149327d5e4",
+      "receipt": "0c53589ce2ff8715528c6b30645d3ca48b554a50bacd98071213f71d32e03b90"
+    },
+    "projection": {
+      "sequence": 4,
+      "path": "kex/owner/relational-continuity/projection",
+      "version": 1,
+      "digest": "ebe9fce898345e2e5aab516578c2a69009a73a0f52b046901819168977df715d",
+      "parent": "0c53589ce2ff8715528c6b30645d3ca48b554a50bacd98071213f71d32e03b90",
+      "receipt": "4b10c141cbf313afbde0fb3c2449fc63de1d5973e1bab150371e34015d39c21f"
+    },
+    "readback": "byte-exact",
+    "state": "AVAILABLE",
+    "coordinateZeroDoesNotDeactivate": true,
+    "linkCount": 119,
+    "observations": {
+      "relocation": "same identity and digest",
+      "carrierRemoval": "REHYDRATABLE",
+      "verifiedRestoration": "AVAILABLE",
+      "historyRecords": 4,
+      "boundary": "Local directory relocation and actual backing-file removal/restoration; not remote replication or process continuation."
+    }
+  }
+]

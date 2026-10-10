@@ -1,0 +1,16 @@
+{
+  "days": 30,
+  "servers_off": 6,
+  "server_watts": 300,
+  "pue": 1.4,
+  "endpoints": 1000,
+  "endpoint_extra_watts": 2,
+  "endpoint_hours_per_day": 8,
+  "extra_kwh": 218.8,
+  "server_kg_per_kwh": 0.4,
+  "endpoint_kg_per_kwh": 0.65,
+  "extra_kg_per_kwh": 0.4,
+  "tariff_per_kwh": 0.25,
+  "monthly_added_operations": 250,
+  "migration_cost": 5000
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KEX Forward Rehydration Runtime</title>
+<style>
+  :root { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; color-scheme: dark; }
+  body { margin:0; background:#0b0d12; color:#e8ebf2; }
+  .wrap { max-width:1180px; margin:0 auto; padding:28px; }
+  .card { background:linear-gradient(180deg,#141824,#0f131c); border:1px solid #283041; border-radius:18px; padding:18px; margin:14px 0; box-shadow:0 12px 34px rgba(0,0,0,.24); }
+  h1 { font-size:28px; margin:0 0 8px; }
+  h2 { font-size:16px; margin:0 0 10px; color:#abb7cc; font-weight:600; }
+  code, pre { font-family:"SF Mono", Menlo, Consolas, monospace; }
+  pre { white-space:pre-wrap; overflow:auto; background:#080a0f; border-radius:12px; padding:12px; border:1px solid #1e2635; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+  .metric { background:#0b0f17; border:1px solid #202839; border-radius:14px; padding:12px; }
+  .metric b { display:block; color:#fff; font-size:18px; margin-top:4px; }
+  button, input { border-radius:10px; border:1px solid #39455b; background:#111827; color:#e8ebf2; padding:10px 12px; }
+  button { cursor:pointer; }
+  input { width:280px; max-width:100%; }
+  .ok { color:#9be7b1; } .warn { color:#ffd38d; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>KEX Forward Rehydration Runtime</h1>
+  <div class="card"><h2>Corrected Gate</h2><pre id="boot"></pre></div>
+  <div class="grid">
+    <div class="metric">Declared Capacity<b>1000 TB</b></div>
+    <div class="metric">Flow Territories<b>10 × 100 TB</b></div>
+    <div class="metric">Root Prefix<b>79ceda5a3bb8</b></div>
+    <div class="metric">Mode<b>Forward Sparse</b></div>
+  </div>
+  <div class="card"><h2>Address Resolver</h2>
+    <input id="addr" value="123456789" /> <button onclick="resolveAddress()">Resolve Address</button>
+    <pre id="out"></pre>
+  </div>
+  <div class="card"><h2>G001–G012 DNA Master Chain</h2><pre id="chain"></pre></div>
+</div>
+<script>
+const SEED = "KEX-SEED::KEX_SENTINEL::AK-KEDDEH-PRIMITIVE-PRESERVATION::V2::BOTH=INLINE_CORRECTION+FORWARD_REHYDRATION";
+const ROOT = "KEXSSD-1000TB-HEXxHEX-DNA-ROOT-008";
+const HYPER = "[KEX_PERFECTED_NESTED_RUNTIME::SECTOR_HC::79ceda5a3bb8]";
+const PROOF = "79ceda5a3bb8405ec6bea11234c944320b12da160257e195d2794d2739886851";
+const VIRTUAL_BYTES = 1000n * 1000000000000n;
+const FLOW_BYTES = 100n * 1000000000000n;
+const BLOCK_BYTES = 4096n;
+const SEGMENTS = [["G001", "SSD_WRAPPER", "01", "A0xB0", "ssd_wrapper.manifest.json", "decode declared 1000TB root and total flow closure"], ["G002", "FLOW_PARTITION_MAP", "02", "A1xB1", "flow_territories.csv", "decode ten 100TB flow territories"], ["G003", "VM_CPU_SPINUP", "03", "A2xB2", "vm_spinup_directive.json", "decode virtual CPU/RAM/disk boot gate"], ["G004", "MEMORY_ADDRESS_SPACE", "04", "A3xB3", "memory_address_space.json", "decode address resolver and sparse bounds"], ["G005", "KDRIVE_BLOCK_LOGIC", "05", "A4xB4", "kdrive_block_logic.json", "decode deterministic K-Drive block/cell generation"], ["G006", "RUNTIME_PERMISSIONS", "06", "A5xB5", "runtime_permissions.json", "decode legal write/read/override permissions"], ["G007", "SUPPORT_NETWORK", "07", "A6xB6", "support_network.json", "decode support nodes, observer nodes, and flow state"], ["G008", "WORKLOAD_EXECUTION_ENGINE", "08", "A7xB7", "workload_execution_engine.json", "decode execution queue and sector workload routing"], ["G009", "OBSERVER_SCREEN_BUFFER", "09", "A8xB8", "observer_screen_buffer.json", "decode observer screen buffer and live state projection"], ["G010", "AUDIT_LEDGER_EMISSION", "10", "A9xB9", "audit_ledger_emission.json", "decode immutable ledger and transition audit rules"], ["G011", "FAILURE_RECOVERY", "11", "AAxBB", "failure_recovery.json", "decode failure domains, rollback gates, and relock logic"], ["G012", "FINAL_CLOSURE_EXPORT", "12", "ACxBC", "final_closure_export.json", "decode closure proof, export state, and rehydration lock"]];
+async function sha256hex(str) {
+  const data = new TextEncoder().encode(str);
+  const digest = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+async function cell(address) {
+  const a = BigInt(address);
+  if (a < 0n || a >= VIRTUAL_BYTES) throw new Error('address outside declared 1000TB range');
+  const base = `${PROOF}|${SEED}|${ROOT}|${a.toString()}|KEX_FORWARD_REHYDRATION|0`;
+  const h = await sha256hex(base);
+  return {
+    address: a.toString(),
+    territory: (a / FLOW_BYTES + 1n).toString(),
+    territory_offset: (a % FLOW_BYTES).toString(),
+    block_index: (a / BLOCK_BYTES).toString(),
+    block_inner_offset: (a % BLOCK_BYTES).toString(),
+    first_digest: h,
+    mode: 'forward_rehydrated_sparse_cell'
+  };
+}
+async function resolveAddress() {
+  try { document.getElementById('out').textContent = JSON.stringify(await cell(document.getElementById('addr').value), null, 2); }
+  catch(e) { document.getElementById('out').textContent = 'REJECTED: ' + e.message; }
+}
+function boot() {
+  const prefix = HYPER.includes(PROOF.slice(0,12));
+  document.getElementById('boot').textContent = [
+    'KERA_STATUS: ADDRESS_DESCRIPTOR_LOADED',
+    'KERA_ORCHESTRATION: INSTRUCTION_MAP_LOADED_NOT_SIGNATURE_AUTHENTICATED',
+    'KERA_THROUGHPUT: ADDRESS_RESOLVER_AVAILABLE',
+    'GATE: BOTH=INLINE_CORRECTION+FORWARD_REHYDRATION',
+    'PREFIX CHECK: ' + (prefix ? 'PASS' : 'FAIL'),
+    'PAYLOAD RULE: address descriptors are generated deterministically; arbitrary data persistence and physical capacity are not established by this resolver.'
+  ].join('\n');
+  document.getElementById('chain').textContent = SEGMENTS.map(s => `${s[0]}|${s[1]}|FLOW:${s[2]}|HEX:${s[3]}|FILE:${s[4]}|MEANING:${s[5]}|EVIDENCE:required|BLOCKER:required`).join('\n');
+  resolveAddress();
+}
+boot();
+</script>
+</body>
+</html>
