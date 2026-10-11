@@ -1,0 +1,40 @@
+{
+  "qualification_canary_promotion": "PASS",
+  "duplicate_slot_suppression": "PASS",
+  "tampered_canary_rejection": "PASS",
+  "receipt_chain": "PASS",
+  "receipt_count": 6,
+  "heartbeat": {
+    "pid": 52208,
+    "status": "RUNNING",
+    "time": "2026-10-11T13:19:22.199006+10:30"
+  },
+  "schedule_state": {
+    "canary": {
+      "receipt_sha256": "98d11330f39e77bf76968cc8a55dd96cbcae9cb0a3050c9853ca7d859598111c",
+      "slot": "2026-10-11",
+      "status": "PASS"
+    },
+    "promote": {
+      "receipt_sha256": "87779ec2d67bd36be48c66cfe37e999fe2dd9d4a8c0d7ed2d4f13f4a64e78b2b",
+      "slot": "2026-10-11",
+      "status": "PASS"
+    },
+    "qualification": {
+      "receipt_sha256": "2bd34cc847ed85ffa35df4924e411d99cc6dec05275fceeb6cc6ceecd22e6a79",
+      "slot": "2026-10-11",
+      "status": "PASS"
+    }
+  },
+  "scope": "Active in this workspace; permanent ServerSpace/systemd installation not performed",
+  "negative_test": {
+    "job": "promote",
+    "slot": "tamper-test",
+    "started": "2026-10-11T13:19:38.592935+10:30",
+    "scope": "QZL RTL qualification/tooling; no hardware deployment",
+    "status": "FAIL",
+    "error": "Canary changed",
+    "finished": "2026-10-11T13:19:38.593764+10:30",
+    "previous_sha256": null
+  }
+}

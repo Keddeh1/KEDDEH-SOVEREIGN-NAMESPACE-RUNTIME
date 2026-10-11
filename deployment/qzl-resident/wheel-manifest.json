@@ -1,0 +1,62 @@
+[
+  {
+    "file": "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 221822,
+    "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf"
+  },
+  {
+    "file": "click-8.5.0-py3-none-any.whl",
+    "bytes": 125251,
+    "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+  },
+  {
+    "file": "cryptography-46.0.7-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+    "bytes": 4426670,
+    "sha256": "5ad9ef796328c5e3c4ceed237a183f5d41d21150f972455a9d926593a1dcb308"
+  },
+  {
+    "file": "dnspython-2.8.0-py3-none-any.whl",
+    "bytes": 331094,
+    "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af"
+  },
+  {
+    "file": "keddeh_sovereign_namespace_runtime-0.3.2+qzl.1-py3-none-any.whl",
+    "bytes": 73112,
+    "sha256": "5f9ed5425c56873bf10d0b01739e31e95370b8edc5f7de931567338ad0fd51e5"
+  },
+  {
+    "file": "numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+    "bytes": 16717410,
+    "sha256": "b7e18c623bb5c95acb3b3328861272816ba199fb531921c5d6d0b675f1fde9e3"
+  },
+  {
+    "file": "platformdirs-4.13.0-py3-none-any.whl",
+    "bytes": 32724,
+    "sha256": "3dbcf4cd708f21cf876c4eaa90e58412bc4f033d87143f41b1493ff77c25b7e1"
+  },
+  {
+    "file": "pycparser-3.0-py3-none-any.whl",
+    "bytes": 48172,
+    "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
+  },
+  {
+    "file": "wasmtime-47.0.1-py3-none-manylinux1_x86_64.whl",
+    "bytes": 9963365,
+    "sha256": "9724600b036c6e95c4fe952e29fad83b4f02bdc11d23f25c4ee3ffff2c1d7257"
+  },
+  {
+    "file": "yowasp_runtime-1.96-py3-none-any.whl",
+    "bytes": 5212,
+    "sha256": "4ff456a4a6dff9d689c7feac9f68fb1492bed4cf873450d7b41259fa31645783"
+  },
+  {
+    "file": "yowasp_yosys-0.69.0.0.post1233-py3-none-any.whl",
+    "bytes": 15634843,
+    "sha256": "59284760d6455b764fce5dcf296d2c183b05dc980f59092461deddc9caa09bdd"
+  },
+  {
+    "file": "z3_solver-5.1.0.0-py3-none-manylinux_2_27_x86_64.whl",
+    "bytes": 33098276,
+    "sha256": "dfad9e309d7010b1ff6bdb33f21570a1603ef4727373221c7117a74448f0cfef"
+  }
+]

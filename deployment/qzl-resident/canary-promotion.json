@@ -1,0 +1,263 @@
+{
+  "status": "PASS",
+  "jobs": [
+    {
+      "finished": "2026-10-12T03:31:28.126907+10:30",
+      "job": "canary",
+      "previous_sha256": "df6572678db6f64371b0b16b79c9c8e2a24a9061fad5ee7cd4709c463594287f",
+      "release": "/workspace/deployments/owner-qzl-resident/canary-qzl/state/releases/b79edf6fb94341a3ac1525cdd2bdcf3d",
+      "scope": "QZL RTL qualification/tooling; no hardware deployment",
+      "slot": "queue-c38e780a338c1dcdfa20d5ef3567bcdf",
+      "started": "2026-10-12T03:31:26.432713+10:30",
+      "status": "PASS"
+    },
+    {
+      "finished": "2026-10-12T03:31:58.145139+10:30",
+      "job": "promote",
+      "previous_sha256": "10cc1e3b918b088a603add6b1c6adb88521e317584567e601067182f09d8c3c9",
+      "release": "/workspace/deployments/owner-qzl-resident/canary-qzl/state/releases/b79edf6fb94341a3ac1525cdd2bdcf3d",
+      "scope": "QZL RTL qualification/tooling; no hardware deployment",
+      "slot": "queue-6a6be6c65840f40bb0026ebd57b84495",
+      "started": "2026-10-12T03:31:58.143047+10:30",
+      "status": "PASS"
+    }
+  ],
+  "view": {
+    "source_digest": "eca7386dc3062d52d53d7cd363ffec0e572ca2ec85ac3158237ec552829ea11d",
+    "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+    "family_id": "qzl-qualified-tooling-canary",
+    "boot_status": "COMPLETED",
+    "schema": "keddeh.web4.readback.v1",
+    "scope": "local real processes",
+    "nodes": [
+      {
+        "port": 22100,
+        "ok": true,
+        "domain": "SERVER_SPACE_SUBSTRATE",
+        "compute_cycles": 7391,
+        "state_hash": "e0559e719b6807ef27ac8411cbcd22733880c2f93ce501c715db7c3422328e59"
+      },
+      {
+        "port": 22101,
+        "ok": true,
+        "domain": "STORE_SPACE_WORKSTATIONS",
+        "compute_cycles": 7388,
+        "state_hash": "73c44c598423a3b06c0f1a672075c93d5f6c6a53759b24f150c2eaaf3525faca"
+      },
+      {
+        "port": 22102,
+        "ok": true,
+        "domain": "SOFTWARE_NODES_SUBSTRATE",
+        "compute_cycles": 7382,
+        "state_hash": "a36465232827c2e090c7c7b6c191c448e6decf8a5c4caa01fa84573612758793"
+      },
+      {
+        "port": 22103,
+        "ok": true,
+        "domain": "HYPERDRIVE_DASHBOARD_ENGINE",
+        "compute_cycles": 7379,
+        "state_hash": "4190e88ce46bedd2f81034d026c939c02c530ce188cfcdcc40530dcb67dbd3bc"
+      },
+      {
+        "port": 22104,
+        "ok": true,
+        "domain": "CLOUD_SERVERS_CLUSTER_1",
+        "compute_cycles": 7374,
+        "state_hash": "dbcbc1faeb027202a2d495aabeeedb51eaef662dd207201503cac8e4d9b97014"
+      },
+      {
+        "port": 22105,
+        "ok": true,
+        "domain": "REPO_BASED_TOPOLOGY_NODE",
+        "compute_cycles": 7371,
+        "state_hash": "3d63aa1baa3ba29ff1fcfdb8c423009cf27da9799d011432b7ec91d6dc6cae0f"
+      },
+      {
+        "port": 22106,
+        "ok": true,
+        "domain": "VIRTUALIZED_STORAGE_MATRIX",
+        "compute_cycles": 7365,
+        "state_hash": "5309160703ba70785250115ddaa0512b447546f0e6777b4f863b6fc6129279ba"
+      },
+      {
+        "port": 22107,
+        "ok": true,
+        "domain": "SOVEREIGN_VIRTUAL_BRAIN_CONSOLE",
+        "compute_cycles": 7360,
+        "state_hash": "af28d0163cbedd87b89ee736fcb75271e482dfb9eee6bd241b1df701d11d3321"
+      },
+      {
+        "port": 22108,
+        "ok": true,
+        "domain": "CONSOLE_PLUS_SUBSYSTEM",
+        "compute_cycles": 7357,
+        "state_hash": "8461c3fe195387d3f9c5536ff19d5372bb2dbfd38cdc772d768b2f10a2c391f2"
+      },
+      {
+        "port": 22109,
+        "ok": true,
+        "domain": "BRAINK_BETA_RUNTIME_STATION",
+        "compute_cycles": 7354,
+        "state_hash": "4bec568ec5c90a6e20afad137f980f3f8f7065b74c9ff950b60b938b98b20cf3"
+      }
+    ],
+    "healthy_nodes": 10,
+    "services": {
+      "vfs-server": {
+        "pid": 7,
+        "alive": true,
+        "restarts": 0
+      },
+      "broker": {
+        "pid": 9,
+        "alive": true,
+        "restarts": 0
+      },
+      "network": {
+        "pid": 11,
+        "alive": true,
+        "restarts": 0
+      },
+      "http": {
+        "pid": 20,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22100": {
+        "pid": 28,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22101": {
+        "pid": 36,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22102": {
+        "pid": 44,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22103": {
+        "pid": 52,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22104": {
+        "pid": 60,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22105": {
+        "pid": 68,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22106": {
+        "pid": 76,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22107": {
+        "pid": 84,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22108": {
+        "pid": 92,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-22109": {
+        "pid": 100,
+        "alive": true,
+        "restarts": 0
+      },
+      "estate": {
+        "pid": 108,
+        "alive": true,
+        "restarts": 0
+      },
+      "agent": {
+        "pid": 110,
+        "alive": true,
+        "restarts": 0
+      },
+      "qzl-scheduler": {
+        "pid": 111,
+        "alive": true,
+        "restarts": 0
+      }
+    },
+    "last_receipt": {
+      "sequence": 12,
+      "path": "web4/runtime",
+      "version": 12,
+      "digest": "4e5fc538884594bf34619c3d99061c0b6f4cda77ac28268f71ebc942260fa474",
+      "parent": "7b213aca3f7a2748e87b003e12c1b156f0494b07d5594ffa82936a148c4fd8d9",
+      "receipt": "0449022cb097940180824625efcc82d29872e00556b499af5a810861425b8e5b",
+      "envelope_sha256": "381bcf706f3056fa591127296c5b113fb66c79f1f9903545340f1262d8afa727"
+    },
+    "external_mining": "not observed; state-hash cycles are local computation",
+    "qzl_scheduler": {
+      "configured": true,
+      "healthy": true,
+      "supervisor": {
+        "pid": 111,
+        "restarts": 0,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:31:58.047953+10:30",
+        "worker_pid": 112
+      },
+      "worker": {
+        "pid": 112,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:31:58.158286+10:30"
+      },
+      "jobs": {
+        "manual:canary": {
+          "receipt_sha256": "10cc1e3b918b088a603add6b1c6adb88521e317584567e601067182f09d8c3c9",
+          "slot": "queue-c38e780a338c1dcdfa20d5ef3567bcdf",
+          "status": "PASS"
+        },
+        "manual:promote": {
+          "receipt_sha256": "7d29592645ea86a36ffa1c046fb01e1d6b9253d2a1b70bb2588172722fae86e7",
+          "slot": "queue-6a6be6c65840f40bb0026ebd57b84495",
+          "status": "PASS"
+        },
+        "manual:qualification": {
+          "receipt_sha256": "df6572678db6f64371b0b16b79c9c8e2a24a9061fad5ee7cd4709c463594287f",
+          "slot": "queue-266aa34f446924f41225db55756ee0e2",
+          "status": "PASS"
+        },
+        "queue-266aa34f446924f41225db55756ee0e2": {
+          "receipt_sha256": "df6572678db6f64371b0b16b79c9c8e2a24a9061fad5ee7cd4709c463594287f",
+          "slot": "queue-266aa34f446924f41225db55756ee0e2",
+          "status": "PASS"
+        },
+        "queue-6a6be6c65840f40bb0026ebd57b84495": {
+          "receipt_sha256": "7d29592645ea86a36ffa1c046fb01e1d6b9253d2a1b70bb2588172722fae86e7",
+          "slot": "queue-6a6be6c65840f40bb0026ebd57b84495",
+          "status": "PASS"
+        },
+        "queue-a8128e4f2e2f9c1c7a7fb3f9362621ed": {
+          "receipt_sha256": "5e7b1b06eb583ff82877d2aa3be594c739012835aeb5b390327e52fc1ab9b08f",
+          "slot": "queue-a8128e4f2e2f9c1c7a7fb3f9362621ed",
+          "status": "FAIL"
+        },
+        "queue-c38e780a338c1dcdfa20d5ef3567bcdf": {
+          "receipt_sha256": "10cc1e3b918b088a603add6b1c6adb88521e317584567e601067182f09d8c3c9",
+          "slot": "queue-c38e780a338c1dcdfa20d5ef3567bcdf",
+          "status": "PASS"
+        },
+        "queue-f66361ec5b25d19fa6a5b34254ffe0ba": {
+          "receipt_sha256": "fceba07fa562cdf1ebcb34c07c79ba57c99583cf9143315085c1c698f88d7979",
+          "slot": "queue-f66361ec5b25d19fa6a5b34254ffe0ba",
+          "status": "FAIL"
+        }
+      },
+      "release_ready": true,
+      "current_release": "/workspace/deployments/owner-qzl-resident/canary-qzl/state/releases/b79edf6fb94341a3ac1525cdd2bdcf3d"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=QZL isolated qualification and canary scheduler
+[Service]
+Type=simple
+ExecStart=/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 /workspace/work/qzl-scheduled-deployment/scheduler.py --config /workspace/work/qzl-scheduled-deployment/config.json --serve
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+[Install]
+WantedBy=default.target

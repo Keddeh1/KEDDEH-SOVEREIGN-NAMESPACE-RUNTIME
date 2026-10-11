@@ -244,6 +244,9 @@ class LaunchController:
 
     def env(self):
         values={k:v for k,v in os.environ.items() if k in ('PATH','LANG','LC_ALL','TMPDIR','PYTHONPATH')}
+        (self.state/'process-home').mkdir(exist_ok=True,mode=0o700)
+        (self.state/'process-cache').mkdir(exist_ok=True,mode=0o700)
+        values.update(HOME=str(self.state/'process-home'),XDG_CACHE_HOME=str(self.state/'process-cache'))
         values.update(PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1',BRAINK_PLUGIN_ROOT=str(self.estate),PLUGIN_DATA=str(self.state/'estate'),BRAINK_MESH_STATE=str(self.state/'mesh/state.json'),BRAINK_MESH_LEDGER=str(self.state/'mesh/ledger.jsonl'),BRAINK_MESH_LOGS=str(self.state/'mesh/logs'),BRAINK_MESH_PIDS=str(self.state/'mesh/pids'),BRAINK_NODE_ROOTS=str(self.estate/'mesh/nodes'),BRAINK_BROKER_STATE_DIR=str(self.state/'broker'),BRAINK_BROKER_LEDGER=str(self.state/'broker/ledger.jsonl'),BRAINK_BROKER_PAIRING_CODE=(self.state/'pairing-code').read_text())
         return values
 
@@ -315,6 +318,8 @@ class LaunchController:
         self.spawn('estate',[sys.executable,str(self.estate/'server/braink_mcp.py'),'--stdio'],self.estate,stdio=True)
         self.estate_rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'KEDDEH-WEB4','version':'1.0'}})
         self.spawn('agent',[sys.executable,str(self.estate/'host_agent/kex-host-agent.py'),'--broker',f'http://127.0.0.1:{self.ports["broker"]}','--state-file',str(self.state/'agent.json'),'--workspace',str(self.state/'agent-volume'),'--name','KEDDEH-WEB4-CLOUD','--allow-insecure-local','--poll-interval','1'],self.estate)
+        from .qzl_binding import start as start_qzl
+        start_qzl(self)
         # Pair only once, without putting pairing credentials in process arguments.
         # The first pairing is completed before the persistent polling process.
         return self
@@ -337,7 +342,7 @@ class LaunchController:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation','qzl_scheduler':__import__('keddeh_namespace.qzl_binding',fromlist=['status']).status(self)}
 
     def receipt(self,event,readback,request_id=None):
         with self.lock:
@@ -368,6 +373,8 @@ class LaunchController:
 
     def queue_boot(self,resume=False):
         # Use the supplied broker command format and actual outbound agent loop.
+        # The imported owner broker must use this runtime's writable state, not read-only source.
+        os.environ.update(BRAINK_BROKER_STATE_DIR=str(self.state/'broker'),BRAINK_BROKER_LEDGER=str(self.state/'broker/ledger.jsonl'))
         broker=load_module(self.estate/'broker/owner_broker.py','web4_local_broker')
         existing=http_json(self.ports['broker'],'/api/self-host/status').get('command') or {}
         if existing.get('status') in ('QUEUED','LEASED'):
@@ -411,7 +418,7 @@ class LaunchController:
 
     def control(self,body):
         action=body.get('action')
-        mutates=(action in ('boot','restart','commit') or
+        mutates=(action in ('boot','restart','commit') or action=='qzl' and 'job' in body or
                  action=='propagate' and body.get('actuate',False) or
                  action=='domains' and body.get('operation','status')!='status' or
                  action=='bilateral' and body.get('enabled') is True)
@@ -424,12 +431,15 @@ class LaunchController:
 
     def _control(self,body):
         action=body.get('action')
-        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
+        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3,'qzl':2}.get(action)
         if owner_index is None:raise ValueError('unsupported owner-kernel action')
         payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
         if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
         self.owner_kernel.ledger=self.owner_kernel.ledger[-128:]
         write_json(self.state/'owner-kernel-routing.json',{'state':self.owner_kernel.state,'ledger':self.owner_kernel.ledger})
+        if action=='qzl':
+            from .qzl_binding import control
+            return control(self,body)
         if action=='pipeline':
             if 'connected' in body:
                 return self.pipeline.configure(body['connected'],body.get('reason','owner command'))
