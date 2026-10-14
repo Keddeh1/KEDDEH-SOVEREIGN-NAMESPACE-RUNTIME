@@ -44,6 +44,12 @@ def execute(cfg,job,slot):
   tx=begin(root,job,slot,seal,encode)
   receipt={'job':job,'slot':slot,'started':dt.datetime.now(TZ).isoformat(),'scope':'QZL RTL qualification/tooling; no hardware deployment'}
   try:
+   provenance=cfg.get('research_provenance')
+   if provenance:
+    revision=provenance['git_source_revision']
+    if len(revision)!=40 or any(c not in '0123456789abcdef' for c in revision):raise ValueError('Invalid provenance revision')
+    if not provenance['hypothesis'] or not provenance['falsification_constraint']:raise ValueError('Missing falsification contract')
+    receipt['provenance']={**provenance,'independent_assessment_signed':False,'workload':{'job':job,'timeout_seconds':cfg.get('timeout',300),'sources':{n:{'sha256':hashlib.sha256((Path(cfg['source'])/n).read_bytes()).hexdigest(),'bytes':(Path(cfg['source'])/n).stat().st_size} for n in cfg['source_files']}}}
    if job=='qualification':
     run=root/'runs'/uuid.uuid4().hex;run.mkdir(parents=True,mode=0o700)
     for name in cfg['source_files']:shutil.copyfile(Path(cfg['source'])/name,run/name)

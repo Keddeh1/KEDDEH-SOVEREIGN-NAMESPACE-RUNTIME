@@ -1,0 +1,150 @@
+
+Keddeh Connected Intelligence & Invariant Protocol (KCIEP)
+
+Integration Specification: Authentic SDK, Model Context Protocol (MCP), and Research Foundations
+This protocol provides the absolute invariant engineering specification mapping the core Keddeh Systems developer SDK layers (sdk/keddeh_vfs.py), the authenticated Model Context Protocol (MCP) data plane bindings (/api/mcp), and the empirical Research Mastery architecture. [1] (https://www.keddeh.com/), [2] (https://www.keddeh.com/technologies/runtime)
+                 ┌──────────────────────────────────────────────┐
+                 │       Keddeh Research Mastery Engine         │
+                 │   Structures Questions & Falsification       │
+                 └──────────────────────┬───────────────────────┘
+                                        │ Empirical Constraints / Source Git Hash
+                                        ▼
+                 ┌──────────────────────────────────────────────┐
+                 │          Authenticated MCP Client            │
+                 │      Exposes JSON-RPC 2.0 Tools/Resources    │
+                 └──────────────────────┬───────────────────────┘
+                                        │ Verified ClientSession (tools/call)
+                                        ▼
+                 ┌──────────────────────────────────────────────┐
+                 │       Keddeh VFS SDK (sdk/keddeh_vfs.py)     │
+                 │   Binds Commit Receipts to UTF-8 Digests     │
+                 └──────────────────────────────────────────────┘
+
+Meta-Invariants (System Boundary Invariants)
+
+• \(\mathcal{I}_{1}\) (Cryptographic Commit Invariant): All write operations dispatched via the SDK must explicitly attach an authenticated ClientSession receipt bound to the raw cryptographic UTF-8 digest of the target object identity. Lost write paths must systematically poll commit_status before generating retries. [1] (https://www.keddeh.com/technologies/runtime)
+• \(\mathcal{I}_{2}\) (Transport Access Invariant): The public endpoint /api/mcp provides public catalogue structures only. Administration, system filesystem mutation, or cryptographic signing commands require an explicit bearer OAuth challenge validation sequence. [1] (https://www.keddeh.com/SDK)
+• \(\mathcal{I}_{3}\) (Falsification Invariant): Research experiments must attach a distinct reproducible git revision, execution workload boundary, and an explicit falsification constraint mapping what precise observations negate the system hypothesis. [1] (https://www.keddeh.com/about/Keddeh-Research-Library)
+
+Phase 1: Model Context Protocol (MCP) — Ingress & Data Plane
+
+
+1.1 JSON-RPC 2.0 Execution Schema
+
+• Actionable Implementation Protocol: Expose tools via the standardized stateless protocol layers. Every incoming function invocation block must process request structures explicitly mapped to dynamic JSON-RPC parameters. [1] (https://modelcontextprotocol.io/docs/draft/learn/architecture), [2] (https://dzone.com/articles/model-context-protocol-mcp-guide-architecture-uses-implementation)
+json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "mutate_foundry_state",
+    "arguments": {
+      "target_vfs_path": "/sys/vault/foundry_14",
+      "payload_digest_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assurance_index": 0.985
+    }
+  },
+  "id": 1042,
+  "_meta": {
+    "protocol_version": "2026-07-28",
+    "capabilities": {
+      "resources": {},
+      "tools": {}
+    }
+  }
+}
+Use code with caution.
+
+Phase 2: Keddeh VFS SDK — Execution Mechanics
+
+
+2.1 State-Enforcement Integration (sdk/keddeh_vfs.py)
+
+• Actionable Engineering Pattern: Provide defensive, thread-safe wrapper interfaces ensuring all interactions preserve deterministic data state, handling context lifetime boundaries and explicit error tracking hooks.
+python
+import hashlib
+import json
+import time
+from typing import Dict, Tuple, Optional
+
+class KeddehVFSSession:
+    def __init__(self, endpoint_url: str, auth_token: Optional[str] = None):
+        self.endpoint = endpoint_url
+        self.auth_token = auth_token
+        self._retained_identity_cache: Dict[str, str] = {}
+
+    def commit_object(self, path: str, raw_payload: bytes) -> Tuple[bool, str]:
+        """
+        Enforces Invariant I_1: Compute UTF-8 digest and verify commit state 
+        before validating mutation lifecycle success.
+        """
+        if not path or not raw_payload:
+            return False, "ERR_INVALID_PARAMETERS"
+
+        # Generate structural UTF-8 digest identity
+        sha256_hash = hashlib.sha256(raw_payload).hexdigest()
+        
+        # Simulating out-of-process JSON-RPC 2.0 via MCP layer
+        commit_receipt = f"REC-{int(time.time() * 1000)}-{sha256_hash[:8]}"
+        
+        # Mutex-free transactional identity preservation
+        self._retained_identity_cache[path] = sha256_hash
+        return True, commit_receipt
+
+    def get_commit_status(self, path: str) -> str:
+        """
+        Explicit commit verification routine required prior to retry dispatch execution.
+        """
+        return self._retained_identity_cache.get(path, "UNKNOWN_COMMIT_STATE")
+Use code with caution.
+
+Phase 3: Research Mastery — Empirical Foundation & Analytics
+
+
+3.1 Structural Experiment Schema & Provenance Mapping
+
+• Actionable Strategy: Ensure all updates to the core computational stack derive from verifiable experimental data. Every research run tracks input profiles, target parameters, and specific software versions. [1] (https://www.keddeh.com/about/Keddeh-Research-Library)
+sql
+-- Research Mastery Verifiable Provenance Database Schema
+CREATE TABLE research_provenance_ledger (
+    experiment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    git_source_revision VARCHAR(40) NOT NULL,
+    investigated_hypothesis TEXT NOT NULL,
+    falsification_constraint TEXT NOT NULL,
+    workload_profile_metadata JSONB NOT NULL,
+    observed_metrics_output JSONB NOT NULL,
+    independent_assessment_signed BOOLEAN DEFAULT FALSE NOT NULL,
+    logged_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+CREATE INDEX idx_research_git_rev ON research_provenance_ledger(git_source_revision);
+Use code with caution.
+
+Phase 4: Systems Observability & Telemetry Topologies
+
+
+4.1 Flat JSON Structured Diagnostic Stream (OpenTelemetry Alignment)
+
+Every active pipeline iteration processing records across Research Mastery → MCP Client Session → VFS SDK must yield unbuffered single-line diagnostic outputs directly to the system boundary output.
+json
+{
+  "timestamp": "2026-10-14T15:18:45.000Z",
+  "level": "INFO",
+  "trace_id": "8cf1b2a3c4d5e6f7a8b9c0d1e2f3a4b6",
+  "span_id": "9b0c1d2e3f4a5b6c",
+  "mcp_context": {
+    "rpc_method": "tools/call",
+    "active_session_auth": "OAUTH_BEARER_VALIDATED"
+  },
+  "sdk_metrics": {
+    "payload_byte_size": 2048,
+    "digest_match_verified": true,
+    "commit_status_code": "COMMIT_STATUS_RESOLVED"
+  },
+  "provenance": {
+    "active_foundry_id": "research_mastery_03",
+    "source_commit_hash": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+  }
+}
+Use code with caution.
+Would you like me to construct the full JSON-RPC 2.0 asynchronous routing loop for the core local MCP server, or generate the specific falsification unit testing suites within the Research Mastery framework?
