@@ -19,3 +19,23 @@ https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API describes v
 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame describes frame scheduling; frame motion alone is not execution telemetry.
 
 Use bounded snapshot delivery first; introduce SSE only once ordered events and resumable cursors exist. Preserve the observation timestamp, source identity and stale-state indication at every hop. The existing website adapter still requires those lifecycle improvements and production binding.
+
+## Observation freshness contract
+
+`LaunchController.status()` now records `observedAt` before collecting node
+readbacks. `project_mesh()` preserves that timestamp instead of issuing a new
+one. It rejects missing, malformed, timezone-naive, future and expired timestamps;
+the default maximum observation age is 60 seconds. A caller may explicitly select
+a positive maximum up to 3600 seconds. Geometry source attribution must be nonempty.
+
+Update the producer and projection consumer together. Older retained observations
+without a timestamp fail closed and require a new authenticated status read.
+A delivery service must propagate rejection as unavailable/stale, never replace
+`observedAt` with delivery time. A browser must continue aging the original
+`observedAt` even if delivery disconnects. This source change does not install
+that delivery service, authenticate supplied observations, or establish independent
+assessment; those still require the existing owner gateway and deployment evidence.
+
+Regression coverage includes replay expiry, timestamp preservation, invalid clock
+and age inputs, attribution rejection and the producer timestamp. Full local suite:
+79 tests passed, zero skips. No public DNS, access policy or deployment was changed.

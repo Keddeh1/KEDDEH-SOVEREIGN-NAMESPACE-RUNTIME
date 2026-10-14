@@ -5,6 +5,8 @@ import math
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
+from datetime import datetime, timezone
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from keddeh_namespace.web4_runtime import LaunchController, encode_readback, prepare, verify_launch, write_json
 
@@ -62,3 +64,18 @@ class Web4RuntimeTests(unittest.TestCase):
         controller=self.fixture_controller()
         for action in ({'action':'commit','node_id':1,'nonce':-1,'tenant_id':'x'},{'action':'arbitrary_shell','command':'ignored'},{'action':'estate','tool':'broker_queue_domain'}):
             with self.assertRaises(ValueError):controller.control(action)
+
+    def test_status_timestamps_collection_before_reads(self):
+        controller=self.fixture_controller()
+        controller.ports['broker']=19123
+        before=datetime.now(timezone.utc)
+        reads=[]
+        def read(*args, **kwargs):
+            reads.append(datetime.now(timezone.utc))
+            return {}
+        with patch('keddeh_namespace.web4_runtime.http_json',side_effect=read):
+            result=controller.status()
+        observed=datetime.fromisoformat(result['observedAt'])
+        self.assertLessEqual(before,observed)
+        self.assertTrue(reads)
+        self.assertLessEqual(observed,reads[0])

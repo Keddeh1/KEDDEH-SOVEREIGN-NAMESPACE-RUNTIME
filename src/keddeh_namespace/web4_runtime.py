@@ -301,6 +301,7 @@ class LaunchController:
             with contextlib.redirect_stdout(io.StringIO()):agent.pair(f'http://127.0.0.1:{self.ports["broker"]}',(self.state/'pairing-code').read_text(),statefile,'KEDDEH-WEB4-CLOUD',self.state/'agent-volume',None)
 
     def status(self):
+        observed_at=datetime.now(timezone.utc).isoformat()
         nodes=[]
         for port in self.ports['mesh']:
             try:health=http_json(port,'/api/health');telemetry=http_json(port,'/api/telemetry');nodes.append({'port':port,'ok':health.get('status')=='HEALTHY','domain':health.get('domain'),'compute_cycles':telemetry.get('computeCycles'),'state_hash':telemetry.get('stateHash')})
@@ -310,7 +311,7 @@ class LaunchController:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        return {'observedAt':observed_at,'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
 
     def receipt(self,event,readback):
         with self.lock:
