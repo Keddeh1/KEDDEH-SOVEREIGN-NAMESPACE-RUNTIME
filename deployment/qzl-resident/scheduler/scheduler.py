@@ -3,6 +3,7 @@
 import argparse,datetime as dt,fcntl,hashlib,json,os,shutil,subprocess,tempfile,time,uuid
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from durable_transaction import recover,begin,prepare
 _owner_backend=None
 def bind_owner(cfg):
  global _owner_backend
@@ -35,9 +36,12 @@ def execute(cfg,job,slot):
  root=Path(cfg['runtime']);root.mkdir(parents=True,exist_ok=True,mode=0o700)
  with (root/'schedule.lock').open('a') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX)
+  recover(root,seal,encode,read,switch)
   state=read(root/'schedule-state.json') if (root/'schedule-state.json').exists() else {}
   prior=state.get(slot if slot.startswith('queue-') else job,{})
-  if prior.get('slot')==slot and prior.get('status')=='PASS':return {'status':'ALREADY_COMPLETED','job':job,'slot':slot}
+  if prior.get('slot')==slot:
+   return {'status':'ALREADY_COMPLETED' if prior.get('status')=='PASS' else 'FAIL','job':job,'slot':slot,'prior':prior}
+  tx=begin(root,job,slot,seal,encode)
   receipt={'job':job,'slot':slot,'started':dt.datetime.now(TZ).isoformat(),'scope':'QZL RTL qualification/tooling; no hardware deployment'}
   try:
    if job=='qualification':
@@ -71,15 +75,24 @@ def execute(cfg,job,slot):
     old=(root/'previous').resolve(strict=True);switch(root,'current',old);receipt['release']=str(old)
    else:raise ValueError('Unknown job')
    receipt['status']='PASS'
-  except Exception as e:receipt.update(status='FAIL',error=str(e))
+  except Exception as e:
+   receipt.update(status='FAIL',error=str(e))
+   for name,target in tx['pointers'].items():
+    path=root/name
+    if target is not None:switch(root,name,Path(target))
+    elif path.is_symlink():path.unlink()
+   fd=os.open(root,os.O_RDONLY|os.O_DIRECTORY)
+   try:os.fsync(fd)
+   finally:os.close(fd)
   receipt['finished']=dt.datetime.now(TZ).isoformat()
   receipts=root/'receipts';receipts.mkdir(exist_ok=True,mode=0o700)
   head=read(root/'receipt-head.json') if (root/'receipt-head.json').exists() else {'sha256':None}
   receipt['previous_sha256']=head['sha256'];payload=encode(receipt);sha=hashlib.sha256(payload).hexdigest()
-  seal(receipts/(uuid.uuid4().hex+'.json'),payload);seal(root/'receipt-head.json',encode({'sha256':sha}))
+  receipt_path=receipts/(tx['id']+'.json')
   state[('manual:'+job) if slot.startswith(('manual-','queue-')) else job]={'slot':slot,'status':receipt['status'],'receipt_sha256':sha}
   if slot.startswith('queue-'):state[slot]={'slot':slot,'status':receipt['status'],'receipt_sha256':sha}
-  seal(root/'schedule-state.json',encode(state));return receipt
+  prepare(root,tx,[(receipt_path,payload),(root/'receipt-head.json',encode({'sha256':sha})),(root/'schedule-state.json',encode(state))],seal,encode)
+  recover(root,seal,encode,read,switch);return receipt
 
 def slots(now):
  jobs=[]
@@ -99,6 +112,8 @@ def main():
  with (root/'daemon.lock').open('a') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
   while True:
+   with (root/'schedule.lock').open('a') as recovery_lock:
+    fcntl.flock(recovery_lock,fcntl.LOCK_EX);recover(root,seal,encode,read,switch)
    for job,slot in slots(dt.datetime.now(TZ)):
     state=read(root/'schedule-state.json') if (root/'schedule-state.json').exists() else {}
     prior=state.get(job,{})

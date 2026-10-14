@@ -1,0 +1,11 @@
+{
+  "status": "PROMOTED",
+  "workstations": 10,
+  "custody_files": {
+    "scheduler.py": "429948481dbfcc54642133455d993029797986d3dd2c5215dbd77b0804245d0e",
+    "supervisor.py": "924cf589669da742a2c4684687652412b44762360ab78f5b3f66fa12df5f3358",
+    "owner_backend.py": "f448e10fdcabefdebcf8ae13ae4e0d133706110b77c6262eca35435a9e4436ff",
+    "durable_transaction.py": "4ed6ceea26752634f3a48e1cd2f363d73ea01280ecfed6ccc7e7490ecda03bfc"
+  },
+  "recovery": "write-ahead roll-forward of prepared receipts; prior release restored on unprepared interruption"
+}

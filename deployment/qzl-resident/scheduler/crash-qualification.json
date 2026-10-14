@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "real_subprocess_abrupt_exits": [
+    {
+      "crash_boundary": "started",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "prepared",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "receipt",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "head",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "state",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "owner-receipt",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "owner-head",
+      "status": "PASS"
+    },
+    {
+      "crash_boundary": "owner-state",
+      "status": "PASS"
+    }
+  ]
+}
