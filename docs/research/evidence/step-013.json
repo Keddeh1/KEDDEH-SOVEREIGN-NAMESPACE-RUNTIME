@@ -1,0 +1,20 @@
+{
+  "step": 13,
+  "status": "passed",
+  "result": {
+    "finding": "events() fully verifies receipts on one connection, then queries delivery rows on another connection; concurrent writes can enter delivery after the verified snapshot",
+    "primary_source_lines": {
+      "sqlite_wal_reader_snapshot": [
+        110,
+        116
+      ],
+      "cpython_explicit_transactions": [
+        2686,
+        2693
+      ]
+    },
+    "hypothesis": "a single explicit read transaction binds integrity verification and returned events to one WAL snapshot",
+    "scale_constraint": "full historical verification remains O(history); this fix does not claim bounded history cost",
+    "pre_fix_git_revision": "63489b3eee86ae2f19e9b8ba191147a5c77879f1"
+  }
+}

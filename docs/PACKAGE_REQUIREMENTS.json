@@ -1,0 +1,13 @@
+{
+  "schema":"keddeh.package-requirements.v1",
+  "requirements":[
+    {"id":"PKG-01","function":"Exact source custody and owner-source bundle","skeleton":"scripts/bundle_owner_package.py","acceptance":"Every bundle member hashes against BUNDLE_MANIFEST.json"},
+    {"id":"PKG-02","function":"Persistent owner actuator and bilateral feedback","skeleton":"keddeh_namespace.bilateral_runtime","acceptance":"Completed R36 returns and resumed cycle after restart"},
+    {"id":"PKG-03","function":"Recursive dual-homed family domain","skeleton":"keddeh_namespace.domain_mesh","acceptance":"Distinct network namespaces, bridge lineage and preserved state during anchor loss"},
+    {"id":"PKG-04","function":"One isolated family per repository","skeleton":"scripts/deploy_family.py","acceptance":"Distinct family roots, keys, ports and domain namespaces"},
+    {"id":"PKG-05","function":"VFS artifact synchronization and durable subscription","skeleton":"keddeh_namespace.vfs_subscription","acceptance":"Verified bundle mirror, durable cursor and actor/observer readbacks"},
+    {"id":"PKG-06","function":"VFS repositories hold package and launch a family","skeleton":".keddeh/family.json plus packages/owner-family","acceptance":"Private repository byte readback and running VFS family"},
+    {"id":"PKG-07","function":"User function/process/configuration documentation","skeleton":"docs/package","acceptance":"All declared actions and processes mapped to README contracts"},
+    {"id":"PKG-08","function":"Customer frontage and full clickable journeys","skeleton":"customer route patch on KEDDEH.COM","acceptance":"Browser DOM journeys, claim attribution, form receipt and native publication readback recorded separately"}
+  ]
+}

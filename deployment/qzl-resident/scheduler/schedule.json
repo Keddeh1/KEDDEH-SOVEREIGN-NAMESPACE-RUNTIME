@@ -1,0 +1,15 @@
+{
+  "timezone": "Australia/Adelaide",
+  "daily": {
+    "06:00": "qualification"
+  },
+  "Sunday": {
+    "06:30": "canary",
+    "07:00": "promote qualified RTL tooling"
+  },
+  "policy": "One attempt per due daily slot; missed slots coalesced on restart; failures retained, manual retry required",
+  "rollback": "scheduler.py --config config.json --run rollback",
+  "hardware_deployment": "BLOCKED: physical target, event-level reset verification and hardware evidence unavailable",
+  "service_install": "Adapt config paths to existing secured runtime; systemctl --user enable --now qzl-scheduler.service on a systemd host",
+  "current_environment": "No running user systemd manager; portable persistent scheduler used"
+}

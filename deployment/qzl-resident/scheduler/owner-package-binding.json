@@ -1,0 +1,14 @@
+{
+  "package": "keddeh-sovereign-namespace-runtime",
+  "version": "0.3.2",
+  "source_commit": "9bd3152e57d2612e40e700bc1d8e5b8a932fba45",
+  "source_root": "/workspace/deployments/qzl-scheduler/owner-package/src",
+  "vfs_root": "/workspace/deployments/qzl-scheduler/owner-vfs",
+  "namespace": "qzl-deployment",
+  "files": {
+    "keddeh_namespace/__init__.py": "397d9d15f7a8d8a9a108f50ab9b58632a6873e9b246f14e1a599857ef65df3a4",
+    "keddeh_namespace/logical_vfs.py": "e066f81ec906ee8c2aa2bbbadba564fe9ddf2b0150bcce825e19c0bc05dd2db1",
+    "keddeh_namespace/envelope.py": "1c46df03889bcf22a01f50e548d22db154db97d93b2ec119cf80b671b9408023"
+  },
+  "scope": "Existing owner LogicalVFS implementation, isolated QZL namespace; not connected to a remote VFS hub"
+}

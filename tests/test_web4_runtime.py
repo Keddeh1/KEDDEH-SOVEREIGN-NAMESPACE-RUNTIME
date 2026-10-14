@@ -62,3 +62,52 @@ class Web4RuntimeTests(unittest.TestCase):
         controller=self.fixture_controller()
         for action in ({'action':'commit','node_id':1,'nonce':-1,'tenant_id':'x'},{'action':'arbitrary_shell','command':'ignored'},{'action':'estate','tool':'broker_queue_domain'}):
             with self.assertRaises(ValueError):controller.control(action)
+
+    def test_receipt_recovery_after_commit_and_intervening_launch(self):
+        c=self.fixture_controller()
+        first=c.receipt('bilateral.cycle',{'cycle':1,'actors':[{'status':'ACTOR_COMMITTED'}]},request_id='cycle-one')
+        resumed=LaunchController(self.root)
+        resumed.receipt('runtime.launch',{'healthy_nodes':10})
+        recovered=resumed.receipt('bilateral.cycle',{'cycle':1,'actors':[{'status':'ACTOR_COMMITTED'}]},request_id='cycle-one')
+        self.assertEqual(first,recovered)
+        self.assertEqual(len(resumed.registry.replay()),2)
+        with self.assertRaises(ValueError):resumed.receipt('bilateral.cycle',{'cycle':2},request_id='cycle-one')
+
+    def test_owner_disconnect_blocks_mutation_preserves_readback_and_stop(self):
+        c=self.fixture_controller()
+        state=c.control({'action':'pipeline','connected':False,'reason':'test owner isolation'})
+        self.assertFalse(state['connected'])
+        with self.assertRaises(RuntimeError):c.control({'action':'commit','node_id':1,'nonce':1,'tenant_id':'test'})
+        self.assertFalse(c.control({'action':'projection'})['gate']['connected'])
+        self.assertEqual(c.control({'action':'stop'})['status'],'shutdown requested')
+
+    def test_bilateral_crash_after_namespace_commit_reconciles_one_receipt(self):
+        from keddeh_namespace.bilateral_runtime import BilateralRuntime
+        from unittest.mock import patch
+        c=self.fixture_controller();c.ports['http']=4055
+        observed={'healthy_nodes':10,'services':{'actor':{'alive':True}},'nodes':[{'port':19100+i,'ok':True,'state_hash':str(i)} for i in range(10)]}
+        class PowerLoss(BaseException):pass
+        c.bilateral.configure(True)
+        durable_save=c.bilateral.save
+        def cut_final_save():
+            if c.bilateral.data['pending'] is None:raise PowerLoss()
+            durable_save()
+        with patch.object(c,'status',return_value=observed),patch('keddeh_namespace.web4_runtime.http_json',return_value={'status':'ACTOR_COMMITTED'}),patch.object(c.bilateral,'save',side_effect=cut_final_save):
+            with self.assertRaises(PowerLoss):c.bilateral.tick()
+        self.assertEqual(len(c.registry.replay()),1)
+        restored=BilateralRuntime(c)
+        self.assertEqual(len(restored.data['pending']['actors']),10)
+        c.receipt('runtime.launch',{'healthy_nodes':10})
+        with patch.object(c,'status',return_value=observed),patch('keddeh_namespace.web4_runtime.http_json') as actuator:
+            restored.tick();actuator.assert_not_called()
+        self.assertEqual(restored.data['cycle'],1)
+        self.assertEqual(len(c.registry.replay()),2)
+
+    def test_controller_restart_adopts_existing_boot_lease(self):
+        from unittest.mock import patch
+        c=self.fixture_controller();c.ports['broker']=18777
+        command={'status':'LEASED','requestId':'owner-retained-boot','leaseId':'retained'}
+        with patch('keddeh_namespace.web4_runtime.load_module'),patch('keddeh_namespace.web4_runtime.http_json',return_value={'command':command}):
+            self.assertEqual(c.queue_boot(resume=True),command)
+            self.assertEqual(c.current_boot_id,'owner-retained-boot')
+            with self.assertRaises(ValueError):c.queue_boot()

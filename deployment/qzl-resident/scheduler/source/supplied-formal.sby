@@ -1,0 +1,16 @@
+[options]
+mode prove
+depth 20
+
+[engines]
+smtbmc boolector
+smtbmc z3
+
+[script]
+read_verilog -sv quantum_state_register_128.v
+read_verilog -sv formal.v
+prep -top quantum_state_register_128
+
+[files]
+quantum_state_register_128.v
+formal.v

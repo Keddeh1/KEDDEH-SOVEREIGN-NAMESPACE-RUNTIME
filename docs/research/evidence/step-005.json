@@ -1,0 +1,110 @@
+{
+  "step": 5,
+  "status": "passed",
+  "result": {
+    "families": [
+      {
+        "repository": "Keddeh1/BRAINK-BETA-TEST",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026533267]",
+          "net:[4026532748]",
+          "net:[4026532388]"
+        ],
+        "source_digest": "7f3db3c1478dad1b33cf2a7a6db8de87c9761e580af74e9ffacb01ba5e8cdf2d"
+      },
+      {
+        "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026533916]",
+          "net:[4026533613]",
+          "net:[4026532317]"
+        ],
+        "source_digest": "f3ffcf7343ff94a9a2f50fb01c3a713e30131942bf31a02dcb5b2333cc20e155"
+      },
+      {
+        "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026533035]",
+          "net:[4026532677]",
+          "net:[4026533830]"
+        ],
+        "source_digest": "5273577cab58860eee0b2b613a5a4a5bcf98e2988ad87ce156b7c81756923392"
+      },
+      {
+        "repository": "Keddeh1/SERVERSPACE",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026532893]",
+          "net:[4026533394]",
+          "net:[4026533978]"
+        ],
+        "source_digest": "75215d30afd90c42ea355c51217286861b7326694999e2518a4c9e952c6d0b4a"
+      },
+      {
+        "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026532601]",
+          "net:[4026533258]",
+          "net:[4026533764]"
+        ],
+        "source_digest": "5423b077642311c5d5dc3223550493065cfefc3f00a8ce62eda438da1acc47f3"
+      },
+      {
+        "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026532822]",
+          "net:[4026532246]",
+          "net:[4026533536]"
+        ],
+        "source_digest": "91ca1158d4d4ff5379cc41ab8fb2e3edb08e1da83fe059e4a749e3d7d06b3e64"
+      },
+      {
+        "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026532459]",
+          "net:[4026532964]",
+          "net:[4026532530]"
+        ],
+        "source_digest": "e419863a246aae58647fd1c085363cf9a5535084b85314a5ab3b84da0fd1ae29"
+      },
+      {
+        "repository": "Keddeh1/braink-foundary-schema",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026533177]",
+          "net:[4026533900]",
+          "net:[4026533680]"
+        ],
+        "source_digest": "2f01570f5065deb034e759a7f155cab2c9bc87f8e7b79965ddcf8d00d3278a50"
+      },
+      {
+        "repository": "Keddeh1/keddeh.com",
+        "healthy_host_workstations": 10,
+        "domain_workers": 9,
+        "network_namespaces": [
+          "net:[4026533465]",
+          "net:[4026533105]",
+          "net:[4026534049]"
+        ],
+        "source_digest": "5c764198bea88e09c804cdada56d826485f43f5c90e550503d549b93ffb1f974"
+      }
+    ],
+    "domains": 27,
+    "workstations": 171,
+    "physical_hosts": 1
+  }
+}

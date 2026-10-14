@@ -27,10 +27,12 @@ async function tab(route="/terminal"){const page=await fetch(`http://127.0.0.1:$
 try{
  await poll(async()=>{const result=await fetch(`http://127.0.0.1:${debugPort}/json/version`);return result.ok;});
  const first=await tab();
- first.onEvent=event=>{if(event.method==='Page.javascriptDialogOpening'){const match=event.params.message==='Enter the local runtime token from the private state/token file';first.send('Page.handleJavaScriptDialog',{accept:match,promptText:match?token:''}).catch(()=>{});}};
+ first.onEvent=event=>{if(event.method==='Page.javascriptDialogOpening'){const match=event.params.message==='Enter the local runtime token from the private state/token file';first.send('Page.handleJavaScriptDialog',{accept:match||event.params.message.includes('Accept these owner-local service permissions?'),promptText:match?token:''}).catch(()=>{});}};
  await first.evaluate("runCommand('cloud auth')");
  await first.evaluate("runCommand('cloud status')");
  if(!await first.evaluate('/"healthy_nodes":\\s*10/.test(document.getElementById("terminal").textContent)'))throw new Error('Cloud status did not show ten backend nodes');
+ await first.evaluate("[...document.querySelectorAll('#keddeh-web4-panel button')].find(b=>b.textContent==='Accept service agreement').click()");
+ await poll(()=>first.evaluate("document.getElementById('keddeh-web4-output').textContent.includes('\"accepted\": true')"));
  await first.evaluate("runCommand('cloud commit 3 65537 WEB4_BROWSER')");
  if(!await first.evaluate('document.getElementById("terminal").textContent.includes("ACTOR_COMMITTED")'))throw new Error('Browser did not actuate real R36 commit');
  await first.evaluate("runCommand('cloud enact')");

@@ -1,0 +1,9 @@
+{
+  "repository": "sqlite/sqlite",
+  "ref": "9f05c6e66b0034c490479a589dcc141d7e4cb626",
+  "path": "src/wal.c",
+  "git_blob": "77161f3df91ff37fe5174a64c3e5c9062707bba7",
+  "sha256": "11ab3050c715b8d4b05f20c9030ea96ed70475080ba62fe3f60e441ac765eb47",
+  "url": "https://github.com/sqlite/sqlite/blob/9f05c6e66b0034c490479a589dcc141d7e4cb626/src/wal.c",
+  "bytes": 183813
+}

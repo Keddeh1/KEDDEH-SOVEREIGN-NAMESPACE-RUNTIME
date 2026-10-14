@@ -1,0 +1,92 @@
+[
+  {
+    "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+    "container": "keddeh-aff83d1ff9-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 141006,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "5ad2a6b0a8182074c1577a652dce5e9102327170e6acb25edca83ad18a6ce434",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/BRAINK-BETA-TEST",
+    "container": "keddeh-8879799e51-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 142931,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "a88f744d0e4d5099533a5d5625440a88206d649848914407fb04131ad886c8c8",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+    "container": "keddeh-250c6d8c76-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 132391,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "07673fd18b13782ac1932158892db4f972f014ed0360050220eee956bc0a6e33",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/SERVERSPACE",
+    "container": "keddeh-6bb5772b80-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 145356,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "139712aa8f83681eb65e774e096b66962df4fce670b8371d40b06260eb6b6bda",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+    "container": "keddeh-513b3ce2ba-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 147059,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "e300d01aa270dc8ff6e28160d7d2898148132c4edfc672ea3da0badeb7a16fa4",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+    "container": "keddeh-51583f4f28-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 148734,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "29a06fd79b16f167c4ed7d1d171d4fcbbf0841d3a98feb087b888b87ece65db7",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+    "container": "keddeh-84c55a2991-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 150802,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "a7dc87abed4229db7a3baceafeb4316d290723010d72e8f90187cf3e2cc47632",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/braink-foundary-schema",
+    "container": "keddeh-6024cc365f-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 152613,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "2cdf4e262b034cb7d15b09391a67850d0462ef2d36eb4a9c513d2930969c4a05",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  },
+  {
+    "repository": "Keddeh1/keddeh.com",
+    "container": "keddeh-fc1e43e314-controller",
+    "image_id": "sha256:4474575af321d192b019de6675e97312a9bceeb30a95c6e4914cfa2b3ec4bdf9",
+    "host_pid": 154278,
+    "restart_policy": "unless-stopped",
+    "healthy_nodes": 10,
+    "source_digest": "26c2a1c765565785de858842520c6365b58f091534ddbb0f881614766c485cb8",
+    "scope": "resident owner controller on current Docker host; trusted Docker-socket authority"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "step": 10,
+  "status": "passed",
+  "result": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "uv": "uv 0.12.19 (x86_64-unknown-linux-gnu)",
+    "node": "v24.19.0",
+    "docker": "28.4.0",
+    "os": "Linux",
+    "architecture": "x86_64"
+  }
+}

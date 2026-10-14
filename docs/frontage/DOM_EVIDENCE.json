@@ -1,0 +1,47 @@
+{
+  "schema": "keddeh.customer-dom-evidence.v1",
+  "status": "passed",
+  "routes": [
+    "/",
+    "/platform",
+    "/architecture",
+    "/products/braink",
+    "/products/kex",
+    "/products/illlm",
+    "/research",
+    "/evidence",
+    "/developers",
+    "/enterprise",
+    "/contact",
+    "/interest",
+    "/privacy",
+    "/research/claim-review"
+  ],
+  "clickable_links_checked": 518,
+  "actual_link_clicks": 421,
+  "source_disclosures_keyboard_exercised": 41,
+  "contextual_journeys": 14,
+  "controlled_failure_checks": [
+    "claim API fallback",
+    "runtime API recovery",
+    "enquiry field preservation",
+    "error focus",
+    "same-identity successful retry"
+  ],
+  "claim_disclosures_exercised": 22,
+  "checks": [
+    "all customer routes render with one named main/h1",
+    "every rendered internal navigation link exercised",
+    "no empty or unnamed clickable link/button",
+    "public wheel download returns actual bytes",
+    "claim register attributes four scoped assertions",
+    "live readback button reads actual owner family",
+    "both enquiry forms validate and return durable registration references",
+    "all customer routes fit a 375px viewport",
+    "mobile navigation opens with keyboard Enter",
+    "no uncaught browser exceptions"
+  ],
+  "external_link_scope": "href/source attribution checked; remote pages not claimed reachable",
+  "publication_scope": "actual local candidate DOM; existing public Site not promoted",
+  "chromiumSandbox": "disabled for isolated container test"
+}

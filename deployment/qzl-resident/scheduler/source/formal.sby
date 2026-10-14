@@ -1,0 +1,13 @@
+[options]
+mode prove
+depth 8
+[engines]
+smtbmc z3
+[script]
+read_verilog -formal quantum_state_register_128.v formal.v
+prep -top formal
+async2sync
+dffunmap
+[files]
+quantum_state_register_128.v
+formal.v

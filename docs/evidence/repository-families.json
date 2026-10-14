@@ -1,0 +1,177 @@
+{
+  "schema": "keddeh.repository-family-readbacks.v1",
+  "families": [
+    {
+      "repository": "Keddeh1/BRAINK-BETA-TEST",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "7f3db3c1478dad1b33cf2a7a6db8de87c9761e580af74e9ffacb01ba5e8cdf2d",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026532892]",
+        "net:[4026532976]",
+        "net:[4026532986]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 287,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2695,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "f3ffcf7343ff94a9a2f50fb01c3a713e30131942bf31a02dcb5b2333cc20e155",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026532249]",
+        "net:[4026532264]",
+        "net:[4026532341]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 570,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2689,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "3975834e72478a535baf9dbc959207cc2fa260f82d8d25791bd608f58eef42c2",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026532495]",
+        "net:[4026532571]",
+        "net:[4026532504]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 333,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2683,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "75215d30afd90c42ea355c51217286861b7326694999e2518a4c9e952c6d0b4a",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026533359]",
+        "net:[4026533458]",
+        "net:[4026533534]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 263,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2697,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "5423b077642311c5d5dc3223550493065cfefc3f00a8ce62eda438da1acc47f3",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026533385]",
+        "net:[4026533623]",
+        "net:[4026533704]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 261,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2699,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "91ca1158d4d4ff5379cc41ab8fb2e3edb08e1da83fe059e4a749e3d7d06b3e64",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026532582]",
+        "net:[4026532742]",
+        "net:[4026532819]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 304,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2691,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "e419863a246aae58647fd1c085363cf9a5535084b85314a5ab3b84da0fd1ae29",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026533132]",
+        "net:[4026533205]",
+        "net:[4026533235]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 288,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2693,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/braink-foundary-schema",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "2f01570f5065deb034e759a7f155cab2c9bc87f8e7b79965ddcf8d00d3278a50",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026534009]",
+        "net:[4026534085]",
+        "net:[4026534144]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 258,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2703,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    },
+    {
+      "repository": "Keddeh1/keddeh.com",
+      "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+      "source_digest": "5c764198bea88e09c804cdada56d826485f43f5c90e550503d549b93ffb1f974",
+      "healthy_workstations": 10,
+      "domain_workstation_processes": 9,
+      "virtual_domains": 3,
+      "network_namespaces": [
+        "net:[4026533775]",
+        "net:[4026533854]",
+        "net:[4026533933]"
+      ],
+      "bilateral_status": "operating",
+      "bilateral_cycle": 262,
+      "vfs_status": "subscribed",
+      "vfs_cursor": 2705,
+      "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+      "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+    }
+  ],
+  "physical_hosts": 1
+}

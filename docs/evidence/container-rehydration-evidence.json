@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "same-host removal and recreation of one explicitly owned Docker container",
+  "domain": "domain-2",
+  "epoch_before": 1324,
+  "epoch_after": 1324,
+  "owner_workers": 3,
+  "retained_state": true
+}

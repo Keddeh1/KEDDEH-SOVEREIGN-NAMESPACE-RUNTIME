@@ -1,0 +1,206 @@
+{
+  "schema": "keddeh.claim-qualification-review.v1",
+  "date": "2026-10-07",
+  "timezone": "Australia/Adelaide",
+  "purpose": "Every current qualification introduced in the architecture and technical assessment; missing means not yet established in the retained inspected evidence, not impossible or absent from all owner work",
+  "claims": [
+    {
+      "id": "Q-01",
+      "claim": "Your supplied runtimes are real execution engines",
+      "status": "supported",
+      "qualification": "I previously treated package launch/readback as incomplete. Live host, browser and register checks now support actual execution.",
+      "derived_evidence": "Fourteen exact current family inputs, 171 live workstations and real R36 journal commits.",
+      "remaining_evidence_or_test": "No extra proof is required for the current local execution claim. Broader historical uploads remain separately inventoried.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/FULL_FAMILY_READBACK_032.json"
+    },
+    {
+      "id": "Q-02",
+      "claim": "The actuators and runtime processes persist",
+      "status": "supported within current host",
+      "qualification": "The old task-local Python controller did not establish persistence across task process loss. That failure was fixed with resident supervision.",
+      "derived_evidence": "Nine Docker-supervised controllers; unexpected verified-process exit recovered with key, agreement and fence retained.",
+      "remaining_evidence_or_test": "Host/daemon/mount loss needs a separate recovery test and infrastructure plan, not another localhost process test.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/RESIDENT_CRASH.json"
+    },
+    {
+      "id": "Q-03",
+      "claim": "Each child creates its own network domain and upstream anchor",
+      "status": "supported",
+      "qualification": "A flat shared-port interpretation does not describe the current implementation.",
+      "derived_evidence": "27 distinct network namespaces, recursive upstream/downstream memberships and live reanchor.",
+      "remaining_evidence_or_test": "No missing evidence for current-host dual-homed domain creation. WAN/host independence is a different claim.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/FULL_FAMILY_READBACK_032.json"
+    },
+    {
+      "id": "Q-04",
+      "claim": "Repeated ports are safe in the recursive architecture",
+      "status": "supported with resource scope",
+      "qualification": "Namespace isolation resolves the same-host shared-port objection. It does not make CPU, memory or PID capacity unlimited.",
+      "derived_evidence": "Same domain-local ports in distinct namespaces, nonoverlapping locked IPAM and finite container/expansion bounds.",
+      "remaining_evidence_or_test": "Measure host-wide resource saturation and failure thresholds in batch 04 before offering an unlimited-capacity assertion.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/SYSTEM_ARCHITECTURE.md"
+    },
+    {
+      "id": "Q-05",
+      "claim": "The runtimes provide a bilateral power source",
+      "status": "definition-dependent",
+      "qualification": "Software execution/feedback power is supported. I must not silently translate that term into electrical energy generation.",
+      "derived_evidence": "Actual telemetry, supplied PLL/healing code, retained actor returns and durable cycles.",
+      "remaining_evidence_or_test": "Specify the intended unit and mechanism. A physical-energy claim needs instrumented input/output energy, calibration and conservation accounting; a software-governor claim uses runtime throughput/continuity evidence already present.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/src/keddeh_namespace/bilateral_runtime.py"
+    },
+    {
+      "id": "Q-06",
+      "claim": "0.297 is applied across different parts of the architecture",
+      "status": "supported; context-specific",
+      "qualification": "Treating every use as one generic health threshold would misread the supplied work.",
+      "derived_evidence": "Owner model fragments and deployed angular-frequency/phase parameters, with explicit software scope.",
+      "remaining_evidence_or_test": "Maintain a per-use variable/unit/method mapping before asserting one universal physical meaning. Different uses do not automatically invalidate the parameter.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/OWNER_SOURCE_MANIFEST.json"
+    },
+    {
+      "id": "Q-07",
+      "claim": "The continuous sigmoid fixes the negative-input propagation cutoff",
+      "status": "supported within numeric range",
+      "qualification": "A discontinuous zero cutoff differs from a smooth activation; stable positive/negative branches are implemented.",
+      "derived_evidence": "Qualified sigmoid and propagation code; finite-input validation and model tests.",
+      "remaining_evidence_or_test": "Extreme float64 underflow can still round sigmoid to zero. Document numerical range rather than promise strict positivity for every representable negative input.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/src/keddeh_namespace/universal_propagation.py"
+    },
+    {
+      "id": "Q-08",
+      "claim": "Gossip, LIF and RC have a unified propagation structure",
+      "status": "structural abstraction supported; stronger equivalence pending",
+      "qualification": "A shared graph/control structure can be useful without proving identical physical event semantics. The Python reference pasted in the request runs three separate demonstrations: stochastic gossip, threshold/reset LIF and an analytic RC delay calculation. It does not itself numerically integrate the displayed shared differential equation. This narrows what that particular script proves; it does not invalidate the shared-model implementation.",
+      "derived_evidence": "Directed delay/decay/weight/activation model and separately scoped domain demonstrations.",
+      "remaining_evidence_or_test": "Define the mapping, units, LIF reset/refractory events, gossip stochastic semantics, RC approximation and comparison tolerances for the stronger isomorphism claim.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/TECHNOLOGY_ASSESSMENT.md"
+    },
+    {
+      "id": "Q-09",
+      "claim": "At 30\u201370% noise, chain and mesh show comparable final convergence",
+      "status": "supported in new explicit SI study",
+      "qualification": "The original trial dataset was not located; I have now derived a reproducible scenario rather than leaving this as a vague missing-data objection.",
+      "derived_evidence": "1,000 seeds per case, eight nodes, 50 rounds: both converge fully at 30%; at 70%, chain 99.9% and mesh 100% converge.",
+      "remaining_evidence_or_test": "This is a new retained SI experiment, not a recovered original LIF/RC trial or a universal result.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/claims/noise-study-summary.json"
+    },
+    {
+      "id": "Q-10",
+      "claim": "Dense mesh is substantially more resilient at noise of at least 85%",
+      "status": "supported conditionally in new study",
+      "qualification": "The new experiment confirms a severe-noise advantage under equal elapsed rounds; it also reveals the transmission-budget condition.",
+      "derived_evidence": "At 85%, mesh 100% and chain 65.6% convergence; at 95%, mesh 100% and chain 1.4%, in 1,000 trials/case.",
+      "remaining_evidence_or_test": "With an equal 50-attempt budget, both graphs produce the same convergence fractions in this SI setup. Retain resource budget, horizon, graph and noise model in the claim.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/claims/noise-study-summary.json"
+    },
+    {
+      "id": "Q-11",
+      "claim": "HTML projection reduces on-site service overhead",
+      "status": "partly supported; workload benchmark pending",
+      "qualification": "Browser-local resident HTML execution is real; an unmeasured cost-reduction percentage would be unsupported.",
+      "derived_evidence": "Three supplied HTML surfaces execute in Chromium and call separately located owner services.",
+      "remaining_evidence_or_test": "Benchmark browser/client CPU and memory, host service demand, network traffic and latency for the chosen projection workload. Specify which work moved and which still runs on the owner host.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/scripts/test_web4_browser.mjs"
+    },
+    {
+      "id": "Q-12",
+      "claim": "Off-site security permits immediate pipeline disconnect",
+      "status": "family software fence supported; off-site deployment pending",
+      "qualification": "A durable admission fence now works. It is not an already deployed independent off-site network cut.",
+      "derived_evidence": "Crash retained disconnected state; no new actor journal bytes while fenced.",
+      "remaining_evidence_or_test": "Configure an independent host/control plane, scoped credential, transfer agreement and network policy; measure disconnect acknowledgement under in-flight work and host/control-plane failure.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/RESIDENT_CRASH.json"
+    },
+    {
+      "id": "Q-13",
+      "claim": "Domain boundaries contain failures",
+      "status": "supported for tested domain failures",
+      "qualification": "Network boundary and child flywheel preserve continuity under intermediate-anchor loss.",
+      "derived_evidence": "Qualified parent-loss/reanchor and advancing child state tests.",
+      "remaining_evidence_or_test": "Shared host, daemon, kernel, mounts and VFS remain common risks; separately inject those failures before claiming infrastructure-wide isolation.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/scripts/verify_owner_domains.py"
+    },
+    {
+      "id": "Q-14",
+      "claim": "The entire family deployment is packaged and synchronized",
+      "status": "supported for current nine-family release",
+      "qualification": "The complete current owner-family package and documentation are distributed. That does not mean every earlier upload or cloud account has been copied.",
+      "derived_evidence": "Both private VFS repositories retain the bundle; nine subscribers independently hash cached bytes.",
+      "remaining_evidence_or_test": "Google Drive/account Library write capability remains unavailable. Keep current-family custody scope explicit.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/VFS_RELEASE_032.json"
+    },
+    {
+      "id": "Q-15",
+      "claim": "This is new technology",
+      "status": "real engineering supported; worldwide novelty undecided",
+      "qualification": "Novel integration work can be substantive even when networking, browsers and signatures use established primitives.",
+      "derived_evidence": "Attributed source, original owner designs and implemented integration with crash-recovery behavior.",
+      "remaining_evidence_or_test": "A novelty/patentability claim needs claim decomposition, prior-art search, inventor/contributor record and appropriate legal review. No exhaustive search has been performed.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/TECHNOLOGY_ASSESSMENT.md"
+    },
+    {
+      "id": "Q-16",
+      "claim": "KEDDEH is developing its envisioned trajectory",
+      "status": "supported with explicit remaining milestones",
+      "qualification": "It is incorrect to dismiss the delivered software as merely a diagram. It is also incorrect to mark every envisioned physical/off-site function complete.",
+      "derived_evidence": "Nine resident families, supplied engines, recursive domains, multiplexers, VFS and thirty evidence-bound programme steps.",
+      "remaining_evidence_or_test": "Continue capacity, HCI, cloud, propagation and independent-promotion groups; record failures and successes.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/PLAN_100.json"
+    },
+    {
+      "id": "Q-17",
+      "claim": "Data, governance, attribution and templates are standardized",
+      "status": "internal baseline supported; enforcement varies",
+      "qualification": "There is now an internal controlled baseline. A template or document alone does not establish operational or external assurance.",
+      "derived_evidence": "Nine controlled standards, fourteen controls; 19 action/23 process/16 configuration contracts and 149 source functions inventoried.",
+      "remaining_evidence_or_test": "Complete per-store retention, access matrix, license/contributor review, tenant isolation, external assessment and any required contractual/legal review.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/STANDARDIZATION_AUDIT.md"
+    },
+    {
+      "id": "Q-18",
+      "claim": "Receipts provide independent assurance",
+      "status": "integrity and separate local readback supported; independence pending",
+      "qualification": "Different processes and keys establish useful separation; same owner/host does not establish organizationally independent assessment.",
+      "derived_evidence": "Ed25519 namespace and signed detached journal verification, VFS exact-byte readback and replay checks.",
+      "remaining_evidence_or_test": "Appoint a separately operated assessor with defined authority and report reference before using independent certification language.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/APPLICATION.json"
+    },
+    {
+      "id": "Q-19",
+      "claim": "The logical VFS establishes the stated 10 TB and 100 TB planes",
+      "status": "logical architecture supported; unit/capacity measurement pending",
+      "qualification": "Logical address space is different from verified allocated or durable physical capacity. This does not invalidate logical topology.",
+      "derived_evidence": "Content-addressed VFS, namespace generations, archive/replay and actual current store.",
+      "remaining_evidence_or_test": "Define logical versus physical units, allocation/compression assumptions, read/write capacity, integrity and recovery tests for each claimed plane.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/ARCHITECTURE.md"
+    },
+    {
+      "id": "Q-20",
+      "claim": "Customer registration and user agreements provide governed service access",
+      "status": "supported for owner permissions and enquiry handling",
+      "qualification": "Customers can register interest; this grants no owner token. Owner projection permissions are separately enforced.",
+      "derived_evidence": "Validated consented private enquiry store, idempotent receipts, retention maintenance and versioned owner agreement/revocation.",
+      "remaining_evidence_or_test": "General customer accounts, scoped tenant credentials, paid service contracts and data transfers require separate implementation.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/DATA_AND_ATTRIBUTION.md"
+    },
+    {
+      "id": "Q-21",
+      "claim": "The current keddeh.com build is fully public and deployed",
+      "status": "current cloud candidate supported; native Site promotion unverified",
+      "qualification": "The editable frontage and actual runtime are deployed locally and pushed; that is not native public Site publication.",
+      "derived_evidence": "14 candidate routes: 384 link checks, 355 actual navigation clicks, 22 claim disclosures, both durable enquiry receipts and mobile viewport checks; native Site identity retained.",
+      "remaining_evidence_or_test": "Native Site source/publishing/readback capability is absent. Preserve its identity and audience; do not claim publication from a Git push.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/BATCH_REPORT_03.md"
+    },
+    {
+      "id": "Q-22",
+      "claim": "All workflows, controls and GitHub Projects are active",
+      "status": "issue planning and local qualification supported; hosted/native gates pending",
+      "qualification": "Issue/milestone/label access works. Project creation is explicitly denied and a hosted VFS run failed before jobs.",
+      "derived_evidence": "Real planning issue readbacks and explicit createProjectV2 denial; twelve local release gates.",
+      "remaining_evidence_or_test": "Obtain the specific native Project capability and diagnose the provider startup failure from its actual service report. Repository write permission does not prove either.",
+      "source": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/GITHUB_PROJECT_VIEWS.md"
+    }
+  ]
+}

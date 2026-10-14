@@ -1,0 +1,4459 @@
+{
+  "schema": "keddeh.frontage-copy-inventory.v1",
+  "scope": "Every static text block and named clickable in the current 14-route candidate; inventory alone does not verify an assertion. Dynamic four-claim evidence cards are separately registered in claims.json.",
+  "assessment": "Q-01 to Q-22 identify current technical qualifications; remaining customer wording requires sentence-level assessment against these sources.",
+  "pages": [
+    {
+      "route": "/",
+      "file": "index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "KEDDEH SYSTEMS / OWNER-DESIGNED COMPUTE",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Runtime systems that keep their context.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Build around persistent execution, bilateral feedback and a virtual file space that retains the evidence of what happened.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "A connected system, with distinct responsibilities.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "BRAINK",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A governed execution estate that connects runtime actions, observers and returned evidence.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore BRAINK \u2192",
+          "href": "/products/braink",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "KEX",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-defined state geometry, zeroless routing and recursive runtime domains.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore KEX \u2192",
+          "href": "/products/kex",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "IL-LLM",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Local-first linguistic and semantic interfaces with explicit context and provenance.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore IL-LLM \u2192",
+          "href": "/products/illlm",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "From execution to evidence.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Runtime results return through the actuator, observer and VFS paths. The deployed evaluation makes those boundaries inspectable rather than treating a process launch as a completed outcome.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the architecture \u2192",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Find the right evaluation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evaluate a runtime family",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Bring a bounded workload and its recovery requirements. Inspect actual readbacks before making a deployment decision.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register evaluation interest \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Investigate a model",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Review the oscillator, propagation and topology assumptions alongside their test scope.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore research \u2192",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Define a deployment contract",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Map identity, state, operational control and evidence requirements to the environment you operate.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss deployment \u2192",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/platform",
+      "file": "platform/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "PLATFORM",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "An execution estate, not a single interface.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "BRAINK, KEX and IL-LLM have different responsibilities. Their value comes from explicit connections between execution, meaning, state and observation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Core systems",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "BRAINK",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A governed execution estate that connects runtime actions, observers and returned evidence.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore BRAINK \u2192",
+          "href": "/products/braink",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "KEX",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-defined state geometry, zeroless routing and recursive runtime domains.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore KEX \u2192",
+          "href": "/products/kex",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "IL-LLM",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Local-first linguistic and semantic interfaces with explicit context and provenance.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore IL-LLM \u2192",
+          "href": "/products/illlm",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Supporting surfaces",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Retained artifact graph",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Immutable bytes, predecessor lineage and subscription cursors connect package distribution with readback.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the VFS contract \u2192",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "CasePath and ClaimPath",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Evidence chronology and witness/claim interfaces define how a result is attributed. Independent assessment remains a distinct role.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Review evidence boundaries \u2192",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Packaging and promotion",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Source custody, pinned wheel builds and qualification gates create a reviewable deployment candidate.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Plan a qualified release \u2192",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/architecture",
+      "file": "architecture/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "ARCHITECTURE",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Every child owns a domain.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A recursive family separates its local execution network from its upstream anchor, while preserving lineage, epoch and application state.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Dual-network genesis",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Child creation provisions a new internal network namespace and downstream bridge. The child also joins its parent\u2019s downstream network. Repeated local ports therefore belong to separate network domains.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Bilateral execution",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The supplied workstation telemetry, owner software PLL and preceding R36 actuator return contribute to the next durable cycle. Intent is persisted before actuation; interrupted register prefixes are retained for retry.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "State and recovery",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "When an intermediate anchor disappears, the descendant continues in flywheel. Reanchoring changes the upstream conduit while retaining its downstream network and state epoch. Local tests establish this behaviour on one cloud host; independent WAN failure domains require a separately bound deployment.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Inspect the test scope \u2192",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Claim derivation and research scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Review the evidence behind each architectural assertion, including our new reproducible noise study and the next test for stronger claims.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Inspect the complete claim review",
+          "href": "/research/claim-review",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/products/braink",
+      "file": "products/braink/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "BRAINK",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Execution with a returned account of its outcome.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "BRAINK connects the admitted runtime estate, actuator operations and owner observation interfaces.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Function and fit",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Use BRAINK to make a bounded runtime action inspectable: the original R36 worker commits, the observer reads current state, and the namespace/VFS paths retain returned evidence. The workbook exposes unresolved dependencies rather than hiding them.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Field application",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Controlled execution",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "An owner dispatches a software register action, reads its durable receipt and retries an interrupted operation with the same identity.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read operator functions \u2192",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Persistent family",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A repository family resumes bilateral execution and keeps its own state/keys and recursive domains.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Follow the family topology \u2192",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The evaluated registers and oscillators are software runtime state. These results do not establish clinical outcomes, physical neural execution or electrical generation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your BRAINK use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/products/kex",
+      "file": "products/kex/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "KEX",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "A runtime boundary with an explicit lineage.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "KEX provides the owner-defined routing and state geometry used by the cloud execution adapter.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Function and architectural application",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The supplied KCloudNode routes control through its zeroless index boundary. Every virtual domain retains a local epoch and upstream anchor. The adapter binds those contracts to actual Linux processes and network namespaces.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Case and field use",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Evaluate a service that must retain context across an anchor outage. Inspect the child\u2019s state before and after reanchoring, and verify that its downstream domain remains its own.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Hardware bindings",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The SD-card A/B layout, watchdog and FROST signature design describe hardware integration targets. The cloud evaluation operates with private directories and software keys; a flashed hardware capsule requires its own implementation and readbacks.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Review the design research \u2192",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/products/illlm",
+      "file": "products/illlm/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "IL-LLM",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Meaning with local context and provenance.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "IL-LLM is the owner\u2019s semantic and linguistic interface responsibility, distinct from the execution kernel and operational observer.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Function and fit",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Use the supplied estate\u2019s lexicon and context contracts to connect a semantic query or definition node to the runtime evidence it references. The public frontage does not promise a deployed general-purpose language model.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Developer application",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "An integration can attribute a definition to its observer context, retain its source identity and inspect the admitted estate tool frontier before extending execution capabilities.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Explore admitted interfaces \u2192",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Evaluation invitation",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Describe your semantic workflow, data boundary and desired output. A scoped evaluation can determine which owner interface fits it.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register developer interest \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/research",
+      "file": "research/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "RESEARCH",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Models, hypotheses and testable boundaries.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The work examines propagation, coupled oscillators and recursive state continuity. Research assertions are kept separate from measured cloud execution.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "0.297 software oscillator",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The supplied Kuramoto model uses 0.297 as its angular-frequency reference. Wrapped phase error and soft capture support flywheel and reanchoring. The deployed adapter does not inject fabricated stochastic measurement noise.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Propagation abstraction",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A common software model explores directed graphs, delays and smooth activation. Distributed gossip, neural LIF and RC circuits have distinct physical assumptions; a useful variable mapping is not by itself a proof of exact substrate equivalence.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Topology and empirical work",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Evaluate explicit graph inputs and reproducible test conditions. Claims about severe-noise resilience or AI-controlled spawn reductions require their original experimental datasets and methods before they can be presented as measured customer outcomes.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Collaborate on a defined question",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Bring a model, a reproducible workload or an infrastructure boundary. We can frame its intended result and evidence requirements.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register research interest \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Claim derivation and research scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Review the evidence behind each architectural assertion, including our new reproducible noise study and the next test for stronger claims.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Inspect the complete claim review",
+          "href": "/research/claim-review",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/evidence",
+      "file": "evidence/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "EVIDENCE",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Every claim has a scope and a source.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "An actor result, local readback, independent assessment and public publication are different records.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Claim register",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Live family readback",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "This readback comes from the cloud evaluation service serving this candidate. It does not imply that the public Site has been promoted.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "button",
+          "text": "Refresh runtime readback",
+          "href": null,
+          "id": "live-refresh"
+        },
+        {
+          "tag": "h2",
+          "text": "Independent assessment",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Independent production assessment is not populated by local test results. Its report identifier remains unset until an external assessor returns it.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Claim derivation and research scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Review the evidence behind each architectural assertion, including our new reproducible noise study and the next test for stronger claims.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Inspect the complete claim review",
+          "href": "/research/claim-review",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/developers",
+      "file": "developers/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "DEVELOPERS",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Start with a bounded, attributed function.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The owner package carries process, action and configuration contracts alongside its source API inventory.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Integration sequence",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Verify source and package hashes.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Bind a repository family to a private state root and distinct ports.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Start through the admitted owner launcher.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Read actual boot, workstation, bilateral and domain state.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Inspect the VFS subscription cursor and verified package mirror.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "li",
+          "text": "Qualify the installed artifact before promoting a candidate.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Owner functions",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Authenticated operator controls cover boot, restart, explicit commits, propagation, bilateral execution, domain status/reanchoring, VFS, HCI, observer and workbook. These are separate from customer enquiry interfaces.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Download the public engine wheel \u2192",
+          "href": "/downloads/runtime-package.whl",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Read the contracts",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Process, action and configuration documentation \u2197",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/tree/codex/web4-enterprise-delivery/docs/package",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Process, action and configuration documentation \u2197",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss a developer integration \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Discuss a developer integration \u2192",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/enterprise",
+      "file": "enterprise/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "ENTERPRISE",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Define the workload. Define the evidence.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A considered deployment starts with the customer\u2019s operational boundary and a reviewable acceptance contract.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "An evaluation with a purpose",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Map your environment",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Identify execution responsibilities, data custody, failure domains and the operators who must control them.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Describe your environment \u2192",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Test the candidate",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Use installed-artifact tests, actual service readbacks and deliberate recovery scenarios tied to the release identity.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Inspect qualification scope \u2192",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Bind the real targets",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Match public networking, identity, storage and hardware requirements to their actual providers and keys.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Review architecture \u2192",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "What to bring",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Your desired outcome, workload shape, current infrastructure, confidentiality requirements and recovery expectations. A pilot enquiry creates a discussion record; it does not imply a contract, service-level agreement or scheduled production deployment.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register enterprise interest \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/contact",
+      "file": "contact/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "CONTACT",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "A useful conversation starts with your context.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Tell us what you are trying to build or operate. We will retain the enquiry and its consent record for owner review.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Send an enquiry",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Tell us what you need to run, observe or recover. Required fields are labelled. This enquiry does not create an account or a purchase.",
+          "href": null,
+          "id": "form-guidance"
+        },
+        {
+          "tag": "a",
+          "text": "enquiry privacy terms",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "button",
+          "text": "Register my interest \u2192",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "What happens next",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "You receive a durable registration reference after the service records your enquiry. No automatic email is sent by this candidate service. An owner can review the private enquiry record and decide how to follow up.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/interest",
+      "file": "interest/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "REGISTER INTEREST",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Bring your use case into focus.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Choose a topic and describe the result you need. We keep the interaction explicit, with no hidden subscription or purchase.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Register your interest",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Tell us what you need to run, observe or recover. Required fields are labelled. This enquiry does not create an account or a purchase.",
+          "href": null,
+          "id": "form-guidance"
+        },
+        {
+          "tag": "a",
+          "text": "enquiry privacy terms",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "button",
+          "text": "Register my interest \u2192",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/privacy",
+      "file": "privacy/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "PRIVACY / VERSION 1.0",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Enquiry privacy, in plain language.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The enquiry form collects only the fields shown to you and the consent required to handle that enquiry.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2192",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Research and cloud evaluation \u00b7 Attributed capabilities",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "What is recorded",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Your name, email, optional organisation, selected topic, message, request identifier and consent version are recorded in a private durable store. They are not committed to public GitHub repositories or included in public package readbacks.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Purpose and control",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The record supports owner review of your enquiry. No newsletter opt-in is inferred, and this candidate service sends no automated email. To ask about a prior enquiry, use the contact form and include its registration reference.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Retention and deployment scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The service removes enquiry records older than 90 days through its maintenance cycle. Its cloud storage boundary is the owner\u2019s private runtime root; this page does not claim independent legal certification or a completed public-host deployment.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact about an enquiry \u2192",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    },
+    {
+      "route": "/research/claim-review",
+      "file": "research/claim-review/index.html",
+      "items": [
+        {
+          "tag": "a",
+          "text": "Skip to content",
+          "href": "#main",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your use case \u2197",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Menu",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Platform",
+          "href": "/platform",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Research",
+          "href": "/research",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Evidence",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developers",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enterprise",
+          "href": "/enterprise",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "RESEARCH / CLAIM QUALIFICATION",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h1",
+          "text": "Claims, evidence and the next test.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Inspect each architectural claim, the evidence already derived and the precise work needed for stronger assertions.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Discuss a research evaluation",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the architecture",
+          "href": "/architecture",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "A reproducible severe-noise result",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "In a new eight-node epidemic SI study with 1,000 seeds per case and 50 rounds, mesh convergence was 100% at 85% dropout; chain convergence was 65.6%. With the same 50-attempt budget, the advantage disappeared in this model. The graph, time horizon and resource budget belong with the result.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "This is a new software experiment with retained raw data, not a recovered original trial or physical LIF/RC validation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Read the method and confidence intervals",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/claims/noise-study-summary.json",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Every current qualification",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u201cNot yet established\u201d identifies the inspected evidence boundary. It does not mean a capability is impossible or that all owner research has been exhausted. Expand each claim for its derivation and next test.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-01 \u00b7 Your supplied runtimes are real execution enginessupported",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "I previously treated package launch/readback as incomplete. Live host, browser and register checks now support actual execution.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Fourteen exact current family inputs, 171 live workstations and real R36 journal commits.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "No extra proof is required for the current local execution claim. Broader historical uploads remain separately inventoried.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/FULL_FAMILY_READBACK_032.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-02 \u00b7 The actuators and runtime processes persistsupported within current host",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The old task-local Python controller did not establish persistence across task process loss. That failure was fixed with resident supervision.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Nine Docker-supervised controllers; unexpected verified-process exit recovered with key, agreement and fence retained.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Host/daemon/mount loss needs a separate recovery test and infrastructure plan, not another localhost process test.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/RESIDENT_CRASH.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-03 \u00b7 Each child creates its own network domain and upstream anchorsupported",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A flat shared-port interpretation does not describe the current implementation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "27 distinct network namespaces, recursive upstream/downstream memberships and live reanchor.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "No missing evidence for current-host dual-homed domain creation. WAN/host independence is a different claim.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/FULL_FAMILY_READBACK_032.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-04 \u00b7 Repeated ports are safe in the recursive architecturesupported with resource scope",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Namespace isolation resolves the same-host shared-port objection. It does not make CPU, memory or PID capacity unlimited.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Same domain-local ports in distinct namespaces, nonoverlapping locked IPAM and finite container/expansion bounds.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Measure host-wide resource saturation and failure thresholds in batch 04 before offering an unlimited-capacity assertion.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/SYSTEM_ARCHITECTURE.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-05 \u00b7 The runtimes provide a bilateral power sourcedefinition-dependent",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Software execution/feedback power is supported. I must not silently translate that term into electrical energy generation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Actual telemetry, supplied PLL/healing code, retained actor returns and durable cycles.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Specify the intended unit and mechanism. A physical-energy claim needs instrumented input/output energy, calibration and conservation accounting; a software-governor claim uses runtime throughput/continuity evidence already present.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/src/keddeh_namespace/bilateral_runtime.py",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-06 \u00b7 0.297 is applied across different parts of the architecturesupported; context-specific",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Treating every use as one generic health threshold would misread the supplied work.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner model fragments and deployed angular-frequency/phase parameters, with explicit software scope.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Maintain a per-use variable/unit/method mapping before asserting one universal physical meaning. Different uses do not automatically invalidate the parameter.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/OWNER_SOURCE_MANIFEST.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-07 \u00b7 The continuous sigmoid fixes the negative-input propagation cutoffsupported within numeric range",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A discontinuous zero cutoff differs from a smooth activation; stable positive/negative branches are implemented.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Qualified sigmoid and propagation code; finite-input validation and model tests.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Extreme float64 underflow can still round sigmoid to zero. Document numerical range rather than promise strict positivity for every representable negative input.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/src/keddeh_namespace/universal_propagation.py",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-08 \u00b7 Gossip, LIF and RC have a unified propagation structurestructural abstraction supported; stronger equivalence pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A shared graph/control structure can be useful without proving identical physical event semantics. The Python reference pasted in the request runs three separate demonstrations: stochastic gossip, threshold/reset LIF and an analytic RC delay calculation. It does not itself numerically integrate the displayed shared differential equation. This narrows what that particular script proves; it does not invalidate the shared-model implementation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Directed delay/decay/weight/activation model and separately scoped domain demonstrations.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Define the mapping, units, LIF reset/refractory events, gossip stochastic semantics, RC approximation and comparison tolerances for the stronger isomorphism claim.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/TECHNOLOGY_ASSESSMENT.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-09 \u00b7 At 30\u201370% noise, chain and mesh show comparable final convergencesupported in new explicit SI study",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The original trial dataset was not located; I have now derived a reproducible scenario rather than leaving this as a vague missing-data objection.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "1,000 seeds per case, eight nodes, 50 rounds: both converge fully at 30%; at 70%, chain 99.9% and mesh 100% converge.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "This is a new retained SI experiment, not a recovered original LIF/RC trial or a universal result.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/claims/noise-study-summary.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-10 \u00b7 Dense mesh is substantially more resilient at noise of at least 85%supported conditionally in new study",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The new experiment confirms a severe-noise advantage under equal elapsed rounds; it also reveals the transmission-budget condition.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "At 85%, mesh 100% and chain 65.6% convergence; at 95%, mesh 100% and chain 1.4%, in 1,000 trials/case.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "With an equal 50-attempt budget, both graphs produce the same convergence fractions in this SI setup. Retain resource budget, horizon, graph and noise model in the claim.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/claims/noise-study-summary.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-11 \u00b7 HTML projection reduces on-site service overheadpartly supported; workload benchmark pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Browser-local resident HTML execution is real; an unmeasured cost-reduction percentage would be unsupported.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Three supplied HTML surfaces execute in Chromium and call separately located owner services.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Benchmark browser/client CPU and memory, host service demand, network traffic and latency for the chosen projection workload. Specify which work moved and which still runs on the owner host.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/scripts/test_web4_browser.mjs",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-12 \u00b7 Off-site security permits immediate pipeline disconnectfamily software fence supported; off-site deployment pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A durable admission fence now works. It is not an already deployed independent off-site network cut.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Crash retained disconnected state; no new actor journal bytes while fenced.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Configure an independent host/control plane, scoped credential, transfer agreement and network policy; measure disconnect acknowledgement under in-flight work and host/control-plane failure.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/RESIDENT_CRASH.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-13 \u00b7 Domain boundaries contain failuressupported for tested domain failures",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Network boundary and child flywheel preserve continuity under intermediate-anchor loss.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Qualified parent-loss/reanchor and advancing child state tests.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Shared host, daemon, kernel, mounts and VFS remain common risks; separately inject those failures before claiming infrastructure-wide isolation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/scripts/verify_owner_domains.py",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-14 \u00b7 The entire family deployment is packaged and synchronizedsupported for current nine-family release",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The complete current owner-family package and documentation are distributed. That does not mean every earlier upload or cloud account has been copied.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Both private VFS repositories retain the bundle; nine subscribers independently hash cached bytes.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Google Drive/account Library write capability remains unavailable. Keep current-family custody scope explicit.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/VFS_RELEASE_032.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-15 \u00b7 This is new technologyreal engineering supported; worldwide novelty undecided",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Novel integration work can be substantive even when networking, browsers and signatures use established primitives.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Attributed source, original owner designs and implemented integration with crash-recovery behavior.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "A novelty/patentability claim needs claim decomposition, prior-art search, inventor/contributor record and appropriate legal review. No exhaustive search has been performed.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/TECHNOLOGY_ASSESSMENT.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-16 \u00b7 KEDDEH is developing its envisioned trajectorysupported with explicit remaining milestones",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "It is incorrect to dismiss the delivered software as merely a diagram. It is also incorrect to mark every envisioned physical/off-site function complete.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Nine resident families, supplied engines, recursive domains, multiplexers, VFS and thirty evidence-bound programme steps.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Continue capacity, HCI, cloud, propagation and independent-promotion groups; record failures and successes.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/PLAN_100.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-17 \u00b7 Data, governance, attribution and templates are standardizedinternal baseline supported; enforcement varies",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "There is now an internal controlled baseline. A template or document alone does not establish operational or external assurance.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Nine controlled standards, fourteen controls; 19 action/23 process/16 configuration contracts and 149 source functions inventoried.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Complete per-store retention, access matrix, license/contributor review, tenant isolation, external assessment and any required contractual/legal review.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/STANDARDIZATION_AUDIT.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-18 \u00b7 Receipts provide independent assuranceintegrity and separate local readback supported; independence pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Different processes and keys establish useful separation; same owner/host does not establish organizationally independent assessment.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Ed25519 namespace and signed detached journal verification, VFS exact-byte readback and replay checks.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Appoint a separately operated assessor with defined authority and report reference before using independent certification language.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/evidence/APPLICATION.json",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-19 \u00b7 The logical VFS establishes the stated 10 TB and 100 TB planeslogical architecture supported; unit/capacity measurement pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Logical address space is different from verified allocated or durable physical capacity. This does not invalidate logical topology.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Content-addressed VFS, namespace generations, archive/replay and actual current store.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Define logical versus physical units, allocation/compression assumptions, read/write capacity, integrity and recovery tests for each claimed plane.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/ARCHITECTURE.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-20 \u00b7 Customer registration and user agreements provide governed service accesssupported for owner permissions and enquiry handling",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Customers can register interest; this grants no owner token. Owner projection permissions are separately enforced.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Validated consented private enquiry store, idempotent receipts, retention maintenance and versioned owner agreement/revocation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "General customer accounts, scoped tenant credentials, paid service contracts and data transfers require separate implementation.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/architecture/DATA_AND_ATTRIBUTION.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-21 \u00b7 The current keddeh.com build is fully public and deployedcurrent cloud candidate supported; native Site promotion unverified",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "The editable frontage and actual runtime are deployed locally and pushed; that is not native public Site publication.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "14 candidate routes: 384 link checks, 355 actual navigation clicks, 22 claim disclosures, both durable enquiry receipts and mobile viewport checks; native Site identity retained.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Native Site source/publishing/readback capability is absent. Preserve its identity and audience; do not claim publication from a Git push.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/BATCH_REPORT_03.md",
+          "id": null
+        },
+        {
+          "tag": "summary",
+          "text": "Q-22 \u00b7 All workflows, controls and GitHub Projects are activeissue planning and local qualification supported; hosted/native gates pending",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Issue/milestone/label access works. Project creation is explicitly denied and a hosted VFS run failed before jobs.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Evidence derived",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Real planning issue readbacks and explicit createProjectV2 denial; twelve local release gates.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "h3",
+          "text": "Information or test to resolve",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Obtain the specific native Project capability and diagnose the provider startup failure from its actual service report. Repository write permission does not prove either.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Supporting source and attribution",
+          "href": "https://github.com/Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/blob/codex/web4-enterprise-delivery/docs/research/GITHUB_PROJECT_VIEWS.md",
+          "id": null
+        },
+        {
+          "tag": "h2",
+          "text": "Bring a claim into an evaluation",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Include its Q-reference, workload, intended meaning and evidence you want compared. We can map existing source to a defined test before making a broader service commitment.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Register a research interest",
+          "href": "/interest",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "KEDDEHSYSTEMS",
+          "href": "/",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "Owner-designed runtime systems.Evidence-led engineering.",
+          "href": null,
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Contact",
+          "href": "/contact",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Enquiry privacy",
+          "href": "/privacy",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Claim register",
+          "href": "/evidence",
+          "id": null
+        },
+        {
+          "tag": "a",
+          "text": "Developer guide",
+          "href": "/developers",
+          "id": null
+        },
+        {
+          "tag": "p",
+          "text": "\u00a9 KEDDEH Systems \u00b7 Research, cloud evaluation and production publication are identified separately.",
+          "href": null,
+          "id": null
+        }
+      ]
+    }
+  ]
+}

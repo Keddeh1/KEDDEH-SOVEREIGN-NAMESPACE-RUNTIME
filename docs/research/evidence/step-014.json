@@ -1,0 +1,35 @@
+{
+  "step": 14,
+  "status": "passed",
+  "result": {
+    "measurements": [
+      {
+        "receipts": 100,
+        "returned_events": 100,
+        "median_seconds": 0.14971654400005718,
+        "min_seconds": 0.06397605000006479,
+        "max_seconds": 0.26909135799996875,
+        "python_peak_traced_bytes": 161390
+      },
+      {
+        "receipts": 1000,
+        "returned_events": 100,
+        "median_seconds": 0.5558631779999814,
+        "min_seconds": 0.20702238000012585,
+        "max_seconds": 1.3326294660000713,
+        "python_peak_traced_bytes": 774290
+      },
+      {
+        "receipts": 10000,
+        "returned_events": 100,
+        "median_seconds": 5.092258652000055,
+        "min_seconds": 1.9782579620000433,
+        "max_seconds": 5.773128654000175,
+        "python_peak_traced_bytes": 7306730
+      }
+    ],
+    "repeats": 5,
+    "scope": "single-host synthetic receipt history, warm OS cache, tracemalloc overhead included; not production throughput or total RSS",
+    "conclusion": "returned window is bounded at 100; full verification work and allocation grow with retained history"
+  }
+}

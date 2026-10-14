@@ -1,0 +1,484 @@
+{
+  "status": "PROMOTED",
+  "container": "keddeh-qzl-owner-resident",
+  "image": "sha256:9a88e9ff0b170cca7df0b5b9c395752544e65d9d8dc4a02e986d20f38fb7ac5d",
+  "restart_policy": "unless-stopped",
+  "baseline": {
+    "source_digest": "3a70c789e43154f3e208f6e009874879d2adf18964abaacb3d8da275a66eaede",
+    "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+    "family_id": "qzl-qualified-tooling",
+    "boot_status": "COMPLETED",
+    "schema": "keddeh.web4.readback.v1",
+    "scope": "local real processes",
+    "nodes": [
+      {
+        "port": 21100,
+        "ok": true,
+        "domain": "SERVER_SPACE_SUBSTRATE",
+        "compute_cycles": 69133,
+        "state_hash": "b96ddae4c491188a5ba2b5a745219c6e94f0b85866827a8d1be32a2d6a3671fc"
+      },
+      {
+        "port": 21101,
+        "ok": true,
+        "domain": "STORE_SPACE_WORKSTATIONS",
+        "compute_cycles": 69133,
+        "state_hash": "65b5dc07dcc36b89e834c39d661749c8349ec0f9130371cab670abf277975a15"
+      },
+      {
+        "port": 21102,
+        "ok": true,
+        "domain": "SOFTWARE_NODES_SUBSTRATE",
+        "compute_cycles": 69127,
+        "state_hash": "42ccc61f92b928cf73a7e494702f5b6b3e526323a664a1aad87bf552f6544261"
+      },
+      {
+        "port": 21103,
+        "ok": true,
+        "domain": "HYPERDRIVE_DASHBOARD_ENGINE",
+        "compute_cycles": 69115,
+        "state_hash": "dcc1ecea1006117c4ff1019157f57892ddb126ea8674471dd0b8325274b2045d"
+      },
+      {
+        "port": 21104,
+        "ok": true,
+        "domain": "CLOUD_SERVERS_CLUSTER_1",
+        "compute_cycles": 69113,
+        "state_hash": "fa56aebbc39cd4d0fa55e0673fa79f3b108391879171b383ff107413b2911c7d"
+      },
+      {
+        "port": 21105,
+        "ok": true,
+        "domain": "REPO_BASED_TOPOLOGY_NODE",
+        "compute_cycles": 69119,
+        "state_hash": "4b8b236180b7534e48c0bac643539adddcb79a0ed332408c26fabb3acc0aa465"
+      },
+      {
+        "port": 21106,
+        "ok": true,
+        "domain": "VIRTUALIZED_STORAGE_MATRIX",
+        "compute_cycles": 69110,
+        "state_hash": "5b6d99763d613ff839d7d84d454f39b44b4670893461d3495603371276401eb6"
+      },
+      {
+        "port": 21107,
+        "ok": true,
+        "domain": "SOVEREIGN_VIRTUAL_BRAIN_CONSOLE",
+        "compute_cycles": 69101,
+        "state_hash": "41fe62dc9eb49af47c7612553c3e57f8654a46d53a3e70cd3354e264a4fae221"
+      },
+      {
+        "port": 21108,
+        "ok": true,
+        "domain": "CONSOLE_PLUS_SUBSYSTEM",
+        "compute_cycles": 69100,
+        "state_hash": "d9a0c133ea1c586d60061e1fd92d0ebc50c57d227de127b47fa9c71625dcb9a7"
+      },
+      {
+        "port": 21109,
+        "ok": true,
+        "domain": "BRAINK_BETA_RUNTIME_STATION",
+        "compute_cycles": 69095,
+        "state_hash": "ea0ad949fa13a3e1f72bc2beaf69bf6f4f372fc48a85f86d78006f20f0b431d3"
+      }
+    ],
+    "healthy_nodes": 10,
+    "services": {
+      "vfs-server": {
+        "pid": 91996,
+        "alive": true,
+        "restarts": 0
+      },
+      "broker": {
+        "pid": 91998,
+        "alive": true,
+        "restarts": 0
+      },
+      "network": {
+        "pid": 92000,
+        "alive": true,
+        "restarts": 0
+      },
+      "http": {
+        "pid": 92009,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21100": {
+        "pid": 92017,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21101": {
+        "pid": 92025,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21102": {
+        "pid": 92033,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21103": {
+        "pid": 92041,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21104": {
+        "pid": 92049,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21105": {
+        "pid": 92057,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21106": {
+        "pid": 92065,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21107": {
+        "pid": 92073,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21108": {
+        "pid": 92081,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21109": {
+        "pid": 92089,
+        "alive": true,
+        "restarts": 0
+      },
+      "estate": {
+        "pid": 92097,
+        "alive": true,
+        "restarts": 0
+      },
+      "agent": {
+        "pid": 92099,
+        "alive": true,
+        "restarts": 0
+      },
+      "qzl-scheduler": {
+        "pid": 92435,
+        "alive": true,
+        "restarts": 1
+      }
+    },
+    "last_receipt": {
+      "sequence": 2,
+      "path": "web4/runtime",
+      "version": 2,
+      "digest": "a7e14fbdcdecd21dea3a7ff1c866529afb4477a30f31e0c6e410fa2ffd64eea3",
+      "parent": "8e136ee16ecde9d5de5b7467dbbcbe26103bc3ee621886d2b9108c76ad1608cb",
+      "receipt": "9db9444c3b808cb3108541d608f95ff9b8a2ef6aad02112dbd175c64aec50351",
+      "envelope_sha256": "7fd4089e923ad831098d6d16c7334db98ebc57eaeca11fc33face19144373973"
+    },
+    "external_mining": "not observed; state-hash cycles are local computation",
+    "qzl_scheduler": {
+      "configured": true,
+      "healthy": true,
+      "supervisor": {
+        "pid": 92435,
+        "restarts": 0,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:32:44.256417+10:30",
+        "worker_pid": 92437
+      },
+      "worker": {
+        "pid": 92437,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:32:40.637554+10:30"
+      },
+      "jobs": {
+        "canary": {
+          "receipt_sha256": "1fedc402a3f0bab26af0e3f218afb4abe21e56aaeafc188a10e7b49703b580ba",
+          "slot": "2026-10-11",
+          "status": "PASS"
+        },
+        "manual:canary": {
+          "receipt_sha256": "7a680007560ad28208179249b1cfd66a6f1988441e7d29f9dfd1b63c317502d0",
+          "slot": "manual-70f7649b6a7a4518a18d815c1e532097",
+          "status": "PASS"
+        },
+        "manual:promote": {
+          "receipt_sha256": "7c13230e68b752489dd7ded275c622047f2cf352cdfc6ac537df491bb3a5a54c",
+          "slot": "manual-a8e6fe0497d04e449654fa5ae40a9810",
+          "status": "PASS"
+        },
+        "manual:qualification": {
+          "receipt_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+          "slot": "queue-80bd0615af6e245641064c6371c16b3e",
+          "status": "PASS"
+        },
+        "manual:rollback": {
+          "receipt_sha256": "c2dce30b4f8a32af899ae5f743c9b2f80f73d6addaa3eba9695d137e3adbe39d",
+          "slot": "manual-71433f495ec84ffda45c633f214f6f00",
+          "status": "PASS"
+        },
+        "promote": {
+          "receipt_sha256": "b9ac1e84480f262a466f961903e933b0438066322bf1c60323b852519d4beaba",
+          "slot": "2026-10-11",
+          "status": "PASS"
+        },
+        "qualification": {
+          "receipt_sha256": "4dddffab2d6065aa37c8f4378c79cee9f80297748e626af561917f17cbd1f0e6",
+          "slot": "manual-d0d2e10de04e4298b24a19dd3302a65c",
+          "status": "PASS"
+        },
+        "queue-80bd0615af6e245641064c6371c16b3e": {
+          "receipt_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+          "slot": "queue-80bd0615af6e245641064c6371c16b3e",
+          "status": "PASS"
+        }
+      },
+      "current_release": "/workspace/deployments/qzl-scheduler/state/releases/62ab3fb543624b29a0a6608f2666e37c"
+    }
+  },
+  "observed": {
+    "source_digest": "9779de421bef904749fb9d57850b399942dc9896f990dba7ac39526badfa5791",
+    "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+    "family_id": "qzl-qualified-tooling",
+    "boot_status": "COMPLETED",
+    "schema": "keddeh.web4.readback.v1",
+    "scope": "local real processes",
+    "nodes": [
+      {
+        "port": 21100,
+        "ok": true,
+        "domain": "SERVER_SPACE_SUBSTRATE",
+        "compute_cycles": 107,
+        "state_hash": "7a3334bb6f6a50248fd8f090f58addb641bdc25cab88f8f42005ae99fb269159"
+      },
+      {
+        "port": 21101,
+        "ok": true,
+        "domain": "STORE_SPACE_WORKSTATIONS",
+        "compute_cycles": 103,
+        "state_hash": "022bdd05504fa096d087eddfc1fe859ed03de1573a6fc3e8400d540b143ee4b1"
+      },
+      {
+        "port": 21102,
+        "ok": true,
+        "domain": "SOFTWARE_NODES_SUBSTRATE",
+        "compute_cycles": 99,
+        "state_hash": "e08d2283fdce9a5448cc50b4acfb14db9b3b76a846a6fdc0cd65f12b7f6c1d4d"
+      },
+      {
+        "port": 21103,
+        "ok": true,
+        "domain": "HYPERDRIVE_DASHBOARD_ENGINE",
+        "compute_cycles": 94,
+        "state_hash": "e3959260d5b16f1c6aa493e5e9ddc9bdce274f430496829af0b6ed177f1695b8"
+      },
+      {
+        "port": 21104,
+        "ok": true,
+        "domain": "CLOUD_SERVERS_CLUSTER_1",
+        "compute_cycles": 91,
+        "state_hash": "46f8c0381b20a02625b6817796138a433e45e8b79fbf8adda4b8fea2a68bd0b3"
+      },
+      {
+        "port": 21105,
+        "ok": true,
+        "domain": "REPO_BASED_TOPOLOGY_NODE",
+        "compute_cycles": 87,
+        "state_hash": "fd6c99a0b7a42199247c56aea1ac9d41c18ca06cd1162ebf8bfd599787fc8d4a"
+      },
+      {
+        "port": 21106,
+        "ok": true,
+        "domain": "VIRTUALIZED_STORAGE_MATRIX",
+        "compute_cycles": 82,
+        "state_hash": "d4a8540340461005b53895a67792c25241bd6e0e272016a91c97ac1c270bfc5b"
+      },
+      {
+        "port": 21107,
+        "ok": true,
+        "domain": "SOVEREIGN_VIRTUAL_BRAIN_CONSOLE",
+        "compute_cycles": 79,
+        "state_hash": "d8662822a1eabfa18ddc700af3c321d0d9718fc6b24bba05bccf48349aea3a0a"
+      },
+      {
+        "port": 21108,
+        "ok": true,
+        "domain": "CONSOLE_PLUS_SUBSYSTEM",
+        "compute_cycles": 74,
+        "state_hash": "43a340abf3ae86a63fe5ab334fe120c0c40409c8b849327ca559b222680165e7"
+      },
+      {
+        "port": 21109,
+        "ok": true,
+        "domain": "BRAINK_BETA_RUNTIME_STATION",
+        "compute_cycles": 70,
+        "state_hash": "0485936b6d6f3c4a8ee57fb741b6629e99681fadc652a6d04ced31ad9503e104"
+      }
+    ],
+    "healthy_nodes": 10,
+    "services": {
+      "vfs-server": {
+        "pid": 7,
+        "alive": true,
+        "restarts": 0
+      },
+      "broker": {
+        "pid": 9,
+        "alive": true,
+        "restarts": 0
+      },
+      "network": {
+        "pid": 11,
+        "alive": true,
+        "restarts": 0
+      },
+      "http": {
+        "pid": 20,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21100": {
+        "pid": 28,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21101": {
+        "pid": 36,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21102": {
+        "pid": 44,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21103": {
+        "pid": 52,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21104": {
+        "pid": 60,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21105": {
+        "pid": 68,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21106": {
+        "pid": 76,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21107": {
+        "pid": 84,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21108": {
+        "pid": 92,
+        "alive": true,
+        "restarts": 0
+      },
+      "node-21109": {
+        "pid": 100,
+        "alive": true,
+        "restarts": 0
+      },
+      "estate": {
+        "pid": 108,
+        "alive": true,
+        "restarts": 0
+      },
+      "agent": {
+        "pid": 110,
+        "alive": true,
+        "restarts": 0
+      },
+      "qzl-scheduler": {
+        "pid": 111,
+        "alive": true,
+        "restarts": 0
+      }
+    },
+    "last_receipt": {
+      "sequence": 3,
+      "path": "web4/runtime",
+      "version": 3,
+      "digest": "eee4d43568e58a8aea96458a0ab72445911b0ddbbdf18a2a31319c02f69c45ca",
+      "parent": "9db9444c3b808cb3108541d608f95ff9b8a2ef6aad02112dbd175c64aec50351",
+      "receipt": "d4744473b1bae553d465f573eddd8f1950d8f7874bb65bf60563d066b990089e",
+      "envelope_sha256": "da70582514d9fa93f1a8dfbdf8b1fa01c4dacc94a2d0f9ae623d631f62589117"
+    },
+    "external_mining": "not observed; state-hash cycles are local computation",
+    "qzl_scheduler": {
+      "configured": true,
+      "healthy": true,
+      "supervisor": {
+        "pid": 111,
+        "restarts": 0,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:32:51.612946+10:30",
+        "worker_pid": 112
+      },
+      "worker": {
+        "pid": 112,
+        "status": "RUNNING",
+        "time": "2026-10-12T03:32:51.654575+10:30"
+      },
+      "jobs": {
+        "canary": {
+          "receipt_sha256": "1fedc402a3f0bab26af0e3f218afb4abe21e56aaeafc188a10e7b49703b580ba",
+          "slot": "2026-10-11",
+          "status": "PASS"
+        },
+        "manual:canary": {
+          "receipt_sha256": "7a680007560ad28208179249b1cfd66a6f1988441e7d29f9dfd1b63c317502d0",
+          "slot": "manual-70f7649b6a7a4518a18d815c1e532097",
+          "status": "PASS"
+        },
+        "manual:promote": {
+          "receipt_sha256": "7c13230e68b752489dd7ded275c622047f2cf352cdfc6ac537df491bb3a5a54c",
+          "slot": "manual-a8e6fe0497d04e449654fa5ae40a9810",
+          "status": "PASS"
+        },
+        "manual:qualification": {
+          "receipt_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+          "slot": "queue-80bd0615af6e245641064c6371c16b3e",
+          "status": "PASS"
+        },
+        "manual:rollback": {
+          "receipt_sha256": "c2dce30b4f8a32af899ae5f743c9b2f80f73d6addaa3eba9695d137e3adbe39d",
+          "slot": "manual-71433f495ec84ffda45c633f214f6f00",
+          "status": "PASS"
+        },
+        "promote": {
+          "receipt_sha256": "b9ac1e84480f262a466f961903e933b0438066322bf1c60323b852519d4beaba",
+          "slot": "2026-10-11",
+          "status": "PASS"
+        },
+        "qualification": {
+          "receipt_sha256": "4dddffab2d6065aa37c8f4378c79cee9f80297748e626af561917f17cbd1f0e6",
+          "slot": "manual-d0d2e10de04e4298b24a19dd3302a65c",
+          "status": "PASS"
+        },
+        "queue-80bd0615af6e245641064c6371c16b3e": {
+          "receipt_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+          "slot": "queue-80bd0615af6e245641064c6371c16b3e",
+          "status": "PASS"
+        }
+      },
+      "release_ready": true,
+      "current_release": "/workspace/deployments/qzl-scheduler/state/releases/62ab3fb543624b29a0a6608f2666e37c"
+    }
+  },
+  "rollback_configs": "/workspace/work/owner-qzl-resident/pre-rollout",
+  "preserved_runtime": "/workspace/deployments/owner-qzl-web4",
+  "preserved_qzl": "/workspace/deployments/qzl-scheduler"
+}

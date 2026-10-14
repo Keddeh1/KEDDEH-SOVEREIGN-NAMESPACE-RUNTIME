@@ -1,0 +1,67 @@
+{
+  "step": 20,
+  "status": "passed",
+  "result": {
+    "deployed_source_digest": "5273577cab58860eee0b2b613a5a4a5bcf98e2988ad87ce156b7c81756923392",
+    "managed_vfs_alive": true,
+    "event_readback_passed": true,
+    "subscriptions": [
+      {
+        "repository": "Keddeh1/BRAINK-BETA-TEST",
+        "status": "subscribed",
+        "cursor": 5577,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+        "status": "subscribed",
+        "cursor": 5571,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+        "status": "subscribed",
+        "cursor": 5577,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/SERVERSPACE",
+        "status": "subscribed",
+        "cursor": 5583,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/SERVERSPACE-EXTERNAL",
+        "status": "subscribed",
+        "cursor": 5575,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+        "status": "subscribed",
+        "cursor": 5583,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/Virtual-File-Space-ZCG-ARCHITECTURE",
+        "status": "subscribed",
+        "cursor": 5569,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/braink-foundary-schema",
+        "status": "subscribed",
+        "cursor": 5581,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      },
+      {
+        "repository": "Keddeh1/keddeh.com",
+        "status": "subscribed",
+        "cursor": 5571,
+        "bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e"
+      }
+    ],
+    "retained_package_digest": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+    "scope": "actual current cloud-host deployment; controllers restored with retained state, existing domains have a recorded 256 MiB operational mitigation"
+  }
+}

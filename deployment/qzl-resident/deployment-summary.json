@@ -1,0 +1,19 @@
+{
+  "status": "DEPLOYED_AND_VERIFIED",
+  "scope": "Available workspace runtime host, not external ServerSpace or physical FPGA",
+  "image": "sha256:9a88e9ff0b170cca7df0b5b9c395752544e65d9d8dc4a02e986d20f38fb7ac5d",
+  "passed": [
+    "10 supplied owner package workstations healthy",
+    "authenticated queued execution",
+    "exact VFS actor/observer SHA256 readback",
+    "canary promotion",
+    "production SIGKILL automatic recovery with unchanged durable state"
+  ],
+  "unresolved": [
+    "External ServerSpace connectivity and public domain reachability not qualified by these local tests",
+    "Whole-host reboot and power-loss durability not exercised",
+    "Physical FPGA/silicon deployment not performed",
+    "Crash between release pointer promotion and receipt commit is not proven transactionally exactly-once"
+  ],
+  "preservation": "Original package source and existing DNS containers retained; separate canary and staging branch; no main replacement"
+}

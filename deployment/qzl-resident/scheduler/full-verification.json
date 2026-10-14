@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED_WORKSPACE_DEPLOYMENT",
+  "supervisor": {
+    "pid": 89795,
+    "restarts": 0,
+    "status": "RUNNING",
+    "time": "2026-10-12T02:31:33.563807+10:30",
+    "worker_pid": 89796
+  },
+  "qualification": {
+    "corrected_induction": true,
+    "reachable_cases": true,
+    "original_counterexample": true
+  },
+  "receipt_chain_valid": true,
+  "receipt_count": 9,
+  "crash_recovery": "PASS: forced SIGKILL, observed replacement worker",
+  "rollback_and_restore": "PASS",
+  "manual_schedule_isolation": "PASS",
+  "current_release": "/workspace/deployments/qzl-scheduler/state/releases/aaffb8349e1a43b9b0fd2912dc07ffb0",
+  "installed_service_unit": "/workspace/deployments/qzl-scheduler/qzl-scheduler.service",
+  "systemd_autostart": "NOT_ACTIVE: user service manager offline",
+  "remote_serverspace": "NOT_DEPLOYED: environment has no target credentials, outbound identities, VPN or TCP grants",
+  "physical_hardware": "NOT_DEPLOYED: physical target and qualification unavailable"
+}

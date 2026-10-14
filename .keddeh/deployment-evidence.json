@@ -1,0 +1,19 @@
+{
+  "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+  "engine_ref": "d420b5008474cb0dc1b5bf47a7a8433245097072",
+  "source_digest": "f3ffcf7343ff94a9a2f50fb01c3a713e30131942bf31a02dcb5b2333cc20e155",
+  "healthy_workstations": 10,
+  "domain_workstation_processes": 9,
+  "virtual_domains": 3,
+  "network_namespaces": [
+    "net:[4026532249]",
+    "net:[4026532264]",
+    "net:[4026532341]"
+  ],
+  "bilateral_status": "operating",
+  "bilateral_cycle": 570,
+  "vfs_status": "subscribed",
+  "vfs_cursor": 2689,
+  "cached_bundle_sha256": "3c5bcca03b82efee3f3148f4e2b392fff5a44d4c124b1e8ffc4b35c17ea88d0e",
+  "scope": "verified running families on one cloud host; not public Site deployment or independent production assessment"
+}

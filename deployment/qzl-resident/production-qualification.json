@@ -1,0 +1,126 @@
+{
+  "schema": "keddeh.qzl.owner-integration.v1",
+  "status": "PASS",
+  "ten_owner_packages": 10,
+  "healthy_workstations": 10,
+  "controller_pid": 1,
+  "owner_gateway": 20087,
+  "owner_service": {
+    "configured": true,
+    "healthy": true,
+    "supervisor": {
+      "pid": 111,
+      "restarts": 0,
+      "status": "RUNNING",
+      "time": "2026-10-12T03:34:21.704298+10:30",
+      "worker_pid": 112
+    },
+    "worker": {
+      "pid": 112,
+      "status": "RUNNING",
+      "time": "2026-10-12T03:34:23.175138+10:30"
+    },
+    "jobs": {
+      "canary": {
+        "receipt_sha256": "1fedc402a3f0bab26af0e3f218afb4abe21e56aaeafc188a10e7b49703b580ba",
+        "slot": "2026-10-11",
+        "status": "PASS"
+      },
+      "manual:canary": {
+        "receipt_sha256": "7a680007560ad28208179249b1cfd66a6f1988441e7d29f9dfd1b63c317502d0",
+        "slot": "manual-70f7649b6a7a4518a18d815c1e532097",
+        "status": "PASS"
+      },
+      "manual:promote": {
+        "receipt_sha256": "7c13230e68b752489dd7ded275c622047f2cf352cdfc6ac537df491bb3a5a54c",
+        "slot": "manual-a8e6fe0497d04e449654fa5ae40a9810",
+        "status": "PASS"
+      },
+      "manual:qualification": {
+        "receipt_sha256": "4033192c0338f7660daecca9406e6fb60fc17039ff9ee02a6d847eaca406542e",
+        "slot": "queue-40a68a96e46fafadc3de5707bf86b232",
+        "status": "PASS"
+      },
+      "manual:rollback": {
+        "receipt_sha256": "c2dce30b4f8a32af899ae5f743c9b2f80f73d6addaa3eba9695d137e3adbe39d",
+        "slot": "manual-71433f495ec84ffda45c633f214f6f00",
+        "status": "PASS"
+      },
+      "promote": {
+        "receipt_sha256": "b9ac1e84480f262a466f961903e933b0438066322bf1c60323b852519d4beaba",
+        "slot": "2026-10-11",
+        "status": "PASS"
+      },
+      "qualification": {
+        "receipt_sha256": "4dddffab2d6065aa37c8f4378c79cee9f80297748e626af561917f17cbd1f0e6",
+        "slot": "manual-d0d2e10de04e4298b24a19dd3302a65c",
+        "status": "PASS"
+      },
+      "queue-40a68a96e46fafadc3de5707bf86b232": {
+        "receipt_sha256": "4033192c0338f7660daecca9406e6fb60fc17039ff9ee02a6d847eaca406542e",
+        "slot": "queue-40a68a96e46fafadc3de5707bf86b232",
+        "status": "PASS"
+      },
+      "queue-80bd0615af6e245641064c6371c16b3e": {
+        "receipt_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+        "slot": "queue-80bd0615af6e245641064c6371c16b3e",
+        "status": "PASS"
+      }
+    },
+    "release_ready": true,
+    "current_release": "/workspace/deployments/qzl-scheduler/state/releases/62ab3fb543624b29a0a6608f2666e37c"
+  },
+  "unauthenticated_mutation": "REJECTED_HTTP_401",
+  "queued_request": {
+    "status": "QUEUED",
+    "id": "40a68a96e46fafadc3de5707bf86b232",
+    "job": "qualification",
+    "executed": false
+  },
+  "executed_receipt": {
+    "finished": "2026-10-12T03:34:23.159783+10:30",
+    "job": "qualification",
+    "previous_sha256": "756e2c521efbe6d25e76779ab61fbaae1ab95a043e9434f1f2910d1578e4b1d8",
+    "release": "/workspace/deployments/qzl-scheduler/state/runs/15d39b9b9bc04b1a91e520516f0b75bc",
+    "scope": "QZL RTL qualification/tooling; no hardware deployment",
+    "slot": "queue-40a68a96e46fafadc3de5707bf86b232",
+    "started": "2026-10-12T03:34:21.664388+10:30",
+    "status": "PASS"
+  },
+  "vfs_publication": {
+    "digest": "1925f821b79a12d767f81301e64b196f6fb84af8ec67c612c46f4a990bc20570",
+    "actor": {
+      "artifact_digest": "1925f821b79a12d767f81301e64b196f6fb84af8ec67c612c46f4a990bc20570",
+      "at": 1791738263.2232661,
+      "detail": {
+        "predecessor": "ac6fd4edd39d0deac10e9164f5e45e7f98f4307d1a628eaa9dd9414c731de199",
+        "size": 5493,
+        "source": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME"
+      },
+      "kind": "VFS_ARTIFACT_WRITE",
+      "path": "/families/qzl-qualified-tooling/readback.json",
+      "previous_receipt_digest": "412db58f0ae8984997bc6a9d8c7b1a389055d6ad4bc11346f1ad05bfda974ab2",
+      "receipt_digest": "4b983168c200b0a77c340ef2544ca9e0bd7b1aea2d28763ee30bcfca33f2c6e2",
+      "receipt_id": "VFS_ARTIFACT_WRITE:4b983168c200b0a77c340ef2",
+      "status": "COMMITTED"
+    },
+    "observer": {
+      "artifact_digest": "1925f821b79a12d767f81301e64b196f6fb84af8ec67c612c46f4a990bc20570",
+      "at": 1791738263.226441,
+      "detail": {
+        "expected_digest": "1925f821b79a12d767f81301e64b196f6fb84af8ec67c612c46f4a990bc20570",
+        "observed_digest": "1925f821b79a12d767f81301e64b196f6fb84af8ec67c612c46f4a990bc20570",
+        "size": 5493
+      },
+      "kind": "OBSERVER_VFS_READBACK",
+      "path": "/families/qzl-qualified-tooling/readback.json",
+      "previous_receipt_digest": "4b983168c200b0a77c340ef2544ca9e0bd7b1aea2d28763ee30bcfca33f2c6e2",
+      "receipt_digest": "6a6909e790c3521905042b36f39fb6fbc652833de6a52e4f58cbd86505fac6cf",
+      "receipt_id": "OBSERVER_VFS_READBACK:6a6909e790c3521905042b36",
+      "status": "VISIBLE"
+    },
+    "cursor": 382,
+    "exact_readback": true
+  },
+  "scope": "Current workspace host; supplied WEB4 packages, authenticated gateway and VFS hub; no claim of external ServerSpace host or FPGA deployment"
+}

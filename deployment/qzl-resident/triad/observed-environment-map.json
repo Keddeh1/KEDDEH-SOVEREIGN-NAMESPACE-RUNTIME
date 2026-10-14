@@ -1,0 +1,8 @@
+{
+  "source": "Live deployment metadata, not supplied sample paths",
+  "owner_root": "/workspace/deployments/owner-qzl-web4",
+  "grpc_socket": "/workspace/deployments/owner-qzl-web4/state/triad-grpc/triad.sock",
+  "vfs_port": 20887,
+  "receipt_observer_file": "/workspace/deployments/owner-qzl-web4/state/vfs-subscription/subscription.json",
+  "scope": "Current local runtime; registrar and AWS are independent/unqualified"
+}

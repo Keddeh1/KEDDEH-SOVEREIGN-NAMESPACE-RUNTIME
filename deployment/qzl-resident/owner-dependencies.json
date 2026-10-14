@@ -1,0 +1,32 @@
+[
+  {
+    "name": "cffi",
+    "version": "2.1.1",
+    "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+    "file": "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+  },
+  {
+    "name": "cryptography",
+    "version": "46.0.7",
+    "sha256": "5ad9ef796328c5e3c4ceed237a183f5d41d21150f972455a9d926593a1dcb308",
+    "file": "cryptography-46.0.7-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl"
+  },
+  {
+    "name": "dnspython",
+    "version": "2.8.0",
+    "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af",
+    "file": "dnspython-2.8.0-py3-none-any.whl"
+  },
+  {
+    "name": "numpy",
+    "version": "2.5.3",
+    "sha256": "b7e18c623bb5c95acb3b3328861272816ba199fb531921c5d6d0b675f1fde9e3",
+    "file": "numpy-2.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+  },
+  {
+    "name": "pycparser",
+    "version": "3.0",
+    "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+    "file": "pycparser-3.0-py3-none-any.whl"
+  }
+]

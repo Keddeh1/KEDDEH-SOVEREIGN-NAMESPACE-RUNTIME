@@ -1,0 +1,13 @@
+{
+  "gate": {
+    "status": "FALSIFIED",
+    "budget_ms": 15,
+    "exceedances": 71,
+    "max_ms": 23.27816,
+    "production_mutation": false
+  },
+  "observed_exit_code": 1,
+  "expected_exit_code": 1,
+  "test": "Falsified empirical budget rejects staging admission without host mutation",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "specification": "KCIEP",
+  "disposition": "Selective integration; attached commands and code are analytical references",
+  "adopted": [
+    "Cryptographic raw-byte receipt binding",
+    "Authenticated mutation; public catalogue distinction",
+    "Explicit git revision, workload boundary and falsification criteria on execution receipts"
+  ],
+  "rejected": [
+    "Timestamp-generated REC receipts and cache-only success",
+    "Blanket rejection of zero-byte content",
+    "Treating example protocol version 2026-07-28 as negotiated protocol",
+    "Labeling local bearer token authentication as OAuth validation"
+  ],
+  "existing_sdk": "/workspace/work/mcp-sdk/source/sdk/keddeh_vfs.py uses official ClientSession, verified UTF8 digest and commit_status",
+  "scope": "Provenance integration on existing resident scheduler; does not introduce a second MCP server or claim public OAuth qualification"
+}

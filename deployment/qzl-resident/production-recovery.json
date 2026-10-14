@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "image": "sha256:9a88e9ff0b170cca7df0b5b9c395752544e65d9d8dc4a02e986d20f38fb7ac5d",
+  "container": "keddeh-qzl-owner-resident",
+  "restart_policy": "unless-stopped",
+  "old_host_pid": 101368,
+  "new_host_pid": 102721,
+  "old_restart_count": 0,
+  "new_restart_count": 1,
+  "healthy_workstations": 10,
+  "qzl_service_healthy": true,
+  "preserved_files": {
+    "schedule-state.json": "9c8af9006a13c898297ab3c9ea0e0ad503df4961482c938d3f4edabc46bebf11",
+    "receipt-head.json": "fcada00895108c7397ef47d15959d39fb14316a9e480a77ebd726bf90145e98d"
+  },
+  "signal": "SIGKILL",
+  "manual_restart_used": false
+}

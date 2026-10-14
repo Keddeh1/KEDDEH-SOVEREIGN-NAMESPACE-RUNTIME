@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "rollouts": [
+    {
+      "role": "canary",
+      "status": "PASS",
+      "git_revision": "3b952a2bd1fe80dcae41731ca580b132cfa7ebef",
+      "receipt": {
+        "finished": "2026-10-14T15:22:23.562697+10:30",
+        "job": "qualification",
+        "previous_sha256": "b24a0d149a4d33c19905db2757eccff82c45e9777035ddd36df6e2a1ed09c89f",
+        "provenance": {
+          "falsification_constraint": "Any solver gate failure, timeout, receipt/source digest mismatch, unauthorized admitted mutation or observer readback mismatch falsifies this run.",
+          "git_source_revision": "3b952a2bd1fe80dcae41731ca580b132cfa7ebef",
+          "hypothesis": "Qualified RTL tooling passes stated solver checks and retains byte-identical authenticated VFS receipt readback within the configured execution timeout.",
+          "independent_assessment_signed": false,
+          "workload": {
+            "job": "qualification",
+            "sources": {
+              "formal.sby": {
+                "bytes": 200,
+                "sha256": "aa5cf7ec6f3886e84eb9913d5ba798e4318a17db20cd66848c1600bbf76851e7"
+              },
+              "formal.v": {
+                "bytes": 2351,
+                "sha256": "8995ca9eafb29a7792bc358a28352539ac4912481ff4d552d079c9b6d12efb87"
+              },
+              "intake.json": {
+                "bytes": 179,
+                "sha256": "fd5adca9c40c502c7c94ab92cbbae47382479a231d5a71fbdfab5125e5985a5d"
+              },
+              "original.v": {
+                "bytes": 2474,
+                "sha256": "23ddc1c4f107a44e3477b734d2d6aa8be81844365e94d0e8d12590f3978da61a"
+              },
+              "quantum_state_register_128.v": {
+                "bytes": 2482,
+                "sha256": "2d6100a988a69c148088416331ca31482ed3ca4318feba76ea23934ced2c7e2e"
+              },
+              "run_qualification.py": {
+                "bytes": 2933,
+                "sha256": "1765d1299631384069e661d21beaa3b42dece5b7f1256c167ee88f2279e80efc"
+              },
+              "supplied-formal.sby": {
+                "bytes": 234,
+                "sha256": "6c80f4b63148b244a67b95eed0b7b61735fa323d0499869de2b8703bdb64ad14"
+              },
+              "supplied-formal.sv": {
+                "bytes": 5960,
+                "sha256": "7a9eba2adc554eb2dd25b07a2ad49776329870f9edb2fc2bc0518ba71766a68e"
+              }
+            },
+            "timeout_seconds": 300
+          }
+        },
+        "release": "/workspace/deployments/owner-qzl-resident/canary-qzl/state/runs/e6ba2d325b0442a0a7d489aff46cac46",
+        "scope": "QZL RTL qualification/tooling; no hardware deployment",
+        "slot": "queue-c714f960e93b28750b90161e41b474ee",
+        "started": "2026-10-14T15:22:21.928229+10:30",
+        "status": "PASS"
+      },
+      "vfs_digest": "567fc37248e6924135e9738e86c09f58c2ab940c49eeac12e22d8c4ee2aabdaa"
+    },
+    {
+      "role": "resident",
+      "status": "PASS",
+      "git_revision": "3b952a2bd1fe80dcae41731ca580b132cfa7ebef",
+      "receipt": {
+        "finished": "2026-10-14T15:23:07.846695+10:30",
+        "job": "qualification",
+        "previous_sha256": "83f090b60df83a8ac1243a2102984d359c5b2a8f3aa94045efbe31e3709aa2e6",
+        "provenance": {
+          "falsification_constraint": "Any solver gate failure, timeout, receipt/source digest mismatch, unauthorized admitted mutation or observer readback mismatch falsifies this run.",
+          "git_source_revision": "3b952a2bd1fe80dcae41731ca580b132cfa7ebef",
+          "hypothesis": "Qualified RTL tooling passes stated solver checks and retains byte-identical authenticated VFS receipt readback within the configured execution timeout.",
+          "independent_assessment_signed": false,
+          "workload": {
+            "job": "qualification",
+            "sources": {
+              "formal.sby": {
+                "bytes": 200,
+                "sha256": "aa5cf7ec6f3886e84eb9913d5ba798e4318a17db20cd66848c1600bbf76851e7"
+              },
+              "formal.v": {
+                "bytes": 2351,
+                "sha256": "8995ca9eafb29a7792bc358a28352539ac4912481ff4d552d079c9b6d12efb87"
+              },
+              "intake.json": {
+                "bytes": 179,
+                "sha256": "fd5adca9c40c502c7c94ab92cbbae47382479a231d5a71fbdfab5125e5985a5d"
+              },
+              "original.v": {
+                "bytes": 2474,
+                "sha256": "23ddc1c4f107a44e3477b734d2d6aa8be81844365e94d0e8d12590f3978da61a"
+              },
+              "quantum_state_register_128.v": {
+                "bytes": 2482,
+                "sha256": "2d6100a988a69c148088416331ca31482ed3ca4318feba76ea23934ced2c7e2e"
+              },
+              "run_qualification.py": {
+                "bytes": 2933,
+                "sha256": "1765d1299631384069e661d21beaa3b42dece5b7f1256c167ee88f2279e80efc"
+              },
+              "supplied-formal.sby": {
+                "bytes": 234,
+                "sha256": "6c80f4b63148b244a67b95eed0b7b61735fa323d0499869de2b8703bdb64ad14"
+              },
+              "supplied-formal.sv": {
+                "bytes": 5960,
+                "sha256": "7a9eba2adc554eb2dd25b07a2ad49776329870f9edb2fc2bc0518ba71766a68e"
+              }
+            },
+            "timeout_seconds": 300
+          }
+        },
+        "release": "/workspace/deployments/qzl-scheduler/state/runs/e9c71f1de03b437a9738cec35ae3ae86",
+        "scope": "QZL RTL qualification/tooling; no hardware deployment",
+        "slot": "queue-7383644852e535704dc60cca9eda0219",
+        "started": "2026-10-14T15:23:06.240459+10:30",
+        "status": "PASS"
+      },
+      "vfs_digest": "788c8f9d1252aada6098c75994715e85facf33291a6f1eb7d522a96e0a8acbc5"
+    }
+  ],
+  "hosted_ci": {
+    "status": "BLOCKED_BEFORE_EXECUTION",
+    "run_id": 38513694098,
+    "observed_github_annotation": "The job was not started because your account is locked due to a billing issue.",
+    "mitigation": "Exact portable crash suite executed locally with owner VFS; eight gates PASS; hosted CI not claimed successful"
+  },
+  "portable_crash_tests": {
+    "status": "PASS",
+    "real_subprocess_abrupt_exits": [
+      {
+        "crash_boundary": "started",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "prepared",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "receipt",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "head",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "state",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "owner-receipt",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "owner-head",
+        "status": "PASS"
+      },
+      {
+        "crash_boundary": "owner-state",
+        "status": "PASS"
+      }
+    ]
+  }
+}

@@ -1,0 +1,577 @@
+{
+  "scope": "measured operational mitigation for existing owned domains; factory default still 128 MiB and must be qualified separately",
+  "containers": [
+    {
+      "container": "keddeh-6024cc365f-domain-2",
+      "root": "/workspace/braink-setup/families/braink-foundary-schema",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-6024cc365f-domain-1",
+      "root": "/workspace/braink-setup/families/braink-foundary-schema",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-6024cc365f-domain-0",
+      "root": "/workspace/braink-setup/families/braink-foundary-schema",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-2",
+      "root": "/workspace/braink-setup/families/keddeh.com",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-1",
+      "root": "/workspace/braink-setup/families/keddeh.com",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-0",
+      "root": "/workspace/braink-setup/families/keddeh.com",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-2",
+      "root": "/workspace/braink-setup/families/SERVERSPACE-EXTERNAL",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-1",
+      "root": "/workspace/braink-setup/families/SERVERSPACE-EXTERNAL",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-0",
+      "root": "/workspace/braink-setup/families/SERVERSPACE-EXTERNAL",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 2,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-2",
+      "root": "/workspace/braink-setup/families/SERVERSPACE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-1",
+      "root": "/workspace/braink-setup/families/SERVERSPACE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-0",
+      "root": "/workspace/braink-setup/families/SERVERSPACE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 0,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-2",
+      "root": "/workspace/braink-setup/families/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-1",
+      "root": "/workspace/braink-setup/families/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-0",
+      "root": "/workspace/braink-setup/families/Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 2,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-8879799e51-domain-2",
+      "root": "/workspace/braink-setup/families/BRAINK-BETA-TEST",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-8879799e51-domain-1",
+      "root": "/workspace/braink-setup/families/BRAINK-BETA-TEST",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-8879799e51-domain-0",
+      "root": "/workspace/braink-setup/families/BRAINK-BETA-TEST",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-2",
+      "root": "/workspace/braink-setup/families/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-1",
+      "root": "/workspace/braink-setup/families/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-0",
+      "root": "/workspace/braink-setup/families/SYSTEMS-SERVICES-FOR-DEPLOYMENT-QUEUE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-2",
+      "root": "/workspace/braink-setup/families/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-1",
+      "root": "/workspace/braink-setup/families/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-0",
+      "root": "/workspace/braink-setup/families/Keddeh-SYSTEMS-Virtual-File-Space-ZCG-ARCHITECTURE",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-2",
+      "root": "/workspace/braink-setup/web4-runtime",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 0,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-1",
+      "root": "/workspace/braink-setup/web4-runtime",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 1,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-0",
+      "root": "/workspace/braink-setup/web4-runtime",
+      "memory_before": 134217728,
+      "memory_after": 268435456,
+      "restart_count_before": 2,
+      "state_before": {
+        "running": true,
+        "oom_killed": false,
+        "exit_code": 0
+      }
+    }
+  ],
+  "readback": [
+    {
+      "container": "keddeh-6024cc365f-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-6024cc365f-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-6024cc365f-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-fc1e43e314-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-513b3ce2ba-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 2,
+      "restart_count_after": 2,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-6bb5772b80-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 0,
+      "restart_count_after": 0,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-84c55a2991-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 2,
+      "restart_count_after": 2,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-8879799e51-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-8879799e51-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-8879799e51-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-51583f4f28-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-aff83d1ff9-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-2",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 0,
+      "restart_count_after": 0,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-1",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 1,
+      "restart_count_after": 1,
+      "restart_delta": 0
+    },
+    {
+      "container": "keddeh-250c6d8c76-domain-0",
+      "memory_limit_bytes": 268435456,
+      "running": true,
+      "restart_count_before": 2,
+      "restart_count_after": 2,
+      "restart_delta": 0
+    }
+  ],
+  "all_running_at_readback": true,
+  "restart_deltas_after_mitigation": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

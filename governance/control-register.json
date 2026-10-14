@@ -36,7 +36,7 @@
       "objective": "Production capacity and recovery",
       "owner_role": "Operator",
       "status": "partially implemented",
-      "evidence": "local VFS/replay tested; physical planes unverified",
+      "evidence": "docs/research/evidence/RESIDENT_CRASH.json; same-host recovery verified, physical planes and host-loss recovery unverified",
       "scope": "KEDDEH namespace delivery",
       "review_frequency": "quarterly and after material change",
       "last_test_result": "see evidence; not a blanket assurance"
@@ -106,10 +106,40 @@
       "objective": "Owned WEB4 process launch, authenticated control and observed restart/readback",
       "owner_role": "Engineering implementer",
       "status": "verified operating",
-      "evidence": "docs/evidence/web4-integration.json; docs/evidence/web4-browser.json; RUN-001",
+      "evidence": "docs/research/evidence/RESIDENT_FAMILIES.json; docs/research/evidence/RESIDENT_CRASH.json; release 0.3.2 installed-image and live qualification",
       "scope": "local cloud workspace, actual owner package processes; no public production promotion",
       "review_frequency": "each runtime release and after material change",
       "last_test_result": "local live process and real Chromium checks passed; source and packaged suites passed"
+    },
+    {
+      "control_id": "C-12",
+      "objective": "Attributed architecture and honest technology claims",
+      "owner_role": "Accountable owner",
+      "status": "documented",
+      "evidence": "ARC-001; docs/architecture; independent architecture/novelty assessment pending",
+      "scope": "owner-runtime family architecture",
+      "review_frequency": "annually and after material change",
+      "last_test_result": "document metadata/hash integrity checked; technical novelty not adjudicated"
+    },
+    {
+      "control_id": "C-13",
+      "objective": "Projection service agreement and owner-space revocation",
+      "owner_role": "Operator",
+      "status": "verified operating",
+      "evidence": "tests/test_pipeline_gate.py; private versioned agreement and installed-image suite",
+      "scope": "owner-only projection requests; not general tenant isolation or negotiated legal contracts",
+      "review_frequency": "each runtime release and service scope change",
+      "last_test_result": "acceptance, revocation, invalid-space and restart regression cases passed"
+    },
+    {
+      "control_id": "C-14",
+      "objective": "Durable family-scoped pipeline disconnect",
+      "owner_role": "Operator",
+      "status": "verified operating",
+      "evidence": "docs/research/evidence/RESIDENT_CRASH.json; tests/test_pipeline_gate.py",
+      "scope": "gateway and bilateral command admission in selected owner family; not host firewall or direct raw-actor callers",
+      "review_frequency": "each runtime release and after incident",
+      "last_test_result": "unexpected controller exit preserved fence and no actor journal bytes appended while disconnected"
     }
   ]
 }
