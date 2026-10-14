@@ -1,7 +1,11 @@
 import tempfile,subprocess,sys,json,hashlib,os
 from pathlib import Path
 BASE=Path(__file__).parent
-OWNER=json.loads(Path('/workspace/deployments/qzl-scheduler/config.json').read_text())['owner_backend']
+live=Path('/workspace/deployments/qzl-scheduler/config.json')
+if live.exists():OWNER=json.loads(live.read_text())['owner_backend']
+else:
+ src=BASE/'owner-package/src'
+ OWNER={'source_root':str(src),'files':{n:hashlib.sha256((src/n).read_bytes()).hexdigest() for n in ['keddeh_namespace/logical_vfs.py','keddeh_namespace/envelope.py']}}
 results=[]
 for phase in ['started','prepared','receipt','head','state','owner-receipt','owner-head','owner-state']:
  root=Path(tempfile.mkdtemp(prefix='qzl-crash-',dir=BASE));(root/'old').mkdir();(root/'new').mkdir();(root/'current').symlink_to(root/'old')

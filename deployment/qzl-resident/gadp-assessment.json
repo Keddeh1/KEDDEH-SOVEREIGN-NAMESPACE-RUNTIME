@@ -1,0 +1,17 @@
+{
+  "disposition": "Reference only; not executed",
+  "excluded": [
+    "Hardcoded authority secret",
+    "Destructive DROP TABLE and invented seeded observations",
+    "In-memory COMMITTED labels without payload storage/readback",
+    "Self-asserted assurance index authorization",
+    "Nonstandard unauthenticated transport mislabelled as MCP/OAuth",
+    "CI ignores test failure with || true and invents 94.2% coverage",
+    "AWS resource creation unrelated to existing resident runtime"
+  ],
+  "integrated": [
+    "Failure-gated real-process crash test workflow",
+    "KCIEP provenance through actual resident scheduler receipts"
+  ],
+  "authority_label": "AUTH_SEC_OP_INIT_AKEDDEH_20261014 is supplied text, not a cryptographic credential or verification result"
+}
