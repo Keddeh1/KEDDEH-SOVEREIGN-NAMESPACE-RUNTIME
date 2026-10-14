@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "rollouts": [
+    {
+      "status": "PASS",
+      "socket": "/workspace/deployments/owner-qzl-resident/canary-owner/state/triad-grpc/triad.sock",
+      "source_revision": "5ddda5eb28d434b2899b0706f5d6aca8640e1c0f",
+      "readback_digest": "0dc897c36d8f1d72ed29d71bf2cdfec452bf56a90a853c65c8cc16c6e6746601",
+      "gates": [
+        "actual protobuf and gRPC UDS request",
+        "observed runtime and VFS digest verified",
+        "unauthenticated rejected",
+        "revision mismatch rejected",
+        "NaN load rejected",
+        "bounded cancellable stream",
+        "no invented SDK commit or KEX allocation or saturation"
+      ]
+    },
+    {
+      "status": "PASS",
+      "socket": "/workspace/deployments/owner-qzl-web4/state/triad-grpc/triad.sock",
+      "source_revision": "5ddda5eb28d434b2899b0706f5d6aca8640e1c0f",
+      "readback_digest": "64bba8a9d9287749d2dff85d700830521bbb9a3e283e55b2f12cc70023f000ac",
+      "gates": [
+        "actual protobuf and gRPC UDS request",
+        "observed runtime and VFS digest verified",
+        "unauthenticated rejected",
+        "revision mismatch rejected",
+        "NaN load rejected",
+        "bounded cancellable stream",
+        "no invented SDK commit or KEX allocation or saturation"
+      ]
+    }
+  ],
+  "recovery": {
+    "status": "PASS",
+    "image": "sha256:9a88e9ff0b170cca7df0b5b9c395752544e65d9d8dc4a02e986d20f38fb7ac5d",
+    "container": "keddeh-qzl-owner-resident",
+    "restart_policy": "unless-stopped",
+    "old_host_pid": 13594,
+    "new_host_pid": 13887,
+    "old_restart_count": 0,
+    "new_restart_count": 1,
+    "healthy_workstations": 10,
+    "qzl_service_healthy": true,
+    "preserved_files": {
+      "schedule-state.json": "ebe10952eb1a5619faf3ef7f0dfded4d63757b02dde03838a1499fa5d29ecb52",
+      "receipt-head.json": "b958d90eae293010e90aa781ab94d4f3f0b40021e13a263e4789fe3f2729b2ee"
+    },
+    "signal": "SIGKILL",
+    "manual_restart_used": false
+  },
+  "post_recovery": {
+    "status": "PASS",
+    "socket": "/workspace/deployments/owner-qzl-web4/state/triad-grpc/triad.sock",
+    "source_revision": "5ddda5eb28d434b2899b0706f5d6aca8640e1c0f",
+    "readback_digest": "d2fbfcbaa8614a4d5259dae5bd9cf5a4e1989d869d2f58f8bf4a78b712402e81",
+    "gates": [
+      "actual protobuf and gRPC UDS request",
+      "observed runtime and VFS digest verified",
+      "unauthenticated rejected",
+      "revision mismatch rejected",
+      "NaN load rejected",
+      "bounded cancellable stream",
+      "no invented SDK commit or KEX allocation or saturation"
+    ]
+  },
+  "scope": "Read-only gRPC observation of current runtime through bearer-authenticated secured UDS; no nine-stage IL-LLM execution, SDK mutation, KEX allocation, saturation measurement, OAuth, mTLS or multi-region deployment",
+  "supplied_exclusions": [
+    "No random allocation offsets or claimed SDK commit",
+    "No echo-only deployment or suppressed test failure",
+    "Security group CIDR rules are not mTLS enforcement; no AWS resources created"
+  ],
+  "canary_failure_resolved": "Initial family field mismatch rolled back; corrected to existing family_id and requalified"
+}
