@@ -117,6 +117,12 @@ def main():
  root=Path(cfg['runtime']);root.mkdir(parents=True,exist_ok=True,mode=0o700)
  with (root/'daemon.lock').open('a') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+  triad_server=None
+  if cfg.get('triad_grpc'):
+   import sys
+   sys.path.insert(0,cfg['triad_grpc']['dependency_path'])
+   from triad_server import start
+   triad_server=start(cfg['triad_grpc'])
   while True:
    with (root/'schedule.lock').open('a') as recovery_lock:
     fcntl.flock(recovery_lock,fcntl.LOCK_EX);recover(root,seal,encode,read,switch)
