@@ -1,0 +1,72 @@
+{
+  "schema": "keddeh.release-qualification.v1",
+  "status": "passed",
+  "gates": [
+    {
+      "name": "governance",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "frozen-install",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "dependency-check",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "source-tests",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "wheel-build",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "isolated-venv",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "artifact-install",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "installed-tests",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "installed-dependencies",
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "scope": "local candidate qualification",
+  "production_approval": false,
+  "commit": "56e8da0c1ac9868089114fcac329c9eec1ae11e9",
+  "artifact": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.2-py3-none-any.whl",
+    "sha256": "0b44f6772de00fc3e504b4a8e5573af6898532bc23f57071684b76c6a2caf571",
+    "bytes": 78996
+  },
+  "runtime_qualification": "not_run_requires_owner_package_runtime",
+  "evidence_hashes": {
+    "wheel-build.log": "64420b1ba0dbfd1d67c94b7134067aced634d892b745b9be3008d62b4b27c4ee",
+    "dependency-check.log": "d839cb57930de2a8d29694fdcb38ca3e246df4f0bc40ebe0cd6a7e0764d39cd1",
+    "governance.log": "93c96644b6ad4026d7a3daf5af57b4da6ea7928762b489daaf9d4d5932c07cb8",
+    "dependency-inventory.json": "5278c70e158d655aee2bda2cf895cd435e7a1c737707a3a1b32fa28b1205412c",
+    "isolated-venv.log": "b54293ab0e8a02bd0a2f3932a585b00d6d9abaef48799bef79d291c18e95d8d2",
+    "frozen-install.log": "66f606b2ae1e115a0d1d862e5443c40c7e287b40e37bd2b39cfbd9c2dae58d57",
+    "artifact-install.log": "37fb54483da3d3440caf374ad17046ec856214ab1f662f7574015f72dbdc5bef",
+    "installed-tests.log": "c8119a54782fa2fd82221f27d3a76ac57237e689954fd0f3641af6263492e169",
+    "installed-dependencies.log": "02282cd6296ea888bc2ba559571bfe68e0a94710e570df42c4ebd4b556849a5f",
+    "source-tests.log": "1d82bf56c813d34f44704d93935cae1a71632e27973b33952032871367263833"
+  }
+}

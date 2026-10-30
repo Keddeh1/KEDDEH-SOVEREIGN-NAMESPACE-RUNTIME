@@ -1,0 +1,138 @@
+test_archive_admission_repeat_and_corrupt_readback (test_admission_propagation.AdmissionPropagationTests.test_archive_admission_repeat_and_corrupt_readback) ... ok
+test_archive_links_and_device_rejected (test_admission_propagation.AdmissionPropagationTests.test_archive_links_and_device_rejected) ... ok
+test_archive_restore_and_backward_source_lineage (test_admission_propagation.AdmissionPropagationTests.test_archive_restore_and_backward_source_lineage) ... ok
+test_archive_traversal_duplicates_and_bounds (test_admission_propagation.AdmissionPropagationTests.test_archive_traversal_duplicates_and_bounds) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'a'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+ok
+test_corrupt_archive_rejected_before_restore (test_admission_propagation.AdmissionPropagationTests.test_corrupt_archive_rejected_before_restore) ... ok
+test_divergent_manifest_head_rejected_before_restore (test_admission_propagation.AdmissionPropagationTests.test_divergent_manifest_head_rejected_before_restore) ... ok
+test_forged_receipt_cannot_change_existing_source_admission (test_admission_propagation.AdmissionPropagationTests.test_forged_receipt_cannot_change_existing_source_admission) ... ok
+test_independent_assessment_survives_archive_restore (test_admission_propagation.AdmissionPropagationTests.test_independent_assessment_survives_archive_restore) ... ok
+test_crash_after_register_commit_before_ack_reuses_exact_nonce (test_bilateral_runtime.BilateralTests.test_crash_after_register_commit_before_ack_reuses_exact_nonce) ... ok
+test_default_disabled_and_strict_enable (test_bilateral_runtime.BilateralTests.test_default_disabled_and_strict_enable) ... ok
+test_partial_actuation_resumes_after_reconstruction (test_bilateral_runtime.BilateralTests.test_partial_actuation_resumes_after_reconstruction) ... ok
+test_pause_retains_partial_intent_and_survives_restart (test_bilateral_runtime.BilateralTests.test_pause_retains_partial_intent_and_survives_restart) ... ok
+test_unavailable_feedback_pauses_without_actuation (test_bilateral_runtime.BilateralTests.test_unavailable_feedback_pauses_without_actuation) ... ok
+test_authorization_fence_failure_and_self_dispatch_rejection (test_braink_host_bridge.BrainkHostBridgeTests.test_authorization_fence_failure_and_self_dispatch_rejection) ... ok
+test_derivation_rejects_unknown_source (test_braink_host_bridge.BrainkHostBridgeTests.test_derivation_rejects_unknown_source) ... ok
+test_inbound_braink_dispatch_service_and_persisted_outbound_result (test_braink_host_bridge.BrainkHostBridgeTests.test_inbound_braink_dispatch_service_and_persisted_outbound_result) ... ok
+test_offline_upgrade_preserves_state_and_obeys_controller_lock (test_braink_host_bridge.BrainkHostBridgeTests.test_offline_upgrade_preserves_state_and_obeys_controller_lock) ... ok
+test_readonly_inspection_does_not_rewrite_active_actuator_state (test_braink_host_bridge.BrainkHostBridgeTests.test_readonly_inspection_does_not_rewrite_active_actuator_state) ... ok
+test_authority_generation_preserves_mail_and_advances_serial (test_deployment_gates.DeploymentGateTests.test_authority_generation_preserves_mail_and_advances_serial) ... ok
+test_bootstrap_never_claims_ready_for_fixture (test_deployment_gates.DeploymentGateTests.test_bootstrap_never_claims_ready_for_fixture) ... ok
+test_service_manifest_gate_and_isolation (test_deployment_gates.DeploymentGateTests.test_service_manifest_gate_and_isolation) ... ok
+test_ambiguous_json_rejected (test_envelope.EnvelopeTests.test_ambiguous_json_rejected) ... ok
+test_domain_separated_roots (test_envelope.EnvelopeTests.test_domain_separated_roots) ... ok
+test_full_chain (test_envelope.EnvelopeTests.test_full_chain) ... ok
+test_genesis_tampering_rejected (test_envelope.EnvelopeTests.test_genesis_tampering_rejected) ... ok
+test_invalid_envelopes (test_envelope.EnvelopeTests.test_invalid_envelopes) ... ok
+test_key_order_is_irrelevant (test_envelope.EnvelopeTests.test_key_order_is_irrelevant) ... ok
+test_truncation_rejected (test_envelope.EnvelopeTests.test_truncation_rejected) ... ok
+test_bijection (test_envelope.NativeLabelTests.test_bijection) ... ok
+test_invalid_labels (test_envelope.NativeLabelTests.test_invalid_labels) ... ok
+test_research_examples (test_envelope.NativeLabelTests.test_research_examples) ... ok
+test_bad_input (test_evidence.EvidenceTests.test_bad_input) ... ok
+test_complete_synthetic_structure (test_evidence.EvidenceTests.test_complete_synthetic_structure) ... ok
+test_malformed_receipt_fields (test_evidence.EvidenceTests.test_malformed_receipt_fields) ... ok
+test_missing_gates_fail_closed (test_evidence.EvidenceTests.test_missing_gates_fail_closed) ... ok
+test_receipt_cannot_bind_another_generation (test_evidence.EvidenceTests.test_receipt_cannot_bind_another_generation) ... ok
+test_self_assessment_rejected (test_evidence.EvidenceTests.test_self_assessment_rejected) ... ok
+test_separate_roots_required (test_evidence.EvidenceTests.test_separate_roots_required) ... ok
+test_unexecuted_checks_rejected (test_evidence.EvidenceTests.test_unexecuted_checks_rejected) ... ok
+test_consent_idempotency_conflict_and_restart (test_frontage.FrontageTests.test_consent_idempotency_conflict_and_restart) ... ok
+test_all_authenticated_gate_bundles (test_gate_bundles.GateBundleTests.test_all_authenticated_gate_bundles) ... /workspace/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/src/keddeh_namespace/envelope.py:23: ResourceWarning: unclosed file <_io.BufferedWriter name=6>
+  if type(item) is dict and all(type(k) is str for k in item):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/src/keddeh_namespace/envelope.py:23: ResourceWarning: unclosed file <_io.BufferedReader name=7>
+  if type(item) is dict and all(type(k) is str for k in item):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/src/keddeh_namespace/envelope.py:23: ResourceWarning: unclosed file <_io.BufferedWriter name=8>
+  if type(item) is dict and all(type(k) is str for k in item):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/workspace/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME/src/keddeh_namespace/envelope.py:23: ResourceWarning: unclosed file <_io.BufferedReader name=9>
+  if type(item) is dict and all(type(k) is str for k in item):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_artifact_history_and_assessment_tampering (test_gate_bundles.GateBundleTests.test_artifact_history_and_assessment_tampering) ... ok
+test_path_escape_and_changed_gate_claim (test_gate_bundles.GateBundleTests.test_path_escape_and_changed_gate_claim) ... ok
+test_concurrent_duplicate_restart_executes_once (test_host_actuator.HostActuatorTests.test_concurrent_duplicate_restart_executes_once) ... ok
+test_concurrent_stop_fences_stale_start_and_recovery (test_host_actuator.HostActuatorTests.test_concurrent_stop_fences_stale_start_and_recovery) ... ok
+test_crash_after_actual_start_retains_uncertain_outcome (test_host_actuator.HostActuatorTests.test_crash_after_actual_start_retains_uncertain_outcome) ... ok
+test_cross_retention_boundary_and_replay_archived_command (test_host_actuator.HostActuatorTests.test_cross_retention_boundary_and_replay_archived_command) ... ok
+test_fences_unknown_service_and_failed_launch (test_host_actuator.HostActuatorTests.test_fences_unknown_service_and_failed_launch) ... ok
+test_interrupted_command_is_not_reexecuted (test_host_actuator.HostActuatorTests.test_interrupted_command_is_not_reexecuted) ... ok
+test_null_generation_cannot_bypass_host_command_fence (test_host_actuator.HostActuatorTests.test_null_generation_cannot_bypass_host_command_fence) ... ok
+test_real_http_readback_restart_and_stop (test_host_actuator.HostActuatorTests.test_real_http_readback_restart_and_stop) ... ok
+test_signed_registry_archive_restore_preserves_command_replay (test_host_actuator.HostActuatorTests.test_signed_registry_archive_restore_preserves_command_replay) ... ok
+test_start_duplicate_stale_restart_stop_and_recovery (test_host_actuator.HostActuatorTests.test_start_duplicate_stale_restart_stop_and_recovery) ... ok
+test_uncertain_archive_retains_identity_and_archive_failure_retains_hot (test_host_actuator.HostActuatorTests.test_uncertain_archive_retains_identity_and_archive_failure_retains_hot) ... ok
+test_empty_broker_is_not_empty_execution_inventory (test_hosting_semantics.HostingSemantics.test_empty_broker_is_not_empty_execution_inventory) ... ok
+test_owned_service_boot_executes_and_is_idempotent (test_hosting_semantics.HostingSemantics.test_owned_service_boot_executes_and_is_idempotent) ... ok
+test_service_boot_serves_real_loopback_http (test_hosting_semantics.HostingSemantics.test_service_boot_serves_real_loopback_http) ... ok
+test_substrate_dispatch_and_invalid_target (test_hosting_semantics.HostingSemantics.test_substrate_dispatch_and_invalid_target) ... ok
+test_capacity_and_reserve_enforced (test_hosting_semantics.StorageContracts.test_capacity_and_reserve_enforced) ... ok
+test_logical_quota_is_not_physical_allocation (test_hosting_semantics.StorageContracts.test_logical_quota_is_not_physical_allocation) ... ok
+test_no_invented_backing_contract (test_hosting_semantics.StorageContracts.test_no_invented_backing_contract) ... ok
+test_owner_boundary_rejects_zero_and_unsigned_payload (test_owner_kernel.OwnerKernelTests.test_owner_boundary_rejects_zero_and_unsigned_payload) ... ok
+test_owner_flywheel_retains_wrapped_state_without_parent (test_owner_kernel.OwnerKernelTests.test_owner_flywheel_retains_wrapped_state_without_parent) ... ok
+test_owner_healing_contracts_bilateral_error (test_owner_kernel.OwnerKernelTests.test_owner_healing_contracts_bilateral_error) ... ok
+test_recursive_reanchor_rejects_cycle_before_network_mutation (test_owner_kernel.OwnerKernelTests.test_recursive_reanchor_rejects_cycle_before_network_mutation) ... ok
+test_disconnect_persists_and_reconnect_rejects_stale_generation (test_pipeline_gate.PipelineTests.test_disconnect_persists_and_reconnect_rejects_stale_generation) ... ok
+test_failed_durable_write_does_not_acknowledge_fence (test_pipeline_gate.PipelineTests.test_failed_durable_write_does_not_acknowledge_fence) ... ok
+test_no_admission_after_disconnect_acknowledgement (test_pipeline_gate.PipelineTests.test_no_admission_after_disconnect_acknowledgement) ... ok
+test_offsite_projection_has_no_actor_credentials (test_pipeline_gate.PipelineTests.test_offsite_projection_has_no_actor_credentials) ... ok
+test_user_space_agreement_acceptance_revocation_and_restart (test_pipeline_gate.PipelineTests.test_user_space_agreement_acceptance_revocation_and_restart) ... ok
+test_capacity_gate_and_local_readback (test_runtime_foundation.RuntimeTests.test_capacity_gate_and_local_readback) ... ok
+test_desired_state_and_path_tampering_rejected (test_runtime_foundation.RuntimeTests.test_desired_state_and_path_tampering_rejected) ... ok
+test_http_functional_commit_auth_and_readback (test_runtime_foundation.RuntimeTests.test_http_functional_commit_auth_and_readback) ... ok
+test_path_escape_and_symlink_rejected (test_runtime_foundation.RuntimeTests.test_path_escape_and_symlink_rejected) ... ok
+test_registry_atomic_abort_and_concurrent_writers (test_runtime_foundation.RuntimeTests.test_registry_atomic_abort_and_concurrent_writers) ... ok
+test_registry_restart_idempotency_replay_and_divergence (test_runtime_foundation.RuntimeTests.test_registry_restart_idempotency_replay_and_divergence) ... ok
+test_registry_retains_independent_assessment (test_runtime_foundation.RuntimeTests.test_registry_retains_independent_assessment) ... ok
+test_same_key_under_two_identities_is_not_independent (test_runtime_foundation.RuntimeTests.test_same_key_under_two_identities_is_not_independent) ... ok
+test_signatures_tamper_trust_and_assessment (test_runtime_foundation.RuntimeTests.test_signatures_tamper_trust_and_assessment) ... ok
+test_sqlite_rollback_leaves_head_unchanged (test_runtime_foundation.RuntimeTests.test_sqlite_rollback_leaves_head_unchanged) ... ok
+test_vfs_atomic_conflict_under_concurrency (test_runtime_foundation.RuntimeTests.test_vfs_atomic_conflict_under_concurrency) ... ok
+test_vfs_versions_restart_and_corruption (test_runtime_foundation.RuntimeTests.test_vfs_versions_restart_and_corruption) ... ok
+test_directory_rejected (test_source_custody.SourceCustodyTests.test_directory_rejected) ... ok
+test_exact_match (test_source_custody.SourceCustodyTests.test_exact_match) ... ok
+test_invalid_expectations (test_source_custody.SourceCustodyTests.test_invalid_expectations) ... ok
+test_same_size_corruption (test_source_custody.SourceCustodyTests.test_same_size_corruption) ... ok
+test_symlink_rejected (test_source_custody.SourceCustodyTests.test_symlink_rejected) ... ok
+test_truncated_archive (test_source_custody.SourceCustodyTests.test_truncated_archive) ... ok
+test_absent_physical_policy_does_not_allocate_logical_capacity (test_storage_compatibility.StorageCompatibilityTests.test_absent_physical_policy_does_not_allocate_logical_capacity) ... ok
+test_conflicting_or_invalid_explicit_policy_rejected (test_storage_compatibility.StorageCompatibilityTests.test_conflicting_or_invalid_explicit_policy_rejected) ... ok
+test_legacy_probe_behavior_without_reserve_is_preserved (test_storage_compatibility.StorageCompatibilityTests.test_legacy_probe_behavior_without_reserve_is_preserved) ... ok
+test_original_retained_config_needs_no_new_fields (test_storage_compatibility.StorageCompatibilityTests.test_original_retained_config_needs_no_new_fields) ... ok
+test_preflight_accepts_original_storage_fields_without_reserve (test_storage_compatibility.StorageCompatibilityTests.test_preflight_accepts_original_storage_fields_without_reserve) ... ok
+test_delay_reads_past_not_current (test_universal_propagation.UniversalPropagationTests.test_delay_reads_past_not_current) ... ok
+test_direction_and_synchronous_update (test_universal_propagation.UniversalPropagationTests.test_direction_and_synchronous_update) ... ok
+test_dropout_and_seed (test_universal_propagation.UniversalPropagationTests.test_dropout_and_seed) ... ok
+test_experiment_reproducible_and_scoped (test_universal_propagation.UniversalPropagationTests.test_experiment_reproducible_and_scoped) ... ok
+test_graphml_defaults_direction_delay (test_universal_propagation.UniversalPropagationTests.test_graphml_defaults_direction_delay) ... ok
+test_invalid_inputs (test_universal_propagation.UniversalPropagationTests.test_invalid_inputs) ... ok
+test_negative_activation_and_extremes (test_universal_propagation.UniversalPropagationTests.test_negative_activation_and_extremes) ... ok
+test_signed_weight (test_universal_propagation.UniversalPropagationTests.test_signed_weight) ... ok
+test_tampered_package_does_not_acknowledge_event (test_vfs_subscription.SubscriptionTests.test_tampered_package_does_not_acknowledge_event) ... ok
+test_unavailability_preserves_cursor_for_retry (test_vfs_subscription.SubscriptionTests.test_unavailability_preserves_cursor_for_retry) ... ok
+test_bilateral_crash_after_namespace_commit_reconciles_one_receipt (test_web4_runtime.Web4RuntimeTests.test_bilateral_crash_after_namespace_commit_reconciles_one_receipt) ... ok
+test_control_rejects_bad_commit_and_unknown_command (test_web4_runtime.Web4RuntimeTests.test_control_rejects_bad_commit_and_unknown_command) ... ok
+test_controller_restart_adopts_existing_boot_lease (test_web4_runtime.Web4RuntimeTests.test_controller_restart_adopts_existing_boot_lease) ... ok
+test_exact_float_readback_encoding (test_web4_runtime.Web4RuntimeTests.test_exact_float_readback_encoding) ... ok
+test_failed_prepare_does_not_publish_partial_root (test_web4_runtime.Web4RuntimeTests.test_failed_prepare_does_not_publish_partial_root) ... ok
+test_namespace_bridge_restart_parent_and_float_binding (test_web4_runtime.Web4RuntimeTests.test_namespace_bridge_restart_parent_and_float_binding) ... ok
+test_owner_disconnect_blocks_mutation_preserves_readback_and_stop (test_web4_runtime.Web4RuntimeTests.test_owner_disconnect_blocks_mutation_preserves_readback_and_stop) ... ok
+test_prepare_never_replaces_existing_state (test_web4_runtime.Web4RuntimeTests.test_prepare_never_replaces_existing_state) ... ok
+test_receipt_recovery_after_commit_and_intervening_launch (test_web4_runtime.Web4RuntimeTests.test_receipt_recovery_after_commit_and_intervening_launch) ... ok
+test_source_mutation_rejected_before_launch (test_web4_runtime.Web4RuntimeTests.test_source_mutation_rejected_before_launch) ... ok
+test_source_symlink_rejected (test_web4_runtime.Web4RuntimeTests.test_source_symlink_rejected) ... ok
+test_actual_six_signed_return_connections (test_zones_genesis.ZonesGenesisTests.test_actual_six_signed_return_connections) ... ok
+test_leases_replay_resource_ceiling_freeze_and_restart (test_zones_genesis.ZonesGenesisTests.test_leases_replay_resource_ceiling_freeze_and_restart) ... ok
+test_missing_custody_invalid_record_and_public_address_gate (test_zones_genesis.ZonesGenesisTests.test_missing_custody_invalid_record_and_public_address_gate) ... ok
+test_zone_determinism_and_mail_custody (test_zones_genesis.ZonesGenesisTests.test_zone_determinism_and_mail_custody) ... ok
+
+----------------------------------------------------------------------
+Ran 118 tests in 18.251s
+
+OK
+[ERROR] CRITICAL: [0] is a Cartesian hallucination. Operation halted.

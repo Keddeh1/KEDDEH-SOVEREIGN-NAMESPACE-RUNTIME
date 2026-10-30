@@ -26,7 +26,7 @@ The existing executable manifest and image identify the earlier qualified engine
 .venv/bin/python scripts/qualify_release.py --output /workspace/hosting-qualification
 ```
 
-It requires the script's pinned uv version and a clean checkout. `scripts/build_resident_image.py --output ... --qualification /workspace/hosting-qualification` builds the qualified image. Those build/promotion steps were inspected, not executed in this task.
+It requires the script's pinned uv version and a clean checkout. `scripts/build_resident_image.py --output ... --qualification /workspace/hosting-qualification` builds the qualified image. Fresh qualification and image build were subsequently executed for amended code commit `56e8da0c1ac9868089114fcac329c9eec1ae11e9`; all nine qualification gates passed, including 118 source tests and 118 installed-wheel tests. The qualified wheel SHA-256 is `0b44f6772de00fc3e504b4a8e5573af6898532bc23f57071684b76c6a2caf571`.
 
 Existing prepared package trees need the new derived tool registration. The candidate now supplies a bounded offline migration:
 
@@ -41,7 +41,7 @@ PYTHONPATH=src .venv/bin/python -m keddeh_namespace.web4_runtime upgrade-braink 
 bash .keddeh/launch-family.sh
 ```
 
-Apply refuses an active controller lock or source-integrity mismatch. It preserves credentials, VFS, journals and desired service state, retains old derived files and launch manifest in a private backup, replaces derived files, and commits their integrity hashes last. An interruption fails closed at `verify_launch`; restore the saved derived files/manifest under the offline lock before retrying. This is not a cross-file atomic transaction or automatic rollback. The apply and rollout commands above have **not** been executed against the existing runtime.
+Apply refuses an active controller lock or source-integrity mismatch. It preserves credentials, VFS, journals and desired service state, retains old derived files and launch manifest in a private backup, replaces derived files, and commits their integrity hashes last. An interruption fails closed at `verify_launch`; restore the saved derived files/manifest under the offline lock before retrying. This is not a cross-file atomic transaction or automatic rollback. The offline apply and existing resident launcher were subsequently executed against this exact runtime under owner authorization. Image `sha256:df11c6c826217e28287ed21ea9bb5d7b6771a323186c2078ef825d18b42a08f0` is running as `keddeh-250c6d8c76-controller`; the original controller remains stopped as `keddeh-250c6d8c76-controller-rollback-56e8da0`. Admission manifests and the distributed wheel now match the qualified artifact. See `deployments/receipts/HOST_ACTUATOR_20261030.json` for actual process, BRAINK, state and service observations.
 
 ## Published Site boundary
 
@@ -62,6 +62,8 @@ node --check src/keddeh_namespace/web4_bridge.js
 git diff --check
 ```
 
-The complete owner-family, Docker image build, public network path and live native Site were not deployed or qualified by these tests.
+After isolated tests, the Docker image was built and the existing owner-family was activated: ten healthy workstations, three retained domains and enabled bilateral execution were observed. A real BRAINK-driven HTTP restart changed its PID from 18 to 546; duplicate replay returned the recorded result without another restart. HTTP diagnostics, credential identity, journal prefixes, the prior registry event, owner settings and domain identities were verified. Public network connectivity and the separate live native Site were not changed or verified by this rollout. The broad live verifier was not run; the recorded targeted checks used existing credentials and authenticated owner operations.
 
 Retention qualification crosses 1,024 commands, replays an archived original without execution, preserves uncertain outcomes, retains hot records on archival failure, and verifies duplicate lookup after signed registry archive/restore. The steady-state hot window is 128; durable history remains in the existing VFS registry.
+
+GitHub-hosted jobs for exact code commit `56e8da0` did not start: authenticated GitHub annotations report an account billing lock. Required-check configuration inspection returned HTTP 403 and remains unknown. No hosted pass, independent certification, rerun or required-check bypass is claimed; native qualification and operator-authorized activation are separate recorded outcomes.
