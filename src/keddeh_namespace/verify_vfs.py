@@ -9,11 +9,11 @@ from pathlib import Path
 from .logical_vfs import sync_directory
 
 
-def verify_volume(path, *, required_bytes, require_mount=True, reserve_bytes=0, logical_quota_bytes=None):
+def verify_volume(path, *, required_bytes=None, require_mount=True, reserve_bytes=None, logical_quota_bytes=None):
     path = Path(path).resolve(strict=True)
-    if type(required_bytes) is not int or required_bytes <= 0:
+    if required_bytes is not None and (type(required_bytes) is not int or required_bytes <= 0):
         raise ValueError('required_bytes must be a positive integer')
-    if type(reserve_bytes) is not int or reserve_bytes < 0:
+    if reserve_bytes is not None and (type(reserve_bytes) is not int or reserve_bytes < 0):
         raise ValueError('reserve_bytes must be a nonnegative integer')
     if logical_quota_bytes is not None and (type(logical_quota_bytes) is not int or logical_quota_bytes <= 0):
         raise ValueError('logical_quota_bytes must be a positive integer')
@@ -22,9 +22,9 @@ def verify_volume(path, *, required_bytes, require_mount=True, reserve_bytes=0, 
     stats = os.statvfs(path)
     capacity = stats.f_frsize * stats.f_blocks
     available = stats.f_frsize * stats.f_bavail
-    if capacity < required_bytes:
+    if required_bytes is not None and capacity < required_bytes:
         raise ValueError(f'insufficient observed capacity: {capacity} < {required_bytes}')
-    if available < reserve_bytes + 4096:
+    if reserve_bytes is not None and available < reserve_bytes + 4096:
         raise ValueError('insufficient available backing space for reserve and readback probe')
     payload = secrets.token_bytes(4096)
     fd, probe = tempfile.mkstemp(prefix='.keddeh-readback-', dir=path)
@@ -44,10 +44,12 @@ def verify_volume(path, *, required_bytes, require_mount=True, reserve_bytes=0, 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('path'); parser.add_argument('--required-bytes',type=int,required=True)
+    parser.add_argument('path'); parser.add_argument('--required-bytes',type=int,help='optional physical total-capacity minimum')
+    parser.add_argument('--reserve-bytes',type=int,help='optional available bytes to retain during the probe')
+    parser.add_argument('--logical-quota-bytes',type=int,help='logical address-space metadata; not physical allocation')
     parser.add_argument('--allow-directory',action='store_true',help='local test only; not production mount evidence')
     args=parser.parse_args()
-    try: result=verify_volume(args.path,required_bytes=args.required_bytes,require_mount=not args.allow_directory)
+    try: result=verify_volume(args.path,required_bytes=args.required_bytes,reserve_bytes=args.reserve_bytes,logical_quota_bytes=args.logical_quota_bytes,require_mount=not args.allow_directory)
     except (OSError,ValueError) as exc: parser.exit(1,f'Volume rejected: {exc}\n')
     print(json.dumps(result,sort_keys=True))
 

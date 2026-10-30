@@ -57,10 +57,10 @@ The gateway's existing controller file lock ensures one controller per root. The
 
 ## Compatibility and verification
 
-Storage migration: `*_logical_quota_bytes` expresses logical address space. New `*_backing_required_bytes` expresses physical capacity. Legacy `*_required_bytes` remains a physical requirement. Production now requires explicit nonnegative `*_backing_reserve_bytes`; omission fails with a precise migration error. There is no automatic mapping of logical quota to physical allocation. Existing CAS, immutable objects, WAL/FULL, lease checks and recovery remain.
+Storage migration: `*_logical_quota_bytes` expresses logical address space. New `*_backing_required_bytes` expresses physical capacity. Legacy `*_required_bytes` remains a physical requirement. `*_backing_reserve_bytes` is optional; omission preserves the original no-reserve-policy behavior. Missing physical capacity policy uses measurement and the actual readback probe, with no invented minimum. Conflicting old/new physical capacity values are rejected. There is no automatic mapping of logical quota to physical allocation. Existing CAS, immutable objects, WAL/FULL, lease checks and recovery remain.
 
 `tests/test_host_actuator.py` exercises descriptor -> fenced dispatch -> actual process -> durable readback, duplicate/stale commands, restart, persistent stop across controller reconstruction, unknown services, actual Popen failure, interrupted outcomes and loopback HTTP reachability before/after restart and stop. `tests/test_web4_client.mjs` verifies client binding and preservation of stale generation fences. These tests do not claim full owner-family, browser guest or public network deployment verification.
 
-Concurrency tests explicitly race stop against a delayed stale start and recovery, then reconstruct the controller to verify the stop remains durable. A second test submits identical restart commands concurrently and verifies one actual restart. The full Python suite currently passes 105 tests.
+Concurrency tests explicitly race stop against a delayed stale start and recovery, then reconstruct the controller to verify the stop remains durable. A second test submits identical restart commands concurrently and verifies one actual restart. The full Python suite currently passes 110 tests.
 
 Host mutations reject null pipeline generations and non-integer process IDs; the regression verifies rejection before dispatch or command persistence.

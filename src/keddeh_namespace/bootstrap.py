@@ -72,20 +72,26 @@ def verify_gate_bundles(config,ledger,*,now=None):
 
 
 def storage_requirements(config, prefix, logical_default):
-    """Logical address space is not a physical allocation contract.
+    """Preserve explicit physical policy without allocating logical address space.
 
-    Legacy *_required_bytes remains an explicit physical capacity requirement.
-    New contracts separately declare backing capacity and available-space reserve.
+    Legacy *_required_bytes retains the total-capacity meaning of verify_volume.
+    Missing physical policy means measure and probe, not invent a new minimum.
+    The original validator had no available-space reserve requirement.
     """
     logical = config.get(prefix + '_logical_quota_bytes', logical_default)
-    backing = config.get(prefix + '_backing_required_bytes', config.get(prefix + '_required_bytes'))
+    legacy = config.get(prefix + '_required_bytes')
+    backing = config.get(prefix + '_backing_required_bytes')
+    if backing is None:
+        backing = legacy
+    elif legacy is not None and backing != legacy:
+        raise ValueError('conflicting legacy and backing capacity requirements')
     reserve = config.get(prefix + '_backing_reserve_bytes')
     if type(logical) is not int or logical <= 0:
         raise ValueError('positive logical quota required')
-    if type(backing) is not int or backing <= 0:
-        raise ValueError('explicit positive backing capacity contract required')
-    if type(reserve) is not int or reserve < 0:
-        raise ValueError('explicit nonnegative backing reserve contract required')
+    if backing is not None and (type(backing) is not int or backing <= 0):
+        raise ValueError('backing capacity must be a positive integer when configured')
+    if reserve is not None and (type(reserve) is not int or reserve < 0):
+        raise ValueError('backing reserve must be a nonnegative integer when configured')
     return dict(required_bytes=backing, reserve_bytes=reserve, logical_quota_bytes=logical)
 
 

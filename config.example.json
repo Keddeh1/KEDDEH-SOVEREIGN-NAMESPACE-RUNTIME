@@ -8,17 +8,13 @@
       "name": "ns1.keddeh.com",
       "role": "primary",
       "public_ip": null,
-      "vfs_logical_quota_bytes": 10000000000000,
-      "vfs_backing_required_bytes": null,
-      "vfs_backing_reserve_bytes": null
+      "vfs_logical_quota_bytes": 10000000000000
     },
     {
       "name": "ns2.keddeh.com",
       "role": "secondary",
       "public_ip": null,
-      "vfs_logical_quota_bytes": 10000000000000,
-      "vfs_backing_required_bytes": null,
-      "vfs_backing_reserve_bytes": null
+      "vfs_logical_quota_bytes": 10000000000000
     }
   ],
   "genesis": {
@@ -26,7 +22,5 @@
     "independent_returns_per_child": 2
   },
   "credentials": "Provision DNSSEC/TSIG/signing keys securely outside Git; no sample secrets.",
-  "archive_logical_quota_bytes": 100000000000000,
-  "archive_backing_required_bytes": null,
-  "archive_backing_reserve_bytes": null
+  "archive_logical_quota_bytes": 100000000000000
 }

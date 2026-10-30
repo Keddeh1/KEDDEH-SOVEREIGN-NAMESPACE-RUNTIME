@@ -27,10 +27,12 @@ class StorageContracts(unittest.TestCase):
                     verify_volume(root,required_bytes=8192,reserve_bytes=4096,require_mount=False)
 
     def test_no_invented_backing_contract(self):
-        with self.assertRaises(ValueError):storage_requirements({},'vfs',10**13)
-        with self.assertRaises(ValueError):storage_requirements({'vfs_required_bytes':10**13},'vfs',10**13)
+        p=storage_requirements({},'vfs',10**13)
+        self.assertIsNone(p['required_bytes']);self.assertIsNone(p['reserve_bytes'])
+        p=storage_requirements({'vfs_required_bytes':10**13},'vfs',10**13)
+        self.assertEqual(p['required_bytes'],10**13);self.assertIsNone(p['reserve_bytes'])
         p=storage_requirements({'vfs_required_bytes':10**13,'vfs_backing_reserve_bytes':0},'vfs',10**13)
-        self.assertEqual(p['required_bytes'],10**13)
+        self.assertEqual(p['required_bytes'],10**13);self.assertEqual(p['reserve_bytes'],0)
 
 class HostingSemantics(unittest.TestCase):
     setUp=test_web4_runtime.Web4RuntimeTests.setUp
