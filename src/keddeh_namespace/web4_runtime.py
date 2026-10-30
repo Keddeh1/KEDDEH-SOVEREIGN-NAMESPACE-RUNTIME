@@ -230,6 +230,21 @@ class LaunchController:
         self.source_digest=hashlib.sha256(canonical_bytes(self.source_manifest)).hexdigest()
         write_json(self.state/'runtime-source-manifest.json',self.source_manifest)
         self.last_receipt=None;self.current_boot_id=None;self.retry_after={};self.recovery_errors={}
+        self.instance_id=secrets.token_hex(16)
+        self.host_id='web4-'+hashlib.sha256(self.key.public_key().public_bytes_raw()).hexdigest()
+        self.actuator_path=self.state/'host-actuator.json'
+        self.actuator=json.loads(self.actuator_path.read_text()) if self.actuator_path.exists() else {'services':{},'requests':{}}
+        for record in self.actuator['requests'].values():
+            if record['status']=='ACCEPTED':
+                record['status']='UNCERTAIN'
+                record['result']={'status':'UNCERTAIN','reason':'controller ended before outcome persistence; inspect current service status; command not replayed'}
+        write_json(self.actuator_path,self.actuator)
+        write_json(self.state/'host-binding.json',{'schema':'keddeh.web4.host-binding.v1',
+            'terminology_version':'keddeh.host-terminology.v1','host_id':self.host_id,
+            'instance_id':self.instance_id,'source_digest':self.source_digest,
+            'runtime_module':'keddeh_namespace.web4_runtime','adapter':'LaunchController',
+            'runtime_root':str(self.root),'python_executable':sys.executable,
+            'actuator_state':'state/host-actuator.json','source_manifest':'state/runtime-source-manifest.json'})
         from .bilateral_runtime import BilateralRuntime
         self.bilateral=BilateralRuntime(self)
         from .pipeline_gate import PipelineGate
@@ -248,7 +263,9 @@ class LaunchController:
         return values
 
     def spawn(self,name,argv,cwd,extra=None,stdio=False):
-        env=self.env();env.update(extra or {});self.specs[name]=(argv,str(cwd),extra,stdio)
+        self.specs[name]=(argv,str(cwd),extra,stdio)
+        if self.actuator['services'].get(name,{}).get('desired')=='stopped':return None
+        env=self.env();env.update(extra or {})
         logs=self.state/'logs';logs.mkdir(exist_ok=True)
         with (logs/(name+'.log')).open('ab',buffering=0) as log:
             guarded=[sys.executable,str(Path(__file__).with_name('_web4_exec.py')),*argv]
@@ -263,6 +280,7 @@ class LaunchController:
         return proc
 
     def wait_health(self,name,port,path,timeout=8):
+        if self.actuator['services'].get(name,{}).get('desired')=='stopped':return {'status':'STOPPED'}
         end=time.monotonic()+timeout
         while time.monotonic()<end:
             if self.processes[name].poll() is not None:raise RuntimeError(name+' exited; inspect its private log')
@@ -298,7 +316,7 @@ class LaunchController:
             self.wait_health('vfs-server',hub['port'],'/ready')
         self.spawn('broker',[sys.executable,str(self.estate/'broker/owner_broker.py'),'--port',str(self.ports['broker'])],self.estate)
         self.wait_health('broker',self.ports['broker'],'/health')
-        self.pair_agent()
+        if self.actuator['services'].get('broker',{}).get('desired')!='stopped':self.pair_agent()
         network=Path(p['network'])/'braink-chatgpt-plugin/server'
         self.spawn('network',['node',str(network/'dist/src/server.js')],network,{'BRAINK_MCP_HOST':'127.0.0.1','PORT':str(self.ports['network']),'BRAINK_JOURNAL_PATH':str(self.state/'network-journal.bin'),'BRAINK_ROUTE_LEDGER':str(self.state/'network-routes.jsonl'),'BRAINK_VERIFICATION_LEDGER':str(self.state/'network-verification.jsonl')})
         self.wait_health('network',self.ports['network'],'/diagnostics')
@@ -311,9 +329,9 @@ class LaunchController:
             if script is None:raise RuntimeError('missing exact node source')
             self.spawn(name,['node',str(script)],script.parent,{'PORT':str(node['port'])})
             health=self.wait_health(name,node['port'],'/api/health')
-            if health.get('domain')!=node['id']:raise ValueError('wrong node identity')
+            if health.get('status')!='STOPPED' and health.get('domain')!=node['id']:raise ValueError('wrong node identity')
         self.spawn('estate',[sys.executable,str(self.estate/'server/braink_mcp.py'),'--stdio'],self.estate,stdio=True)
-        self.estate_rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'KEDDEH-WEB4','version':'1.0'}})
+        if self.processes.get('estate') is not None:self.estate_rpc('initialize',{'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'KEDDEH-WEB4','version':'1.0'}})
         self.spawn('agent',[sys.executable,str(self.estate/'host_agent/kex-host-agent.py'),'--broker',f'http://127.0.0.1:{self.ports["broker"]}','--state-file',str(self.state/'agent.json'),'--workspace',str(self.state/'agent-volume'),'--name','KEDDEH-WEB4-CLOUD','--allow-insecure-local','--poll-interval','1'],self.estate)
         # Pair only once, without putting pairing credentials in process arguments.
         # The first pairing is completed before the persistent polling process.
@@ -338,7 +356,9 @@ class LaunchController:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'substrate_status':{'status':boot_status,'operation':'workspace preparation and fsync/readback; no service or Linux launch'},'execution_inventory':self.execution_inventory(broker,services),'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        required_nodes=sum(self.actuator['services'].get('node-'+str(port),{}).get('desired')!='stopped' for port in self.ports['mesh'])
+        substrate_ready=boot_status=='COMPLETED' or self.actuator['services'].get('broker',{}).get('desired')=='stopped'
+        return {'startup_ready':sum(n['ok'] for n in nodes)==required_nodes and substrate_ready,'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'substrate_status':{'status':boot_status,'operation':'workspace preparation and fsync/readback; no service or Linux launch'},'host':self.host_descriptor(),'execution_inventory':self.execution_inventory(broker,services),'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
 
     def execution_inventory(self, broker, services):
         return {
@@ -352,11 +372,104 @@ class LaunchController:
                         for row in self.pipeline.projection()['services'] if 'route' in row],
             'public_reachability': 'not measured by local process or broker observations'}
 
+    def service_readback(self, name):
+        if name not in self.specs:raise ValueError('unknown owned runtime service')
+        proc=self.processes.get(name)
+        code=None if proc is None else proc.poll()
+        policy=self.actuator['services'].get(name,{'generation':0,'desired':'running'})
+        return {'name':name,'generation':policy['generation'],'desired':policy['desired'],
+                'pid':None if proc is None else proc.pid,'alive':proc is not None and code is None,
+                'exit_code':code,'state':'not started' if proc is None else 'running' if code is None else 'exited',
+                'specification_sha256':hashlib.sha256(json.dumps(self.specs[name],sort_keys=True).encode()).hexdigest(),
+                'readiness':'not inferred from process liveness'}
+
+    def host_descriptor(self):
+        projection=self.pipeline.projection()['services']
+        pipeline_generation=self.pipeline.status()['generation']
+        with self.lock:
+            return {'schema':'keddeh.web4.host.v1','host_id':self.host_id,'instance_id':self.instance_id,
+                    'source_digest':self.source_digest,'family_id':self.config.get('family_id'),
+                    'terminology_version':'keddeh.host-terminology.v1','host_kind':'execution host','runtime_kind':'native controller instance',
+                    'pipeline_generation':pipeline_generation,
+                    'runtime_binding':{'adapter':'LaunchController','execution':'owned native processes',
+                                       'state':'state/host-actuator.json','binding':'state/host-binding.json','source_verification':'verify_launch'},
+                    'actuator':{'route':'/api/web4/control','action':'host','operations':['status','start','stop','restart'],
+                                'mutation_inputs':['host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation'],
+                                'persistence':'fsync and atomic replacement before dispatch and after outcome',
+                                'retry':'same request and payload returns recorded result; uncertain outcomes are not replayed'},
+                    'services':[self.service_readback(name) for name in sorted(self.specs)],
+                    'browser_adapters':projection,
+                    'browser_control':'browser routes remain browser-local; native actuator does not claim browser guest control',
+                    'public_reachability':'not measured'}
+
+    def set_service_desired(self, name, desired):
+        policy=self.actuator['services'].setdefault(name,{'generation':0,'desired':'running'})
+        policy['desired']=desired
+        write_json(self.actuator_path,self.actuator)
+
+    def host_control(self, body):
+        operation=body.get('operation','status')
+        if operation=='status':
+            return self.host_descriptor() if 'name' not in body else self.service_readback(body['name'])
+        if operation not in ('start','stop','restart'):raise ValueError('unsupported host operation')
+        fields=('host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation')
+        if any(field not in body for field in fields):raise ValueError('complete host command binding required')
+        name=body['name'];request=body['request_id']
+        if type(request) is not str or not 1<=len(request)<=128:raise ValueError('bounded request identity required')
+        if type(name) is not str or name not in self.specs:raise ValueError('unknown owned runtime service')
+        command={key:body[key] for key in (*fields,'operation')}
+        with self.lock:
+            previous=self.actuator['requests'].get(request)
+            if previous:
+                if previous['command']!=command:raise ValueError('request identity reused with different command')
+                return previous['result'] if 'result' in previous else {'status':'UNCERTAIN','request_id':request}
+            if body['host_id']!=self.host_id or body['instance_id']!=self.instance_id or body['source_digest']!=self.source_digest:
+                raise ValueError('stale or foreign host binding')
+            observed=self.service_readback(name)
+            if type(body['expected_generation']) is not int or body['expected_generation']!=observed['generation'] or body['expected_pid']!=observed['pid']:
+                raise ValueError('stale service generation or process binding')
+            if len(self.actuator['requests'])>=1024:raise ValueError('actuator command retention limit reached; archive required')
+            record={'command':command,'status':'ACCEPTED'}
+            self.actuator['requests'][request]=record
+            self.actuator['services'][name]={'generation':observed['generation']+1,'desired':'stopped' if operation=='stop' else 'running'}
+            write_json(self.actuator_path,self.actuator)
+            try:
+                if operation=='start':self.start_service(name)
+                elif operation=='restart':
+                    if name in self.processes:self.restart(name)
+                    else:self.start_service(name)
+                else:
+                    proc=self.processes.get(name)
+                    if proc is not None:self.terminate(proc)
+                # Give immediately failing executables a bounded opportunity to exit.
+                proc=self.processes.get(name)
+                if operation!='stop' and proc is not None:
+                    try:proc.wait(timeout=.05)
+                    except subprocess.TimeoutExpired:pass
+                observed=self.service_readback(name)
+                successful=not observed['alive'] if operation=='stop' else observed['alive']
+                result={'request_id':request,'status':'COMPLETED' if successful else 'FAILED','operation':operation,'readback':observed}
+            except Exception as exc:
+                result={'request_id':request,'status':'FAILED','operation':operation,'error':type(exc).__name__,'readback':self.service_readback(name)}
+            record.update(status=result['status'],result=result)
+            write_json(self.actuator_path,self.actuator)
+            return result
+
+    def recover_services(self):
+        with self.lock:
+            for name,proc in list(self.processes.items()):
+                if self.actuator['services'].get(name,{}).get('desired')=='stopped':continue
+                if proc.poll() is not None and time.monotonic()>=self.retry_after.get(name,0):
+                    self.retry_after[name]=time.monotonic()+min(60,2**min(self.restarts.get(name,0),6))
+                    try:self.restart(name);self.recovery_errors.pop(name,None)
+                    except Exception as exc:self.recovery_errors[name]=type(exc).__name__
+
     def start_service(self, name):
         """Start only an existing owned process specification; never accept argv."""
         with self.lock:
             if name not in self.specs:
                 raise ValueError('unknown owned runtime service')
+            self.set_service_desired(name,'running')
             proc = self.processes.get(name)
             if proc is not None and proc.poll() is None:
                 return {'name': name, 'pid': proc.pid, 'status': 'already running; readiness must be read back'}
@@ -413,6 +526,7 @@ class LaunchController:
     def restart(self,name):
         with self.lock:
             if name not in self.specs:raise ValueError('unknown owned runtime service')
+            self.set_service_desired(name,'running')
             proc=self.processes[name];self.terminate(proc)
             argv,cwd,extra,stdio=self.specs[name]
             if stdio:
@@ -442,6 +556,7 @@ class LaunchController:
     def control(self,body):
         action=body.get('action')
         mutates=(action in ('boot','restart','commit') or
+                 action=='host' and body.get('operation','status')!='status' or
                  action=='propagate' and body.get('actuate',False) or
                  action=='domains' and body.get('operation','status')!='status' or
                  action=='bilateral' and body.get('enabled') is True)
@@ -454,7 +569,7 @@ class LaunchController:
 
     def _control(self,body):
         action=body.get('action')
-        owner_index={'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
+        owner_index={'host':3,'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
         if owner_index is None:raise ValueError('unsupported owner-kernel action')
         payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
         if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
@@ -467,6 +582,7 @@ class LaunchController:
         if action=='agreement':
             if 'accepted' in body:return self.pipeline.accept(body.get('version'),body['accepted'])
             return self.pipeline.agreement_status()
+        if action=='host':return self.host_control(body)
         if action=='projection':return self.pipeline.projection()
         if action=='domains':
             result=self.domains.control(body)
@@ -581,7 +697,8 @@ def serve(root):
         server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),Handler);server.daemon_threads=True
         threading.Thread(target=server.serve_forever,daemon=True).start()
         write_json(root/'controller.json',{'pid':os.getpid(),'ports':controller.ports,'scope':'local process controller'})
-        controller.receipt('runtime.launch',controller.status());controller.queue_boot(resume=True)
+        controller.receipt('runtime.launch',controller.status())
+        if controller.actuator['services'].get('broker',{}).get('desired')!='stopped':controller.queue_boot(resume=True)
         print('WEB4_RUNTIME_READY: authenticated gateway and real package processes',flush=True)
         signal.signal(signal.SIGTERM,lambda *_:controller.stop_event.set());signal.signal(signal.SIGINT,lambda *_:controller.stop_event.set())
         controller.domains.resume()
@@ -589,11 +706,7 @@ def serve(root):
             controller.bilateral.tick()
             controller.vfs.tick()
             # One owned process per role; bounded restart rate for all owner services.
-            for name,proc in list(controller.processes.items()):
-                if proc.poll() is not None and time.monotonic()>=controller.retry_after.get(name,0):
-                    controller.retry_after[name]=time.monotonic()+min(60,2**min(controller.restarts.get(name,0),6))
-                    try:controller.restart(name);controller.recovery_errors.pop(name,None)
-                    except Exception as exc:controller.recovery_errors[name]=type(exc).__name__
+            controller.recover_services()
             write_json(controller.state/'service-recovery.json',{'restarts':controller.restarts,'errors':controller.recovery_errors})
     finally:
         if server:server.shutdown();server.server_close()
@@ -612,7 +725,7 @@ def main():
             if proc.poll() is not None:raise RuntimeError('controller exited; inspect '+str(root/'controller.log'))
             try:
                 result=http_json(config['ports']['gateway'],'/api/web4/status',token=token)
-                if result['healthy_nodes']==10 and result['boot_status']=='COMPLETED':print(json.dumps({'status':'running','pid':proc.pid,'healthy_nodes':10,'root':str(root)},indent=2));return
+                if result['startup_ready']:print(json.dumps({'status':'running','pid':proc.pid,'healthy_nodes':result['healthy_nodes'],'root':str(root)},indent=2));return
             except OSError:pass
             time.sleep(.1)
         LaunchController.terminate(proc);raise RuntimeError('launch timed out')

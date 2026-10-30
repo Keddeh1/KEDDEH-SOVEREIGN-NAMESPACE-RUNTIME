@@ -31,7 +31,10 @@
     for(const name of status.execution_inventory.native.configured_services){const option=document.createElement('option');option.value=name;option.textContent=name;service.append(option);}
     return status.execution_inventory;
   });
-  button('Start service',()=>{if(!service.value)throw new Error('Load and select an owned service first.');return window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot',target:'service',name:service.value});});
+  button('Start service',()=>{if(!service.value)throw new Error('Load and select an owned service first.');return window.KEDDEH_WEB4.service('start',service.value);});
+  button('Stop service',()=>window.KEDDEH_WEB4.service('stop',service.value));
+  button('Restart service',()=>window.KEDDEH_WEB4.service('restart',service.value));
+  button('Host descriptor',()=>window.KEDDEH_WEB4.service('status'));
   button('VFS subscription',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'vfs'}));
   button('Domain mesh',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'domains'}));
   button('KEDDEH console',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'hci'}));

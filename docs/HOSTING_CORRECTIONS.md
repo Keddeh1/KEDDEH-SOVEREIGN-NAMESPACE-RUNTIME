@@ -37,3 +37,11 @@ All ten `PINS` source hashes are unchanged, including agent `0094c4960a208734dc6
 No DNS, public routing, domain activation, publishing, credential creation or live deployment occurred. The live browser Linux observation supplied by the parent is not contradicted by broker counts; it was not remeasured here. Complete owner-family startup with all ten source archives and browser UI interaction were not rerun. JavaScript syntax was checked; the new UI controls still require browser integration verification. Existing package copies in other repositories remain unchanged until an explicitly approved release.
 
 `tasks/coding-only-hosting.json` supplies the requested bounded coding task definition. It does not claim to install a model agent: the inspected BRAINK executor is a ring-checked callable executor, and no model adapter has been invented.
+
+## Host/actuator completion
+
+The follow-up is implemented in the same controller, not a replacement host architecture. See `HOST_ACTUATOR_CONTRACT.md` for existing source locations, versioned terminology, callable operations and persistence/retry semantics. The host descriptor is now part of status; the actuator is registered on the existing control route. Browser panel and terminal service operations use descriptor-bound commands. DA remains unresolved.
+
+Current verification: **102 Python tests passed**, plus `node tests/test_web4_client.mjs` passed. All three modified browser JavaScript files pass `node --check`; `git diff --check` passes. Five additional host-actuator tests cover actual processes and HTTP, lifecycle persistence, duplicate/stale/unknown commands, real spawn failure and a simulated crash after a real process start. The source pin comparison against the original base confirms all ten original hashes unchanged.
+
+Additional boundaries: browser UI was syntax/contract tested, not interactively exercised; the complete original owner-family was not relaunched. No production source, packaged wheels or external registrations were changed. Recorded completed commands are historical; inspect current status for present liveness. A controller crash between dispatch and final persistence yields UNCERTAIN rather than invented exactly-once execution. A fresh operator command after reviewing current state is separate from retrying that uncertain request.
