@@ -10,6 +10,7 @@ import urllib.request
 ENDPOINT = 'https://www.keddeh.com/api/serverspace/1x/host-relay'
 REQUEST_LIMIT = 65536
 RESPONSE_LIMIT = 262144
+COMPLETION_LIMIT = 300000
 FIELDS = {'operation', 'name', 'request_id', 'host_id', 'instance_id', 'source_digest',
           'expected_generation', 'expected_pid', 'pipeline_generation', 'projection_context'}
 
@@ -25,8 +26,12 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def post(url, token_file, payload):
     raw = encode(payload)
-    if len(raw) > REQUEST_LIMIT:
-        raise ValueError('request exceeds 64 KiB; pending state retained')
+    completion = payload.get('op') == 'complete'
+    limit = COMPLETION_LIMIT if completion else REQUEST_LIMIT
+    if completion and len(encode(payload.get('result'))) > RESPONSE_LIMIT:
+        raise ValueError('completion result exceeds 256 KiB; pending state retained')
+    if len(raw) > limit:
+        raise ValueError('request exceeds endpoint bound; pending state retained')
     token = Path(token_file).read_text().strip()
     request = urllib.request.Request(url, data=raw, headers={
         'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'})
@@ -73,6 +78,8 @@ def validate(packet, host_id):
             raise ValueError('mutation requires original descriptor fences')
         if not all(type(args[k]) is str and args[k] for k in ('name', 'request_id', 'instance_id', 'source_digest')):
             raise ValueError('invalid mutation identity')
+        if args['request_id'] != packet['id']:
+            raise ValueError('packet and actuator request identity differ')
         if len(args['request_id']) > 128 or args['name'] == 'estate':
             raise ValueError('unsupported mutation')
         if any(type(args[k]) is not int or args[k] < 0 for k in ('expected_generation', 'pipeline_generation')):

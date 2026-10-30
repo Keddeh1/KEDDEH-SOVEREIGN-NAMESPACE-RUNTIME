@@ -6,7 +6,7 @@ import tempfile
 import threading
 import unittest
 
-from keddeh_namespace.host_relay import Worker, post, validate, REQUEST_LIMIT
+from keddeh_namespace.host_relay import Worker, post, validate, REQUEST_LIMIT, RESPONSE_LIMIT, COMPLETION_LIMIT
 
 
 class RelayTests(unittest.TestCase):
@@ -15,7 +15,7 @@ class RelayTests(unittest.TestCase):
         self.root = Path(self.tmp.name); (self.root/'state').mkdir()
         (self.root/'state/host-binding.json').write_text(json.dumps({'host_id':'owned'}))
         (self.root/'launch.json').write_text(json.dumps({'ports':{'gateway':18087}}))
-        self.args = dict(operation='restart',name='http',request_id='original',host_id='owned',instance_id='i',source_digest='s',expected_generation=1,expected_pid=123,pipeline_generation=2)
+        self.args = dict(operation='restart',name='http',request_id='rpc',host_id='owned',instance_id='i',source_digest='s',expected_generation=1,expected_pid=123,pipeline_generation=2)
         self.packet = dict(jsonrpc='2.0',id='rpc',method='tools/call',params={'name':'host_actuator','arguments':self.args})
         self.call = dict(id='call',claim='lease',packet=self.packet)
         self.events = []; self.fail_complete = False; self.fail_local = False
@@ -55,11 +55,12 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(sum(e.get('op')=='claim' for e in self.events),1)
 
     def test_malformed_never_calls_gateway(self):
-        for mutation in ('tool','fence','host','oversize'):
+        for mutation in ('tool','fence','host','oversize','identity'):
             with self.subTest(mutation=mutation):
                 (self.root/'pending.json').unlink(missing_ok=True)
                 self.call=copy.deepcopy(dict(id='call',claim='lease',packet=self.packet))
                 p=self.call['packet'];self.events=[]
+                if mutation=='identity':p['params']['arguments']['request_id']='different'
                 if mutation=='tool':p['params']['name']='shell'
                 if mutation=='fence':p['params']['arguments'].pop('expected_pid')
                 if mutation=='host':p['params']['arguments']['host_id']='other'
@@ -155,5 +156,12 @@ class RelayTests(unittest.TestCase):
         with self.assertRaises(ValueError):post(origin+'/redirect',token,{})
         with self.assertRaises(ValueError):post(origin,token,{'x':'a'*REQUEST_LIMIT})
         self.assertEqual(len(observed),3)
+        result={'jsonrpc':'2.0','id':'rpc','result':{'text':'x'*70000}}
+        self.assertEqual(post(origin+'/complete',token,{'op':'complete','result':result}),{'stored':True})
+        with self.assertRaises(ValueError):
+            post(origin+'/complete',token,{'op':'complete','result':{'text':'x'*RESPONSE_LIMIT}})
+        with self.assertRaises(ValueError):
+            post(origin+'/complete',token,{'op':'complete','result':{},'claim':'x'*COMPLETION_LIMIT})
+        self.assertEqual(len(observed),4)
 
 if __name__=='__main__':unittest.main()
