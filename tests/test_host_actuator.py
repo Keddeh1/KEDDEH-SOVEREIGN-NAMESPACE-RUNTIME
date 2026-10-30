@@ -109,3 +109,49 @@ class HostActuatorTests(unittest.TestCase):
         binding=json.loads((reopened.state/'host-binding.json').read_text())
         self.assertEqual(binding['host_id'],c.host_id)
         self.assertEqual(binding['source_digest'],reopened.source_digest)
+
+    def test_concurrent_stop_fences_stale_start_and_recovery(self):
+        import threading
+        from concurrent.futures import ThreadPoolExecutor
+        c=self.controller()
+        c.control(self.command(c,'start','initial'))
+        stop=self.command(c,'stop','stop')
+        stale_start=self.command(c,'start','delayed-start')
+        entered=threading.Event();release=threading.Event();start_attempted=threading.Event()
+        terminate=c.terminate
+        def delayed_terminate(proc):
+            entered.set()
+            if not release.wait(5):raise RuntimeError('test release timeout')
+            terminate(proc)
+        def delayed_start():
+            start_attempted.set()
+            return c.control(stale_start)
+        with patch.object(c,'terminate',side_effect=delayed_terminate):
+            with ThreadPoolExecutor(max_workers=3) as pool:
+                stopping=pool.submit(c.control,stop)
+                try:
+                    self.assertTrue(entered.wait(5))
+                    stale=pool.submit(delayed_start)
+                    recovery=pool.submit(c.recover_services)
+                    self.assertTrue(start_attempted.wait(5))
+                finally:release.set()
+                self.assertEqual(stopping.result(timeout=5)['status'],'COMPLETED')
+                with self.assertRaisesRegex(ValueError,'stale service'):stale.result(timeout=5)
+                recovery.result(timeout=5)
+        self.assertFalse(c.service_readback('worker')['alive'])
+        self.assertEqual(c.service_readback('worker')['desired'],'stopped')
+        self.assertNotIn('delayed-start',json.loads(c.actuator_path.read_text())['requests'])
+        reopened=LaunchController(self.root);self.addCleanup(reopened.close)
+        self.assertIsNone(reopened.spawn('worker',*c.specs['worker']))
+        self.assertEqual(reopened.service_readback('worker')['desired'],'stopped')
+
+    def test_concurrent_duplicate_restart_executes_once(self):
+        from concurrent.futures import ThreadPoolExecutor
+        c=self.controller();c.control(self.command(c,'start','initial'))
+        restart=self.command(c,'restart','same-restart')
+        with patch.object(c,'restart',wraps=c.restart) as dispatch:
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                futures=[pool.submit(c.control,restart) for _ in range(2)]
+                results=[future.result(timeout=5) for future in futures]
+            dispatch.assert_called_once_with('worker')
+        self.assertEqual(results[0],results[1])
