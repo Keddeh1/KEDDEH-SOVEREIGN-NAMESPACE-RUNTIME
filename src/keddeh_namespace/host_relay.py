@@ -8,6 +8,7 @@ from pathlib import Path
 import time
 import urllib.request
 import urllib.error
+from urllib.parse import urlsplit
 
 ENDPOINT = 'https://www.keddeh.com/api/serverspace/1x/host-relay'
 REQUEST_LIMIT = 65536
@@ -47,10 +48,17 @@ def post(url, token_file, payload):
         raise ValueError('completion result exceeds 256 KiB; pending state retained')
     if len(raw) > limit:
         raise ValueError('request exceeds endpoint bound; pending state retained')
+    target = urlsplit(url)
+    if url == ENDPOINT:
+        proxy = urllib.request.ProxyHandler()  # Preserve managed egress and CA trust.
+    elif target.scheme == 'http' and target.hostname == '127.0.0.1' and not target.username and not target.password:
+        proxy = urllib.request.ProxyHandler({})
+    else:
+        raise ValueError('unsupported relay transport destination')
     token = Path(token_file).read_text().strip()
     request = urllib.request.Request(url, data=raw, headers={
         'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'})
-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+    opener = urllib.request.build_opener(proxy, NoRedirect())
     try:
         with opener.open(request, timeout=30) as response:
             raw = response.read(RESPONSE_LIMIT + 1)

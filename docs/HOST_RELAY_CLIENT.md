@@ -8,7 +8,7 @@ Run only after scoped credential approval and exact-candidate qualification:
 python -m keddeh_namespace.host_relay --root /workspace/braink-setup/web4-runtime --relay-token-file APPROVED_PRIVATE_TOKEN_PATH --state-file APPROVED_PRIVATE_STATE_PATH
 ```
 
-The state parent directory must already exist. The client reads stable host identity from `state/host-binding.json`, the existing local port from `launch.json`, and local authority from `state/token`. It never copies that local token to the public service. The dedicated relay token is sent only to the fixed HTTPS endpoint `https://www.keddeh.com/api/serverspace/1x/host-relay`; redirects and environment proxies are disabled.
+The state parent directory must already exist. The client reads stable host identity from `state/host-binding.json`, the existing local port from `launch.json`, and local authority from `state/token`. It never copies that local token to the public service. The dedicated relay token is sent only to the fixed HTTPS endpoint `https://www.keddeh.com/api/serverspace/1x/host-relay`; redirects are disabled. Public relay HTTPS preserves the inherited proxy configuration and TLS trust. Loopback gateway requests explicitly bypass proxies. Other destinations are rejected.
 
 Command IDs must be strings matching `[A-Za-z0-9._:-]{8,128}`; claim ID, packet ID and mutation request_id must agree. An operation must be explicitly supplied, including status.
 

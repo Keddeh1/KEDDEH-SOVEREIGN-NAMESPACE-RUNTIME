@@ -173,6 +173,20 @@ class RelayTests(unittest.TestCase):
             self.assertEqual(failure.exception.code,status)
         self.assertEqual(len(entered),2)
 
+    def test_public_proxy_preserved_and_loopback_direct(self):
+        from unittest.mock import patch, MagicMock
+        from keddeh_namespace.host_relay import ENDPOINT
+        token=self.root/'proxy-test-token';token.write_text('test-only')
+        reply=MagicMock();reply.__enter__.return_value.read.return_value=b'{"call":null}'
+        opener=MagicMock();opener.open.return_value=reply
+        with patch('urllib.request.ProxyHandler') as proxy, patch('urllib.request.build_opener',return_value=opener):
+            post(ENDPOINT,token,{'op':'claim','host_id':'owned'})
+            proxy.assert_called_once_with()
+            proxy.reset_mock()
+            post('http://127.0.0.1:18087/api/web4/control',token,{'action':'estate'})
+            proxy.assert_called_once_with({})
+            with self.assertRaises(ValueError):post('https://unapproved.invalid/',token,{})
+
     def test_http_contract_auth_bounds_and_redirect(self):
         observed=[]
         class Handler(http.server.BaseHTTPRequestHandler):
