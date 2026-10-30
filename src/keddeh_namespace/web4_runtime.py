@@ -333,11 +333,40 @@ class LaunchController:
             try:health=http_json(port,'/api/health');telemetry=http_json(port,'/api/telemetry');nodes.append({'port':port,'ok':health.get('status')=='HEALTHY','domain':health.get('domain'),'compute_cycles':telemetry.get('computeCycles'),'state_hash':telemetry.get('stateHash')})
             except (OSError,ValueError) as exc:nodes.append({'port':port,'ok':False,'error':type(exc).__name__})
         services={name:{'pid':proc.pid,'alive':proc.poll() is None,'restarts':self.restarts.get(name,0)} for name,proc in self.processes.items()}
+        broker = None
         try:
             broker=http_json(self.ports['broker'],'/api/self-host/status');command=broker.get('command') or {}
             boot_status=command.get('status') if command.get('requestId')==self.current_boot_id else 'pending current boot'
         except (OSError,ValueError):boot_status='unavailable'
-        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+        return {'source_digest':self.source_digest,'repository':self.config.get('repository'),'family_id':self.config.get('family_id'),'boot_status':boot_status,'substrate_status':{'status':boot_status,'operation':'workspace preparation and fsync/readback; no service or Linux launch'},'execution_inventory':self.execution_inventory(broker,services),'schema':'keddeh.web4.readback.v1','scope':'local real processes','nodes':nodes,'healthy_nodes':sum(n['ok'] for n in nodes),'services':services,'last_receipt':self.last_receipt,'external_mining':'not observed; state-hash cycles are local computation'}
+
+    def execution_inventory(self, broker, services):
+        return {
+            'scope': 'this controller and its paired broker; not an estate inventory',
+            'broker': {'registered_clients': None if broker is None else int(bool(broker.get('node'))),
+                       'observation': 'unavailable' if broker is None else 'observed'},
+            'native': {'adapter': 'LaunchController.spawn', 'services': services,
+                       'configured_services': sorted(self.specs)},
+            'browser': [{'id': row['id'], 'route': row['route'], 'execution': 'browser-local',
+                         'runtime_observation': 'not measured by this controller'}
+                        for row in self.pipeline.projection()['services'] if 'route' in row],
+            'public_reachability': 'not measured by local process or broker observations'}
+
+    def start_service(self, name):
+        """Start only an existing owned process specification; never accept argv."""
+        with self.lock:
+            if name not in self.specs:
+                raise ValueError('unknown owned runtime service')
+            proc = self.processes.get(name)
+            if proc is not None and proc.poll() is None:
+                return {'name': name, 'pid': proc.pid, 'status': 'already running; readiness must be read back'}
+            if proc is not None:
+                return self.restart(name)
+            argv, cwd, extra, stdio = self.specs[name]
+            proc = self.spawn(name, argv, cwd, extra, stdio)
+            if stdio:
+                self.estate_rpc('initialize', {'protocolVersion':'2025-11-25','capabilities':{},'clientInfo':{'name':'KEDDEH-WEB4','version':'1.0'}})
+            return {'name': name, 'pid': proc.pid, 'status': 'started; readiness must be read back'}
 
     def receipt(self,event,readback,request_id=None):
         with self.lock:
@@ -378,7 +407,8 @@ class LaunchController:
         broker.STATE_DIR=self.state/'broker';broker.EVIDENCE=broker.STATE_DIR/'ledger.jsonl';broker.NODE_FILE=broker.STATE_DIR/'node.json';broker.COMMAND_FILE=broker.STATE_DIR/'pending_command.json'
         request='web4.boot.'+secrets.token_hex(8)
         self.current_boot_id=request
-        return broker.queue_command('BOOT_SUBSTRATE',{'requestId':request,'nodeId':'broker-bound','lifecycle':['SEED','RESOLVE_TARGETS','MOUNT_WRITABLE_STATE','VERIFY_READBACK','COMPOSE_CAPABILITIES','WELCOME']})
+        result = broker.queue_command('BOOT_SUBSTRATE',{'requestId':request,'nodeId':'broker-bound','lifecycle':['SEED','RESOLVE_TARGETS','MOUNT_WRITABLE_STATE','VERIFY_READBACK','COMPOSE_CAPABILITIES','WELCOME']})
+        return {**result, 'execution_scope':'workspace preparation', 'launches_services':False, 'launches_linux':False}
 
     def restart(self,name):
         with self.lock:
@@ -450,7 +480,11 @@ class LaunchController:
         if action=='bilateral':
             if 'enabled' in body:return self.bilateral.configure(body['enabled'])
             with self.bilateral.lock:return dict(self.bilateral.data)
-        if action=='boot':return self.queue_boot()
+        if action=='boot':
+            target=body.get('target','substrate')
+            if target=='service':return self.start_service(body.get('name'))
+            if target!='substrate':raise ValueError('boot target must be substrate or an owned service')
+            return self.queue_boot()
         if action=='restart':return self.restart(body['name'])
         if action=='commit':
             node=body.get('node_id');nonce=body.get('nonce');tenant=body.get('tenant_id')
@@ -529,7 +563,7 @@ def serve(root):
                     return self.send(200,raw,'text/html; charset=utf-8')
                 assets={'/web4-bridge.js':'web4_bridge.js','/web4-client.js':'web4_client.js','/web4-panel.js':'web4_panel.js'}
                 if path in assets:return self.send(200,(Path(__file__).parent/assets[path]).read_bytes(),'text/javascript')
-                if path=='/':return self.send(200,b'<h1>KEDDEH WEB4 runtime</h1><a href="/terminal">Terminal</a> <a href="/carrier">HTML carrier</a> <a href="/research">Resident research UI</a><p>Terminal: cloud auth, cloud status, cloud boot, cloud commit NODE NONCE TENANT, cloud restart node-PORT, cloud observer, cloud workbook.</p>','text/html; charset=utf-8')
+                if path=='/':return self.send(200,b'<h1>KEDDEH WEB4 runtime</h1><a href="/terminal">Terminal</a> <a href="/carrier">HTML carrier</a> <a href="/research">Resident research UI</a><p>Terminal: cloud auth, cloud status, cloud boot (prepare workspace), cloud boot OWNED-SERVICE (start service), cloud commit NODE NONCE TENANT, cloud restart node-PORT, cloud observer, cloud workbook.</p>','text/html; charset=utf-8')
                 return self.send(404,{'error':'not_found'})
             def do_POST(self):
                 if urlsplit(self.path).path!='/api/web4/control':return self.send(404,{'error':'not_found'})

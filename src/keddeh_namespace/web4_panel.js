@@ -24,7 +24,14 @@
   button('Reconnect pipeline',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'pipeline',connected:true,reason:'explicit authenticated owner reconnect'}));
   button('Live status',()=>window.KEDDEH_WEB4.request('/api/web4/status'));
   button('Receipt',()=>window.KEDDEH_WEB4.request('/api/web4/generation'));
-  button('Boot host',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot'}));
+  button('Prepare workspace',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot',target:'substrate'}));
+  const service = document.createElement('select');service.setAttribute('aria-label','Owned runtime service');controls.append(service);
+  button('Load owned services',async()=>{
+    const status=await window.KEDDEH_WEB4.request('/api/web4/status');service.replaceChildren();
+    for(const name of status.execution_inventory.native.configured_services){const option=document.createElement('option');option.value=name;option.textContent=name;service.append(option);}
+    return status.execution_inventory;
+  });
+  button('Start service',()=>{if(!service.value)throw new Error('Load and select an owned service first.');return window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot',target:'service',name:service.value});});
   button('VFS subscription',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'vfs'}));
   button('Domain mesh',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'domains'}));
   button('KEDDEH console',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'hci'}));

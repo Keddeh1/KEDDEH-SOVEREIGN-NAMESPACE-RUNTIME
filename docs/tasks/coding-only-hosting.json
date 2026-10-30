@@ -1,0 +1,14 @@
+{
+  "kind": "bounded-coding-task-definition",
+  "execution_status": "definition; not an installed autonomous model agent",
+  "repository": "KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+  "base_commit": "9bd3152e57d2612e40e700bc1d8e5b8a932fba45",
+  "objective": "Correct hosting observation, substrate dispatch and storage contract semantics in the existing KEX/BRAINK runtime.",
+  "allowed_actions": ["inspect repository", "edit local source", "execute local tests", "produce patch and test log"],
+  "excluded_actions": ["publish", "DNS changes", "domain activation", "credential creation", "persistent access expansion", "model response simulation"],
+  "existing_execution_adapters": ["LaunchController.spawn for owned processes", "KEX browser terminal/carrier/resident projections", "outbound broker PAIR/POLL/RESULT for BOOT_SUBSTRATE and DOMAIN_PROBE"],
+  "verification": ["PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v", "node --check src/keddeh_namespace/web4_bridge.js", "node --check src/keddeh_namespace/web4_panel.js", "git diff --check"],
+  "required_artifacts": ["base and resulting commit", "reviewable patch", "test log with exit outcome", "source identity preservation record", "unverified integration boundaries"],
+  "outcomes": ["completed with evidence", "failed with exact operation and error", "blocked with exact missing capability"],
+  "agent_integration": "BRAINK RuntimeExecutor executes ring-checked Python callables; it is not a model-backed coding agent. No model adapter or credential is fabricated by this task definition."
+}

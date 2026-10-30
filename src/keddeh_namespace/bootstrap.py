@@ -71,6 +71,24 @@ def verify_gate_bundles(config,ledger,*,now=None):
     return {'authenticated_gates':len(seen),'status':'gate_signatures_verified'}
 
 
+def storage_requirements(config, prefix, logical_default):
+    """Logical address space is not a physical allocation contract.
+
+    Legacy *_required_bytes remains an explicit physical capacity requirement.
+    New contracts separately declare backing capacity and available-space reserve.
+    """
+    logical = config.get(prefix + '_logical_quota_bytes', logical_default)
+    backing = config.get(prefix + '_backing_required_bytes', config.get(prefix + '_required_bytes'))
+    reserve = config.get(prefix + '_backing_reserve_bytes')
+    if type(logical) is not int or logical <= 0:
+        raise ValueError('positive logical quota required')
+    if type(backing) is not int or backing <= 0:
+        raise ValueError('explicit positive backing capacity contract required')
+    if type(reserve) is not int or reserve < 0:
+        raise ValueError('explicit nonnegative backing reserve contract required')
+    return dict(required_bytes=backing, reserve_bytes=reserve, logical_quota_bytes=logical)
+
+
 def preflight(config,ledger):
     if type(config) is not dict or config.get('production') is not True: raise ValueError('explicit production configuration required')
     if not {'zone','nodes','evidence_root','trust_store','trusted_heads','archive_mount','dnskey_sha256'}.issubset(config):
@@ -82,10 +100,10 @@ def preflight(config,ledger):
         path=Path(node['vfs_mount']).resolve(strict=True)
         if path in mounts: raise ValueError('distinct node storage mounts required')
         mounts.append(path)
-        volumes.append(verify_volume(path,required_bytes=10_000_000_000_000))
+        volumes.append(verify_volume(path,**storage_requirements(node, 'vfs', 10_000_000_000_000)))
     archive_path=Path(config['archive_mount']).resolve(strict=True)
     if archive_path in mounts: raise ValueError('separate archive mount required')
-    volumes.append(verify_volume(archive_path,required_bytes=100_000_000_000_000))
+    volumes.append(verify_volume(archive_path,**storage_requirements(config, 'archive', 100_000_000_000_000)))
     nodes=[authority_probe(address,config['zone'],pinned_dnskey_sha256=config['dnskey_sha256']) for _,address in authority]
     if nodes[0]['soa_serial']!=nodes[1]['soa_serial']: raise ValueError('authority serial divergence')
     return {'status':'preflight_passed_not_deployed','gate_receipt':gate_receipt,'volumes':volumes,'nodes':nodes}

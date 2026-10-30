@@ -9,10 +9,14 @@ from pathlib import Path
 from .logical_vfs import sync_directory
 
 
-def verify_volume(path, *, required_bytes, require_mount=True):
+def verify_volume(path, *, required_bytes, require_mount=True, reserve_bytes=0, logical_quota_bytes=None):
     path = Path(path).resolve(strict=True)
     if type(required_bytes) is not int or required_bytes <= 0:
         raise ValueError('required_bytes must be a positive integer')
+    if type(reserve_bytes) is not int or reserve_bytes < 0:
+        raise ValueError('reserve_bytes must be a nonnegative integer')
+    if logical_quota_bytes is not None and (type(logical_quota_bytes) is not int or logical_quota_bytes <= 0):
+        raise ValueError('logical_quota_bytes must be a positive integer')
     if require_mount and not os.path.ismount(path):
         raise ValueError('target is not a mount point')
     stats = os.statvfs(path)
@@ -20,6 +24,8 @@ def verify_volume(path, *, required_bytes, require_mount=True):
     available = stats.f_frsize * stats.f_bavail
     if capacity < required_bytes:
         raise ValueError(f'insufficient observed capacity: {capacity} < {required_bytes}')
+    if available < reserve_bytes + 4096:
+        raise ValueError('insufficient available backing space for reserve and readback probe')
     payload = secrets.token_bytes(4096)
     fd, probe = tempfile.mkstemp(prefix='.keddeh-readback-', dir=path)
     try:
@@ -32,7 +38,7 @@ def verify_volume(path, *, required_bytes, require_mount=True):
         Path(probe).unlink(missing_ok=True)
         sync_directory(path)
     return dict(path=str(path), capacity_bytes=capacity, available_bytes=available,
-                required_bytes=required_bytes, is_mount=os.path.ismount(path),
+                required_bytes=required_bytes, reserve_bytes=reserve_bytes, logical_quota_bytes=logical_quota_bytes, is_mount=os.path.ismount(path),
                 probe_sha256=hashlib.sha256(payload).hexdigest(), fsync_readback='passed')
 
 
