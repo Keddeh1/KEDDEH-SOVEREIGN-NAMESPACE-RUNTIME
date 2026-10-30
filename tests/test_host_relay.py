@@ -15,9 +15,9 @@ class RelayTests(unittest.TestCase):
         self.root = Path(self.tmp.name); (self.root/'state').mkdir()
         (self.root/'state/host-binding.json').write_text(json.dumps({'host_id':'owned'}))
         (self.root/'launch.json').write_text(json.dumps({'ports':{'gateway':18087}}))
-        self.args = dict(operation='restart',name='http',request_id='rpc',host_id='owned',instance_id='i',source_digest='s',expected_generation=1,expected_pid=123,pipeline_generation=2)
-        self.packet = dict(jsonrpc='2.0',id='rpc',method='tools/call',params={'name':'host_actuator','arguments':self.args})
-        self.call = dict(id='call',claim='lease',packet=self.packet)
+        self.args = dict(operation='restart',name='http',request_id='rpc-0001',host_id='owned',instance_id='i',source_digest='s',expected_generation=1,expected_pid=123,pipeline_generation=2)
+        self.packet = dict(jsonrpc='2.0',id='rpc-0001',method='tools/call',params={'name':'host_actuator','arguments':self.args})
+        self.call = dict(id='rpc-0001',claim='lease',packet=self.packet)
         self.events = []; self.fail_complete = False; self.fail_local = False
         self.worker = Worker(self.root,self.root/'dedicated-token',self.root/'pending.json',self.transport)
 
@@ -28,7 +28,7 @@ class RelayTests(unittest.TestCase):
             if self.fail_complete:raise OSError('lost acknowledgement')
             return {'stored':True}
         if payload.get('arguments',{}).get('operation')=='status':
-            return {'structuredContent':{'record':{'status':'COMPLETED','command':self.args}}}
+            return {'structuredContent':{'record':{'status':'COMPLETED','command':self.args,'result':{'status':'COMPLETED','request_id':'rpc-0001'}}}}
         if self.fail_local:raise OSError('uncertain local mutation')
         return {'structuredContent':{'status':'COMPLETED'},'content':[]}
 
@@ -44,21 +44,29 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(completions[0],completions[1])
         self.assertEqual((self.root/'pending.json').stat().st_mode & 0o777,0o600)
 
-    def test_uncertain_local_retries_identical_fenced_packet(self):
+    def test_lost_mutation_response_recovers_history_after_pipeline_changes(self):
         self.fail_local=True
         with self.assertRaises(OSError):self.worker.step()
         self.fail_local=False
-        self.worker=Worker(self.root,self.root/'dedicated-token',self.root/'pending.json',self.transport)
+        # A second mutation would now encounter a changed pipeline fence.
+        original=self.transport
+        def changed_pipeline(url,token,payload):
+            if payload.get('arguments',{}).get('operation')=='restart':raise ValueError('stale pipeline generation')
+            return original(url,token,payload)
+        self.worker=Worker(self.root,self.root/'dedicated-token',self.root/'pending.json',changed_pipeline)
         self.worker.step()
         local=[e for e in self.events if e.get('arguments',{}).get('operation')=='restart']
-        self.assertEqual(local[0],local[1]);self.assertEqual(local[0]['arguments'],self.args)
+        self.assertEqual(len(local),1);self.assertEqual(local[0]['arguments'],self.args)
+        result=json.loads((self.root/'pending.json').read_text())['result']['result']
+        self.assertEqual(result['structuredContent'],{'status':'COMPLETED','request_id':'rpc-0001'})
+        self.assertFalse(result['isError'])
         self.assertEqual(sum(e.get('op')=='claim' for e in self.events),1)
 
     def test_malformed_never_calls_gateway(self):
         for mutation in ('tool','fence','host','oversize','identity'):
             with self.subTest(mutation=mutation):
                 (self.root/'pending.json').unlink(missing_ok=True)
-                self.call=copy.deepcopy(dict(id='call',claim='lease',packet=self.packet))
+                self.call=copy.deepcopy(dict(id='rpc-0001',claim='lease',packet=self.packet))
                 p=self.call['packet'];self.events=[]
                 if mutation=='identity':p['params']['arguments']['request_id']='different'
                 if mutation=='tool':p['params']['name']='shell'
@@ -97,6 +105,16 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(sum(e.get('arguments',{}).get('operation')=='restart' for e in self.events),1)
         self.assertNotIn('result',json.loads((self.root/'pending.json').read_text()))
 
+    def test_claim_identity_and_id_syntax_rejected(self):
+        for identity in ('mismatch-0001','bad','bad id!0001',123):
+            with self.subTest(identity=identity):
+                (self.root/'pending.json').unlink(missing_ok=True)
+                self.call=copy.deepcopy(dict(id='rpc-0001',claim='lease',packet=self.packet))
+                self.call['packet']['id']=identity
+                self.events=[]
+                with self.assertRaises(ValueError):self.worker.step()
+                self.assertFalse(any(e.get('action')=='estate' for e in self.events))
+
     def test_status_and_unknown_operation(self):
         p=copy.deepcopy(self.packet);p['params']['arguments']={'operation':'status'}
         self.assertEqual(validate(p,'owned'),{'operation':'status'})
@@ -132,7 +150,7 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(self.worker.step(),'completed')
         self.assertEqual([r[1] for r in observed],['Bearer relay-test','Bearer local-test','Bearer relay-test'])
         self.assertEqual(observed[1][2],{'action':'estate','tool':'host_actuator','arguments':self.args})
-        self.assertEqual(observed[2][2]['result']['id'],'rpc')
+        self.assertEqual(observed[2][2]['result']['id'],'rpc-0001')
 
     def test_http_contract_auth_bounds_and_redirect(self):
         observed=[]
@@ -156,7 +174,7 @@ class RelayTests(unittest.TestCase):
         with self.assertRaises(ValueError):post(origin+'/redirect',token,{})
         with self.assertRaises(ValueError):post(origin,token,{'x':'a'*REQUEST_LIMIT})
         self.assertEqual(len(observed),3)
-        result={'jsonrpc':'2.0','id':'rpc','result':{'text':'x'*70000}}
+        result={'jsonrpc':'2.0','id':'rpc-0001','result':{'text':'x'*70000}}
         self.assertEqual(post(origin+'/complete',token,{'op':'complete','result':result}),{'stored':True})
         with self.assertRaises(ValueError):
             post(origin+'/complete',token,{'op':'complete','result':{'text':'x'*RESPONSE_LIMIT}})

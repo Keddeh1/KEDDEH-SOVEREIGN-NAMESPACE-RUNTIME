@@ -3,6 +3,7 @@ import argparse
 import fcntl
 import json
 import os
+import re
 from pathlib import Path
 import time
 import urllib.request
@@ -11,6 +12,7 @@ ENDPOINT = 'https://www.keddeh.com/api/serverspace/1x/host-relay'
 REQUEST_LIMIT = 65536
 RESPONSE_LIMIT = 262144
 COMPLETION_LIMIT = 300000
+COMMAND_ID = re.compile(r'[A-Za-z0-9._:-]{8,128}')
 FIELDS = {'operation', 'name', 'request_id', 'host_id', 'instance_id', 'source_digest',
           'expected_generation', 'expected_pid', 'pipeline_generation', 'projection_context'}
 
@@ -62,7 +64,7 @@ def validate(packet, host_id):
         raise ValueError('invalid packet')
     if set(packet) != {'jsonrpc', 'id', 'method', 'params'} or packet['jsonrpc'] != '2.0':
         raise ValueError('invalid JSON-RPC envelope')
-    if type(packet['id']) not in (str, int) or packet['method'] != 'tools/call':
+    if type(packet['id']) is not str or not COMMAND_ID.fullmatch(packet['id']) or packet['method'] != 'tools/call':
         raise ValueError('only identified tools/call supported')
     params = packet['params']
     if type(params) is not dict or set(params) != {'name', 'arguments'} or params['name'] != 'host_actuator':
@@ -123,6 +125,9 @@ class Worker:
                 state = {'host_id': self.host_id, 'call': call}
                 save(self.state_file, state)
             call = state['call']
+            if (not COMMAND_ID.fullmatch(call['id']) or not isinstance(call['packet'], dict)
+                    or call['packet'].get('id') != call['id']):
+                raise ValueError('claim and packet identity differ; no local dispatch')
             if 'result' not in state:
                 packet = call['packet']
                 try:
@@ -134,7 +139,7 @@ class Worker:
                     result = {'jsonrpc': '2.0', 'id': packet_id, 'error': {'code': -32602, 'message': 'Invalid bounded host_actuator packet'}}
                 else:
                     # On any transport uncertainty retain the original packet and request_id.
-                    # Recovery re-enters existing actuator duplicate lookup, never invents an ID.
+                    # Recover terminal results without re-entering mutation admission.
                     if state.get('dispatch_started') and args['operation'] != 'status':
                         history = self.transport(self.gateway, self.root / 'state/token',
                             {'action': 'estate', 'tool': 'host_actuator', 'arguments':
@@ -145,10 +150,16 @@ class Worker:
                         expected = {k: v for k, v in args.items() if k != 'projection_context'}
                         if record.get('command') != expected:
                             raise ValueError('target history identity mismatch')
-                    state['dispatch_started'] = True
-                    save(self.state_file, state)
-                    response = self.transport(self.gateway, self.root / 'state/token',
-                                              {'action': 'estate', 'tool': 'host_actuator', 'arguments': args})
+                        recovered = record.get('result')
+                        if not isinstance(recovered, dict):
+                            raise ValueError('terminal target result missing')
+                        response = {'content': [{'type': 'text', 'text': json.dumps(recovered, sort_keys=True)}],
+                                    'structuredContent': recovered, 'isError': False}
+                    else:
+                        state['dispatch_started'] = True
+                        save(self.state_file, state)
+                        response = self.transport(self.gateway, self.root / 'state/token',
+                                                  {'action': 'estate', 'tool': 'host_actuator', 'arguments': args})
                     if type(response) is not dict:
                         raise ValueError('invalid local response; pending claim retained')
                     result = {'jsonrpc': '2.0', 'id': packet['id'], 'result': response}
