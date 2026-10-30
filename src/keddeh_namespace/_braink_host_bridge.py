@@ -37,6 +37,15 @@ def host_actuator(arguments):
         with opener.open(request,timeout=20) as response:
             raw=response.read(2*1024*1024+1)
     except urllib.error.HTTPError as exc:
+        raw=exc.read(4097)
+        try:rejection=json.loads(raw) if len(raw)<=4096 else None
+        except ValueError:rejection=None
+        if (exc.code in (400,401,403) and type(rejection) is dict
+                and set(rejection)=={'schema','effect','code'}
+                and rejection.get('schema')=='keddeh.host-rejection.v1'
+                and rejection.get('effect')=='none'
+                and rejection.get('code') in ('AUTH_DENIED','ORIGIN_DENIED','INVALID_BODY','ADMISSION_REJECTED')):
+            return rejection
         raise RuntimeError('WEB4 host actuator rejected request: HTTP '+str(exc.code)) from None
     if len(raw)>2*1024*1024:raise ValueError('host actuator response exceeds bound')
     result=json.loads(raw)

@@ -152,6 +152,27 @@ class RelayTests(unittest.TestCase):
         self.assertEqual(observed[1][2],{'action':'estate','tool':'host_actuator','arguments':self.args})
         self.assertEqual(observed[2][2]['result']['id'],'rpc-0001')
 
+    def test_gateway_unmarked_errors_after_entry_remain_uncertain(self):
+        from types import SimpleNamespace
+        from keddeh_namespace.web4_runtime import gateway_handler
+        import urllib.error
+        entered=[]
+        def control(body):
+            entered.append(body)
+            if body.get('kind')=='value':raise ValueError('failure after controller entry')
+            raise RuntimeError('uncertain service outcome')
+        controller=SimpleNamespace(token='local-test',ports={},control=control)
+        server=http.server.ThreadingHTTPServer(('127.0.0.1',0),gateway_handler(controller))
+        controller.ports['gateway']=server.server_port
+        threading.Thread(target=server.serve_forever,daemon=True).start()
+        self.addCleanup(server.server_close);self.addCleanup(server.shutdown)
+        token=self.root/'local-token';token.write_text('local-test')
+        for kind,status in [('value',400),('runtime',502)]:
+            with self.assertRaises(urllib.error.HTTPError) as failure:
+                post(f'http://127.0.0.1:{server.server_port}/api/web4/control',token,{'kind':kind})
+            self.assertEqual(failure.exception.code,status)
+        self.assertEqual(len(entered),2)
+
     def test_http_contract_auth_bounds_and_redirect(self):
         observed=[]
         class Handler(http.server.BaseHTTPRequestHandler):

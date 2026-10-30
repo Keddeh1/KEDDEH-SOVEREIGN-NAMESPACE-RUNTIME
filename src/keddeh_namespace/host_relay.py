@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 import time
 import urllib.request
+import urllib.error
 
 ENDPOINT = 'https://www.keddeh.com/api/serverspace/1x/host-relay'
 REQUEST_LIMIT = 65536
@@ -26,6 +27,18 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         raise ValueError('redirect prohibited')
 
 
+
+def rejection(value):
+    return (type(value) is dict and set(value) == {'schema', 'effect', 'code'}
+            and value.get('schema') == 'keddeh.host-rejection.v1' and value.get('effect') == 'none'
+            and value.get('code') in ('AUTH_DENIED', 'ORIGIN_DENIED', 'INVALID_BODY', 'ADMISSION_REJECTED'))
+
+
+class NoActuationRejected(Exception):
+    def __init__(self, code):
+        self.code = code
+
+
 def post(url, token_file, payload):
     raw = encode(payload)
     completion = payload.get('op') == 'complete'
@@ -38,8 +51,16 @@ def post(url, token_file, payload):
     request = urllib.request.Request(url, data=raw, headers={
         'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'})
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
-    with opener.open(request, timeout=30) as response:
-        raw = response.read(RESPONSE_LIMIT + 1)
+    try:
+        with opener.open(request, timeout=30) as response:
+            raw = response.read(RESPONSE_LIMIT + 1)
+    except urllib.error.HTTPError as exc:
+        raw = exc.read(4097)
+        try: value = json.loads(raw) if len(raw) <= 4096 else None
+        except ValueError: value = None
+        if exc.code in (400, 401, 403) and rejection(value):
+            raise NoActuationRejected(value['code']) from None
+        raise
     if len(raw) > RESPONSE_LIMIT:
         raise ValueError('response exceeds 256 KiB')
     return json.loads(raw)
@@ -158,11 +179,21 @@ class Worker:
                     else:
                         state['dispatch_started'] = True
                         save(self.state_file, state)
-                        response = self.transport(self.gateway, self.root / 'state/token',
-                                                  {'action': 'estate', 'tool': 'host_actuator', 'arguments': args})
+                        try:
+                            response = self.transport(self.gateway, self.root / 'state/token',
+                                                      {'action': 'estate', 'tool': 'host_actuator', 'arguments': args})
+                        except NoActuationRejected as exc:
+                            response = {'structuredContent': {'schema': 'keddeh.host-rejection.v1',
+                                        'effect': 'none', 'code': exc.code}}
+
                     if type(response) is not dict:
                         raise ValueError('invalid local response; pending claim retained')
-                    result = {'jsonrpc': '2.0', 'id': packet['id'], 'result': response}
+                    if rejection(response.get('structuredContent')):
+                        result = {'jsonrpc': '2.0', 'id': packet['id'], 'error': {
+                            'code': -32010, 'message': 'Host command rejected before actuation',
+                            'data': response['structuredContent']}}
+                    else:
+                        result = {'jsonrpc': '2.0', 'id': packet['id'], 'result': response}
                 state['result'] = result
                 save(self.state_file, state)
             completed = self.relay({'op': 'complete', 'id': call['id'], 'claim': call['claim'], 'result': state['result']})

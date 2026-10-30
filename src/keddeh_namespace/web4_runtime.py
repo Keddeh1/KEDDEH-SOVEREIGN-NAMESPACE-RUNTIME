@@ -23,6 +23,14 @@ import time
 from urllib.parse import urlsplit
 import urllib.request
 
+
+class HostPreActuationRejected(ValueError, RuntimeError):
+    """This invocation was rejected before service actuation admission."""
+
+
+def no_actuation_rejection(code):
+    return {'schema': 'keddeh.host-rejection.v1', 'effect': 'none', 'code': code}
+
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 from .envelope import SCHEMA, canonical_bytes, content_root, envelope_digest
 from .hydrate_service_volumes import hydrate
@@ -528,25 +536,25 @@ class LaunchController:
             return self.host_descriptor() if 'name' not in body else self.service_readback(body['name'])
         if operation not in ('start','stop','restart'):raise ValueError('unsupported host operation')
         fields=('host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation')
-        if any(field not in body for field in fields):raise ValueError('complete host command binding required')
+        if any(field not in body for field in fields):raise HostPreActuationRejected('complete host command binding required')
         if type(body['pipeline_generation']) is not int or body['pipeline_generation']<0:
-            raise ValueError('explicit nonnegative pipeline generation required')
+            raise HostPreActuationRejected('explicit nonnegative pipeline generation required')
         if body['expected_pid'] is not None and (type(body['expected_pid']) is not int or body['expected_pid']<=0):
-            raise ValueError('expected_pid must be a positive integer or null')
+            raise HostPreActuationRejected('expected_pid must be a positive integer or null')
         name=body['name'];request=body['request_id']
-        if type(request) is not str or not 1<=len(request)<=128:raise ValueError('bounded request identity required')
-        if type(name) is not str or name not in self.specs:raise ValueError('unknown owned runtime service')
+        if type(request) is not str or not 1<=len(request)<=128:raise HostPreActuationRejected('bounded request identity required')
+        if type(name) is not str or name not in self.specs:raise HostPreActuationRejected('unknown owned runtime service')
         command={key:body[key] for key in (*fields,'operation')}
         with self.lock:
             previous=self.lookup_host_request(request)
             if previous:
-                if previous['command']!=command:raise ValueError('request identity reused with different command')
+                if previous['command']!=command:raise HostPreActuationRejected('request identity reused with different command')
                 return previous['result'] if 'result' in previous else {'status':'UNCERTAIN','request_id':request}
             if body['host_id']!=self.host_id or body['instance_id']!=self.instance_id or body['source_digest']!=self.source_digest:
-                raise ValueError('stale or foreign host binding')
+                raise HostPreActuationRejected('stale or foreign host binding')
             observed=self.service_readback(name)
             if type(body['expected_generation']) is not int or body['expected_generation']!=observed['generation'] or body['expected_pid']!=observed['pid']:
-                raise ValueError('stale service generation or process binding')
+                raise HostPreActuationRejected('stale service generation or process binding')
             self.compact_host_requests()
             if len(self.actuator['requests'])>=1024:raise ValueError('unresolved accepted commands require owning-controller recovery')
             record={'command':command,'status':'ACCEPTED'}
@@ -682,10 +690,17 @@ class LaunchController:
                  action=='domains' and body.get('operation','status')!='status' or
                  action=='bilateral' and body.get('enabled') is True)
         if mutates:
+            entered=False
             def execute():
+                nonlocal entered
                 if 'projection_context' in body:self.pipeline.require_agreement(body['projection_context'])
+                entered=True
                 return self._control(body)
-            return self.pipeline.dispatch(execute,body.get('pipeline_generation'))
+            try:return self.pipeline.dispatch(execute,body.get('pipeline_generation'))
+            except (ValueError,RuntimeError) as exc:
+                if action=='host' and not entered:
+                    raise HostPreActuationRejected(str(exc)) from None
+                raise
         return self._control(body)
 
     def _control(self,body):
@@ -693,7 +708,7 @@ class LaunchController:
         owner_index={'host':3,'boot':1,'restart':-2,'stop':-3,'commit':2,'propagate':2,'bilateral':2,'domains':3,'vfs':3,'hci':3,'workbook':3,'observer':3,'estate':3,'pipeline':3,'projection':3,'agreement':3}.get(action)
         if owner_index is None:raise ValueError('unsupported owner-kernel action')
         payload='A.KEDDEH:'+json.dumps(body,sort_keys=True)
-        if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise ValueError('owner kernel denied routing')
+        if self.owner_kernel.process_request(owner_index,payload)!='MAPPED':raise HostPreActuationRejected('owner kernel denied routing')
         self.owner_kernel.ledger=self.owner_kernel.ledger[-128:]
         write_json(self.state/'owner-kernel-routing.json',{'state':self.owner_kernel.state,'ledger':self.owner_kernel.ledger})
         if action=='pipeline':
@@ -808,16 +823,21 @@ def gateway_handler(controller):
             return self.send(404,{'error':'not_found'})
         def do_POST(self):
             if urlsplit(self.path).path!='/api/web4/control':return self.send(404,{'error':'not_found'})
-            if not self.auth():return self.send(401,{'error':'unauthorized'})
+            if not self.auth():return self.send(401,no_actuation_rejection('AUTH_DENIED'))
             origin=self.headers.get('Origin')
-            if origin and origin!=f'http://127.0.0.1:{controller.ports["gateway"]}':return self.send(403,{'error':'origin denied'})
+            if origin and origin!=f'http://127.0.0.1:{controller.ports["gateway"]}':return self.send(403,no_actuation_rejection('ORIGIN_DENIED'))
+            entered=False
             try:
                 size=int(self.headers.get('Content-Length','0'))
                 if not 0<size<=262144:raise ValueError('invalid body size')
                 body=json.loads(self.rfile.read(size))
                 if not isinstance(body,dict):raise ValueError('object required')
+                entered=True
                 output=controller.control(body);return self.send(200,output)
-            except (ValueError,KeyError) as exc:return self.send(400,{'error':str(exc)})
+            except HostPreActuationRejected:return self.send(400,no_actuation_rejection('ADMISSION_REJECTED'))
+            except (ValueError,KeyError) as exc:
+                if not entered:return self.send(400,no_actuation_rejection('INVALID_BODY'))
+                return self.send(400,{'error':str(exc)})
             except Exception as exc:return self.send(502,{'error':type(exc).__name__,'detail':'inspect private runtime logs'})
     return Handler
 

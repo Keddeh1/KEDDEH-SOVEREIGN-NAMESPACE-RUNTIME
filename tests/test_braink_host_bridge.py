@@ -73,7 +73,7 @@ class BrainkHostBridgeTests(unittest.TestCase):
         stopped=self.call(c,self.command(c,'stop','braink-stop'));self.assertFalse(stopped['readback']['alive'])
         c.recover_services();self.assertFalse(c.service_readback('worker')['alive'])
         with socket.socket() as sock:self.assertNotEqual(sock.connect_ex(('127.0.0.1',port)),0)
-        with self.assertRaises(urllib.error.HTTPError):self.call(c,{**command,'request_id':'stale-start'})
+        self.assertEqual(self.call(c,{**command,'request_id':'stale-start'})['effect'],'none')
         self.assertFalse(c.service_readback('worker')['alive'])
 
     def test_authorization_fence_failure_and_self_dispatch_rejection(self):
@@ -81,11 +81,10 @@ class BrainkHostBridgeTests(unittest.TestCase):
         with self.assertRaises(urllib.error.HTTPError) as unauthorized:self.call(c,command,token='invalid')
         self.assertEqual(unauthorized.exception.code,401);self.assertFalse(c.actuator['requests'])
         c.pipeline.configure(False,'test')
-        with self.assertRaises(urllib.error.HTTPError):self.call(c,command)
+        self.assertEqual(self.call(c,command)['effect'],'none')
         self.assertFalse(c.actuator['requests'])
         c.pipeline.configure(True,'test');command=self.command(c,'start','braink-start')
-        with self.assertRaises(urllib.error.HTTPError):
-            self.call(c,{**command,'projection_context':{'space':'owner','agreement_version':'1.0'}})
+        self.assertEqual(self.call(c,{**command,'projection_context':{'space':'owner','agreement_version':'1.0'}})['effect'],'none')
         self.assertFalse(c.actuator['requests'])
         with self.assertRaises(urllib.error.HTTPError):self.call(c,{**command,'name':'estate'})
         self.assertTrue(c.processes['estate'].poll() is None)
@@ -93,6 +92,43 @@ class BrainkHostBridgeTests(unittest.TestCase):
         failed=self.call(c,command);self.assertEqual(failed['status'],'FAILED')
         self.assertEqual(failed['error'],'FileNotFoundError')
         self.assertEqual(failed,self.call(c,command))
+
+    def test_relay_terminal_rejections_through_actual_braink_http(self):
+        from keddeh_namespace.host_relay import Worker, post
+        from keddeh_namespace.web4_runtime import write_json
+        c,_=self.live_bridge()
+        write_json(c.state/'host-binding.json',{'host_id':c.host_id})
+        config=json.loads((self.root/'launch.json').read_text());config['ports']['gateway']=c.ports['gateway']
+        write_json(self.root/'launch.json',config)
+        for reason in ('stale','unknown','auth','malformed'):
+            with self.subTest(reason=reason):
+                request='reject-'+reason
+                arguments=self.command(c,'start',request)
+                if reason=='stale':arguments['expected_generation']=999
+                if reason=='unknown':arguments['name']='unknown-service'
+                if reason=='malformed':arguments['operation']='invalid'
+                if reason=='auth':(c.state/'token').write_text('wrong-token')
+                queue=[{'id':request,'claim':'lease','packet':{'jsonrpc':'2.0','id':request,'method':'tools/call',
+                        'params':{'name':'host_actuator','arguments':arguments}}},
+                       {'id':'status-next','claim':'lease-next','packet':{'jsonrpc':'2.0','id':'status-next','method':'tools/call',
+                        'params':{'name':'host_actuator','arguments':{'operation':'status'}}}}]
+                results=[]
+                def transport(url,token,payload):
+                    if payload.get('op')=='claim':return {'call':queue.pop(0)}
+                    if payload.get('op')=='complete':results.append(payload['result']);return {'stored':True}
+                    return post(url,token,payload)
+                worker=Worker(self.root,self.root/'unused-relay-token',self.root/(reason+'.json'),transport)
+                self.assertEqual(worker.step(),'completed')
+                self.assertIn('error',results[0]);self.assertEqual(results[0]['id'],request)
+                self.assertNotIn(request,c.actuator['requests']);self.assertNotIn('worker',c.processes)
+                (c.state/'token').write_text(c.token)
+                self.assertEqual(worker.step(),'completed');self.assertIn('result',results[1])
+        # Real malformed HTTP body is rejected before entering controller.control.
+        req=urllib.request.Request(f'http://127.0.0.1:{c.ports["gateway"]}/api/web4/control',
+            data=b'{',headers={'Authorization':'Bearer '+c.token})
+        with self.assertRaises(urllib.error.HTTPError) as failure:urllib.request.urlopen(req)
+        self.assertEqual(json.load(failure.exception),{'schema':'keddeh.host-rejection.v1','effect':'none','code':'INVALID_BODY'})
+        self.assertNotIn('worker',c.processes)
 
     def test_derivation_rejects_unknown_source(self):
         with self.assertRaises(ValueError):bind_braink_host_source('different dispatcher')
