@@ -97,6 +97,29 @@ def save_command(value):
     return text
 
 
+def bind_braink_host_source(text):
+    """Register the callback in the admitted BRAINK dispatcher derivation only."""
+    marker='# WEB4_BRAINK_HOST_ACTUATOR_V1'
+    if marker in text:return text
+    imports='from server.host_agent_adapter import host_agent_status, host_agent_self_test, host_agent_capabilities, host_agent_contract'
+    definitions='def tool_defs():\n    return ['
+    dispatch='TOOLS={'
+    if any(text.count(anchor)!=1 for anchor in (imports,definitions,dispatch)):
+        raise ValueError('unexpected BRAINK dispatcher source; no speculative patch')
+    text=text.replace(imports,imports+'\n'+marker+'\nfrom server.host_actuator_adapter import HOST_ACTUATOR_TOOL, host_actuator',1)
+    text=text.replace(definitions,definitions+'HOST_ACTUATOR_TOOL,',1)
+    return text.replace(dispatch,dispatch+'\n "host_actuator": host_actuator,',1)
+
+
+def install_braink_host_bridge(estate):
+    estate=Path(estate)
+    dispatcher=estate/'server/braink_mcp.py'
+    derived=bind_braink_host_source(dispatcher.read_text())
+    adapter=Path(__file__).with_name('_braink_host_bridge.py').read_bytes()
+    dispatcher.write_text(derived)
+    (estate/'server/host_actuator_adapter.py').write_bytes(adapter)
+
+
 def _prepare(root, library, offset=0):
     root = Path(root).absolute()
     if root.exists() and any(root.iterdir()):
@@ -147,6 +170,7 @@ def _prepare(root, library, offset=0):
     if needle not in text:raise ValueError('unexpected broker result implementation')
     text=text.replace(needle,'            result=body.get("result",{})\n            if cmd.get("status")!="LEASED" or result.get("requestId")!=cmd["requestId"] or result.get("nodeId")!=node["id"]:\n                return self.sendj({"error":"result_binding_or_state_invalid"},409)\n            node["nextSequence"]+=1; save_node(node)',1)
     broker.write_text(harden_broker_source(text))
+    install_braink_host_bridge(estate)
     # Ignore bundled runtime state: these are fresh local runtime namespaces.
     state=root/'state';state.mkdir(mode=0o700)
     (state/'token').write_text(secrets.token_urlsafe(32));(state/'token').chmod(0o600)
@@ -156,7 +180,7 @@ def _prepare(root, library, offset=0):
     write_json(state/'trust.json',trust)
     # Reset only derived incoming state that would otherwise assert old runtime observations.
     (estate/'data_runtime/live_state.json').unlink(missing_ok=True)
-    config={'schema':'keddeh.web4.launch.v1','packages':packages,'estate':str(estate),'ports':ports,'sources':provenance,'scope':'local cloud workspace; real owner-package processes, not public deployment','derivations':['v5.7 MCP plus exact v6.1 workstation sources','observer/workbook modules integrated separately; incomplete replacement MCP not substituted','HTTP configurable port and separate journal','broker serialized requests and result/lease binding','runtime state separated from bundled evidence']}
+    config={'schema':'keddeh.web4.launch.v1','packages':packages,'estate':str(estate),'ports':ports,'sources':provenance,'scope':'local cloud workspace; real owner-package processes, not public deployment','derivations':['v5.7 MCP plus exact v6.1 workstation sources','observer/workbook modules integrated separately; incomplete replacement MCP not substituted','HTTP configurable port and separate journal','broker serialized requests and result/lease binding','runtime state separated from bundled evidence','BRAINK host_actuator tool delegates to existing authenticated WEB4 lifecycle']}
     config['files']={str(p.relative_to(root)):digest(p) for p in (root/'packages').rglob('*') if p.is_file()}
     write_json(root/'launch.json',config)
     return {'root':str(root),'packages':len(packages),'nodes':len(ports['mesh']),'ports':ports,'source_verification':'passed'}
@@ -187,6 +211,44 @@ def verify_launch(root):
         if original.is_symlink() or not path.is_relative_to((root/'packages').resolve()) or digest(path)!=sha:
             raise ValueError('launch source changed: '+name)
     return config
+
+
+def upgrade_braink_host_bridge(root, apply=False):
+    """Plan or apply an offline derivation upgrade, preserving all runtime state."""
+    root=Path(root).resolve(strict=True)
+    with (root/'.controller.lock').open('a+b') as lock:
+        if apply:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        config=verify_launch(root)
+        estate=Path(config['estate']).resolve(strict=True)
+        if not estate.is_relative_to(root/'packages'):raise ValueError('estate must be inside the existing packages root')
+        dispatcher=estate/'server/braink_mcp.py';adapter=estate/'server/host_actuator_adapter.py'
+        if adapter.is_symlink():raise ValueError('adapter symlink rejected')
+        if adapter.exists() and str(adapter.relative_to(root)) not in config['files']:
+            raise ValueError('untracked adapter already exists; retain it for review')
+        changes={dispatcher:bind_braink_host_source(dispatcher.read_text()).encode(),
+                 adapter:Path(__file__).with_name('_braink_host_bridge.py').read_bytes()}
+        changes={path:data for path,data in changes.items() if not path.exists() or path.read_bytes()!=data}
+        result={'root':str(root),'changes':[str(p.relative_to(root)) for p in changes],
+                'status':'planned' if not apply else 'already_current','state_preserved':True}
+        if not apply or not changes:return result
+        backup=root/'upgrades'/('braink-host-'+secrets.token_hex(8));backup.mkdir(parents=True,mode=0o700)
+        shutil.copyfile(root/'launch.json',backup/'launch.json')
+        for path in changes:
+            if path.exists():shutil.copyfile(path,backup/path.name)
+        write_json(backup/'changes.json',{'paths':[str(p.relative_to(root)) for p in changes]})
+        # Source files first, integrity manifest last: interruption fails closed on verify_launch.
+        for path,data in changes.items():
+            temporary=path.with_name('.'+path.name+'.'+secrets.token_hex(8))
+            with temporary.open('xb') as stream:
+                os.chmod(temporary,0o600);stream.write(data);stream.flush();os.fsync(stream.fileno())
+            os.replace(temporary,path)
+            from .logical_vfs import sync_directory
+            sync_directory(path.parent)
+            config['files'][str(path.relative_to(root))]=hashlib.sha256(data).hexdigest()
+        config.setdefault('derivations',[]).append('BRAINK host_actuator callback to existing authenticated WEB4 gateway')
+        write_json(root/'launch.json',config)
+        verify_launch(root)
+        return {**result,'status':'applied_not_started','backup':str(backup)}
 
 
 def http_json(port, path, body=None, token=None, timeout=8):
@@ -234,17 +296,6 @@ class LaunchController:
         self.host_id='web4-'+hashlib.sha256(self.key.public_key().public_bytes_raw()).hexdigest()
         self.actuator_path=self.state/'host-actuator.json'
         self.actuator=json.loads(self.actuator_path.read_text()) if self.actuator_path.exists() else {'services':{},'requests':{}}
-        for record in self.actuator['requests'].values():
-            if record['status']=='ACCEPTED':
-                record['status']='UNCERTAIN'
-                record['result']={'status':'UNCERTAIN','reason':'controller ended before outcome persistence; inspect current service status; command not replayed'}
-        write_json(self.actuator_path,self.actuator)
-        write_json(self.state/'host-binding.json',{'schema':'keddeh.web4.host-binding.v1',
-            'terminology_version':'keddeh.host-terminology.v1','host_id':self.host_id,
-            'instance_id':self.instance_id,'source_digest':self.source_digest,
-            'runtime_module':'keddeh_namespace.web4_runtime','adapter':'LaunchController',
-            'runtime_root':str(self.root),'python_executable':sys.executable,
-            'actuator_state':'state/host-actuator.json','source_manifest':'state/runtime-source-manifest.json'})
         from .bilateral_runtime import BilateralRuntime
         self.bilateral=BilateralRuntime(self)
         from .pipeline_gate import PipelineGate
@@ -257,6 +308,20 @@ class LaunchController:
         from .vfs_subscription import VFSSubscription
         self.vfs=VFSSubscription(self)
 
+    def activate_host_binding(self):
+        """Called only by the owning controller after acquiring its runtime lock."""
+        for record in self.actuator['requests'].values():
+            if record['status']=='ACCEPTED':
+                record['status']='UNCERTAIN'
+                record['result']={'status':'UNCERTAIN','reason':'controller ended before outcome persistence; inspect current service status; command not replayed'}
+        write_json(self.actuator_path,self.actuator)
+        write_json(self.state/'host-binding.json',{'schema':'keddeh.web4.host-binding.v1',
+            'terminology_version':'keddeh.host-terminology.v1','host_id':self.host_id,
+            'instance_id':self.instance_id,'source_digest':self.source_digest,
+            'runtime_module':'keddeh_namespace.web4_runtime','adapter':'LaunchController',
+            'runtime_root':str(self.root),'python_executable':sys.executable,
+            'actuator_state':'state/host-actuator.json','source_manifest':'state/runtime-source-manifest.json'})
+
     def env(self):
         values={k:v for k,v in os.environ.items() if k in ('PATH','LANG','LC_ALL','TMPDIR','PYTHONPATH')}
         values.update(PYTHONUNBUFFERED='1',PYTHONDONTWRITEBYTECODE='1',BRAINK_PLUGIN_ROOT=str(self.estate),PLUGIN_DATA=str(self.state/'estate'),BRAINK_MESH_STATE=str(self.state/'mesh/state.json'),BRAINK_MESH_LEDGER=str(self.state/'mesh/ledger.jsonl'),BRAINK_MESH_LOGS=str(self.state/'mesh/logs'),BRAINK_MESH_PIDS=str(self.state/'mesh/pids'),BRAINK_NODE_ROOTS=str(self.estate/'mesh/nodes'),BRAINK_BROKER_STATE_DIR=str(self.state/'broker'),BRAINK_BROKER_LEDGER=str(self.state/'broker/ledger.jsonl'),BRAINK_BROKER_PAIRING_CODE=(self.state/'pairing-code').read_text())
@@ -266,6 +331,8 @@ class LaunchController:
         self.specs[name]=(argv,str(cwd),extra,stdio)
         if self.actuator['services'].get(name,{}).get('desired')=='stopped':return None
         env=self.env();env.update(extra or {})
+        if name=='estate' and 'gateway' in self.ports:
+            env.update(KEDDEH_WEB4_GATEWAY_PORT=str(self.ports['gateway']),KEDDEH_WEB4_TOKEN_FILE=str(self.state/'token'))
         logs=self.state/'logs';logs.mkdir(exist_ok=True)
         with (logs/(name+'.log')).open('ab',buffering=0) as log:
             guarded=[sys.executable,str(Path(__file__).with_name('_web4_exec.py')),*argv]
@@ -301,6 +368,7 @@ class LaunchController:
             return reply['result']
 
     def start(self):
+        self.activate_host_binding()
         # No adopting an unrelated process already using a declared port.
         for port in (self.ports['gateway'],self.ports['network'],self.ports['http'],self.ports['broker'],*self.ports['mesh']):
             with socket.socket() as sock:
@@ -640,11 +708,69 @@ class LaunchController:
         if action=='estate':
             tool=body.get('tool')
             if tool=='mesh_read_status':tool='mesh_status'
-            if tool not in ('estate_status','mesh_discover','mesh_status','mesh_aggregate','mesh_verify_evidence','host_agent_capabilities','lexicon_stats','bilateral_summary','dependency_frontier'):
+            if tool not in ('estate_status','mesh_discover','mesh_status','mesh_aggregate','mesh_verify_evidence','host_agent_capabilities','host_actuator','lexicon_stats','bilateral_summary','dependency_frontier'):
                 raise ValueError('estate tool not exposed by this gateway')
-            return self.estate_rpc('tools/call',{'name':tool,'arguments':body.get('arguments',{})})
+            arguments=body.get('arguments',{})
+            if tool=='host_actuator':
+                if type(arguments) is not dict:raise ValueError('host actuator arguments must be an object')
+                arguments=dict(arguments)
+                if 'projection_context' in body:arguments['projection_context']=body['projection_context']
+                # Caller descriptor fences are retained; the callback enforces them at execution.
+                if 'pipeline_generation' in body and 'pipeline_generation' not in arguments:
+                    arguments['pipeline_generation']=body['pipeline_generation']
+            return self.estate_rpc('tools/call',{'name':tool,'arguments':arguments})
         if action=='stop':self.stop_event.set();return {'status':'shutdown requested'}
         raise ValueError('unsupported control action')
+
+
+def gateway_handler(controller):
+    class Handler(BaseHTTPRequestHandler):
+        def setup(self):
+            super().setup();self.connection.settimeout(10)
+        def log_message(self,*_):pass
+        def send(self,status,value,content_type='application/json'):
+            raw=json.dumps(value).encode() if content_type=='application/json' else value
+            self.send_response(status);self.send_header('Content-Type',content_type);self.send_header('Content-Length',str(len(raw)));self.send_header('Cache-Control','no-store');self.send_header('X-Content-Type-Options','nosniff');self.end_headers();self.wfile.write(raw)
+        def auth(self):
+            value=self.headers.get('Authorization','')
+            return secrets.compare_digest(value.encode('utf-8'),('Bearer '+controller.token).encode('utf-8'))
+        def do_GET(self):
+            path=urlsplit(self.path).path
+            if path=='/health':return self.send(200,{'status':'running','scope':'local WEB4 gateway; use authenticated status for functional health'})
+            if path=='/api/web4/generation':
+                if not self.auth():return self.send(401,{'error':'unauthorized'})
+                try:
+                    controller.registry.replay();head,payload=controller.registry.vfs.read('web4/runtime')
+                    return self.send(200,{'head':head,'generation':json.loads(payload),'source_manifest':controller.source_manifest,'assessment':'local generator receipt; independent production assessment pending'})
+                except (KeyError,ValueError,OSError):return self.send(503,{'error':'generation unavailable or invalid'})
+            if path=='/api/web4/status':
+                if not self.auth():return self.send(401,{'error':'unauthorized'})
+                return self.send(200,controller.status())
+            names={'/terminal':'terminal','/carrier':'carrier','/research':'research_ui'}
+            if path in names:
+                role=names[path];directory=Path(controller.config['packages'][role]);files=list(directory.rglob('*.html'));raw=files[0].read_bytes()
+                addition=b'<script src="/web4-client.js"></script><script src="/web4-panel.js"></script>'
+                if role=='terminal':addition+=b'<script src="/web4-bridge.js"></script>'
+                raw=raw.replace(b'</body>',addition+b'</body>')
+                return self.send(200,raw,'text/html; charset=utf-8')
+            assets={'/web4-bridge.js':'web4_bridge.js','/web4-client.js':'web4_client.js','/web4-panel.js':'web4_panel.js'}
+            if path in assets:return self.send(200,(Path(__file__).parent/assets[path]).read_bytes(),'text/javascript')
+            if path=='/':return self.send(200,b'<h1>KEDDEH WEB4 runtime</h1><a href="/terminal">Terminal</a> <a href="/carrier">HTML carrier</a> <a href="/research">Resident research UI</a><p>Terminal: cloud auth, cloud status, cloud boot (prepare workspace), cloud boot OWNED-SERVICE (start service), cloud commit NODE NONCE TENANT, cloud restart node-PORT, cloud observer, cloud workbook.</p>','text/html; charset=utf-8')
+            return self.send(404,{'error':'not_found'})
+        def do_POST(self):
+            if urlsplit(self.path).path!='/api/web4/control':return self.send(404,{'error':'not_found'})
+            if not self.auth():return self.send(401,{'error':'unauthorized'})
+            origin=self.headers.get('Origin')
+            if origin and origin!=f'http://127.0.0.1:{controller.ports["gateway"]}':return self.send(403,{'error':'origin denied'})
+            try:
+                size=int(self.headers.get('Content-Length','0'))
+                if not 0<size<=262144:raise ValueError('invalid body size')
+                body=json.loads(self.rfile.read(size))
+                if not isinstance(body,dict):raise ValueError('object required')
+                output=controller.control(body);return self.send(200,output)
+            except (ValueError,KeyError) as exc:return self.send(400,{'error':str(exc)})
+            except Exception as exc:return self.send(502,{'error':type(exc).__name__,'detail':'inspect private runtime logs'})
+    return Handler
 
 
 def serve(root):
@@ -652,53 +778,7 @@ def serve(root):
     controller=LaunchController(root);server=None
     try:
         controller.start()
-        class Handler(BaseHTTPRequestHandler):
-            def setup(self):
-                super().setup();self.connection.settimeout(10)
-            def log_message(self,*_):pass
-            def send(self,status,value,content_type='application/json'):
-                raw=json.dumps(value).encode() if content_type=='application/json' else value
-                self.send_response(status);self.send_header('Content-Type',content_type);self.send_header('Content-Length',str(len(raw)));self.send_header('Cache-Control','no-store');self.send_header('X-Content-Type-Options','nosniff');self.end_headers();self.wfile.write(raw)
-            def auth(self):
-                value=self.headers.get('Authorization','')
-                return secrets.compare_digest(value.encode('utf-8'),('Bearer '+controller.token).encode('utf-8'))
-            def do_GET(self):
-                path=urlsplit(self.path).path
-                if path=='/health':return self.send(200,{'status':'running','scope':'local WEB4 gateway; use authenticated status for functional health'})
-                if path=='/api/web4/generation':
-                    if not self.auth():return self.send(401,{'error':'unauthorized'})
-                    try:
-                        controller.registry.replay();head,payload=controller.registry.vfs.read('web4/runtime')
-                        return self.send(200,{'head':head,'generation':json.loads(payload),'source_manifest':controller.source_manifest,'assessment':'local generator receipt; independent production assessment pending'})
-                    except (KeyError,ValueError,OSError):return self.send(503,{'error':'generation unavailable or invalid'})
-                if path=='/api/web4/status':
-                    if not self.auth():return self.send(401,{'error':'unauthorized'})
-                    return self.send(200,controller.status())
-                names={'/terminal':'terminal','/carrier':'carrier','/research':'research_ui'}
-                if path in names:
-                    role=names[path];directory=Path(controller.config['packages'][role]);files=list(directory.rglob('*.html'));raw=files[0].read_bytes()
-                    addition=b'<script src="/web4-client.js"></script><script src="/web4-panel.js"></script>'
-                    if role=='terminal':addition+=b'<script src="/web4-bridge.js"></script>'
-                    raw=raw.replace(b'</body>',addition+b'</body>')
-                    return self.send(200,raw,'text/html; charset=utf-8')
-                assets={'/web4-bridge.js':'web4_bridge.js','/web4-client.js':'web4_client.js','/web4-panel.js':'web4_panel.js'}
-                if path in assets:return self.send(200,(Path(__file__).parent/assets[path]).read_bytes(),'text/javascript')
-                if path=='/':return self.send(200,b'<h1>KEDDEH WEB4 runtime</h1><a href="/terminal">Terminal</a> <a href="/carrier">HTML carrier</a> <a href="/research">Resident research UI</a><p>Terminal: cloud auth, cloud status, cloud boot (prepare workspace), cloud boot OWNED-SERVICE (start service), cloud commit NODE NONCE TENANT, cloud restart node-PORT, cloud observer, cloud workbook.</p>','text/html; charset=utf-8')
-                return self.send(404,{'error':'not_found'})
-            def do_POST(self):
-                if urlsplit(self.path).path!='/api/web4/control':return self.send(404,{'error':'not_found'})
-                if not self.auth():return self.send(401,{'error':'unauthorized'})
-                origin=self.headers.get('Origin')
-                if origin and origin!=f'http://127.0.0.1:{controller.ports["gateway"]}':return self.send(403,{'error':'origin denied'})
-                try:
-                    size=int(self.headers.get('Content-Length','0'))
-                    if not 0<size<=262144:raise ValueError('invalid body size')
-                    body=json.loads(self.rfile.read(size))
-                    if not isinstance(body,dict):raise ValueError('object required')
-                    output=controller.control(body);return self.send(200,output)
-                except (ValueError,KeyError) as exc:return self.send(400,{'error':str(exc)})
-                except Exception as exc:return self.send(502,{'error':type(exc).__name__,'detail':'inspect private runtime logs'})
-        server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),Handler);server.daemon_threads=True
+        server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),gateway_handler(controller));server.daemon_threads=True
         threading.Thread(target=server.serve_forever,daemon=True).start()
         write_json(root/'controller.json',{'pid':os.getpid(),'ports':controller.ports,'scope':'local process controller'})
         controller.receipt('runtime.launch',controller.status())
@@ -718,7 +798,8 @@ def serve(root):
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('command',choices=['prepare','start','serve','status','stop','restart']);parser.add_argument('--root',default='/workspace/braink-setup/web4-runtime');parser.add_argument('--library',default='/workspace/library-files/KEDDEH/2026-10-07/manifest.json');parser.add_argument('--port-offset',type=int,default=0);parser.add_argument('--name');args=parser.parse_args();root=Path(args.root)
+    parser=argparse.ArgumentParser();parser.add_argument('command',choices=['prepare','start','serve','status','stop','restart','upgrade-braink']);parser.add_argument('--root',default='/workspace/braink-setup/web4-runtime');parser.add_argument('--library',default='/workspace/library-files/KEDDEH/2026-10-07/manifest.json');parser.add_argument('--port-offset',type=int,default=0);parser.add_argument('--name');parser.add_argument('--apply',action='store_true');args=parser.parse_args();root=Path(args.root)
+    if args.command=='upgrade-braink':print(json.dumps(upgrade_braink_host_bridge(root,args.apply),indent=2));return
     if args.command=='prepare':print(json.dumps(prepare(root,args.library,args.port_offset),indent=2));return
     if args.command=='serve':serve(root);return
     if args.command=='start':

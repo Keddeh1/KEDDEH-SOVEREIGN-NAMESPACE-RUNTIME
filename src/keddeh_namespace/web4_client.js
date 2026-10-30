@@ -12,10 +12,11 @@
       if(operation==='status')return name ? host.services.find(row=>row.name===name) : host;
       const service=host.services.find(row=>row.name===name);
       if(!service)throw new Error('Unknown owned runtime service');
-      return this.request('/api/web4/control',{action:'host',operation,name,
+      const response=await this.request('/api/web4/control',{action:'estate',tool:'host_actuator',arguments:{operation,name,
         host_id:host.host_id,instance_id:host.instance_id,source_digest:host.source_digest,
         request_id:crypto.randomUUID(),expected_generation:service.generation,expected_pid:service.pid,
-        pipeline_generation:host.pipeline_generation});
+        pipeline_generation:host.pipeline_generation}});
+      return response.structuredContent;
     },
     async request(path, body) {
       if (!['/api/web4/status', '/api/web4/control', '/api/web4/generation'].includes(path)) throw new Error('Unsupported cloud route');

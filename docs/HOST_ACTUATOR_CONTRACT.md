@@ -61,6 +61,8 @@ Storage migration: `*_logical_quota_bytes` expresses logical address space. New 
 
 `tests/test_host_actuator.py` exercises descriptor -> fenced dispatch -> actual process -> durable readback, duplicate/stale commands, restart, persistent stop across controller reconstruction, unknown services, actual Popen failure, interrupted outcomes and loopback HTTP reachability before/after restart and stop. `tests/test_web4_client.mjs` verifies client binding and preservation of stale generation fences. These tests do not claim full owner-family, browser guest or public network deployment verification.
 
-Concurrency tests explicitly race stop against a delayed stale start and recovery, then reconstruct the controller to verify the stop remains durable. A second test submits identical restart commands concurrently and verifies one actual restart. The full Python suite currently passes 110 tests.
+Concurrency tests explicitly race stop against a delayed stale start and recovery, then reconstruct the controller to verify the stop remains durable. A second test submits identical restart commands concurrently and verifies one actual restart. The full Python suite currently passes 115 tests.
 
 Host mutations reject null pipeline generations and non-integer process IDs; the regression verifies rejection before dispatch or command persistence.
+
+BRAINK integration is implemented and tested through the real pinned estate MCP dispatcher. See `BRAINK_HOST_INTEGRATION.md` for exact ingress/callback/result routes, offline migration and the remaining release/Site deployment boundary. Controller source inspection no longer rewrites actuator state; binding activation occurs only on owning-controller startup.

@@ -106,6 +106,7 @@ class HostActuatorTests(unittest.TestCase):
         reopened=LaunchController(self.root);self.addCleanup(reopened.close);reopened.specs.update(c.specs)
         with patch.object(reopened,'spawn') as spawn:
             self.assertEqual(reopened.control(command)['status'],'UNCERTAIN');spawn.assert_not_called()
+        reopened.activate_host_binding()
         binding=json.loads((reopened.state/'host-binding.json').read_text())
         self.assertEqual(binding['host_id'],c.host_id)
         self.assertEqual(binding['source_digest'],reopened.source_digest)
