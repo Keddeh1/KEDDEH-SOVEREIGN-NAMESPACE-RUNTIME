@@ -1,0 +1,39 @@
+{
+  "status": "activated_and_observed",
+  "qualified_commit": "56e8da0c1ac9868089114fcac329c9eec1ae11e9",
+  "target": "/workspace/braink-setup/web4-runtime",
+  "container": "keddeh-250c6d8c76-controller",
+  "image_id": "sha256:df11c6c826217e28287ed21ea9bb5d7b6771a323186c2078ef825d18b42a08f0",
+  "container_host_pid": 445591,
+  "source_digest": "5882e1f04e788a321f2dad77afbc4e6125deff21c7c5939b22a52a3f26073e87",
+  "healthy_nodes": 10,
+  "request_id": "rollout-56e8da0-http-restart",
+  "old_http_pid": 18,
+  "new_http_pid": 546,
+  "duplicate_replay": "same persisted result; no second restart",
+  "http_diagnostics_received": true,
+  "preservation": {
+    "token": true,
+    "pairing-code": true,
+    "generator.key": true,
+    "trust.json": true,
+    "pipeline-gate.json": true,
+    "projection-agreement.json": true,
+    "owner-environment-admitted.json": true,
+    "http-journal.bin_prefix": true,
+    "network-journal.bin_prefix": true,
+    "agent_identity": true,
+    "prior_registry_head_retained": true
+  },
+  "registry_event_count": 60623,
+  "bilateral_enabled": true,
+  "bilateral_cycle": 60479,
+  "domains": [
+    "domain-0",
+    "domain-1",
+    "domain-2"
+  ],
+  "rollback_container_retained": true,
+  "public_domain_connection": "not changed or verified by this rollout",
+  "braink_route": "owner HTTP -> BRAINK stdio dispatcher -> authenticated host callback -> process -> persisted response"
+}

@@ -1,0 +1,30 @@
+{
+  "commit": "56e8da0c1ac9868089114fcac329c9eec1ae11e9",
+  "hosted_status": "jobs not started; billing lock per GitHub annotations",
+  "required_checks_configuration": "unknown; inspection returned 403 Resource not accessible by integration",
+  "rerun_requested": false,
+  "checks": [
+    {
+      "check_run_id": "124297547606",
+      "annotations": [
+        {
+          "level": "failure",
+          "message": "The job was not started because your account is locked due to a billing issue."
+        }
+      ]
+    },
+    {
+      "check_run_id": "124297546601",
+      "annotations": [
+        {
+          "level": "failure",
+          "message": "The job was not started because your account is locked due to a billing issue."
+        },
+        {
+          "level": "notice",
+          "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\""
+        }
+      ]
+    }
+  ]
+}
