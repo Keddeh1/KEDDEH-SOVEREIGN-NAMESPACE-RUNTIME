@@ -32,7 +32,7 @@ def restore_registry(archive_root, manifest_digest, target_root, trust):
     registry=Registry(target_root,trust)
     if registry.replay(): raise ValueError('restore target must have empty history')
     # Validate all archive bytes and signature bindings before replay begins.
-    requests=[];heads={};versions={};journal_head=None;seen=set();signed_by_digest={}
+    requests=[];heads={};versions={};journal_head=None;seen=set();signed_by_digest={};request_ids=set()
     for index,entry in enumerate(manifest['entries']):
         if type(entry) is not dict or set(entry)!={'path','version','object_sha256'}: raise ValueError('invalid archive entry')
         logical_path(entry['path'])
@@ -54,7 +54,15 @@ def restore_registry(archive_root, manifest_digest, target_root, trust):
         event=dict(sequence=index+1,path=entry['path'],version=version+1,
                    digest=entry['object_sha256'],parent=journal_head)
         journal_head=hashlib.sha256(canonical_bytes(event)).hexdigest()
-        requests.append(dict(desired_state=generation['desired_state'],phase_state=generation['phase_state'],request_id=f'restore:{manifest_digest}:{index}',path=entry['path'],expected_version=version,signed=signed))
+        request_id=f'restore:{manifest_digest}:{index}'
+        if generation['phase_state'].get('event')=='host.command.archive':
+            retained=generation['desired_state'];original_id=retained.get('request_id')
+            if type(original_id) is not str or not 1<=len(original_id)<=128 or retained.get('record',{}).get('command',{}).get('request_id')!=original_id:
+                raise ValueError('invalid archived host request identity')
+            request_id='host.command.'+hashlib.sha256(original_id.encode()).hexdigest()
+        if request_id in request_ids:raise ValueError('duplicate archived request identity')
+        request_ids.add(request_id)
+        requests.append(dict(desired_state=generation['desired_state'],phase_state=generation['phase_state'],request_id=request_id,path=entry['path'],expected_version=version,signed=signed))
     if not requests: raise ValueError('empty archive')
     if journal_head!=manifest['journal_head']: raise ValueError('archive journal head divergence')
     if type(manifest['assessments']) is not list: raise ValueError('invalid archive assessments')

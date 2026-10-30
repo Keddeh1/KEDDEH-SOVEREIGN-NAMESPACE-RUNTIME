@@ -49,7 +49,7 @@ The parent separately observed the native Site's `lib/supervisor-control.mjs` ac
 
 ## Executed evidence
 
-The complete Python suite passes 115 tests in the selected environment, including the actual pinned BRAINK archive (no integration skips). `tests/test_braink_host_bridge.py` hydrates the exact estate source, runs its stdio server, runs the real gateway HTTP handler, dispatches start/restart/stop, verifies HTTP bytes and persisted results, retries a duplicate request, rejects stale/unauthorized/revoked/self-dispatch requests, and returns an actual Popen failure. It also verifies offline migration lock/integrity/state preservation and that constructing a controller solely for source inspection does not rewrite active actuator outcomes.
+The complete Python suite passes 118 tests in the selected environment, including the actual pinned BRAINK archive (no integration skips). `tests/test_braink_host_bridge.py` hydrates the exact estate source, runs its stdio server, runs the real gateway HTTP handler, dispatches start/restart/stop, verifies HTTP bytes and persisted results, retries a duplicate request, rejects stale/unauthorized/revoked/self-dispatch requests, and returns an actual Popen failure. It also verifies offline migration lock/integrity/state preservation and that constructing a controller solely for source inspection does not rewrite active actuator outcomes.
 
 Commands:
 
@@ -63,3 +63,5 @@ git diff --check
 ```
 
 The complete owner-family, Docker image build, public network path and live native Site were not deployed or qualified by these tests.
+
+Retention qualification crosses 1,024 commands, replays an archived original without execution, preserves uncertain outcomes, retains hot records on archival failure, and verifies duplicate lookup after signed registry archive/restore. The steady-state hot window is 128; durable history remains in the existing VFS registry.

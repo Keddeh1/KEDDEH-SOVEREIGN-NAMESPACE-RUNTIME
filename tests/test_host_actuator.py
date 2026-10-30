@@ -165,3 +165,50 @@ class HostActuatorTests(unittest.TestCase):
             c.control({**command,'expected_pid':False})
         self.assertNotIn('worker',c.processes)
         self.assertFalse(c.actuator['requests'])
+
+    def test_cross_retention_boundary_and_replay_archived_command(self):
+        from keddeh_namespace.web4_runtime import HOST_HOT_REQUEST_LIMIT
+        c=self.controller();original=self.command(c,'start','archived-original')
+        first=c.control(original)
+        for i in range(1030):c.control(self.command(c,'stop','retention-stop-'+str(i)))
+        self.assertLessEqual(len(c.actuator['requests']),HOST_HOT_REQUEST_LIMIT)
+        self.assertNotIn('archived-original',c.actuator['requests'])
+        self.assertFalse(c.service_readback('worker')['alive'])
+        with patch.object(c,'start_service') as start:
+            self.assertEqual(c.control(original),first);start.assert_not_called()
+        with self.assertRaisesRegex(ValueError,'reused'):c.control({**original,'operation':'restart'})
+        reopened=LaunchController(self.root);self.addCleanup(reopened.close);reopened.specs.update(c.specs)
+        with patch.object(reopened,'start_service') as start:
+            self.assertEqual(reopened.control(original),first);start.assert_not_called()
+        history=reopened.control({'action':'host','operation':'status','request_id':'archived-original'})
+        self.assertEqual(history['record']['result'],first)
+        self.assertGreater(len(reopened.registry.replay()),0)
+
+    def test_uncertain_archive_retains_identity_and_archive_failure_retains_hot(self):
+        from keddeh_namespace.web4_runtime import HOST_HOT_REQUEST_LIMIT
+        c=self.controller();original=self.command(c,'start','uncertain-original')
+        command={k:v for k,v in original.items() if k!='action'}
+        c.actuator['requests']['uncertain-original']={'command':command,'status':'UNCERTAIN','result':{'status':'UNCERTAIN'}}
+        for i in range(HOST_HOT_REQUEST_LIMIT):
+            key='older-'+str(i)
+            c.actuator['requests'][key]={'command':{**command,'request_id':key},'status':'FAILED','result':{'status':'FAILED'}}
+        write_json(c.actuator_path,c.actuator)
+        with patch.object(c,'receipt',side_effect=OSError('test archive failure')):
+            with self.assertRaises(OSError):c.compact_host_requests()
+        self.assertIn('uncertain-original',json.loads(c.actuator_path.read_text())['requests'])
+        c.compact_host_requests()
+        self.assertNotIn('uncertain-original',c.actuator['requests'])
+        with patch.object(c,'start_service') as start:
+            self.assertEqual(c.control(original)['status'],'UNCERTAIN');start.assert_not_called()
+
+    def test_signed_registry_archive_restore_preserves_command_replay(self):
+        from keddeh_namespace.web4_runtime import HOST_HOT_REQUEST_LIMIT
+        from keddeh_namespace.propagation_runtime import archive_registry, restore_registry
+        c=self.controller();original=self.command(c,'stop','original-before-registry-archive')
+        result=c.control(original)
+        for i in range(HOST_HOT_REQUEST_LIMIT):c.control(self.command(c,'stop','fill-'+str(i)))
+        self.assertNotIn(original['request_id'],c.actuator['requests'])
+        archive=archive_registry(c.registry,self.root/'archive')
+        c.registry=restore_registry(self.root/'archive',archive['archive_manifest_sha256'],self.root/'restored',c.registry.trust)
+        with patch.object(c,'terminate') as terminate:
+            self.assertEqual(c.control(original),result);terminate.assert_not_called()

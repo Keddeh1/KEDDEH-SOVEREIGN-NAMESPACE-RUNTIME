@@ -30,6 +30,8 @@ from .registry_service import Registry
 from .signatures import sign_observation
 from .universal_propagation import PropagationRuntime, Topology
 
+HOST_HOT_REQUEST_LIMIT = 128
+
 PINS = {
  'estate': ('BRAINK_MCP_PLUGIN_V5_7_BILATERAL_CLOSURE.zip','c48596dbcb4d826a1172308ab33baf6b52ff76795fce3c62262d4a20b07e5c9e'),
  'actuators': ('BRAINK_V6_1_MESH_ACTUATION_OVERLAY.zip','430db9147e822c68abf06635be1ca99131d6d10a151e536f87a82e00cf87c192'),
@@ -315,6 +317,7 @@ class LaunchController:
                 record['status']='UNCERTAIN'
                 record['result']={'status':'UNCERTAIN','reason':'controller ended before outcome persistence; inspect current service status; command not replayed'}
         write_json(self.actuator_path,self.actuator)
+        self.compact_host_requests()
         write_json(self.state/'host-binding.json',{'schema':'keddeh.web4.host-binding.v1',
             'terminology_version':'keddeh.host-terminology.v1','host_id':self.host_id,
             'instance_id':self.instance_id,'source_digest':self.source_digest,
@@ -464,7 +467,8 @@ class LaunchController:
                     'actuator':{'route':'/api/web4/control','action':'host','operations':['status','start','stop','restart'],
                                 'mutation_inputs':['host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation'],
                                 'persistence':'fsync and atomic replacement before dispatch and after outcome',
-                                'retry':'same request and payload returns recorded result; uncertain outcomes are not replayed'},
+                                'retry':'same request and payload returns recorded result; uncertain outcomes are not replayed',
+                                'retention':{'hot_limit':HOST_HOT_REQUEST_LIMIT,'archive':'signed immutable registry objects and durable request index','lookup':'status with request_id; no history deletion'}},
                     'services':[self.service_readback(name) for name in sorted(self.specs)],
                     'browser_adapters':projection,
                     'browser_control':'browser routes remain browser-local; native actuator does not claim browser guest control',
@@ -475,9 +479,52 @@ class LaunchController:
         policy['desired']=desired
         write_json(self.actuator_path,self.actuator)
 
+    @staticmethod
+    def host_archive_key(request_id):
+        return 'host.command.'+hashlib.sha256(request_id.encode()).hexdigest()
+
+    def lookup_host_request(self, request_id):
+        if type(request_id) is not str or not 1<=len(request_id)<=128:
+            raise ValueError('bounded request identity required')
+        with self.lock:
+            hot=self.actuator['requests'].get(request_id)
+            if hot and hot.get('status') in ('COMPLETED','FAILED'):return hot
+            with self.registry.vfs.connect() as db:
+                row=db.execute('SELECT result FROM requests WHERE request_id=?',(self.host_archive_key(request_id),)).fetchone()
+            if row:
+                payload=json.loads(self.registry.vfs.read_object(json.loads(row['result'])['digest']))
+                from .signatures import verify_observation
+                verify_observation(payload['signed'],self.registry.trust)
+                if payload['signed']['envelope']['stateRoot']!=content_root('state',payload['desired_state']):
+                    raise ValueError('archived host command root mismatch')
+                archived=payload['desired_state']
+                if archived.get('request_id')!=request_id or archived['record']['command']['request_id']!=request_id:
+                    raise ValueError('archived host command identity mismatch')
+                return archived['record']
+            return hot
+
+    def compact_host_requests(self):
+        """Move terminal/uncertain records to the existing signed VFS registry."""
+        with self.lock:
+            remaining=dict(self.actuator['requests'])
+            for request_id,record in self.actuator['requests'].items():
+                if len(remaining)<=HOST_HOT_REQUEST_LIMIT:break
+                if record['status'] not in ('COMPLETED','FAILED','UNCERTAIN'):continue
+                self.receipt('host.command.archive',{'request_id':request_id,'record':record},
+                             request_id=self.host_archive_key(request_id))
+                del remaining[request_id]
+            if len(remaining)!=len(self.actuator['requests']):
+                updated={**self.actuator,'requests':remaining}
+                write_json(self.actuator_path,updated)
+                self.actuator=updated
+
     def host_control(self, body):
         operation=body.get('operation','status')
         if operation=='status':
+            if 'request_id' in body:
+                record=self.lookup_host_request(body['request_id'])
+                if record is None:raise ValueError('unknown host request')
+                return {'request_id':body['request_id'],'record':record}
             return self.host_descriptor() if 'name' not in body else self.service_readback(body['name'])
         if operation not in ('start','stop','restart'):raise ValueError('unsupported host operation')
         fields=('host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation')
@@ -491,7 +538,7 @@ class LaunchController:
         if type(name) is not str or name not in self.specs:raise ValueError('unknown owned runtime service')
         command={key:body[key] for key in (*fields,'operation')}
         with self.lock:
-            previous=self.actuator['requests'].get(request)
+            previous=self.lookup_host_request(request)
             if previous:
                 if previous['command']!=command:raise ValueError('request identity reused with different command')
                 return previous['result'] if 'result' in previous else {'status':'UNCERTAIN','request_id':request}
@@ -500,7 +547,8 @@ class LaunchController:
             observed=self.service_readback(name)
             if type(body['expected_generation']) is not int or body['expected_generation']!=observed['generation'] or body['expected_pid']!=observed['pid']:
                 raise ValueError('stale service generation or process binding')
-            if len(self.actuator['requests'])>=1024:raise ValueError('actuator command retention limit reached; archive required')
+            self.compact_host_requests()
+            if len(self.actuator['requests'])>=1024:raise ValueError('unresolved accepted commands require owning-controller recovery')
             record={'command':command,'status':'ACCEPTED'}
             self.actuator['requests'][request]=record
             self.actuator['services'][name]={'generation':observed['generation']+1,'desired':'stopped' if operation=='stop' else 'running'}
@@ -525,6 +573,7 @@ class LaunchController:
                 result={'request_id':request,'status':'FAILED','operation':operation,'error':type(exc).__name__,'readback':self.service_readback(name)}
             record.update(status=result['status'],result=result)
             write_json(self.actuator_path,self.actuator)
+            self.compact_host_requests()
             return result
 
     def recover_services(self):
