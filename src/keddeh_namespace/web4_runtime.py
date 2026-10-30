@@ -414,6 +414,10 @@ class LaunchController:
         if operation not in ('start','stop','restart'):raise ValueError('unsupported host operation')
         fields=('host_id','instance_id','source_digest','name','request_id','expected_generation','expected_pid','pipeline_generation')
         if any(field not in body for field in fields):raise ValueError('complete host command binding required')
+        if type(body['pipeline_generation']) is not int or body['pipeline_generation']<0:
+            raise ValueError('explicit nonnegative pipeline generation required')
+        if body['expected_pid'] is not None and (type(body['expected_pid']) is not int or body['expected_pid']<=0):
+            raise ValueError('expected_pid must be a positive integer or null')
         name=body['name'];request=body['request_id']
         if type(request) is not str or not 1<=len(request)<=128:raise ValueError('bounded request identity required')
         if type(name) is not str or name not in self.specs:raise ValueError('unknown owned runtime service')

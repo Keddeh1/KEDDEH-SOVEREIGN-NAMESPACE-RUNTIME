@@ -155,3 +155,12 @@ class HostActuatorTests(unittest.TestCase):
                 results=[future.result(timeout=5) for future in futures]
             dispatch.assert_called_once_with('worker')
         self.assertEqual(results[0],results[1])
+
+    def test_null_generation_cannot_bypass_host_command_fence(self):
+        c=self.controller();command=self.command(c,'start')
+        with self.assertRaisesRegex(ValueError,'explicit nonnegative pipeline generation'):
+            c.control({**command,'pipeline_generation':None})
+        with self.assertRaisesRegex(ValueError,'expected_pid'):
+            c.control({**command,'expected_pid':False})
+        self.assertNotIn('worker',c.processes)
+        self.assertFalse(c.actuator['requests'])
