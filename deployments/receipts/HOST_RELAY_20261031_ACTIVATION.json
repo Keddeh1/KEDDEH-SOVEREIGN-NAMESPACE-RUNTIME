@@ -1,0 +1,34 @@
+{
+  "observed_at": "2026-10-31T01:40:49.690845+00:00",
+  "qualified_commit": "3e517a171d05aa64fc04fbf90598c1a084dfba08",
+  "gateway_upgrade": "activated",
+  "braink_bridge_upgrade": "activated",
+  "healthy_nodes": 10,
+  "host_id": "web4-2d5eefa3698ab755ed10237462171cf472675b83e0aa01994a817f3164ed1f8d",
+  "instance_id": "5d5805172d54ffd0da15f7183f97e332",
+  "source_digest": "b898eeb3f5cd72748adcac3e917375f3b2b338b380bb2b7f86c874ea8bda583c",
+  "preservation": {
+    "token": true,
+    "pairing-code": true,
+    "generator.key": true,
+    "trust.json": true,
+    "pipeline-gate.json": true,
+    "projection-agreement.json": true,
+    "owner-environment-admitted.json": true,
+    "http-journal.bin_prefix": true,
+    "network-journal.bin_prefix": true,
+    "operation_history": true,
+    "desired_service_state": true,
+    "agent_identity": true,
+    "derived_bridge": true,
+    "registry_history": true
+  },
+  "local_status_route": "authenticated HTTP -> BRAINK dispatcher -> authenticated host callback -> descriptor",
+  "public_relay": {
+    "status": "stopped_after_HTTP_403",
+    "body": "error code: 1010",
+    "call_claimed": false,
+    "end_to_end_status": "not completed; public claim rejected"
+  },
+  "rollback_command": "python /workspace/hosting-rollout-relay-proxy/rollback.py --apply"
+}
