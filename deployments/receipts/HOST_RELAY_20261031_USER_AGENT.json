@@ -1,0 +1,42 @@
+{
+  "observed_at": "2026-10-31T01:47:06.484783+00:00",
+  "relay_qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf",
+  "relay_image": "sha256:f53b6e47040cd554173f1a8c833b8ee2ef165768b28257c51180178e2f02ebca",
+  "wheel_sha256": "3a9647fc7443c944673af385bf90c9b70a542f279ac5e88aa24f6aac04aef682",
+  "source_tests": 131,
+  "installed_tests": 131,
+  "gateway_qualified_commit": "3e517a171d05aa64fc04fbf90598c1a084dfba08",
+  "gateway_restarted_for_user_agent": false,
+  "controlled_request": {
+    "started_at": "2026-10-31T01:45:00.228954+00:00",
+    "endpoint": "https://www.keddeh.com/api/serverspace/1x/host-relay",
+    "host_id": "web4-2d5eefa3698ab755ed10237462171cf472675b83e0aa01994a817f3164ed1f8d",
+    "user_agent": "Keddeh-Host-Relay/0.3.2",
+    "qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf",
+    "status": "accepted",
+    "call_present": true
+  },
+  "owner_call_readback": {
+    "call_id": "keddeh-host-status-inspect-20261031-r1",
+    "result": {
+      "jsonrpc": "2.0",
+      "id": "keddeh-host-status-inspect-20261031-r1",
+      "error": {
+        "code": -32011,
+        "message": "Read-only host status request failed: gateway HTTP 502",
+        "data": {
+          "operation": "status",
+          "request_id": "keddeh-host-status-inspect-20261031-r1",
+          "mutation_executed": false
+        }
+      }
+    },
+    "server_acknowledged_stored": true,
+    "original_packet_preserved": true
+  },
+  "relay_state": "running",
+  "next_verification": "owner queues fresh tools/call host_actuator arguments {operation:status}, without argument request_id; use original JSON-RPC id for correlation",
+  "security_changes": false,
+  "credential_changes": false,
+  "rollback_relay_container": "keddeh-250c6d8c76-host-relay-rollback-before-user-agent"
+}
