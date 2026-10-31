@@ -1,6 +1,6 @@
 {
   "schema": "keddeh.qualified-executable-manifest.v1",
-  "qualified_commit": "3e517a171d05aa64fc04fbf90598c1a084dfba08",
+  "qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf",
   "files": {
     "pyproject.toml": "1ffec84dce66fd8f86e52b9817d8d9a20e1d712a9364e9dffcdfc91f6c44f8ed",
     "scripts/bootstrap_owner_environment.py": "349065ad157e2fc1fd0043b42b6d1db73a9d219e9332cb378bd1f8f6c2db32d1",
@@ -20,7 +20,7 @@
     "src/keddeh_namespace/genesis.py": "e08542cc1bcae75127240e2f6e233192f1e264f4dc909cb62aac8bdcddbbd84b",
     "src/keddeh_namespace/hci_contract.py": "64281e5348f85c8c2c9953ccfb2f81fc873336665abbeedff02b3f50973dc21e",
     "src/keddeh_namespace/healthcheck.py": "c7c550b5591ce598f2e86ee5222045c3bd2637632a2069b4a6b687ba306aa7f8",
-    "src/keddeh_namespace/host_relay.py": "6252c8ee68819f7dea52baeb0043a0684a146e44f28272462d43b89a6d55fcd4",
+    "src/keddeh_namespace/host_relay.py": "4504927ab4794e830b83541a13661e058f2393b31aaea8e6eb89e0e06ebd4cb7",
     "src/keddeh_namespace/hydrate_service_volumes.py": "96a1f92dd8360398f4e1c2aabf1db2ae8132562c43aa6b66e8b98c5b2d457701",
     "src/keddeh_namespace/logical_vfs.py": "e066f81ec906ee8c2aa2bbbadba564fe9ddf2b0150bcce825e19c0bc05dd2db1",
     "src/keddeh_namespace/native_labels.py": "b02a8b807214cb7fa338b6b141f12ff22358ce7cbc160c6390a02d28b9025526",
@@ -44,7 +44,7 @@
   },
   "wheel": {
     "name": "keddeh_sovereign_namespace_runtime-0.3.2-py3-none-any.whl",
-    "sha256": "fe5186478854aac3de52aca36688b4cb73aaf0eb7937267149903415ac565737",
-    "bytes": 83401
+    "sha256": "3a9647fc7443c944673af385bf90c9b70a542f279ac5e88aa24f6aac04aef682",
+    "bytes": 83476
   }
 }

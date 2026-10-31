@@ -1,0 +1,78 @@
+{
+  "observed_at": "2026-10-31T01:55:20.918133+00:00",
+  "cold_launch_qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf",
+  "cold_launch_image": "sha256:f53b6e47040cd554173f1a8c833b8ee2ef165768b28257c51180178e2f02ebca",
+  "qualified_wheel": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.2-py3-none-any.whl",
+    "sha256": "3a9647fc7443c944673af385bf90c9b70a542f279ac5e88aa24f6aac04aef682",
+    "bytes": 83476
+  },
+  "admission_checks": {
+    "qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf",
+    "exact_source_and_wheel_accepted": true,
+    "modified_source_rejected": true,
+    "unadmitted_module_rejected": true,
+    "modified_wheel_rejected": true,
+    "verification_rules_changed": false
+  },
+  "isolated_restore": {
+    "scope": "isolated copied-state native cold start; no external egress, host ports or Docker socket",
+    "external_domains_and_vfs": "not actuated; retained topology and VFS state only",
+    "production_state_written": false,
+    "healthy_nodes": 10,
+    "services_alive": 15,
+    "identity_preserved": true,
+    "prior_operation_history_preserved": true,
+    "relay_restored_and_dispatched_actual_braink_status": true,
+    "relay_completion_durability": true,
+    "second_start_preserves_intentional_stop": true,
+    "duplicate_stop_replays_saved_result": true,
+    "stale_instance_rejected": true,
+    "keys_and_tokens_preserved": true,
+    "status": "passed"
+  },
+  "live_container_identity_start_time_restart_count_unchanged": true,
+  "live_components": {
+    "/keddeh-250c6d8c76-controller": {
+      "id": "8751ba1ac196555d44e43aa1dea74152c91986f67ac73071901c9186a4e780a7",
+      "started_at": "2026-10-31T01:38:51.542305158Z",
+      "restart_count": 0,
+      "image": "sha256:393cef8c6c68ded3982b23e70ed744b51389fa946aa1e5370a5e25722a1e0c8f"
+    },
+    "/keddeh-250c6d8c76-host-relay": {
+      "id": "80693503323b2ad02e42b278ae08ab32a3624d66940cc538a4888bfd295f18df",
+      "started_at": "2026-10-31T01:46:46.015531988Z",
+      "restart_count": 0,
+      "image": "sha256:f53b6e47040cd554173f1a8c833b8ee2ef165768b28257c51180178e2f02ebca"
+    },
+    "/keddeh-250c6d8c76-domain-0": {
+      "id": "bdf52abe479fa07734f8d893a2619da1e9f5ee9275352dffe64f6ab67d1f457a",
+      "started_at": "2026-10-30T19:55:28.398642823Z",
+      "restart_count": 0,
+      "image": "sha256:470015c1ab1577c19efce2e80cdad4afd9c682cf8f4dcf3dccae5abfd9113397"
+    },
+    "/keddeh-250c6d8c76-domain-1": {
+      "id": "4838f3ad2bb8ab1a8c9b6815e6cc5ff84f6802fdc71e8ceb00a3e321ed0b4444",
+      "started_at": "2026-10-30T19:55:28.323854095Z",
+      "restart_count": 0,
+      "image": "sha256:470015c1ab1577c19efce2e80cdad4afd9c682cf8f4dcf3dccae5abfd9113397"
+    },
+    "/keddeh-250c6d8c76-domain-2": {
+      "id": "57d22f75242de5265b41cc015060a0e8c147b7efb4a57d812b81e310b6871a43",
+      "started_at": "2026-10-30T19:55:28.31392601Z",
+      "restart_count": 0,
+      "image": "sha256:470015c1ab1577c19efce2e80cdad4afd9c682cf8f4dcf3dccae5abfd9113397"
+    }
+  },
+  "metadata_only_promotion": true,
+  "security_policy_changed": false,
+  "live_services_restarted": false,
+  "snapshot_handling": "private retained copies; SQLite online backups; immutable objects retained and missing referenced objects copied; no globally atomic whole-estate snapshot claim",
+  "scope_limits": [
+    "Existing Docker unless-stopped supervision depends on the managed environment and daemon remaining available.",
+    "Fresh repository controller launch now admits the exact qualified 12ea544 source/wheel/image. Current live controller remains its previously admitted 3e517a1 image until a future authorized restart.",
+    "External Docker domains and shared VFS endpoint were not actuated in the isolated restore test.",
+    "Public relay transport used a local queue fixture only in the isolated test; prior production end-to-end receipt remains separate.",
+    "If containers are deleted rather than restored by Docker, relay recreation still requires its retained scoped launch configuration and private credential file."
+  ]
+}
