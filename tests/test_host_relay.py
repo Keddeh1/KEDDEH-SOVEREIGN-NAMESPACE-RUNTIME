@@ -182,6 +182,10 @@ class RelayTests(unittest.TestCase):
         with patch('urllib.request.ProxyHandler') as proxy, patch('urllib.request.build_opener',return_value=opener):
             post(ENDPOINT,token,{'op':'claim','host_id':'owned'})
             proxy.assert_called_once_with()
+            from importlib.metadata import version
+            request=opener.open.call_args.args[0]
+            self.assertEqual(request.get_header('User-agent'),'Keddeh-Host-Relay/'+version('keddeh-sovereign-namespace-runtime'))
+            self.assertEqual(request.full_url,ENDPOINT)
             proxy.reset_mock()
             post('http://127.0.0.1:18087/api/web4/control',token,{'action':'estate'})
             proxy.assert_called_once_with({})

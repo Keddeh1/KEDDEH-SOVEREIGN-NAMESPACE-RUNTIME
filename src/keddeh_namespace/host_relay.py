@@ -1,5 +1,6 @@
 """Isolated outbound host lane; no listener or enrollment/credential creation."""
 import argparse
+from importlib.metadata import version
 import fcntl
 import json
 import os
@@ -56,8 +57,10 @@ def post(url, token_file, payload):
     else:
         raise ValueError('unsupported relay transport destination')
     token = Path(token_file).read_text().strip()
-    request = urllib.request.Request(url, data=raw, headers={
-        'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'})
+    headers = {'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json'}
+    if url == ENDPOINT:
+        headers['User-Agent'] = 'Keddeh-Host-Relay/' + version('keddeh-sovereign-namespace-runtime')
+    request = urllib.request.Request(url, data=raw, headers=headers)
     opener = urllib.request.build_opener(proxy, NoRedirect())
     try:
         with opener.open(request, timeout=30) as response:
