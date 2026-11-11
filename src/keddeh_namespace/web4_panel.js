@@ -11,6 +11,7 @@
   button('Live status',()=>window.KEDDEH_WEB4.request('/api/web4/status'));
   button('Discover mesh',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'estate',tool:'mesh_discover',arguments:{}}));
   button('Mesh status',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'estate',tool:'mesh_status',arguments:{}}));
+  button('AI.PY host binding',()=>window.KEDDEH_WEB4.aiPy.status());
   button('Receipt',()=>window.KEDDEH_WEB4.request('/api/web4/generation'));
   button('Boot host',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot'}));
   button('Observer',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'observer'}));
