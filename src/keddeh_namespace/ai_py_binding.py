@@ -85,7 +85,11 @@ class HostBinding:
         self.receipts = Path(controller.state) / "ai-py" / "receipts"
 
     def status(self):
-        info = self.controller.status()
+        try:
+            info = self.controller.status()
+        except Exception:
+            # Any host-readback fault is disconnected, not a success response.
+            info = {}
         services = info.get("services") or {}
         estate = services.get("estate") or {}
         configured = len(self.controller.ports.get("mesh", []))
@@ -103,7 +107,8 @@ class HostBinding:
                     (observed.get('isError') is True or observed.get('error'))):
                     readback_digest = digest(observed)
                     ready = True
-            except (OSError, KeyError, ValueError, RuntimeError, TimeoutError):
+            except Exception:
+                # Includes timed-out estate RPC and malformed producer responses.
                 ready = False
         return {
             "schema": SCHEMA,
