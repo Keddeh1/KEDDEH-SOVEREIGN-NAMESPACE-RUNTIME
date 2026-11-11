@@ -49,6 +49,14 @@ class HostBindingTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, 'NO_PYTHON_HOST_BINDING'):
             self.binding.execute(self.request())
         self.assertEqual(self.host.calls, [])
+    def test_host_status_errors_are_disconnected_without_side_effects(self):
+        self.host.status = lambda: (_ for _ in ()).throw(OSError('closed'))
+        result = self.binding.status()
+        self.assertFalse(result['connected'])
+        self.assertEqual(result['state'], 'NO_PYTHON_HOST_BINDING')
+        with self.assertRaisesRegex(RuntimeError, 'NO_PYTHON_HOST_BINDING'):
+            self.binding.execute(self.request())
+        self.assertEqual(self.host.calls, [])
     def test_real_dispatch_and_stable_readback(self):
         result = self.binding.execute(self.request())
         self.assertEqual(result['state'], 'RECORDED')
