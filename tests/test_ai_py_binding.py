@@ -15,6 +15,10 @@ class FakeController:
         self.source_digest = 'a' * 64
         self.alive = True
         self.calls = []
+        self.probe_failure = False
+    def estate_rpc(self, method, params):
+        if self.probe_failure: raise RuntimeError('estate unavailable')
+        return {'schema': 'preserved.estate.readback', 'status': 'OBSERVED'}
     def status(self):
         return {'schema': 'keddeh.web4.readback.v1', 'healthy_nodes': 2 if self.alive else 0,
                 'services': {'estate': {'alive': self.alive}}}
@@ -37,6 +41,14 @@ class HostBindingTests(unittest.TestCase):
         self.assertFalse(obj['arbitraryPythonExecution'])
         self.host.alive = False
         self.assertEqual(self.binding.status()['state'], 'NO_PYTHON_HOST_BINDING')
+    def test_process_alive_without_functional_rpc_is_not_binding(self):
+        self.host.probe_failure = True
+        result = self.binding.status()
+        self.assertFalse(result['connected'])
+        self.assertIsNone(result['functionalReadbackDigest'])
+        with self.assertRaisesRegex(RuntimeError, 'NO_PYTHON_HOST_BINDING'):
+            self.binding.execute(self.request())
+        self.assertEqual(self.host.calls, [])
     def test_real_dispatch_and_stable_readback(self):
         result = self.binding.execute(self.request())
         self.assertEqual(result['state'], 'RECORDED')
