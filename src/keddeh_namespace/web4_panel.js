@@ -9,6 +9,9 @@
   function button(label, task) {const element=document.createElement('button');element.textContent=label;element.style.cssText='padding:6px;color:#eef;background:#243b56;border:1px solid #658ca8;border-radius:4px';element.onclick=async()=>{element.disabled=true;try{const result=await task();if(result!==undefined)output.textContent=JSON.stringify(result,null,2);}catch(error){output.textContent=error.message;}finally{element.disabled=false;}};controls.append(element);}
   button('Connect',()=>({connected:window.KEDDEH_WEB4.authenticate(),scope:'local cloud workspace'}));
   button('Live status',()=>window.KEDDEH_WEB4.request('/api/web4/status'));
+  button('Discover mesh',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'estate',tool:'mesh_discover',arguments:{}}));
+  button('Mesh status',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'estate',tool:'mesh_status',arguments:{}}));
+  button('AI.PY host binding',()=>window.KEDDEH_WEB4.aiPy.status());
   button('Receipt',()=>window.KEDDEH_WEB4.request('/api/web4/generation'));
   button('Boot host',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'boot'}));
   button('Observer',()=>window.KEDDEH_WEB4.request('/api/web4/control',{action:'observer'}));

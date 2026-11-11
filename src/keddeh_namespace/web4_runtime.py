@@ -29,6 +29,7 @@ from .hydrate_service_volumes import hydrate
 from .registry_service import Registry
 from .signatures import sign_observation
 from .universal_propagation import PropagationRuntime, Topology
+from .ai_py_binding import HostBinding
 
 PINS = {
  'estate': ('BRAINK_MCP_PLUGIN_V5_7_BILATERAL_CLOSURE.zip','c48596dbcb4d826a1172308ab33baf6b52ff76795fce3c62262d4a20b07e5c9e'),
@@ -222,6 +223,7 @@ class LaunchController:
         self.source_digest=hashlib.sha256(canonical_bytes(self.source_manifest)).hexdigest()
         write_json(self.state/'runtime-source-manifest.json',self.source_manifest)
         self.last_receipt=None;self.current_boot_id=None
+        self.ai_py=HostBinding(self)  # Existing owner Python controller, not another daemon.
 
     def env(self):
         values={k:v for k,v in os.environ.items() if k in ('PATH','LANG','LC_ALL','TMPDIR','PYTHONPATH')}
@@ -433,6 +435,21 @@ def serve(root):
                 if path=='/api/web4/status':
                     if not self.auth():return self.send(401,{'error':'unauthorized'})
                     return self.send(200,controller.status())
+                if path=='/api/ai-py/binding/status':
+                    if not self.auth():return self.send(401,{'error':'unauthorized'})
+                    try:
+                        status=controller.ai_py.status()
+                        return self.send(200 if status['connected'] else 503,status)
+                    except (OSError,ValueError,RuntimeError):
+                        return self.send(503,{'schema':'braink.ai-py.server-binding.v1','connected':False,
+                                              'state':'NO_PYTHON_HOST_BINDING','siteDeploymentVerified':False})
+                if path.startswith('/api/ai-py/receipts/'):
+                    if not self.auth():return self.send(401,{'error':'unauthorized'})
+                    try:
+                        result=controller.ai_py.receipt(path.removeprefix('/api/ai-py/receipts/'))
+                        return self.send(200,result) if result else self.send(404,{'error':'AI_PY_RECEIPT_NOT_FOUND'})
+                    except (ValueError,OSError):
+                        return self.send(409,{'error':'AI_PY_RECEIPT_READBACK_REJECTED'})
                 names={'/terminal':'terminal','/carrier':'carrier','/research':'research_ui'}
                 if path in names:
                     role=names[path];directory=Path(controller.config['packages'][role]);files=list(directory.rglob('*.html'));raw=files[0].read_bytes()
@@ -445,17 +462,35 @@ def serve(root):
                 if path=='/':return self.send(200,b'<h1>KEDDEH WEB4 runtime</h1><a href="/terminal">Terminal</a> <a href="/carrier">HTML carrier</a> <a href="/research">Resident research UI</a><p>Terminal: cloud auth, cloud status, cloud boot, cloud commit NODE NONCE TENANT, cloud restart node-PORT, cloud observer, cloud workbook.</p>','text/html; charset=utf-8')
                 return self.send(404,{'error':'not_found'})
             def do_POST(self):
-                if urlsplit(self.path).path!='/api/web4/control':return self.send(404,{'error':'not_found'})
+                path=urlsplit(self.path).path
+                if path not in ('/api/web4/control','/api/ai-py/execute'):return self.send(404,{'error':'not_found'})
                 if not self.auth():return self.send(401,{'error':'unauthorized'})
                 origin=self.headers.get('Origin')
-                if origin and origin!=f'http://127.0.0.1:{controller.ports["gateway"]}':return self.send(403,{'error':'origin denied'})
+                allowed={f'http://127.0.0.1:{controller.ports["gateway"]}'}
+                # Site owner must explicitly configure the exact canonical HTTPS origin
+                # when the native Same-Origin relay is operational. No wildcard/CORS grant.
+                configured=os.environ.get('BRAINK_AI_PY_SITE_ORIGIN','').strip()
+                if configured:
+                    if configured not in ('https://www.keddeh.com','https://keddeh.com'):
+                        return self.send(503,{'error':'UNSAFE_AI_PY_SITE_ORIGIN'})
+                    allowed.add(configured)
+                if origin and origin not in allowed:return self.send(403,{'error':'origin denied'})
                 try:
                     size=int(self.headers.get('Content-Length','0'))
                     if not 0<size<=262144:raise ValueError('invalid body size')
                     body=json.loads(self.rfile.read(size))
                     if not isinstance(body,dict):raise ValueError('object required')
+                    if path=='/api/ai-py/execute':
+                        receipt=controller.ai_py.execute(body)
+                        return self.send(200 if receipt['state']=='RECORDED' else 202,receipt)
                     output=controller.control(body);return self.send(200,output)
-                except (ValueError,KeyError) as exc:return self.send(400,{'error':str(exc)})
+                except (ValueError,KeyError) as exc:
+                    status=409 if 'COLLISION' in str(exc) else 400
+                    return self.send(status,{'error':str(exc)})
+                except RuntimeError as exc:
+                    if str(exc)=='NO_PYTHON_HOST_BINDING':
+                        return self.send(503,{'error':'NO_PYTHON_HOST_BINDING'})
+                    return self.send(502,{'error':'BACKEND_EXECUTION_UNAVAILABLE'})
                 except Exception as exc:return self.send(502,{'error':type(exc).__name__,'detail':'inspect private runtime logs'})
         server=ThreadingHTTPServer(('127.0.0.1',controller.ports['gateway']),Handler);server.daemon_threads=True
         threading.Thread(target=server.serve_forever,daemon=True).start()

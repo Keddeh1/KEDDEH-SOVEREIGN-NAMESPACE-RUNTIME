@@ -1,0 +1,42 @@
+name: WEB4 carrier and AI.PY host binding contracts
+on:
+  push:
+    paths:
+      - 'src/keddeh_namespace/web4_bridge.js'
+      - 'src/keddeh_namespace/web4_client.js'
+      - 'src/keddeh_namespace/web4_panel.js'
+      - 'src/keddeh_namespace/web4_runtime.py'
+      - 'src/keddeh_namespace/ai_py_binding.py'
+      - 'tests/test_web4_carrier_mesh.mjs'
+      - 'tests/test_web4_ai_py_client.mjs'
+      - 'tests/test_ai_py_binding.py'
+      - '.github/workflows/web4-carrier-mesh.yml'
+  pull_request:
+    paths:
+      - 'src/keddeh_namespace/web4_bridge.js'
+      - 'src/keddeh_namespace/web4_client.js'
+      - 'src/keddeh_namespace/web4_panel.js'
+      - 'src/keddeh_namespace/web4_runtime.py'
+      - 'src/keddeh_namespace/ai_py_binding.py'
+      - 'tests/test_web4_carrier_mesh.mjs'
+      - 'tests/test_web4_ai_py_client.mjs'
+      - 'tests/test_ai_py_binding.py'
+      - '.github/workflows/web4-carrier-mesh.yml'
+permissions:
+  contents: read
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original carrier, mesh and AI.PY client
+        run: node --test tests/test_web4_carrier_mesh.mjs tests/test_web4_ai_py_client.mjs
+      - name: Verify durable AI.PY receipt and host-binding truth
+        run: python -m unittest discover -s tests -p test_ai_py_binding.py -v
