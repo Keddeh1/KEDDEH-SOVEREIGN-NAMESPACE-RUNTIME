@@ -89,9 +89,22 @@ class HostBinding:
         services = info.get("services") or {}
         estate = services.get("estate") or {}
         configured = len(self.controller.ports.get("mesh", []))
-        ready = bool(estate.get("alive") is True and configured > 0
-                     and info.get("healthy_nodes") == configured
-                     and info.get("schema") == "keddeh.web4.readback.v1")
+        processes_ready = bool(estate.get("alive") is True and configured > 0
+                               and info.get("healthy_nodes") == configured
+                               and info.get("schema") == "keddeh.web4.readback.v1")
+        readback_digest = None
+        ready = False
+        if processes_ready:
+            try:
+                # Functional proof from preserved estate MCP, not process liveness.
+                observed = self.controller.estate_rpc('tools/call',
+                    {'name': 'mesh_status', 'arguments': {}})
+                if observed is not None and not (isinstance(observed, dict) and
+                    (observed.get('isError') is True or observed.get('error'))):
+                    readback_digest = digest(observed)
+                    ready = True
+            except (OSError, KeyError, ValueError, RuntimeError, TimeoutError):
+                ready = False
         return {
             "schema": SCHEMA,
             "connected": ready,
@@ -101,6 +114,7 @@ class HostBinding:
             "arbitraryPythonExecution": False,
             "ownerRuntimeSourceDigest": self.controller.source_digest,
             "observedAt": now(),
+            "functionalReadbackDigest": readback_digest,
             "observedWorkstations": info.get("healthy_nodes", 0),
             "declaredWorkstations": configured,
             "operations": sorted(OPERATIONS),
