@@ -1,0 +1,43 @@
+{
+  "schema": "keddeh.field-08f-registration-qualification.v1",
+  "repository": "Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME",
+  "base_branch": "fix/hosting-semantics-20261030",
+  "base_commit": "3096cf880ee2b9aec8eebb2f1d4ab13dce76cbf4",
+  "qualified_source_commit": "d9f81260ec0d8276c72675e7d57f815b9f872cb8",
+  "qualified_source_tree": "060bf9ddc73da498e468385cc70b794eaebebcfd",
+  "qualification_report": "qualification.json",
+  "qualification_report_sha256": "958f49f918d8988c0af4ee052e8226cd1611bf5c40f2bd78290bfac8b37fae70",
+  "executable_manifest_sha256": "392b93400dcb2e94f00504a8f769e59860544d7bcbe936946bdee2df88c786dd",
+  "predecessor_manifest_sha256": "76d29f78744b17c71f137e9ac7db02e8f50b237bfa84bbc2b48b7942b3706f93",
+  "wheel": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl",
+    "sha256": "a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826",
+    "bytes": 86299
+  },
+  "source_tests": {
+    "total": 156,
+    "passed": 153,
+    "skipped": 3,
+    "failed": 0
+  },
+  "installed_wheel_tests": {
+    "total": 156,
+    "passed": 153,
+    "skipped": 3,
+    "failed": 0
+  },
+  "skip_reason": "pinned owner estate archive required for actual BRAINK integration",
+  "new_registration_regression_tests": 25,
+  "wheel_source_bytes_verified": 34,
+  "resident_image": {
+    "status": "not_built",
+    "reason": "Docker CLI and Docker socket unavailable in this executor",
+    "existing_record": "retained predecessor; not an image admission for this source",
+    "existing_qualified_commit": "12ea5441d3b1aac39a30af1960e278bd5a93c7bf"
+  },
+  "runtime_qualification": "not_run_requires_owner_package_runtime",
+  "production_approval": false,
+  "host_actuation_performed": false,
+  "protected_dispatch_modified": false,
+  "r10_admission_integration": "not present in this namespace change"
+}

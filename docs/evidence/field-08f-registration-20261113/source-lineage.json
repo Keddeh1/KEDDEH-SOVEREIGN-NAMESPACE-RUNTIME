@@ -1,0 +1,20 @@
+{
+  "schema": "keddeh.source-qualification-lineage.v1",
+  "predecessor_local_commit": "118a93ef5ad6d48fa52daa639c019db073407eb2",
+  "predecessor_local_commit_published": false,
+  "published_source_commit": "d9f81260ec0d8276c72675e7d57f815b9f872cb8",
+  "identical_source_tree": "060bf9ddc73da498e468385cc70b794eaebebcfd",
+  "predecessor_qualification_report_sha256": "3655889597536b94fab38615711a45ad2554d56848c5c5e2ed7b37bd0239f479",
+  "predecessor_artifact": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl",
+    "sha256": "9677728422197b3febdbf063acaed492fe65cd7d893561296cda9d5e51a0a8db",
+    "bytes": 86299
+  },
+  "current_qualification_report_sha256": "958f49f918d8988c0af4ee052e8226cd1611bf5c40f2bd78290bfac8b37fae70",
+  "current_artifact": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl",
+    "sha256": "a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826",
+    "bytes": 86299
+  },
+  "admitted_qualification": "current published-source report; predecessor retained as historical evidence only"
+}

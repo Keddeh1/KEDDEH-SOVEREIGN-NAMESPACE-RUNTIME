@@ -1,0 +1,10 @@
+{
+  "packages/08f-v2.1/08F_kex_self_host_node_v2_1.py": "7f6435c183f444fbf1913028cec4bc94795528b7c334b02c55edf79d359a4eb9",
+  "packages/08f-v2.1/test_host_node_regressions.py": "4bc44b20a598d0ab7d0e5bbfaee57396c6a0492c1943bac45e0fd3d52542b85f",
+  "packages/08f-v2.1/README.md": "3829a0974a8319ee12b811657d18796c577e336b8a01989c87fcda241acf10aa",
+  "packages/08f-v2.1/verification.json": "76b4eae730d1025205c7598cb5239923a9216d95d73c85a64032b38e0947a6cf",
+  "packages/08f-v2.1/08D_service.py": "6cac8663535861e07949bd0c2f3ae2866996b41923fb661ac71b991cf3fa6106",
+  "packages/08f-v2.1/08F-v2.1.patch": "3888ac5c1e3ada4447b1b48985e7c921e8e997a04fb820de5f9feeae39f7d0f6",
+  "packages/08f-v2.1/original/08F_kex_self_host_node_v2.py": "ce8ced57086b83e0f9fe8f2057b3d67b13e720b62d535756ccf3544a3f503f25",
+  "packages/08f-v2.1/vfs-stage-receipt.json": "7a1aa430c647491e6bc0e440812d9e066bc9d5029ea975eaed27ba923e89f455"
+}

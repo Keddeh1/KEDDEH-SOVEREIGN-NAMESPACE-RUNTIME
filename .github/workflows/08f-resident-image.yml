@@ -1,0 +1,296 @@
+name: 08F qualified resident image
+
+'on':
+  push:
+    branches: [fix/08f-owned-controller-registration-20261113]
+    paths:
+      - .github/workflows/08f-resident-image.yml
+      - .keddeh/**
+      - src/keddeh_namespace/**
+      - scripts/**
+      - pyproject.toml
+      - uv.lock
+      - packages/owner-family/keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl
+      - docs/evidence/field-08f-registration-20261113/**
+  pull_request:
+    branches: [fix/hosting-semantics-20261030]
+    paths:
+      - .github/workflows/08f-resident-image.yml
+      - .keddeh/**
+      - src/keddeh_namespace/**
+      - scripts/**
+      - pyproject.toml
+      - uv.lock
+      - packages/owner-family/keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl
+      - docs/evidence/field-08f-registration-20261113/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: 08f-resident-image-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  qualified-image:
+    if: >-
+      ${{ github.repository == 'Keddeh1/KEDDEH-SOVEREIGN-NAMESPACE-RUNTIME' &&
+          ((github.event_name == 'pull_request' &&
+            github.head_ref == 'fix/08f-owned-controller-registration-20261113' &&
+            github.event.pull_request.head.repo.full_name == github.repository) ||
+           (github.event_name != 'pull_request' &&
+            github.ref == 'refs/heads/fix/08f-owned-controller-registration-20261113')) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      DOCKER_CONFIG: ${{ runner.temp }}/08f-docker-config
+    steps:
+      - name: Check out candidate head
+        id: checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up qualification Python
+        id: python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+
+      - name: Verify admission and stage the exact retained wheel
+        id: admission
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, shutil, subprocess, sys
+          from pathlib import Path
+
+          root = Path.cwd()
+          temp = Path(os.environ['RUNNER_TEMP'])
+          evidence = temp / '08f-image-evidence'
+          evidence.mkdir(parents=True, exist_ok=True)
+          source = 'd9f81260ec0d8276c72675e7d57f815b9f872cb8'
+          source_tree = '060bf9ddc73da498e468385cc70b794eaebebcfd'
+          wheel_name = 'keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl'
+          wheel_digest = 'a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826'
+          manifest_path = root / '.keddeh/EXECUTABLE_MANIFEST.json'
+          report_dir = root / 'docs/evidence/field-08f-registration-20261113'
+          report_path = report_dir / 'qualification.json'
+          verifier = root / '.keddeh/verify-engine.py'
+          expected = {
+              manifest_path: '392b93400dcb2e94f00504a8f769e59860544d7bcbe936946bdee2df88c786dd',
+              report_path: '958f49f918d8988c0af4ee052e8226cd1611bf5c40f2bd78290bfac8b37fae70',
+              verifier: 'ae454cd7eb876b0c5b2fef2c20501b18795f4699303af6036520bd73d41d22db',
+          }
+          for path, digest in expected.items():
+              if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+                  raise SystemExit('Pinned qualification input mismatch: ' + str(path.relative_to(root)))
+          manifest = json.loads(manifest_path.read_text())
+          report = json.loads(report_path.read_text())
+          artifact = {'name': wheel_name, 'sha256': wheel_digest, 'bytes': 86299}
+          assert manifest['qualified_commit'] == report['commit'] == source
+          assert manifest['wheel'] == report['artifact'] == artifact
+          assert report['status'] == 'passed' and report['production_approval'] is False
+          assert len(report['gates']) == 9
+          assert all(g['status'] == 'passed' and g['exit_code'] == 0 for g in report['gates'])
+          subprocess.run(['git', 'merge-base', '--is-ancestor', source, 'HEAD'], check=True)
+          assert subprocess.check_output(['git', 'rev-parse', source + '^{tree}'], text=True).strip() == source_tree
+          for name, digest in report['evidence_hashes'].items():
+              assert Path(name).name == name
+              assert hashlib.sha256((report_dir / name).read_bytes()).hexdigest() == digest, name
+          for name in manifest['files']:
+              assert subprocess.check_output(['git', 'show', source + ':' + name]) == (root / name).read_bytes(), name
+          subprocess.run([sys.executable, str(verifier), str(root)], check=True)
+          wheel = root / 'packages/owner-family' / wheel_name
+          assert wheel.stat().st_size == artifact['bytes']
+          assert hashlib.sha256(wheel.read_bytes()).hexdigest() == wheel_digest
+          stage = temp / '08f-qualified'
+          (stage / 'wheel').mkdir(parents=True, exist_ok=False)
+          shutil.copy2(report_path, stage / 'qualification.json')
+          shutil.copy2(wheel, stage / 'wheel' / wheel_name)
+          shutil.copy2(report_path, evidence / 'qualification.json')
+          shutil.copy2(manifest_path, evidence / 'EXECUTABLE_MANIFEST.json')
+          record = {
+              'schema': 'keddeh.ci-image-input-admission.v1', 'status': 'passed',
+              'checkout_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'qualified_source_commit': source, 'qualified_source_tree': source_tree,
+              'wheel': artifact, 'wheel_rebuilt': False,
+              'executable_verifier_unchanged': True, 'production_approval': False,
+          }
+          (evidence / 'INPUT_ADMISSION.json').write_text(json.dumps(record, indent=2) + '\n')
+          PY
+
+      - name: Check disposable runner Docker
+        id: docker
+        run: |
+          set -euo pipefail
+          mkdir -p "$DOCKER_CONFIG" "$RUNNER_TEMP/08f-image-evidence"
+          docker_binary="$(command -v docker)"
+          test -x "$docker_binary"
+          if [ ! -e /usr/local/bin/docker ]; then
+            sudo ln -s "$docker_binary" /usr/local/bin/docker
+          fi
+          test -x /usr/local/bin/docker
+          cmp "$docker_binary" /usr/local/bin/docker
+          docker version --format '{{json .}}' > "$RUNNER_TEMP/08f-image-evidence/docker-version.json"
+
+      - name: Build using the unchanged resident image builder
+        id: build
+        timeout-minutes: 20
+        run: |
+          set -euo pipefail
+          python scripts/build_resident_image.py \
+            --output "$RUNNER_TEMP/08f-image-build" \
+            --qualification "$RUNNER_TEMP/08f-qualified" \
+            2>&1 | tee "$RUNNER_TEMP/08f-image-evidence/image-build.log"
+
+      - name: Smoke import the admitted helper without networking
+        id: smoke
+        timeout-minutes: 2
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, re, shutil, subprocess
+          from pathlib import Path
+
+          temp = Path(os.environ['RUNNER_TEMP'])
+          build = temp / '08f-image-build'
+          evidence = temp / '08f-image-evidence'
+          identity = json.loads((build / 'CONTROLLER_IMAGE.json').read_text())
+          assert identity['qualified_commit'] == 'd9f81260ec0d8276c72675e7d57f815b9f872cb8'
+          assert identity['qualified_wheel_sha256'] == 'a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826'
+          image_id = identity['image_id']
+          assert re.fullmatch(r'sha256:[0-9a-f]{64}', image_id)
+          assert hashlib.sha256((build / 'docker').read_bytes()).hexdigest() == identity['docker_cli_sha256']
+          for name in ['CONTROLLER_IMAGE.json', 'DEPENDENCIES.json', 'Dockerfile']:
+              shutil.copy2(build / name, evidence / name)
+          image = json.loads(subprocess.check_output(['docker', 'image', 'inspect', image_id]))[0]
+          assert image['Id'] == image_id
+          (evidence / 'IMAGE_READBACK.json').write_text(json.dumps({
+              'image_id': image['Id'], 'architecture': image['Architecture'], 'os': image['Os'],
+              'created': image['Created'], 'image_entrypoint': image['Config']['Entrypoint'],
+          }, indent=2) + '\n')
+          code = '''import hashlib, importlib.metadata, json
+          from pathlib import Path
+          import keddeh_namespace.field_08f_registration as registration
+          version = importlib.metadata.version('keddeh-sovereign-namespace-runtime')
+          digest = hashlib.sha256(Path(registration.__file__).read_bytes()).hexdigest()
+          assert version == '0.3.3'
+          assert digest == 'e0a2e8c963cfbe75045af4bfb6263a0563710c209e836ee99502b3addfcaf718'
+          assert registration.SERVICE_NAME == 'keddeh-field-08f.service'
+          assert registration.ENTRY_SHA256 == '7f6435c183f444fbf1913028cec4bc94795528b7c334b02c55edf79d359a4eb9'
+          print(json.dumps({'namespace_version': version, 'module_sha256': digest,
+                            'service_name': registration.SERVICE_NAME, 'import_succeeded': True}))
+          '''
+          container = 'keddeh-08f-import-' + os.environ['GITHUB_RUN_ID'] + '-' + os.environ['GITHUB_RUN_ATTEMPT']
+          command = ['docker', 'run', '--name', container, '--network', 'none', '--read-only',
+                     '--cap-drop', 'ALL', '--security-opt', 'no-new-privileges', '--pids-limit', '32',
+                     '--memory', '256m', '--cpus', '1', '--user', '1000:1000',
+                     '--entrypoint', 'python', image_id, '-I', '-c', code]
+          record = {'schema': 'keddeh.ci-image-import-smoke.v1', 'status': 'failed',
+                    'image_id': image_id, 'command': command, 'production_approval': False}
+          try:
+              result = subprocess.run(command, capture_output=True, text=True, timeout=60)
+              record.update(exit_code=result.returncode, stdout=result.stdout, stderr=result.stderr)
+              assert result.returncode == 0, 'container import failed'
+              details = json.loads(subprocess.check_output(['docker', 'container', 'inspect', container]))[0]
+              record['observed_network_mode'] = details['HostConfig']['NetworkMode']
+              record['observed_mounts'] = details['Mounts']
+              record['observed_ports'] = details['NetworkSettings']['Ports']
+              record['observed_read_only_root'] = details['HostConfig']['ReadonlyRootfs']
+              assert record['observed_network_mode'] == 'none'
+              assert record['observed_mounts'] == []
+              assert not record['observed_ports'] and record['observed_read_only_root'] is True
+              record['import_result'] = json.loads(result.stdout)
+              assert record['import_result']['import_succeeded'] is True
+              record['status'] = 'passed'
+          except Exception as exc:
+              record['error'] = str(exc)
+          finally:
+              try:
+                  cleanup = subprocess.run(['docker', 'container', 'rm', '--force', container],
+                                           capture_output=True, text=True, timeout=30)
+                  record['cleanup_exit_code'] = cleanup.returncode
+                  if cleanup.returncode:
+                      record['status'] = 'failed'
+                      record['cleanup_error'] = cleanup.stderr
+              except Exception as exc:
+                  record['status'] = 'failed'
+                  record['cleanup_error'] = str(exc)
+              (evidence / 'SMOKE.json').write_text(json.dumps(record, indent=2) + '\n')
+          if record['status'] != 'passed':
+              raise SystemExit('Image import smoke failed; retained SMOKE.json records the result')
+          PY
+
+      - name: Retain the exact inspected image archive
+        id: archive
+        timeout-minutes: 8
+        run: |
+          set -euo pipefail
+          image_id="$(python -c 'import json,os; from pathlib import Path; print(json.loads((Path(os.environ["RUNNER_TEMP"])/"08f-image-evidence/CONTROLLER_IMAGE.json").read_text())["image_id"])')"
+          archive="$RUNNER_TEMP/08f-image-evidence/08f-resident-image.tar.gz"
+          docker image save "$image_id" | gzip -n -1 > "$archive.partial"
+          gzip -t "$archive.partial"
+          mv "$archive.partial" "$archive"
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          evidence = Path(os.environ['RUNNER_TEMP']) / '08f-image-evidence'
+          archive = evidence / '08f-resident-image.tar.gz'
+          with archive.open('rb') as stream:
+              digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+          identity = json.loads((evidence / 'CONTROLLER_IMAGE.json').read_text())
+          record = {'schema': 'keddeh.ci-image-archive.v1', 'status': 'passed',
+                    'image_id': identity['image_id'], 'name': archive.name,
+                    'bytes': archive.stat().st_size, 'sha256': digest,
+                    'format': 'docker-save+gzip', 'production_approval': False}
+          (evidence / 'ARCHIVE.json').write_text(json.dumps(record, indent=2) + '\n')
+          PY
+
+      - name: Record observed job outcomes
+        if: always()
+        env:
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          PYTHON_OUTCOME: ${{ steps.python.outcome }}
+          ADMISSION_OUTCOME: ${{ steps.admission.outcome }}
+          DOCKER_OUTCOME: ${{ steps.docker.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+          ARCHIVE_OUTCOME: ${{ steps.archive.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os, shutil
+          from pathlib import Path
+          temp = Path(os.environ['RUNNER_TEMP'])
+          evidence = temp / '08f-image-evidence'
+          evidence.mkdir(parents=True, exist_ok=True)
+          for name in ['CONTROLLER_IMAGE.json', 'DEPENDENCIES.json', 'Dockerfile']:
+              source = temp / '08f-image-build' / name
+              if source.is_file():
+                  shutil.copy2(source, evidence / name)
+          (evidence / '08f-resident-image.tar.gz.partial').unlink(missing_ok=True)
+          outcomes = {key.removesuffix('_OUTCOME').lower(): value
+                      for key, value in os.environ.items() if key.endswith('_OUTCOME')}
+          record = {'schema': 'keddeh.ci-image-job-outcome.v1',
+                    'status': 'passed' if len(outcomes) == 7 and all(value == 'success' for value in outcomes.values()) else 'incomplete_or_failed',
+                    'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+                    'repository': os.environ['GITHUB_REPOSITORY'], 'event': os.environ['GITHUB_EVENT_NAME'],
+                    'event_sha': os.environ['GITHUB_SHA'], 'step_outcomes': outcomes,
+                    'scope': 'candidate image build and isolated import; no host promotion',
+                    'production_approval': False}
+          (evidence / 'JOB_OUTCOME.json').write_text(json.dumps(record, indent=2) + '\n')
+          PY
+
+      - name: Upload image and verification artefacts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: 08f-resident-image-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/08f-image-evidence/
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
