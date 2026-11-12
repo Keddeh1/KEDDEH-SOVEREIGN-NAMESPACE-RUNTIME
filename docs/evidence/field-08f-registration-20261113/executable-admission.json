@@ -1,0 +1,17 @@
+{
+  "schema": "keddeh.executable-admission-readback.v1",
+  "command": [
+    ".venv/bin/python",
+    ".keddeh/verify-engine.py",
+    "<checkout>"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "qualified_source_commit": "d9f81260ec0d8276c72675e7d57f815b9f872cb8",
+  "verifier_sha256": "ae454cd7eb876b0c5b2fef2c20501b18795f4699303af6036520bd73d41d22db",
+  "verifier_changed": false,
+  "manifest_sha256": "392b93400dcb2e94f00504a8f769e59860544d7bcbe936946bdee2df88c786dd",
+  "scope": "local source and distributed wheel admission",
+  "production_approval": false
+}

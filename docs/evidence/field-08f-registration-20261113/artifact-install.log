@@ -1,0 +1,10 @@
+Using Python 3.12.14 environment at: /workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/qualification-published-source/installed
+Resolved 6 packages in 13.77s
+Prepared 1 package in 5ms
+Installed 6 packages in 11ms
+ + cffi==2.1.1
+ + cryptography==46.0.7
+ + dnspython==2.8.0
+ + keddeh-sovereign-namespace-runtime==0.3.3 (from file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/qualification-published-source/wheel/keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl)
+ + numpy==2.5.3
+ + pycparser==3.0

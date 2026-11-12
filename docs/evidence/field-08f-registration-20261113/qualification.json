@@ -1,0 +1,72 @@
+{
+  "schema": "keddeh.release-qualification.v1",
+  "status": "passed",
+  "gates": [
+    {
+      "name": "governance",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "frozen-install",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "dependency-check",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "source-tests",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "wheel-build",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "isolated-venv",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "artifact-install",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "installed-tests",
+      "exit_code": 0,
+      "status": "passed"
+    },
+    {
+      "name": "installed-dependencies",
+      "exit_code": 0,
+      "status": "passed"
+    }
+  ],
+  "scope": "local candidate qualification",
+  "production_approval": false,
+  "commit": "d9f81260ec0d8276c72675e7d57f815b9f872cb8",
+  "artifact": {
+    "name": "keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl",
+    "sha256": "a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826",
+    "bytes": 86299
+  },
+  "runtime_qualification": "not_run_requires_owner_package_runtime",
+  "evidence_hashes": {
+    "source-tests.log": "a48261f7df0a90c742e61215cddc490af43df50341229ff379417d78245d55d9",
+    "frozen-install.log": "e50fd9beed2fa6a29a33c3798213beb65bd7da07ad59316c9b4f6bab55564e08",
+    "artifact-install.log": "b55da0b3cf19f298fb9256238704f9f4441249b857b0bd3655050b3e1682092e",
+    "installed-tests.log": "366e585e079ccae4698a809da108200f80a758970b4ba74268c79c065ca54fb3",
+    "installed-dependencies.log": "fbe26156fefda4177b4db1e25e1d27f4389cc5fde45d5f63a3c8c3cf6a4bb4d2",
+    "dependency-inventory.json": "2c0d607ee8d682fd0afbcc68110ce50477def3b411bc26aa06da936e085f0aae",
+    "isolated-venv.log": "bc76e7eae0ab892b4bc3c7cd35ec6533d088326a1c468d7453ce552bccaf4962",
+    "wheel-build.log": "2ae4bb8c4b2f380037e85849f5c3eaeed2e614e6f24b8344d8e64c77d3f40eda",
+    "governance.log": "93c96644b6ad4026d7a3daf5af57b4da6ea7928762b489daaf9d4d5932c07cb8",
+    "dependency-check.log": "d769704fce7881270bf0c9e4fe5fdf6274c4a96898015d35262ecaaf9b7f7f71"
+  }
+}

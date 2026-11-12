@@ -1,0 +1,7 @@
+   Building keddeh-sovereign-namespace-runtime @ file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/checkout
+      Built keddeh-sovereign-namespace-runtime @ file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/checkout
+Prepared 1 package in 23.14s
+Uninstalled 1 package in 0.64ms
+Installed 1 package in 0.48ms
+ - keddeh-sovereign-namespace-runtime==0.3.2 (from file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/checkout)
+ + keddeh-sovereign-namespace-runtime==0.3.3 (from file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/checkout)

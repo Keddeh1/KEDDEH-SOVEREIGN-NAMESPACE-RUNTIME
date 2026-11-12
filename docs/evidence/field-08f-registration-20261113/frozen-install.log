@@ -1,0 +1,16 @@
+Using CPython 3.12.14 interpreter at: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3
+Creating virtual environment at: .venv
+   Building keddeh-sovereign-namespace-runtime @ file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/published-checkout
+Downloading cryptography (4.3MiB)
+Downloading numpy (15.9MiB)
+ Downloaded cryptography
+ Downloaded numpy
+      Built keddeh-sovereign-namespace-runtime @ file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/published-checkout
+Prepared 6 packages in 7.47s
+Installed 6 packages in 11ms
+ + cffi==2.1.1
+ + cryptography==46.0.7
+ + dnspython==2.8.0
+ + keddeh-sovereign-namespace-runtime==0.3.3 (from file:///workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/published-checkout)
+ + numpy==2.5.3
+ + pycparser==3.0

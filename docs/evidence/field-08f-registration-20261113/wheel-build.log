@@ -1,0 +1,137 @@
+Building wheel...
+running egg_info
+writing src/keddeh_sovereign_namespace_runtime.egg-info/PKG-INFO
+writing dependency_links to src/keddeh_sovereign_namespace_runtime.egg-info/dependency_links.txt
+writing requirements to src/keddeh_sovereign_namespace_runtime.egg-info/requires.txt
+writing top-level names to src/keddeh_sovereign_namespace_runtime.egg-info/top_level.txt
+reading manifest file 'src/keddeh_sovereign_namespace_runtime.egg-info/SOURCES.txt'
+writing manifest file 'src/keddeh_sovereign_namespace_runtime.egg-info/SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+creating build/lib/keddeh_namespace
+copying src/keddeh_namespace/hydrate_service_volumes.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/web4_runtime.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/_braink_host_bridge.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/source_custody.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/host_relay.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/bilateral_runtime.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/service_stack.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/pipeline_gate.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/_web4_exec.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/universal_propagation.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/native_labels.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/healthcheck.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/vfs_subscription.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/genesis.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/propagation_runtime.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/domain_mesh.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/owner_kernel.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/field_08f_registration.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/render_knot_config.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/evidence.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/frontage_service.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/hci_contract.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/compile_zones.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/verify_vfs.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/__init__.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/envelope.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/logical_vfs.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/registry_service.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/bootstrap.py -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/signatures.py -> build/lib/keddeh_namespace
+running egg_info
+writing src/keddeh_sovereign_namespace_runtime.egg-info/PKG-INFO
+writing dependency_links to src/keddeh_sovereign_namespace_runtime.egg-info/dependency_links.txt
+writing requirements to src/keddeh_sovereign_namespace_runtime.egg-info/requires.txt
+writing top-level names to src/keddeh_sovereign_namespace_runtime.egg-info/top_level.txt
+reading manifest file 'src/keddeh_sovereign_namespace_runtime.egg-info/SOURCES.txt'
+writing manifest file 'src/keddeh_sovereign_namespace_runtime.egg-info/SOURCES.txt'
+copying src/keddeh_namespace/web4_bridge.js -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/web4_client.js -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/web4_domain.mjs -> build/lib/keddeh_namespace
+copying src/keddeh_namespace/web4_panel.js -> build/lib/keddeh_namespace
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/keddeh_namespace
+copying build/lib/keddeh_namespace/hydrate_service_volumes.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/web4_runtime.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/_braink_host_bridge.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/source_custody.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/host_relay.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/bilateral_runtime.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/service_stack.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/web4_bridge.js -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/pipeline_gate.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/_web4_exec.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/universal_propagation.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/native_labels.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/healthcheck.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/vfs_subscription.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/genesis.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/propagation_runtime.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/domain_mesh.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/owner_kernel.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/web4_panel.js -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/field_08f_registration.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/web4_domain.mjs -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/render_knot_config.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/evidence.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/frontage_service.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/hci_contract.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/compile_zones.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/verify_vfs.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/__init__.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/envelope.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/logical_vfs.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/web4_client.js -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/registry_service.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/bootstrap.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+copying build/lib/keddeh_namespace/signatures.py -> build/bdist.linux-x86_64/wheel/./keddeh_namespace
+running install_egg_info
+Copying src/keddeh_sovereign_namespace_runtime.egg-info to build/bdist.linux-x86_64/wheel/./keddeh_sovereign_namespace_runtime-0.3.3-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/keddeh_sovereign_namespace_runtime-0.3.3.dist-info/WHEEL
+creating '/workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/qualification-published-source/wheel/.tmp-d02x0n0j/keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'keddeh_namespace/__init__.py'
+adding 'keddeh_namespace/_braink_host_bridge.py'
+adding 'keddeh_namespace/_web4_exec.py'
+adding 'keddeh_namespace/bilateral_runtime.py'
+adding 'keddeh_namespace/bootstrap.py'
+adding 'keddeh_namespace/compile_zones.py'
+adding 'keddeh_namespace/domain_mesh.py'
+adding 'keddeh_namespace/envelope.py'
+adding 'keddeh_namespace/evidence.py'
+adding 'keddeh_namespace/field_08f_registration.py'
+adding 'keddeh_namespace/frontage_service.py'
+adding 'keddeh_namespace/genesis.py'
+adding 'keddeh_namespace/hci_contract.py'
+adding 'keddeh_namespace/healthcheck.py'
+adding 'keddeh_namespace/host_relay.py'
+adding 'keddeh_namespace/hydrate_service_volumes.py'
+adding 'keddeh_namespace/logical_vfs.py'
+adding 'keddeh_namespace/native_labels.py'
+adding 'keddeh_namespace/owner_kernel.py'
+adding 'keddeh_namespace/pipeline_gate.py'
+adding 'keddeh_namespace/propagation_runtime.py'
+adding 'keddeh_namespace/registry_service.py'
+adding 'keddeh_namespace/render_knot_config.py'
+adding 'keddeh_namespace/service_stack.py'
+adding 'keddeh_namespace/signatures.py'
+adding 'keddeh_namespace/source_custody.py'
+adding 'keddeh_namespace/universal_propagation.py'
+adding 'keddeh_namespace/verify_vfs.py'
+adding 'keddeh_namespace/vfs_subscription.py'
+adding 'keddeh_namespace/web4_bridge.js'
+adding 'keddeh_namespace/web4_client.js'
+adding 'keddeh_namespace/web4_domain.mjs'
+adding 'keddeh_namespace/web4_panel.js'
+adding 'keddeh_namespace/web4_runtime.py'
+adding 'keddeh_sovereign_namespace_runtime-0.3.3.dist-info/METADATA'
+adding 'keddeh_sovereign_namespace_runtime-0.3.3.dist-info/WHEEL'
+adding 'keddeh_sovereign_namespace_runtime-0.3.3.dist-info/top_level.txt'
+adding 'keddeh_sovereign_namespace_runtime-0.3.3.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built /workspace/scratch/761b8ee2956d/namespace-08f-registration-20261113/qualification-published-source/wheel/keddeh_sovereign_namespace_runtime-0.3.3-py3-none-any.whl

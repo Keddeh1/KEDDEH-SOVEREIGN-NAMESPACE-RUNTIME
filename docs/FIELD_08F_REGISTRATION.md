@@ -57,7 +57,9 @@ The enrollment file, writable parent, workspace and any configured data director
 
 Runtime version 0.3.3 carries the helper in the normal Python wheel. The prior executable manifest is retained as `docs/evidence/FIELD_08F_PREDECESSOR_EXECUTABLE_MANIFEST.json`; the predecessor wheel remains in repository history and under its previous versioned name.
 
-The repository's `.keddeh/verify-engine.py` rules remain unchanged: exact admitted source hashes, no unlisted Python/JavaScript engine modules, and an exact distributed wheel digest. The new executable manifest must be generated from the successfully qualified source commit and actual wheel; updating the source alone does not satisfy the old manifest. The controller-image record remains a separate deployment artefact and must refer to an image built from that qualified wheel before host promotion.
+The repository's `.keddeh/verify-engine.py` rules remain unchanged: exact admitted source hashes, no unlisted Python/JavaScript engine modules, and an exact distributed wheel digest. The regenerated executable manifest admits the qualified source commit `d9f81260ec0d8276c72675e7d57f815b9f872cb8` and the actual 0.3.3 wheel, 86,299 bytes with SHA-256 `a93da90a5758a87f07907f3f226bd2db6e73be6e54131305a60e0d77a5a7c826`. The unchanged verifier passed against the 40-entry source inventory and retained wheel; all 34 engine source files in the wheel also match their source bytes.
+
+The controller-image record remains the predecessor record for commit `12ea5441d3b1aac39a30af1960e278bd5a93c7bf` and its 0.3.2 wheel. It is not an image admission for this change. Docker CLI and the Docker socket are unavailable in the qualification executor. A new image built from the qualified 0.3.3 wheel, independently verified image metadata and actual host runtime qualification remain required before promotion. No image, deployment or Port 8810 ownership receipt was produced.
 
 The existing qualification runner uses `uv 0.12.19`, frozen dependencies, source tests, a wheel built with pinned build constraints, and a separate installed-wheel test environment:
 
@@ -66,6 +68,8 @@ python scripts/qualify_release.py --output /absolute/new/evidence-directory
 ```
 
 Its output directory must be outside the checkout. Runtime and browser integration require the independently supplied `--runtime-root`; ordinary source/wheel qualification does not create a deployment receipt. The new targeted tests execute the actual controller registration/start paths with synthetic owner state, and test the actual resident-launcher command construction with a simulated Docker response. They do not pair with a live broker or execute Docker lifecycle operations.
+
+All nine local qualification gates passed. Both the source suite and the independently installed-wheel suite ran 156 tests: 153 passed, with three existing BRAINK integration tests skipped because the pinned owner estate archive was unavailable. The 25 added registration and resident-binding regression tests passed in both suites. The report, complete logs, dependency inventory and skip accounting are retained under `docs/evidence/field-08f-registration-20261113/`. This result qualifies source and wheel bytes; it does not approve production operation. The earlier local-source qualification is retained under `predecessor-local/`, with `source-lineage.json` proving that its source tree equals the published source tree. The manifest admits the newly qualified published commit and its actual rebuilt wheel; the prior local wheel remains historical evidence.
 
 ## Runtime and evidence boundaries
 
