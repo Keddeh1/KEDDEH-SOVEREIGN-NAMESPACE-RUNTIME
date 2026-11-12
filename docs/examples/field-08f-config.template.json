@@ -1,0 +1,10 @@
+{
+  "field_08f": {
+    "state_file": "<observed absolute path to the existing 08F enrollment file>",
+    "pass_host_env_names": [
+      "BRAINK_MCP_HMAC_KEY_HEX",
+      "KEX_RECEIPT_HMAC_KEY_HEX",
+      "BRAINK_MCP_DATA_DIR"
+    ]
+  }
+}

@@ -10,6 +10,9 @@ import subprocess
 import sys
 import time
 from keddeh_namespace.web4_runtime import http_json, prepare, write_json, LaunchController
+from keddeh_namespace.field_08f_registration import registration_options, host_environment
+
+OWNER_RUNTIME_PARENT = Path('/workspace/braink-setup')
 
 def run(*args):
     return subprocess.check_output(['docker',*args],text=True,stderr=subprocess.STDOUT,timeout=120).strip()
@@ -17,14 +20,16 @@ def run(*args):
 def launch(manifest_path):
     manifest_path=Path(manifest_path).resolve();manifest=json.loads(manifest_path.read_text())
     root=Path(manifest['runtime_root']).resolve()
-    if not root.is_relative_to(Path('/workspace/braink-setup')):raise ValueError('owner runtime root outside admitted deployment space')
+    if not root.is_relative_to(OWNER_RUNTIME_PARENT):raise ValueError('owner runtime root outside admitted deployment space')
     if not (root/'launch.json').exists():prepare(root,manifest['library_manifest'],manifest['port_offset'])
     with (root/'.resident-launch.lock').open('a+b') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
         cfg=json.loads((root/'launch.json').read_text())
         if cfg.get('repository') not in (None,manifest['repository']):raise ValueError('runtime bound to another repository')
-        for key in ('vfs','vfs_hub','frontage','repository','family_id','engine_ref'):
+        for key in ('vfs','vfs_hub','frontage','repository','family_id','engine_ref','field_08f'):
             if key in manifest:cfg[key]=manifest[key]
+        field_options=registration_options(cfg)
+        field_env=host_environment(field_options.get('pass_host_env_names',[])) if field_options is not None else None
         write_json(root/'launch.json',cfg)
         admitted=json.loads((manifest_path.parent/'CONTROLLER_IMAGE.json').read_text())
         image=admitted['image_id']
@@ -34,6 +39,10 @@ def launch(manifest_path):
         if current:
             info=json.loads(run('inspect',name))[0]
             if info['Config'].get('Labels',{}).get('keddeh.owner-root')!=str(root):raise ValueError('foreign controller container collision')
+            if info['Image']==image and field_env:
+                installed_env=dict(value.split('=',1) for value in info['Config'].get('Env',[]) if '=' in value)
+                if any(installed_env.get(key)!=value for key,value in field_env.items()):
+                    raise ValueError('existing controller has different 08F host bindings; retain state and reconcile its container')
             if info['Image']!=image:
                 run('stop','--time','30',name);run('rm',name);current=''
         if not current:
@@ -69,6 +78,9 @@ def launch(manifest_path):
                 if binding=='vfs_hub':
                     state=Path(options['state_root']).resolve()
                     args+=['--mount',f'type=bind,src={state},dst={state}']
+            # Docker resolves names from the trusted launcher's environment.
+            # Values never enter argv, source manifests or launch.json.
+            for binding_name in sorted(field_env or {}):args+=['--env',binding_name]
             run(*args,image,str(root))
         run('start',name)
         token=(root/'state/token').read_text();end=time.monotonic()+120

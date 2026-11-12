@@ -379,6 +379,8 @@ class LaunchController:
             return reply['result']
 
     def start(self):
+        from .field_08f_registration import register_configured_08f
+        register_configured_08f(self)
         self.activate_host_binding()
         # No adopting an unrelated process already using a declared port.
         for port in (self.ports['gateway'],self.ports['network'],self.ports['http'],self.ports['broker'],*self.ports['mesh']):
